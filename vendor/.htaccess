@@ -1,0 +1,5 @@
+# Vendor-Dateien (Pyodide, CodeMirror, Schriften) ändern sich nur mit neuen Versionen:
+# eine Woche im Browser-Cache halten. Der Service Worker cacht sie zusätzlich dauerhaft.
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=604800"
+</IfModule>

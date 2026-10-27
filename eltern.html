@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Für Eltern und Lehrkräfte · PyQuest</title>
+    <script>
+      (function () {
+        var theme = "dark";
+        try { theme = localStorage.getItem("pyquest.theme") || "dark"; } catch (e) {}
+        document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
+      })();
+    </script>
+    <meta name="theme-color" content="#121110" />
+    <link rel="stylesheet" href="/src/css/design.css" />
+    <link rel="stylesheet" href="/src/css/app.css" />
+    <style>
+      body { overflow-y: auto; }
+      .parents { max-width: 760px; margin: 0 auto; padding: 28px 22px 80px; }
+      .parents-top { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+      .parents-top a { color: var(--text-muted); font-weight: 600; text-decoration: none; }
+      .parents-top a:hover { color: var(--accent-ink); }
+      .parents-hero { display: flex; align-items: center; gap: 18px; margin-bottom: 8px; }
+      .parents h1 { font-size: 30px; margin: 0; }
+      .parents .lead { font-size: 17px; color: var(--text); line-height: 1.7; }
+      .parents h2 { font-size: 19px; margin-top: 34px; }
+      .parents p, .parents li { color: var(--text); font-size: 16px; line-height: 1.7; }
+      .parents ul { padding-left: 1.2em; }
+      .parents a { color: var(--teal-ink); }
+    </style>
+  </head>
+  <body>
+    <main class="parents">
+      <div class="parents-top"><a href="/" data-i18n="parents.back">← Zurück zu PyQuest</a></div>
+      <div class="parents-hero"><span id="parents-lumo" aria-hidden="true"></span><h1 data-i18n="parents.title">Für Eltern und Lehrkräfte</h1></div>
+      <p class="lead" data-i18n-html="parents.lead"></p>
+      <h2 data-i18n="parents.what.title"></h2>
+      <div data-i18n-html="parents.what.text"></div>
+      <h2 data-i18n="parents.play.title"></h2>
+      <div data-i18n-html="parents.play.text"></div>
+      <h2 data-i18n="parents.not.title"></h2>
+      <div data-i18n-html="parents.not.text"></div>
+      <h2 data-i18n="parents.time.title"></h2>
+      <div data-i18n-html="parents.time.text"></div>
+      <h2 data-i18n="parents.share.title"></h2>
+      <div data-i18n-html="parents.share.text"></div>
+      <h2 data-i18n="parents.together.title"></h2>
+      <div data-i18n-html="parents.together.text"></div>
+      <h2 data-i18n="parents.data.title"></h2>
+      <div data-i18n-html="parents.data.text"></div>
+    </main>
+    <script type="module">
+      import { initLocale, applyStatic, t } from "/src/js/i18n.js";
+      import { lumo } from "/src/js/companion.js";
+      initLocale();
+      applyStatic();
+      document.title = t("parents.title") + " · PyQuest";
+      document.getElementById("parents-lumo").innerHTML = lumo("happy", { size: 64 });
+    </script>
+  </body>
+</html>

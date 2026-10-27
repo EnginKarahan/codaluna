@@ -1,0 +1,22 @@
+# Secrets – NIEMALS committen
+.env
+.env.*
+!.env.example
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Node (nur für optionale Test-/Tooling-Umgebung)
+node_modules/
+npm-debug.log*
+
+# Build-/Temp-Artefakte
+dist/
+*.log
+
+# Python
+__pycache__/

@@ -1,0 +1,9 @@
+# Python-Dateien sind Daten fuer den Browser und werden nie ausgefuehrt
+<IfModule mod_mime.c>
+  RemoveHandler .py
+  RemoveType .py
+</IfModule>
+<FilesMatch "\.py$">
+  SetHandler default-handler
+  ForceType "text/plain; charset=utf-8"
+</FilesMatch>

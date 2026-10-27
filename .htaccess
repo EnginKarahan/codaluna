@@ -1,0 +1,39 @@
+# PyQuest – Apache-Konfiguration (All-Inkl)
+# HTTPS/„HTTPS erzwingen" bitte im KAS-Panel der Subdomain aktivieren.
+
+# ---- MIME-Typen ----
+AddType application/wasm .wasm
+AddType text/javascript .js .mjs
+AddType application/manifest+json .webmanifest
+AddCharset utf-8 .js .mjs .css .html .json .webmanifest
+
+# Die Python-Laufzeit (src/py/pqrt.py) wird als Text an den Browser geliefert,
+# nie auf dem Server ausgeführt.
+<IfModule mod_mime.c>
+  RemoveHandler .py
+  AddType text/plain .py
+  AddCharset utf-8 .py
+</IfModule>
+
+# ---- Header ----
+<IfModule mod_headers.c>
+  # Cross-Origin-Isolation: nötig für SharedArrayBuffer -> input() und der Stop-Knopf
+  Header set Cross-Origin-Opener-Policy "same-origin"
+  Header set Cross-Origin-Embedder-Policy "require-corp"
+  Header set Cross-Origin-Resource-Policy "same-origin"
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Service Worker, Startseite und Konfiguration immer frisch prüfen (Updates kommen sofort an)
+  <FilesMatch "^(sw\.js|index\.html|app-config\.js)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# ---- Kompression (die Python-Laufzeit wird deutlich kleiner übertragen) ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json application/manifest+json application/wasm text/plain image/svg+xml
+</IfModule>
+
+# ---- Kein Verzeichnis-Listing ----
+Options -Indexes
