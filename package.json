@@ -1,0 +1,16 @@
+{
+  "name": "pyquest",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "PyQuest – mehrsprachige Python-Lernapp für Jugendliche ab 12 (offline-first, Vanilla, kein Build-Step).",
+  "scripts": {
+    "start": "python3 serve.py",
+    "test": "npm run test:unit && npm run test:content && npm run i18n:check && node tools/sw-version.mjs --check",
+    "test:unit": "node --import ./tests/lib/register.mjs --test tests/unit.test.mjs",
+    "test:content": "node tests/content.test.mjs",
+    "test:browser": "python3 tests/e2e_browser.py",
+    "i18n:check": "node tools/check-i18n.mjs",
+    "sw:version": "node tools/sw-version.mjs"
+  }
+}

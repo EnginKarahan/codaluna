@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Impressum · PyQuest</title>
+    <script>
+      (function () {
+        var theme = "dark";
+        try { theme = localStorage.getItem("pyquest.theme") || "dark"; } catch (e) {}
+        document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
+      })();
+    </script>
+    <meta name="theme-color" content="#121110" />
+    <link rel="stylesheet" href="/src/css/design.css" />
+    <style>
+      .legal { max-width: 760px; margin: 0 auto; padding: 28px 22px 80px; }
+      .legal-top { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; }
+      .legal-top a { color: var(--text-muted); font-family: var(--display); font-weight: 600; }
+      .legal-top a:hover { color: var(--accent-ink); }
+      .legal h1 { font-size: 30px; }
+      .legal h2 { font-size: 18px; margin-top: 30px; color: var(--accent-ink); }
+      .legal p, .legal li { color: var(--text); line-height: 1.7; }
+      .legal address { font-style: normal; color: var(--text); line-height: 1.7; }
+      .legal a { color: var(--teal-ink); }
+      .muted { color: var(--text-muted); font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <div class="legal">
+      <div class="legal-top"><a href="/">← PyQuest</a></div>
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <address>
+        EP Ethos &amp; Polis UG (haftungsbeschränkt)<br />
+        Salbeiweg 45<br />
+        51109 Köln<br />
+        Deutschland
+      </address>
+      <p class="muted">Vertreten durch den Geschäftsführer: Engin Karahan</p>
+
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: 0221 84 65 99 78<br />
+        Fax: 0221 97 79 41 91<br />
+        E-Mail: <a href="mailto:info@ethos-polis.info">info@ethos-polis.info</a>
+      </p>
+
+      <h2>Registereintrag</h2>
+      <p>
+        Eintragung im Handelsregister.<br />
+        Registergericht: Amtsgericht Köln<br />
+        Registernummer: HRB 121871
+      </p>
+
+      <h2>Umsatzsteuer-ID</h2>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
+        DE452276238
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <address>
+        Engin Karahan<br />
+        Salbeiweg 45<br />
+        51109 Köln
+      </address>
+
+      <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
+      <p>
+        Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+        Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach
+        den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter
+        jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen
+        oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+      </p>
+
+      <h2>Haftung für Links</h2>
+      <p>
+        Unser Angebot enthält ggf. Links zu externen Websites Dritter, auf deren Inhalte wir keinen
+        Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+        Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
+        Seiten verantwortlich.
+      </p>
+
+      <h2>Urheberrecht</h2>
+      <p>
+        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem
+        deutschen Urheberrecht. Der Quellcode von PyQuest kann abweichenden Open-Source-Lizenzbedingungen
+        unterliegen (siehe Projekt-Repository).
+      </p>
+
+      <p class="muted" style="margin-top: 34px">
+        <a href="/datenschutz.html">Datenschutzerklärung</a>
+      </p>
+    </div>
+  </body>
+</html>

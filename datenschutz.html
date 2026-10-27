@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Datenschutz · PyQuest</title>
+    <script>
+      (function () {
+        var theme = "dark";
+        try { theme = localStorage.getItem("pyquest.theme") || "dark"; } catch (e) {}
+        document.documentElement.dataset.theme = theme === "light" ? "light" : "dark";
+      })();
+    </script>
+    <meta name="theme-color" content="#121110" />
+    <link rel="stylesheet" href="/src/css/design.css" />
+    <style>
+      .legal { max-width: 760px; margin: 0 auto; padding: 28px 22px 80px; }
+      .legal-top { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; }
+      .legal-top a { color: var(--text-muted); font-family: var(--display); font-weight: 600; }
+      .legal-top a:hover { color: var(--accent-ink); }
+      .legal h1 { font-size: 30px; }
+      .legal h2 { font-size: 18px; margin-top: 32px; color: var(--accent-ink); }
+      .legal h3 { font-size: 15px; margin-top: 18px; }
+      .legal p, .legal li { color: var(--text); line-height: 1.7; }
+      .legal a { color: var(--teal-ink); }
+      .legal address { font-style: normal; line-height: 1.7; }
+      .muted { color: var(--text-muted); font-size: 14px; }
+      .note { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--teal-ink);
+              border-radius: 12px; padding: 12px 15px; margin: 14px 0; }
+    </style>
+  </head>
+  <body>
+    <div class="legal">
+      <div class="legal-top"><a href="/">← PyQuest</a></div>
+      <h1>Datenschutzerklärung</h1>
+      <p class="muted">Diese Erklärung beschreibt, wie PyQuest mit personenbezogenen Daten umgeht.</p>
+
+      <h2>1. Verantwortlicher</h2>
+      <address>
+        EP Ethos &amp; Polis UG (haftungsbeschränkt)<br />
+        Engin Karahan<br />
+        Salbeiweg 45, 51109 Köln<br />
+        E-Mail: <a href="mailto:info@ethos-polis.info">info@ethos-polis.info</a>
+      </address>
+
+      <h2>2. Grundsatz: PyQuest funktioniert ohne Konto</h2>
+      <p>
+        PyQuest ist eine Lern-App, die vollständig in deinem Browser läuft. Im <b>Gast-Modus</b> (Standard)
+        bleiben dein Fortschritt und dein Code auf deinem Gerät. Es gibt keine Werbung, keine Cookies und
+        kein Tracking durch Dritte. Damit wir PyQuest verbessern können, schickt die App eine anonyme
+        Nutzungsstatistik und Fehlerberichte an unseren eigenen Server (siehe Abschnitt 6).
+        Ein Nutzerkonto ist optional (siehe Abschnitt 5).
+      </p>
+
+      <h2>3. Lokale Speicherung im Browser (Gast-Modus)</h2>
+      <p>
+        Dein Lernfortschritt (gesammelte XP, Level, Streak, erledigte Lektionen sowie der von dir
+        geschriebene Code) wird ausschließlich <b>lokal in deinem Browser</b> gespeichert
+        (Technik: <code>localStorage</code>). Diese Daten verlassen dein Gerät nicht; nur bei den
+        Fehlerberichten aus Abschnitt 6 geht der betroffene Programmcode an uns.
+        Du kannst deinen Fortschritt jederzeit über „Fortschritt zurücksetzen" löschen oder über
+        „Fortschritt exportieren/importieren" selbst sichern.
+      </p>
+      <p>
+        Für die Offline-Nutzung legt die App zudem einen technischen Zwischenspeicher an
+        (Service-Worker-Cache mit Programmcode, Schriften und der Python-Laufzeitumgebung). Diese Inhalte
+        sind nicht personenbezogen. Rechtsgrundlage für diese technisch notwendige Speicherung ist
+        § 25 Abs. 2 TDDG bzw. unser berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) am Betrieb der App.
+      </p>
+
+      <h2>4. Hosting und Server-Logfiles</h2>
+      <p>
+        Die App wird bei einem Hosting-Anbieter in Deutschland betrieben (ALL-INKL.COM, Neue Medien Münnich,
+        Hauptstraße 68, 02742 Friedersdorf). Beim Abruf der Seiten verarbeitet der Server automatisch
+        technische Zugriffsdaten (Server-Logfiles), z. B. IP-Adresse, Datum/Uhrzeit, abgerufene Datei,
+        Browsertyp. Diese Daten sind für den sicheren Betrieb erforderlich. Rechtsgrundlage:
+        Art. 6 Abs. 1 lit. f DSGVO. Mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag.
+      </p>
+
+      <h2>5. Optionales Nutzerkonto &amp; Cloud-Synchronisation</h2>
+      <p>
+        Wenn du dich <b>freiwillig anmeldest</b>, kannst du deinen Fortschritt geräteübergreifend speichern.
+        Dafür nutzen wir den Dienst <b>Supabase</b> (Auth &amp; Datenbank, gehostet in der EU / Region
+        Frankfurt). Verarbeitet werden dann:
+      </p>
+      <ul>
+        <li>deine <b>E-Mail-Adresse</b> bzw. eine Konto-Kennung (zur Anmeldung),</li>
+        <li>dein <b>Lernfortschritt</b> (XP, Streak, erledigte Lektionen, gespeicherter Code).</li>
+      </ul>
+      <p>
+        Zweck ist die Anmeldung und die geräteübergreifende Speicherung deines Fortschritts.
+        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung der von dir gewünschten Funktion)
+        bzw. deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Mit dem Anbieter besteht ein
+        Auftragsverarbeitungsvertrag (DPA). Du kannst dein Konto und die zugehörigen Daten jederzeit
+        löschen lassen (Kontakt siehe Abschnitt 1).
+      </p>
+
+      <h3>Anmeldung über Drittanbieter (z. B. Google, GitHub)</h3>
+      <p>
+        Optional kannst du dich über einen Drittanbieter anmelden (Single Sign-On). Dabei wird eine
+        Verbindung zum jeweiligen Anbieter hergestellt und es werden die für die Anmeldung nötigen Daten
+        (z. B. E-Mail-Adresse, Konto-Kennung) ausgetauscht. Es gelten zusätzlich die Datenschutzhinweise
+        des jeweiligen Anbieters. Bei einigen Anbietern kann dabei eine Datenübermittlung in Drittländer
+        (z. B. USA) stattfinden. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die
+        du mit der Wahl des Anbieters erteilst.
+      </p>
+
+      <h2>6. Anonyme Nutzungsstatistik und Fehlerberichte</h2>
+      <p>
+        Damit wir sehen, ob PyQuest funktioniert und wo Lernende hängen bleiben, sendet die App einige
+        Angaben an unser <b>eigenes Statistik-Werkzeug</b> (stats.ethos-polis.info, ebenfalls bei
+        ALL-INKL.COM in Deutschland). Es werden keine Cookies gesetzt, und im Browser wird dafür nichts
+        gespeichert. Deine IP-Adresse wird nur kurz genutzt, um das Land zu bestimmen und einen täglich
+        wechselnden, nicht umkehrbaren Prüfwert zu bilden; gespeichert wird sie nicht. So lassen sich die
+        Besuche eines Tages zählen, ohne dich wiederzuerkennen.
+      </p>
+      <ul>
+        <li><b>Statistik:</b> Aufruf der App, erledigte Lektionen (Lektion und Sprache), Herkunftsseite,
+          Bildschirmbreite, Browser und Betriebssystem (aus der Browserkennung), Land.</li>
+        <li><b>Fehlerberichte:</b> Fehlermeldungen, die PyQuest anzeigt (z. B. ein Fehler in deinem
+          Python-Programm, eine nicht bestandene Prüfung oder ein technischer Fehler der App), zusammen mit
+          Lektion, Sprache, App-Version und dem Programmcode, um den es ging.</li>
+      </ul>
+      <p>
+        Der Programmcode hilft uns, die Fehlerhilfe und die Aufgaben zu verbessern. Schreib deshalb bitte
+        <b>keine persönlichen Angaben</b> wie deinen vollen Namen oder deine Adresse in den Code.
+        Fehlerberichte werden nach spätestens 90 Tagen gelöscht.
+      </p>
+      <p>
+        Ist in deinem Browser „Do Not Track“ oder „Global Privacy Control“ eingeschaltet, sendet PyQuest
+        nichts davon. Rechtsgrundlage ist unser berechtigtes Interesse an einer funktionierenden,
+        verständlichen Lern-App (Art. 6 Abs. 1 lit. f DSGVO). Du kannst dieser Verarbeitung jederzeit
+        widersprechen (Art. 21 DSGVO), über die genannte Browsereinstellung oder per E-Mail.
+      </p>
+
+      <h2>7. Lokale Ressourcen, keine Drittanbieter</h2>
+      <p>
+        Schriftarten, der Code-Editor und die Python-Laufzeitumgebung (Pyodide) werden <b>lokal vom
+        eigenen Server</b> ausgeliefert bzw. laufen direkt in deinem Browser. Es werden <b>keine</b>
+        Inhalte von Drittanbieter-CDNs zur Laufzeit nachgeladen und <b>keine</b> Analyse- oder
+        Werbe-Dienste von Drittanbietern eingesetzt.
+      </p>
+
+      <h2>8. Hinweis für Kinder und Eltern</h2>
+      <div class="note">
+        PyQuest richtet sich auch an Kinder. Für die Nutzung ist <b>kein Konto erforderlich</b> – der
+        Gast-Modus ohne Anmeldung ist der datensparsamste Weg und für Kinder empfohlen. Ein Konto sollte
+        nur mit Einwilligung und unter Aufsicht der Eltern bzw. Erziehungsberechtigten angelegt werden.
+      </div>
+
+      <h2>9. Deine Rechte</h2>
+      <p>
+        Du hast im Rahmen der gesetzlichen Vorgaben das Recht auf Auskunft (Art. 15), Berichtigung
+        (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit
+        (Art. 20) sowie Widerspruch (Art. 21 DSGVO). Eine erteilte Einwilligung kannst du jederzeit mit
+        Wirkung für die Zukunft widerrufen. Zudem steht dir ein Beschwerderecht bei einer
+        Datenschutz-Aufsichtsbehörde zu.
+      </p>
+
+      <h2>10. Aktualität</h2>
+      <p class="muted">
+        Stand dieser Datenschutzerklärung: Oktober 2026. Sie wird angepasst, sobald sich die
+        Datenverarbeitung ändert (z. B. bei Aktivierung des Nutzerkontos).
+      </p>
+
+      <p class="muted" style="margin-top: 34px"><a href="/impressum.html">Impressum</a></p>
+    </div>
+  </body>
+</html>
