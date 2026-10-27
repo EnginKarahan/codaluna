@@ -566,6 +566,6 @@ export default {
   "parents.share.text": "<p>Les programmes peuvent être envoyés sous forme de lien. Le code est alors entièrement contenu dans le lien, et rien n'est mis en ligne. Un lien ouvert n'est jamais exécuté automatiquement : on voit d'abord le code. Parlez avec votre enfant des personnes avec qui il partage des liens et des liens qu'il ouvre.</p>",
   "parents.together.title": "Apprendre ensemble",
   "parents.together.text": "<p>Chaque mission propose un défi bonus plus corsé, qui convient aussi aux adultes qui apprennent en même temps. Demandez à votre enfant ce qu'il a construit et laissez-le vous le montrer. Le bac à sable laisse de la place pour ses propres idées.</p>",
-  "parents.data.title": "Données",
-  "parents.data.text": "<p>Sans connexion, aucune donnée n'est envoyée à un serveur. Vous trouverez tous les détails dans la <a href=\"/datenschutz.html\">politique de confidentialité</a>.</p>",
+  "parents.data.title": "Données et contact",
+  "parents.data.text": "<p>Ce que votre enfant fait et écrit dans PyQuest reste dans le navigateur de cet appareil. Il n'y a ni compte, ni statistiques d'utilisation, ni suivi. Comme pour tout site web, le serveur traite uniquement des données techniques d'accès lors du chargement des pages. Vous trouverez tous les détails dans la <a href=\"/datenschutz.html\">politique de confidentialité</a>.</p><p>Parents et enseignants peuvent nous adresser leurs questions et remarques à <a href=\"mailto:info@ethos-polis.info\">info@ethos-polis.info</a>.</p>",
 };

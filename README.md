@@ -147,8 +147,8 @@ Ein Browser-Test (Oberfläche, Editor, Ausführung, Stop, `input()`) liegt in `t
    Bei All-Inkl reicht `RemoveHandler` in der Haupt-`.htaccess` nicht (Fehler 500, die Datei
    wird als CGI behandelt); dafür sorgt `src/py/.htaccess` mit `SetHandler default-handler`.
 4. Browser-Test gegen die Live-Seite: `python3 tests/e2e_browser.py --url https://…`.
-5. Die Domain muss in der Webstatistik unter **Sites** angelegt sein, sonst verwirft sie
-   Statistik und Fehlerberichte still.
+5. Nur bei eingeschalteter Statistik: Die Domain muss in der Webstatistik unter **Sites**
+   angelegt sein, sonst verwirft sie Statistik und Fehlerberichte still.
 
 Fehlen auf einem Host die Header (z. B. GitHub Pages), setzt sie der Service Worker; die Seite
 lädt dann beim ersten Besuch einmal neu.
@@ -167,6 +167,10 @@ Fehlt ein Text, greift Englisch, dann Deutsch. Code-Beispiele nutzen Variablenna
 jeweiligen Sprache; die Prüfungen sind sprachneutral und gelten für alle Sprachen gleich.
 
 ## Statistik und Fehlerberichte
+
+**Derzeit abgeschaltet** (`STATS_URL` in `app-config.js` ist leer), PyQuest sendet nichts. Vor dem
+Einschalten müssen die Datenschutzerklärung (Abschnitt 6) und die Elternseite (`parents.data.text`
+in allen Sprachen) angepasst werden.
 
 `STATS_URL` und `STATS_DOMAIN` in `app-config.js` verbinden PyQuest mit der eigenen
 Webstatistik (Projekt `webstatistik`, live unter stats.ethos-polis.info). Gesendet wird nur, wenn

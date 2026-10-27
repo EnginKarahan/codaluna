@@ -566,6 +566,6 @@ export default {
   "parents.share.text": "<p>Programlar bir bağlantı olarak gönderilebilir. Kodun tamamı bağlantının içindedir, hiçbir yere bir şey yüklenmez. Açılan bir bağlantı hiçbir zaman kendiliğinden çalışmaz, önce kod görüntülenir. Çocuğunuzla, bağlantıları kimlerle paylaştığı ve hangi bağlantıları açtığı hakkında konuşun.</p>",
   "parents.together.title": "Birlikte öğrenmek",
   "parents.together.text": "<p>Her görevde, birlikte öğrenen yetişkinlere de hitap eden, biraz daha zorlu bir bonus görev bulunur. Çocuğunuza neler yaptığını sorun ve size göstermesini isteyin. Oyun alanında kendi fikirleri için de yer var.</p>",
-  "parents.data.title": "Veriler",
-  "parents.data.text": "<p>Giriş yapılmadığı sürece hiçbir veri bir sunucuya gönderilmez. Ayrıntıları <a href=\"/datenschutz.html\">Gizlilik Politikası</a> sayfasında bulabilirsiniz.</p>",
+  "parents.data.title": "Veriler ve iletişim",
+  "parents.data.text": "<p>Çocuğunuzun PyQuest'te yaptığı ve yazdığı her şey bu cihazdaki tarayıcıda kalır. Hesap, kullanım istatistiği ve takip yoktur. Her web sitesinde olduğu gibi sunucu yalnızca sayfalar yüklenirken teknik erişim verilerini işler. Ayrıntıları <a href=\"/datenschutz.html\">Gizlilik Politikası</a> sayfasında bulabilirsiniz.</p><p>Veliler ve öğretmenler soru ve önerilerini <a href=\"mailto:info@ethos-polis.info\">info@ethos-polis.info</a> adresine iletebilir.</p>",
 };

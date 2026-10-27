@@ -566,6 +566,6 @@ export default {
   "parents.share.text": "<p>Programs can be sent as a link. The code is contained entirely in the link, and nothing is uploaded. An opened link is never run automatically; the code is always shown first. Talk to your child about who they share links with and which links they open.</p>",
   "parents.together.title": "Learning together",
   "parents.together.text": "<p>Every mission has a trickier bonus challenge, which is also suitable for adults learning along. Ask your child what they have built and let them show you. The playground leaves room for their own ideas.</p>",
-  "parents.data.title": "Data",
-  "parents.data.text": "<p>Without signing in, no data is sent to a server. You can find the details in the <a href=\"/datenschutz.html\">privacy policy</a>.</p>",
+  "parents.data.title": "Data and contact",
+  "parents.data.text": "<p>What your child does and writes in PyQuest stays in the browser on this device. There is no account, no usage statistics and no tracking. As with any website, the server only processes technical access data when the pages are loaded. You can find the details in the <a href=\"/datenschutz.html\">privacy policy</a>.</p><p>Parents and teachers are welcome to send questions and feedback to <a href=\"mailto:info@ethos-polis.info\">info@ethos-polis.info</a>.</p>",
 };
