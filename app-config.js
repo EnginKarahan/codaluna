@@ -19,6 +19,8 @@ export default {
   // Anonyme Statistik und Fehlerberichte an die eigene Webstatistik (cookie-los, ohne IP).
   // Gesendet wird nur, wenn die App unter STATS_DOMAIN läuft, also nie beim lokalen Entwickeln.
   // STATS_URL leer lassen = nichts wird gesendet. Details: src/js/telemetry.js
-  STATS_URL: "https://stats.ethos-polis.info",
+  // Derzeit abgeschaltet. Vor dem Einschalten Datenschutzerklärung (Abschnitt 6) und Elternseite
+  // (parents.data.text) anpassen und die Domain in der Webstatistik anlegen (README).
+  STATS_URL: "",
   STATS_DOMAIN: "pyquest.ethos-polis.info",
 };

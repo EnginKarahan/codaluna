@@ -12,7 +12,7 @@
 // Jede Antwort bekommt COOP/COEP/CORP, falls der Server sie nicht setzt – damit
 // SharedArrayBuffer (input(), Stop) auch auf Hosts ohne eigene Header funktioniert.
 
-const VERSION = "bb98f3dfae"; // wird von tools/sw-version.mjs gesetzt
+const VERSION = "12ce11554f"; // wird von tools/sw-version.mjs gesetzt
 const CORE_CACHE = `pyquest-core-${VERSION}`;
 const VENDOR_CACHE = "pyquest-vendor-p0.26.4-cm5.65.16-v1";
 const DEV = self.location.hostname === "localhost" || self.location.hostname === "127.0.0.1";

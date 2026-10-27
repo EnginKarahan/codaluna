@@ -14,8 +14,11 @@ Sobald in `app-config.js` eine Supabase-URL und der anon key stehen, ist die Anm
 - `true`: Ohne Anmeldung geht es nicht weiter (kein Gast-Modus).
 - `false`: Der Gast-Modus bleibt, die Anmeldung ist ein Angebot (Sidebar → „Anmelden“).
 
-Bei Login-Pflicht bitte auch `datenschutz.html` anpassen: Dort steht derzeit, dass PyQuest ohne
-Konto funktioniert (Abschnitte 2 und 8).
+Bevor Konten aktiv werden, muss `datenschutz.html` ergänzt werden: Abschnitt 5 sagt derzeit, dass
+es kein Konto gibt, und die Abschnitte 2 und 8 gehen vom Gast-Modus aus. Eine Vorlage für
+Abschnitt 5 (Supabase, Auftragsverarbeitung, Anmeldung über Google/GitHub) steht in der ersten
+Fassung von `datenschutz.html` (Commit `d578406`). Auch die Elternseite (`parents.data.text`) sagt
+derzeit, dass es kein Konto gibt.
 
 ## 1. Supabase-Projekt anlegen
 

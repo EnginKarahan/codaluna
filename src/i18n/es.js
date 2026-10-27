@@ -566,6 +566,6 @@ export default {
   "parents.share.text": "<p>Los programas se pueden enviar como enlace. El código va completo dentro del enlace y no se sube nada a ningún servidor. Un enlace abierto nunca se ejecuta automáticamente: primero se ve el código. Hable con su hijo o hija sobre con quién comparte enlaces y qué enlaces abre.</p>",
   "parents.together.title": "Aprender juntos",
   "parents.together.text": "<p>Cada misión tiene un reto extra más difícil, también para las personas adultas que aprenden a la vez. Pregunte a su hijo o hija qué ha construido y pídale que se lo enseñe. En la zona libre hay espacio para ideas propias.</p>",
-  "parents.data.title": "Datos",
-  "parents.data.text": "<p>Sin registro, no se envía ningún dato a un servidor. Encontrará los detalles en la <a href=\"/datenschutz.html\">política de privacidad</a>.</p>",
+  "parents.data.title": "Datos y contacto",
+  "parents.data.text": "<p>Lo que su hijo o hija hace y escribe en PyQuest se queda en el navegador de este dispositivo. No hay cuenta, ni estadísticas de uso, ni seguimiento. Como en cualquier sitio web, el servidor solo procesa datos técnicos de acceso al cargar las páginas. Encontrará los detalles en la <a href=\"/datenschutz.html\">política de privacidad</a>.</p><p>Madres, padres y docentes pueden enviarnos sus preguntas y comentarios a <a href=\"mailto:info@ethos-polis.info\">info@ethos-polis.info</a>.</p>",
 };
