@@ -1,4 +1,4 @@
-// PyQuest – UI-Texte aller Sprachen (eine Datei pro Sprache unter src/i18n/).
+// Codaluna – UI-Texte aller Sprachen (eine Datei pro Sprache unter src/i18n/).
 // DE ist die Quellsprache. Prüfen, was fehlt: node tools/check-i18n.mjs
 
 import de from "../i18n/de.js";

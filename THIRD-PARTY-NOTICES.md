@@ -1,8 +1,8 @@
 # Fremdkomponenten
 
-PyQuest liefert die folgenden Bibliotheken und Schriften unverändert in `vendor/` mit, damit die
+Codaluna liefert die folgenden Bibliotheken und Schriften unverändert in `vendor/` mit, damit die
 App ohne externe Ressourcen und offline läuft. Sie stehen unter ihren eigenen Lizenzen, nicht unter
-der Lizenz von PyQuest. Die Lizenztexte liegen jeweils neben den Dateien.
+der Lizenz von Codaluna. Die Lizenztexte liegen jeweils neben den Dateien.
 
 | Komponente | Version | Lizenz | Dateien | Lizenztext | Quelle |
 |---|---|---|---|---|---|

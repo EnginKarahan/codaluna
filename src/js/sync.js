@@ -1,4 +1,4 @@
-// PyQuest – Cloud-Synchronisation des Fortschritts (nur bei angemeldetem Konto).
+// Codaluna – Cloud-Synchronisation des Fortschritts (nur bei angemeldetem Konto).
 // Tabelle: user_progress(user_id uuid PK, data jsonb, updated_at timestamptz)
 // mit Row-Level-Security (nur eigener Datensatz). Siehe SETUP.md.
 

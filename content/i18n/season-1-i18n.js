@@ -1,4 +1,4 @@
-// PyQuest – Übersetzungen des Kurses "season-1" (eine Datei pro Sprache).
+// Codaluna – Übersetzungen des Kurses "season-1" (eine Datei pro Sprache).
 // Basis (Deutsch) steht in content/courses/season-1.js. Die Overlays überschreiben nur
 // Texte und Code: title, intro, taskHtml, hints[], starterCode, solution, feedback{},
 // expert{html, solution, feedback{}} sowie chapters (Kapiteltitel).

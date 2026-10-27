@@ -1,4 +1,4 @@
-// PyQuest – Nebenmissionen zu „Season 1“ (deutsche Basis): Außeneinsätze mit Lumo und Glitch-Jagd.
+// Codaluna – Nebenmissionen zu „Season 1“ (deutsche Basis): Außeneinsätze mit Lumo und Glitch-Jagd.
 //
 // Nebenstränge laufen neben dem Hauptkurs (siehe course.js): Jede Mission öffnet sich, wenn
 // die vorige Mission erledigt ist und – falls `requires` gesetzt ist – die genannte Lektion
@@ -614,7 +614,7 @@ print("Alter: " + str(22))</code></pre>
         story: "Die Startrampe zählt herunter … und hört nie auf. Der Rover wartet seit Jahren auf sein „Start!“.",
         intro: `
 <p>Manche Glitches erzeugen gar keine Fehlermeldung – das Programm läuft einfach <b>endlos</b>.
-Keine Sorge: PyQuest hält es nach einer Weile an. Dann lohnt sich die Frage: Was müsste sich in der
+Keine Sorge: Codaluna hält es nach einer Weile an. Dann lohnt sich die Frage: Was müsste sich in der
 Schleife ändern, damit die Bedingung irgendwann <code>False</code> wird?</p>`,
         taskHtml: "Repariere den Countdown: Er soll <b>5, 4, 3, 2, 1</b> ausgeben und danach „Start!“ – und dann wirklich aufhören.",
         hints: [

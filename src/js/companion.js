@@ -1,4 +1,4 @@
-// PyQuest – Lumo, die Wartungsdrohne der Station Polaris (Begleitfigur).
+// Codaluna – Lumo, die Wartungsdrohne der Station Polaris (Begleitfigur).
 // Inline-SVG ohne Bibliothek, Stimmung über CSS-Klassen (Animationen in app.css,
 // prefers-reduced-motion schaltet sie ab). Lumo ist nie enttäuscht oder tadelnd:
 // Bei Fehlern „glitcht“ Lumo mit und wird neugierig.

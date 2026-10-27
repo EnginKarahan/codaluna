@@ -1,4 +1,4 @@
-// PyQuest – Fehler verständlich erklären.
+// Codaluna – Fehler verständlich erklären.
 // Python liefert Typ + englische Meldung; hier wird daraus eine kurze, ermutigende
 // Erklärung in der gewählten Sprache. Zuerst greifen Regeln, die die Codezeile lesen
 // (fixes.js: `else if`, `\n` außerhalb von Text …), dann konkrete Muster auf die Meldung

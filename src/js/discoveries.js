@@ -1,4 +1,4 @@
-// PyQuest – Entdeckungen: geheime Abzeichen für Neugier und Ausprobieren.
+// Codaluna – Entdeckungen: geheime Abzeichen für Neugier und Ausprobieren.
 // Reine Funktion (ohne DOM), damit sie sich testen lässt. Wird nach jedem Lauf
 // aufgerufen, auch bei Fehlern und im Spielplatz.
 

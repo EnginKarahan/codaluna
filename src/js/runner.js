@@ -1,4 +1,4 @@
-// PyQuest – Steuerung der Python-Ausführung vom Main-Thread aus.
+// Codaluna – Steuerung der Python-Ausführung vom Main-Thread aus.
 // Kapselt den Worker, die geteilten Puffer, input(), Stop, Zeitlimit und Neustarts.
 //
 // Zustände (runner.status): "loading" -> "ready" <-> "running", bei Problemen

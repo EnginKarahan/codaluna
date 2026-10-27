@@ -1,4 +1,4 @@
-# PyQuest – Anmeldung & Cloud-Sync einrichten (optional)
+# Codaluna – Anmeldung & Cloud-Sync einrichten (optional)
 
 Ohne Konfiguration läuft die App im **Gast-Modus**: kein Login, alles bleibt lokal im Browser.
 Sobald in `app-config.js` eine Supabase-URL und der anon key stehen, ist die Anmeldung aktiv.
@@ -49,7 +49,7 @@ Das Skript kann gefahrlos mehrfach ausgeführt werden.
 
 Unter **Authentication → URL Configuration → Redirect URLs** die App-Adressen eintragen, z. B.:
 - `http://localhost:8000` (lokales Testen mit `serve.py`)
-- die Live-Domain (`https://pyquest.…`)
+- die Live-Domain (`https://codaluna.…`)
 
 Die App nutzt `window.location.origin` als Redirect-Ziel.
 

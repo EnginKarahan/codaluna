@@ -1,4 +1,4 @@
-// PyQuest – spürbares Feedback: Funken, fliegende XP, Level-up-Moment.
+// Codaluna – spürbares Feedback: Funken, fliegende XP, Level-up-Moment.
 // Kurz, mit Sinn und abschaltbar: Bei prefers-reduced-motion gibt es keine Bewegung,
 // der Level-up-Moment erscheint dann ruhig ohne Animation.
 

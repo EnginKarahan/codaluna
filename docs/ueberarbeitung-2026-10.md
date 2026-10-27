@@ -83,7 +83,7 @@ Seite den Worker alle 150 ms per Signal an), und der Sync lud den Editor unnöti
 ## Vor dem Veröffentlichen prüfen
 
 1. `node tools/sw-version.mjs` und `npm test`.
-2. Nach dem Hochladen: `curl -sI https://pyquest.ethos-polis.info/src/py/pqrt.py` muss `200` und
+2. Nach dem Hochladen: `curl -sI https://…/src/py/pqrt.py` muss `200` und
    `text/plain` liefern (nicht ausgeführt werden). Ebenso `…/src/i18n/de.js` und
    `…/content/lib/check-kit.js` (neue Ordner).
 3. Bestehende Fortschritte (Version 1) werden automatisch übernommen.

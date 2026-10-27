@@ -1,4 +1,4 @@
-// PyQuest – Cache-Version des Service Workers pflegen.
+// Codaluna – Cache-Version des Service Workers pflegen.
 //
 //   node tools/sw-version.mjs          VERSION in sw.js auf den aktuellen Hash setzen
 //   node tools/sw-version.mjs --check  nur prüfen (Exit 1, wenn veraltet oder Dateien fehlen)

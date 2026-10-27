@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lokaler Entwicklungsserver für PyQuest.
+"""Lokaler Entwicklungsserver für Codaluna.
 
 Setzt die für SharedArrayBuffer nötigen Cross-Origin-Isolation-Header
 (input() und der Stop-Knopf brauchen sie) und schaltet das Caching ab.
@@ -46,7 +46,7 @@ class Server(socketserver.ThreadingTCPServer):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="PyQuest lokal starten")
+    ap = argparse.ArgumentParser(description="Codaluna lokal starten")
     ap.add_argument("-p", "--port", type=int, default=8000)
     ap.add_argument("--host", default="127.0.0.1", help="0.0.0.0 = im Netzwerk erreichbar (ohne HTTPS geht input() dort nicht)")
     args = ap.parse_args()
@@ -61,7 +61,7 @@ def main():
     else:
         raise SystemExit(f"Kein freier Port zwischen {args.port} und {args.port + 19}.")
     with httpd:
-        print(f"PyQuest läuft auf  http://localhost:{port}  (Strg+C zum Beenden)")
+        print(f"Codaluna läuft auf  http://localhost:{port}  (Strg+C zum Beenden)")
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:

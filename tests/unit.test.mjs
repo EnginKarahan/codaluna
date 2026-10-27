@@ -1,4 +1,4 @@
-// PyQuest – Unit-Tests der App-Logik (Node, ohne Zusatzpakete).
+// Codaluna – Unit-Tests der App-Logik (Node, ohne Zusatzpakete).
 //   node --import ./tests/lib/register.mjs --test tests/unit.test.mjs
 //
 // Abgedeckt: Fehlererklärungen (mit echten Python-Fehlern aus Pyodide), Fortschritt

@@ -1,4 +1,4 @@
-// PyQuest – Fortschritt & Abzeichen (Dialog). Nur selbstbezogen, keine Ranglisten.
+// Codaluna – Fortschritt & Abzeichen (Dialog). Nur selbstbezogen, keine Ranglisten.
 // Wochenziel statt Streak: selbst gewählt, verpasste Tage setzen nichts zurück.
 
 import { t, fmtNumber } from "/src/js/i18n.js";

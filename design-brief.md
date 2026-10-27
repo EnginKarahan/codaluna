@@ -1,4 +1,4 @@
-# PyQuest – Design-Brief
+# Codaluna – Design-Brief
 
 > **Zweck:** Übergabe an Gestalter:innen (Mensch oder KI) für visuelle Weiterentwicklung.
 > Beschreibt den **aktuellen** Stand (Oktober 2026, nach der UX-Prüfung), die **Rahmenbedingungen** und den
@@ -8,7 +8,7 @@
 
 ---
 
-## 1. Was ist PyQuest?
+## 1. Was ist Codaluna?
 
 Eine Web-Lernapp, mit der **echter Python-Code direkt im Browser** geschrieben und ausgeführt
 wird (Pyodide). Zielgruppe: **Jugendliche ab 12 Jahren** und mitlernende Erwachsene. Lernpfad

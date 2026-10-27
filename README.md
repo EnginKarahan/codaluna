@@ -1,4 +1,4 @@
-# PyQuest 🐍
+# Codaluna 🐍
 
 Eine mehrsprachige Lern-Webapp, mit der **Jugendliche ab 12 Jahren spielerisch Python lernen**
 (und Erwachsene mitlernen). Echter Python-Code läuft direkt im Browser
@@ -56,7 +56,7 @@ Doppelklick (`file://`) funktioniert **nicht**.
 ## Architektur
 
 - **Kein Framework, Vanilla ES-Module** – offline-robust und hackbar.
-- **`src/py/pqrt.py`** – die Python-Laufzeit von PyQuest: führt Programme in frischem Namensraum
+- **`src/py/pqrt.py`** – die Python-Laufzeit von Codaluna: führt Programme in frischem Namensraum
   aus, begrenzt Ausgabe und Zeit, beschreibt Fehler strukturiert, analysiert den Code (AST) und
   macht versteckte Prüfläufe mit vorgegebenen Eingaben. Sie stellt außerdem die Module `station`
   (Bildschirm, Lautsprecher) und `drone` (Gitterwelt mit Lumo) bereit; deren Ereignisse laufen
@@ -168,18 +168,18 @@ jeweiligen Sprache; die Prüfungen sind sprachneutral und gelten für alle Sprac
 
 ## Statistik und Fehlerberichte
 
-**Derzeit abgeschaltet** (`STATS_URL` in `app-config.js` ist leer), PyQuest sendet nichts. Vor dem
+**Derzeit abgeschaltet** (`STATS_URL` in `app-config.js` ist leer), Codaluna sendet nichts. Vor dem
 Einschalten müssen die Datenschutzerklärung (Abschnitt 6) und die Elternseite (`parents.data.text`
 in allen Sprachen) angepasst werden.
 
-`STATS_URL` und `STATS_DOMAIN` in `app-config.js` verbinden PyQuest mit der eigenen
+`STATS_URL` und `STATS_DOMAIN` in `app-config.js` verbinden Codaluna mit der eigenen
 Webstatistik (Projekt `webstatistik`, live unter stats.ethos-polis.info). Gesendet wird nur, wenn
 die App unter `STATS_DOMAIN` läuft, also nie lokal, nicht bei Do-Not-Track/Global Privacy Control
 und nicht aus automatisierten Browsern (der Browser-Test prüft das).
 
 - **Statistik** (`/collect.php`): Seitenaufruf, `Lesson Done` und `Bonus Done` mit Lektion und
   Sprache. Zu sehen im Dashboard unter „Events & Ziele“.
-- **Fehlerberichte** (`/report.php`): jede Fehlermeldung, die PyQuest zeigt, mit Lektion, Sprache,
+- **Fehlerberichte** (`/report.php`): jede Fehlermeldung, die Codaluna zeigt, mit Lektion, Sprache,
   App-Version und Code. Arten: `python` (Fehler im Programm, mit angezeigter Hilfe als Schlüssel,
   z. B. `errx.needQuotes`, und ob es einen Korrekturvorschlag gab), `run` (Zeitlimit,
   Ausgabegrenze, Absturz), `check` (nicht bestandene Prüfung mit Rückmeldungs-Schlüssel) und
@@ -191,7 +191,7 @@ Gruppen mit der Hilfe `err.<Typ>.hint` sind Fehler, für die es noch keine eigen
 
 ## Konten (optional)
 
-Ohne Konfiguration läuft PyQuest im **Gast-Modus** (alles lokal im Browser). Login und
+Ohne Konfiguration läuft Codaluna im **Gast-Modus** (alles lokal im Browser). Login und
 Cloud-Sync über Supabase: siehe [`SETUP.md`](SETUP.md).
 
 ## Lizenz

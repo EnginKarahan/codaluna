@@ -1,4 +1,4 @@
-// PyQuest – Klänge. Alles wird mit WebAudio erzeugt: keine Dateien, offline, winzig.
+// Codaluna – Klänge. Alles wird mit WebAudio erzeugt: keine Dateien, offline, winzig.
 // Leise, kurz und freundlich. Fehler bekommen ein neugieriges „Glitch“-Geräusch,
 // keinen Fail-Ton. Ein Schalter (Kopfzeile, Lernpfad) schaltet alles stumm,
 // auch die Töne, die Programme mit station.note() spielen.

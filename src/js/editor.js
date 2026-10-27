@@ -1,4 +1,4 @@
-// PyQuest – Code-Editor (CodeMirror 5, global per <script> geladen).
+// Codaluna – Code-Editor (CodeMirror 5, global per <script> geladen).
 // Anfängerfreundliche Tastenbelegung für Python:
 //   Tab / Shift+Tab   Einrücken / Ausrücken (auch für markierte Zeilen)
 //   Rücktaste         löscht in der Einrückung bis zur vorigen 4er-Stufe

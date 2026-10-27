@@ -1,4 +1,4 @@
-// PyQuest – Übersetzung des Kurses "season-1": Español.
+// Codaluna – Übersetzung des Kurses "season-1": Español.
 // Überschreibt nur Texte und Code der deutschen Basis (content/courses/season-1.js).
 
 import { py } from "../lib/check-kit.js";
@@ -658,7 +658,7 @@ print("¡Ya!")</code></pre>
 
 <p><b>Muy importante:</b> dentro del bucle tiene que cambiar algo que, en algún momento, haga que la
 condición sea <code>False</code>. Aquí, <code>numero</code> se va haciendo más pequeño. Si eso no pasa,
-el bucle sigue <i>para siempre</i>. No te preocupes: PyQuest se da cuenta y detiene tu programa
+el bucle sigue <i>para siempre</i>. No te preocupes: Codaluna se da cuenta y detiene tu programa
 (o puedes pulsar <b>Detener</b>).</p>`,
     taskHtml:
       "Cuenta <b>hacia atrás del 10 al 1</b> con un bucle <code>while</code> y después muestra <code>¡Despegue! 🚀</code>.",
@@ -2068,7 +2068,7 @@ print("Edad: " + str(22))</code></pre>
     story: "La rampa de salida cuenta hacia atrás… y nunca termina. El rover lleva años esperando su «¡Despegue!».",
     intro: `
 <p>Algunos glitches no producen ningún mensaje de error: el programa simplemente sigue <b>sin fin</b>.
-Tranquilidad: PyQuest lo detiene al cabo de un rato. Entonces vale la pena preguntarse qué tendría que
+Tranquilidad: Codaluna lo detiene al cabo de un rato. Entonces vale la pena preguntarse qué tendría que
 cambiar dentro del bucle para que, en algún momento, la condición sea <code>False</code>.</p>`,
     taskHtml: "Repara la cuenta atrás: debe mostrar <b>5, 4, 3, 2, 1</b> y después «¡Despegue!», y luego parar de verdad.",
     hints: [

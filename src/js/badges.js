@@ -1,4 +1,4 @@
-// PyQuest – Abzeichen. Selbstbezogen (du gegen gestern), keine Ranglisten.
+// Codaluna – Abzeichen. Selbstbezogen (du gegen gestern), keine Ranglisten.
 // Auch Fehler werden gewürdigt: Fehler gehören zum Programmieren dazu.
 // Namen/Beschreibungen: i18n-Schlüssel badge.<id>.name / badge.<id>.desc
 //
