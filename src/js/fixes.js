@@ -1,4 +1,4 @@
-// PyQuest – typische Anfängerfehler erkennen und Korrekturen vorschlagen.
+// Codaluna – typische Anfängerfehler erkennen und Korrekturen vorschlagen.
 //
 // Pythons Meldung allein hilft oft wenig ("invalid syntax") oder führt in die Irre
 // ("expected ':'" bei `else if`). Diese Regeln lesen deshalb die betroffene Codezeile mit

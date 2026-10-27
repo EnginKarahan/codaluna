@@ -1,4 +1,4 @@
-// PyQuest – App-Verkabelung: Lektionen, Editor, Ausführung, Prüfung, Fortschritt.
+// Codaluna – App-Verkabelung: Lektionen, Editor, Ausführung, Prüfung, Fortschritt.
 
 import courseData from "/content/courses/season-1.js";
 import overlays from "/content/i18n/season-1-i18n.js";
@@ -699,7 +699,7 @@ async function shareCode() {
   }
   if (navigator.share && window.matchMedia("(pointer: coarse)").matches) {
     try {
-      await navigator.share({ title: "PyQuest", text: t("share.text"), url });
+      await navigator.share({ title: "Codaluna", text: t("share.text"), url });
       return;
     } catch (e) {
       if (e && e.name === "AbortError") return;
@@ -967,7 +967,7 @@ function exportProgress() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `pyquest-${t("backup.fileName")}.json`;
+  a.download = `codaluna-${t("backup.fileName")}.json`;
   document.body.appendChild(a);
   a.click();
   a.remove();

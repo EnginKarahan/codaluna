@@ -1,4 +1,4 @@
-// PyQuest – kleine UI-Bausteine: Dialoge (statt confirm()), Hinweise (Toasts).
+// Codaluna – kleine UI-Bausteine: Dialoge (statt confirm()), Hinweise (Toasts).
 
 import { t } from "/src/js/i18n.js";
 import { escapeHtml } from "/src/js/errors.js";

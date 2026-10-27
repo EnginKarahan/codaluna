@@ -1,4 +1,4 @@
-// PyQuest – Einstieg: Willkommens-Dialog beim ersten Start + geführte Tour.
+// Codaluna – Einstieg: Willkommens-Dialog beim ersten Start + geführte Tour.
 // ctx = { el, setTab, isMobile, t, openDrawer, closeDrawer }
 
 import { openModal } from "/src/js/ui.js";

@@ -1,4 +1,4 @@
-// PyQuest-Tests: dieselbe Python-Laufzeit wie im Browser (vendor/pyodide + src/py/pqrt.py),
+// Codaluna-Tests: dieselbe Python-Laufzeit wie im Browser (vendor/pyodide + src/py/pqrt.py),
 // hier in Node geladen. evaluate() spielt den Ablauf der App nach: Programm ausführen,
 // Code analysieren, versteckte Testläufe, Prüfung der Lektion.
 
@@ -14,9 +14,9 @@ export async function loadRuntime() {
   if (rt) return rt;
   const { loadPyodide } = await import(ROOT + "vendor/pyodide/pyodide.mjs");
   const py = await loadPyodide({ indexURL: ROOT + "vendor/pyodide/" });
-  py.FS.mkdirTree("/pyquest");
-  py.FS.writeFile("/pyquest/pqrt.py", readFileSync(ROOT + "src/py/pqrt.py", "utf8"));
-  py.runPython("import sys\nsys.path.insert(0, '/pyquest')\nimport pqrt");
+  py.FS.mkdirTree("/codaluna");
+  py.FS.writeFile("/codaluna/pqrt.py", readFileSync(ROOT + "src/py/pqrt.py", "utf8"));
+  py.runPython("import sys\nsys.path.insert(0, '/codaluna')\nimport pqrt");
   rt = py.pyimport("pqrt");
   return rt;
 }

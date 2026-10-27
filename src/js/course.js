@@ -1,4 +1,4 @@
-// PyQuest – Kursmodell: Reihenfolge, Nummerierung, Übersetzung, Freischalten, XP.
+// Codaluna – Kursmodell: Reihenfolge, Nummerierung, Übersetzung, Freischalten, XP.
 // Kursdaten (deutsche Basis) + Übersetzungs-Overlays je Sprache.
 //
 // Stränge: Der Hauptkurs (Kapitel ohne `strand`) läuft der Reihe nach. Nebenstränge

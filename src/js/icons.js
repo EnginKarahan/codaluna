@@ -1,4 +1,4 @@
-// PyQuest – eigene Strich-Icons (20er-Raster, eine Linienstärke, runde Enden wie im Logo).
+// Codaluna – eigene Strich-Icons (20er-Raster, eine Linienstärke, runde Enden wie im Logo).
 // Ersetzt Emojis in der Oberfläche: Emojis sehen auf jedem Gerät anders aus und
 // machen die Oberfläche unruhig. Unbekannte Namen werden als Text ausgegeben
 // (z. B. ein Emoji aus eigenen Kursinhalten), damit nichts verschwindet.

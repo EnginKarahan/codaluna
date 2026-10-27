@@ -1,4 +1,4 @@
-// PyQuest – Übersetzung des Kurses "season-1": Français.
+// Codaluna – Übersetzung des Kurses "season-1": Français.
 // Überschreibt nur Texte und Code der deutschen Basis (content/courses/season-1.js).
 
 import { py } from "../lib/check-kit.js";
@@ -668,7 +668,7 @@ print("C'est parti !")</code></pre>
 
 <p><b>Très important :</b> dans la boucle, quelque chose doit changer pour que la condition finisse
 par devenir <code>False</code> – ici, <code>nombre</code> diminue. Sinon, la boucle tourne
-<i>à l'infini</i>. Pas de panique : PyQuest s'en rend compte et arrête ton programme (ou tu appuies
+<i>à l'infini</i>. Pas de panique : Codaluna s'en rend compte et arrête ton programme (ou tu appuies
 sur <b>Stop</b>).</p>`,
     taskHtml:
       "Lance un <b>compte à rebours de 10 à 1</b> avec une boucle <code>while</code>, puis affiche <code>Décollage ! 🚀</code>.",
@@ -2097,7 +2097,7 @@ print("Âge : " + str(22))</code></pre>
     story: "La rampe de lancement compte à rebours… et ne s'arrête jamais. Le rover attend son « Décollage ! » depuis des années.",
     intro: `
 <p>Certains bugs ne produisent aucun message d'erreur – le programme tourne simplement <b>à l'infini</b>.
-Pas de panique : PyQuest l'arrête au bout d'un moment. Ensuite, pose-toi la question : qu'est-ce qui
+Pas de panique : Codaluna l'arrête au bout d'un moment. Ensuite, pose-toi la question : qu'est-ce qui
 devrait changer dans la boucle pour que la condition finisse par devenir <code>False</code> ?</p>`,
     taskHtml: "Répare le compte à rebours : il doit afficher <b>5, 4, 3, 2, 1</b>, puis « Décollage ! » – et ensuite vraiment s'arrêter.",
     hints: [

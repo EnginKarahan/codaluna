@@ -1,4 +1,4 @@
-// PyQuest – Mehrsprachigkeit (i18n). Vanilla, offline, mit Fallback-Kette.
+// Codaluna – Mehrsprachigkeit (i18n). Vanilla, offline, mit Fallback-Kette.
 // UI-Texte liegen je Sprache in src/i18n/<code>.js (gebündelt über i18n-ui.js).
 // Fehlt ein Schlüssel, wird auf Englisch, dann Deutsch zurückgefallen.
 

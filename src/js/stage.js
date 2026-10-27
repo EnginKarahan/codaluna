@@ -1,4 +1,4 @@
-// PyQuest – Bühne der Station: LED-Bildschirm und Lautsprecher (Modul `station`) und das
+// Codaluna – Bühne der Station: LED-Bildschirm und Lautsprecher (Modul `station`) und das
 // Eisfeld, über das Lumo fliegt (Modul `drone`).
 // Die Laufzeit (pqrt.py) schickt jedes Ereignis als JSON-Zeile über den Kanal "g".
 // Die Bühne erscheint als Karte in der Konsole, sobald ein Programm zeichnet, spielt oder

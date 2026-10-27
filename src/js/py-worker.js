@@ -1,4 +1,4 @@
-// PyQuest – Python-Ausführung im Web-Worker (Pyodide, lokal vendored).
+// Codaluna – Python-Ausführung im Web-Worker (Pyodide, lokal vendored).
 // Die eigentliche Lauf-, Prüf- und Analyselogik steckt in src/py/pqrt.py
 // (dieselbe Datei nutzt die Testsuite). Dieser Worker ist nur die Brücke.
 //
@@ -86,9 +86,9 @@ async function boot(msg) {
 
     const res = await fetch("/src/py/pqrt.py");
     if (!res.ok) throw new Error("pqrt.py: HTTP " + res.status);
-    py.FS.mkdirTree("/pyquest");
-    py.FS.writeFile("/pyquest/pqrt.py", await res.text());
-    py.runPython("import sys\nsys.path.insert(0, '/pyquest')\nimport pqrt");
+    py.FS.mkdirTree("/codaluna");
+    py.FS.writeFile("/codaluna/pqrt.py", await res.text());
+    py.runPython("import sys\nsys.path.insert(0, '/codaluna')\nimport pqrt");
     rt = py.pyimport("pqrt");
     self.postMessage({ type: "ready", shared: !!ctrl });
   } catch (e) {

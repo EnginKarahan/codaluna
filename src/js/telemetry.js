@@ -1,4 +1,4 @@
-// PyQuest – anonyme Nutzungsstatistik und Fehlerberichte an die eigene Webstatistik
+// Codaluna – anonyme Nutzungsstatistik und Fehlerberichte an die eigene Webstatistik
 // (STATS_URL in app-config.js: cookie-los, keine IP-Speicherung, keine Kennung im Browser).
 //
 // Gesendet wird nur, wenn die App unter STATS_DOMAIN läuft (also nicht lokal), nicht bei

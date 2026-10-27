@@ -1,4 +1,4 @@
-// PyQuest – Diplom am Kursende. Rein clientseitig, offline-tauglich.
+// Codaluna – Diplom am Kursende. Rein clientseitig, offline-tauglich.
 // SVG-Urkunde mit editierbarem Namen; Download als PNG (3-fache Auflösung, Fallback SVG).
 
 import { t, getLocale, fmtNumber } from "/src/js/i18n.js";
@@ -22,7 +22,7 @@ function buildSVG({ name, xp, date }) {
   <text x="410" y="312" text-anchor="middle" font-family="'Atkinson Hyperlegible Next', Verdana, sans-serif" font-size="40" font-weight="700" fill="#0f5e50">${displayName}</text>
   <text x="410" y="366" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#241d12">${escapeHtml(t("diploma.completed"))}</text>
   <text x="410" y="428" text-anchor="middle" font-family="'Atkinson Hyperlegible Next', Verdana, sans-serif" font-size="17" fill="#5c5341">${escapeHtml(t("diploma.xpLine", { xp: fmtNumber(xp), date }))}</text>
-  <text x="410" y="516" text-anchor="middle" font-family="'Atkinson Hyperlegible Next', Verdana, sans-serif" font-size="20" font-weight="700" fill="#241d12">PyQuest</text>
+  <text x="410" y="516" text-anchor="middle" font-family="'Atkinson Hyperlegible Next', Verdana, sans-serif" font-size="20" font-weight="700" fill="#241d12">Codaluna</text>
 </svg>`;
 }
 
@@ -47,15 +47,15 @@ function downloadFromSVG(svg) {
       const ctx = canvas.getContext("2d");
       ctx.drawImage(img, 0, 0, W * SCALE, H * SCALE);
       canvas.toBlob((blob) => {
-        if (!blob) return triggerDownload(svgUrl, "pyquest-diplom.svg");
-        triggerDownload(URL.createObjectURL(blob), "pyquest-diplom.png");
+        if (!blob) return triggerDownload(svgUrl, "codaluna-diplom.svg");
+        triggerDownload(URL.createObjectURL(blob), "codaluna-diplom.png");
         URL.revokeObjectURL(svgUrl);
       }, "image/png");
     } catch (_) {
-      triggerDownload(svgUrl, "pyquest-diplom.svg");
+      triggerDownload(svgUrl, "codaluna-diplom.svg");
     }
   };
-  img.onerror = () => triggerDownload(svgUrl, "pyquest-diplom.svg");
+  img.onerror = () => triggerDownload(svgUrl, "codaluna-diplom.svg");
   img.src = svgUrl;
 }
 

@@ -1,4 +1,4 @@
-// PyQuest – Lernpfad (Sidebar): Spielplatz, Kapitel mit Lektionen, Fußbereich.
+// Codaluna – Lernpfad (Sidebar): Spielplatz, Kapitel mit Lektionen, Fußbereich.
 
 import { t } from "/src/js/i18n.js";
 import { SANDBOX_ID } from "/src/js/course.js";

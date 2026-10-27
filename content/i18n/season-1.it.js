@@ -1,4 +1,4 @@
-// PyQuest – Übersetzung des Kurses "season-1": Italiano.
+// Codaluna – Übersetzung des Kurses "season-1": Italiano.
 // Überschreibt nur Texte und Code der deutschen Basis (content/courses/season-1.js).
 
 import { py } from "../lib/check-kit.js";
@@ -666,7 +666,7 @@ print("Via!")</code></pre>
 
 <p><b>Importantissimo:</b> nel ciclo deve cambiare qualcosa che prima o poi renda la condizione
 <code>False</code> – qui <code>numero</code> diventa sempre più piccolo. Se non succede, il ciclo
-gira <i>all'infinito</i>. Niente panico: PyQuest se ne accorge e ferma il programma (oppure premi
+gira <i>all'infinito</i>. Niente panico: Codaluna se ne accorge e ferma il programma (oppure premi
 <b>Ferma</b>).</p>`,
     taskHtml:
       "Fai partire un <b>conto alla rovescia da 10 a 1</b> con un ciclo <code>while</code> e alla fine stampa <code>Decollo! 🚀</code>.",
@@ -2114,7 +2114,7 @@ print("Età: " + str(22))</code></pre>
     story: "La rampa di lancio fa il conto alla rovescia … e non smette mai. Il rover aspetta da anni il suo «Via!».",
     intro: `
 <p>Certi glitch non producono nessun messaggio di errore – il programma gira e basta,
-<b>all'infinito</b>. Niente paura: dopo un po' PyQuest lo ferma. A quel punto conviene chiedersi
+<b>all'infinito</b>. Niente paura: dopo un po' Codaluna lo ferma. A quel punto conviene chiedersi
 che cosa dovrebbe cambiare nel ciclo perché prima o poi la condizione diventi <code>False</code>.</p>`,
     taskHtml: "Ripara il conto alla rovescia: deve stampare <b>5, 4, 3, 2, 1</b> e poi «Via!» – e poi fermarsi davvero.",
     hints: [

@@ -1,4 +1,4 @@
-// PyQuest – Konsole: Programmausgabe, Eingabezeile für input() und Ergebnis-Karten.
+// Codaluna – Konsole: Programmausgabe, Eingabezeile für input() und Ergebnis-Karten.
 // Ausgabe wird gesammelt und höchstens einmal pro Frame in den DOM geschrieben,
 // damit auch Programme mit sehr viel Ausgabe die Oberfläche nicht einfrieren.
 

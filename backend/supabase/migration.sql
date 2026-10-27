@@ -1,4 +1,4 @@
--- PyQuest – Supabase-Schema für Konten und Fortschritts-Synchronisation.
+-- Codaluna – Supabase-Schema für Konten und Fortschritts-Synchronisation.
 -- Im Supabase-Dashboard unter "SQL Editor" ausführen. Mehrfaches Ausführen ist unschädlich.
 
 create table if not exists public.user_progress (

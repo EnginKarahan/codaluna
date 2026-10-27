@@ -1,4 +1,4 @@
-// PyQuest – Übersetzungen prüfen (UI-Texte und Kurs-Overlays), je Sprache isoliert.
+// Codaluna – Übersetzungen prüfen (UI-Texte und Kurs-Overlays), je Sprache isoliert.
 //
 //   node tools/check-i18n.mjs            alle Sprachen
 //   node tools/check-i18n.mjs --lang=tr  nur eine Sprache

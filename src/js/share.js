@@ -1,4 +1,4 @@
-// PyQuest – Projekte per Link teilen. Der Code steckt komprimiert im Link-Anker (#p=…):
+// Codaluna – Projekte per Link teilen. Der Code steckt komprimiert im Link-Anker (#p=…):
 // kein Server, kein Konto, kein Chat. Ein geteilter Link öffnet sich im Spielplatz und
 // wird nie automatisch ausgeführt (siehe app.js).
 

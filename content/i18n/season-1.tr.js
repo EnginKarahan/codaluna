@@ -1,4 +1,4 @@
-// PyQuest – Übersetzung des Kurses "season-1": Türkçe.
+// Codaluna – Übersetzung des Kurses "season-1": Türkçe.
 // Überschreibt nur Texte und Code der deutschen Basis (content/courses/season-1.js).
 
 import { py } from "../lib/check-kit.js";
@@ -649,7 +649,7 @@ print("Başla!")</code></pre>
 
 <p><b>Çok önemli:</b> Döngünün içinde, koşulu bir noktada <code>False</code> yapacak bir şey
 değişmeli. Burada <code>sayi</code> her turda küçülüyor. Böyle bir değişiklik olmazsa döngü
-<i>sonsuza kadar</i> döner. Panik yapma: PyQuest bunu fark eder ve programını durdurur (ya da sen
+<i>sonsuza kadar</i> döner. Panik yapma: Codaluna bunu fark eder ve programını durdurur (ya da sen
 <b>Durdur</b> düğmesine basarsın).</p>`,
     taskHtml: `Bir <code>while</code> döngüsüyle <b>10'dan 1'e geri sayım</b> yap ve ardından <code>Kalkış! 🚀</code> yazdır.`,
     hints: [
@@ -2050,7 +2050,7 @@ print("Yaş: " + str(22))</code></pre>
     story: `Fırlatma rampası geri sayıyor … ve hiç durmuyor. Keşif aracı yıllardır kendi “Kalkış!” anını bekliyor.`,
     intro: `
 <p>Bazı arızalar hiç hata mesajı vermez; program sadece <b>sonsuza kadar</b> çalışır. Merak etme,
-PyQuest onu bir süre sonra durdurur. O zaman şu soruyu sormaya değer: Koşulun bir noktada
+Codaluna onu bir süre sonra durdurur. O zaman şu soruyu sormaya değer: Koşulun bir noktada
 <code>False</code> olması için döngüde neyin değişmesi gerekir?</p>`,
     taskHtml: `Geri sayımı onar: <b>5, 4, 3, 2, 1</b> yazdırmalı, ardından “Kalkış!” demeli ve sonra gerçekten durmalı.`,
     hints: [

@@ -1,4 +1,4 @@
-// PyQuest – Werkzeuge für Lektions-Prüfungen (App UND Testsuite nutzen diese Datei).
+// Codaluna – Werkzeuge für Lektions-Prüfungen (App UND Testsuite nutzen diese Datei).
 //
 // Eine Prüfung bekommt einen Kontext `r` und liefert need(...)-Ergebnis:
 //   r.out      Ausgabe des Programms OHNE input()-Prompts

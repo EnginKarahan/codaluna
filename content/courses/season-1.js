@@ -1,4 +1,4 @@
-// PyQuest – Kurs „Season 1: Python-Starter“ (deutsche Basis).
+// Codaluna – Kurs „Season 1: Python-Starter“ (deutsche Basis).
 //
 // Inhalt = Daten. Übersetzungen liegen als Overlays in content/i18n/season-1.<lang>.js
 // und überschreiben nur Texte und Code (title, intro, taskHtml, hints, starterCode,
@@ -814,7 +814,7 @@ print("Los!")</code></pre>
 
 <p><b>Ganz wichtig:</b> In der Schleife muss sich etwas ändern, das die Bedingung irgendwann
 <code>False</code> macht – hier wird <code>zahl</code> kleiner. Passiert das nicht, läuft die
-Schleife <i>ewig</i>. Keine Panik: PyQuest merkt das und hält dein Programm an (oder du
+Schleife <i>ewig</i>. Keine Panik: Codaluna merkt das und hält dein Programm an (oder du
 drückst <b>Stop</b>).</p>`,
           taskHtml:
             'Lass einen <b>Countdown von 10 bis 1</b> mit einer <code>while</code>-Schleife laufen und gib danach <code>Start! 🚀</code> aus.',

@@ -1,4 +1,4 @@
-// PyQuest – Übersetzung des Kurses "season-1": English.
+// Codaluna – Übersetzung des Kurses "season-1": English.
 // Überschreibt nur Texte und Code der deutschen Basis (content/courses/season-1.js).
 
 import { py } from "../lib/check-kit.js";
@@ -655,7 +655,7 @@ print("Go!")</code></pre>
 
 <p><b>Really important:</b> something inside the loop has to change so that the condition
 eventually becomes <code>False</code> – here <code>number</code> gets smaller. If that doesn't happen,
-the loop runs <i>forever</i>. Don't panic: PyQuest notices and stops your program (or you
+the loop runs <i>forever</i>. Don't panic: Codaluna notices and stops your program (or you
 can press <b>Stop</b>).</p>`,
     taskHtml:
       "Run a <b>countdown from 10 to 1</b> with a <code>while</code> loop and then print <code>Lift-off! 🚀</code>.",
@@ -2059,7 +2059,7 @@ print("Age: " + str(22))</code></pre>
     story: "The launch ramp counts down … and never stops. The rover has been waiting years for its “Lift-off!”.",
     intro: `
 <p>Some glitches don't produce an error message at all. The program simply runs <b>forever</b>.
-Don't worry, PyQuest stops it after a while. Then it's worth asking yourself what would have to change in
+Don't worry, Codaluna stops it after a while. Then it's worth asking yourself what would have to change in
 the loop so that the condition becomes <code>False</code> at some point.</p>`,
     taskHtml: "Repair the countdown. It should print <b>5, 4, 3, 2, 1</b>, then “Lift-off!”, and then really stop.",
     hints: [

@@ -1,4 +1,4 @@
-// PyQuest – Inhaltstests mit der echten Python-Laufzeit (Pyodide in Node).
+// Codaluna – Inhaltstests mit der echten Python-Laufzeit (Pyodide in Node).
 //
 //   node tests/content.test.mjs                 alles
 //   node tests/content.test.mjs --lang=de       nur eine Sprache für Muster-/Startcode
@@ -94,7 +94,7 @@ for (const lesson of lessons) {
   });
 }
 
-console.log(`\nPyQuest-Inhaltstests: ${total - failures.length}/${total} bestanden (${lessons.length} Lektionen, Sprachen: ${LANGS.join(", ")})`);
+console.log(`\nCodaluna-Inhaltstests: ${total - failures.length}/${total} bestanden (${lessons.length} Lektionen, Sprachen: ${LANGS.join(", ")})`);
 if (failures.length) {
   console.log("\n" + failures.join("\n"));
   process.exit(1);

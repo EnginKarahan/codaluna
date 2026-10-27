@@ -1,4 +1,4 @@
-// PyQuest – Testfälle für "Season 1": richtige UND falsche Lösungen je Lektion.
+// Codaluna – Testfälle für "Season 1": richtige UND falsche Lösungen je Lektion.
 //
 // Je Lektion:
 //   inputs       Eingaben für den sichtbaren Lauf (was eine Lernende eintippen würde)
@@ -24,7 +24,7 @@ const quizHead = py`
 
 export default {
   "s1-l1": {
-    right: ['print("Ich mag Pizza")\n', 'print("Hallo PyQuest!")\nprint("Zweite Zeile")\n', "print('Einfache Anführungszeichen gehen auch')\n"],
+    right: ['print("Ich mag Pizza")\n', 'print("Hallo Codaluna!")\nprint("Zweite Zeile")\n', "print('Einfache Anführungszeichen gehen auch')\n"],
     wrong: [
       { code: 'print("Hallo Welt!")\n', expect: "fb.unchanged" },
       { code: 'print("Hallo Welt!")  # nur ein Kommentar dazu\n', expect: "fb.unchanged" },

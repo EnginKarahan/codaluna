@@ -1,4 +1,4 @@
-// PyQuest – PWA/Offline: Service Worker, Installation, "Für offline vorbereiten".
+// Codaluna – PWA/Offline: Service Worker, Installation, "Für offline vorbereiten".
 
 import { t } from "/src/js/i18n.js";
 import { logError } from "/src/js/telemetry.js";

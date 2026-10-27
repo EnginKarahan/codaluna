@@ -1,4 +1,4 @@
-// PyQuest – Anmeldung (Supabase, über app-config.js gesteuert).
+// Codaluna – Anmeldung (Supabase, über app-config.js gesteuert).
 // E-Mail + Passwort (Anmelden, Registrieren, Zurücksetzen) + optional Google/GitHub.
 // Ohne konfiguriertes Supabase läuft die App im Gast-Modus (alles lokal).
 // Mit REQUIRE_LOGIN erzwingt ein Dialog die Anmeldung (kein Gast-Modus).

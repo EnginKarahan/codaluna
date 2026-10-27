@@ -1,4 +1,4 @@
-"""PyQuest-Laufzeit: führt Code von Lernenden aus, analysiert ihn und prüft ihn.
+"""Codaluna-Laufzeit: führt Code von Lernenden aus, analysiert ihn und prüft ihn.
 
 Wird im Browser (Web-Worker mit Pyodide) und in der Testsuite (Node + Pyodide)
 geladen. Im Browser stellt der Worker das Modul ``pqjs`` bereit:
@@ -259,7 +259,7 @@ class _Station:
 
 def _station_module(session):
     st = _Station(session)
-    mod = types.ModuleType("station", "Bildschirm und Lautsprecher der Station Polaris (PyQuest).")
+    mod = types.ModuleType("station", "Bildschirm und Lautsprecher der Station Polaris (Codaluna).")
 
     # Echte Funktionen statt gebundener Methoden: Fehlermeldungen wie
     # "pixel() takes … arguments" zählen dann richtig (ohne self).
@@ -442,7 +442,7 @@ class _Drone:
 
 def _drone_module(session, world):
     dr = _Drone(session, world)
-    mod = types.ModuleType("drone", "Lumo, die Wartungsdrohne der Station Polaris (PyQuest).")
+    mod = types.ModuleType("drone", "Lumo, die Wartungsdrohne der Station Polaris (Codaluna).")
 
     def move():
         dr.move()

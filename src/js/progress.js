@@ -1,4 +1,4 @@
-// PyQuest – Fortschritt im Browser (localStorage), Version 2.
+// Codaluna – Fortschritt im Browser (localStorage), Version 2.
 //
 // XP werden NICHT aufaddiert gespeichert, sondern aus den erledigten Lektionen und
 // Bonus-Aufgaben berechnet (siehe course.js). So bleiben XP, Level, Sync und Import
@@ -248,7 +248,7 @@ export const progress = {
   },
 
   exportJSON() {
-    return JSON.stringify({ app: "pyquest", ...this.data }, null, 2);
+    return JSON.stringify({ app: "codaluna", ...this.data }, null, 2);
   },
   importJSON(text) {
     const parsed = JSON.parse(text);

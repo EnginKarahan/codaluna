@@ -1,4 +1,4 @@
-// PyQuest – Werkstatt: Editor-Farben und Lumos Licht. Freigeschaltet wird über Level,
+// Codaluna – Werkstatt: Editor-Farben und Lumos Licht. Freigeschaltet wird über Level,
 // nicht über Käufe oder Zufall, und was es wofür gibt, ist vorher sichtbar.
 
 import { t } from "/src/js/i18n.js";

@@ -1,11 +1,11 @@
-# Spielend lernen – Konzept für PyQuest (Oktober 2026)
+# Spielend lernen – Konzept für Codaluna (Oktober 2026)
 
 > **Stand 17.10.2026: umgesetzt** (Branch `spielend-lernen`, Pakete 1–4). Rahmen „Außenposten“
 > als Station Polaris mit Lumo; Klang standardmäßig an (leise, Schalter in Kopfzeile und
 > Lernpfad); Hauptkurs bleibt linear, Wahl gibt es über zwei Nebenstränge (Außeneinsätze,
 > Glitch-Jagd), die sich mit dem Hauptkurs öffnen. Abweichungen und Details: Abschnitt 8.
 
-Ziel: PyQuest soll nicht nur eine gut gemachte Lern-App sein, sondern eine App, die Jugendliche
+Ziel: Codaluna soll nicht nur eine gut gemachte Lern-App sein, sondern eine App, die Jugendliche
 ab 12 **gern und freiwillig** öffnen, weil das Programmieren selbst zum Spiel wird. Dieses Papier
 prüft den Ist-Zustand, fasst zusammen, was Medienpädagogik, Motivationsforschung und Jugendschutz
 dazu sagen, schaut auf erfolgreiche Spiele und Apps und leitet daraus einen konkreten, in Pakete
@@ -13,9 +13,9 @@ geteilten Umbau ab. Quellen stehen am Ende.
 
 ---
 
-## 1. Befund: Warum PyQuest heute noch nicht „mitzieht“
+## 1. Befund: Warum Codaluna heute noch nicht „mitzieht“
 
-Technisch und didaktisch ist PyQuest stark (echte Ausführung, konkrete Rückmeldungen, gute
+Technisch und didaktisch ist Codaluna stark (echte Ausführung, konkrete Rückmeldungen, gute
 Fehlerkultur). Spielerisch ist es aber ein **Schulbuch mit IDE und einer Punkte-Schicht darüber**:
 
 | Beobachtung (Screenshots Desktop + Mobil) | Wirkung auf Jugendliche |
@@ -41,7 +41,7 @@ Tracking, ermutigende Fehlerkultur („Fehler-Freund“), Tipps und Lösung ohne
 Spielmechanik selbst, einmal ist es ein Quiz zwischen Spielabschnitten. Die integrierte Fassung
 brachte mehr Lernzuwachs in gleicher Zeit, und Kinder spielten sie in ihrer freien Zeit rund
 **siebenmal länger**. Eine Folgestudie (Cutting & Iacovides 2022, n = 210) bestätigt den
-Lernvorteil und erklärt ihn mit Aufmerksamkeit auf das Wesentliche. Für PyQuest heißt das:
+Lernvorteil und erklärt ihn mit Aufmerksamkeit auf das Wesentliche. Für Codaluna heißt das:
 **Code muss etwas steuern** (eine Figur, ein Bild, einen Klang, eine Welt), nicht nur Punkte
 auslösen.
 
@@ -64,7 +64,7 @@ anderen, Reflexion. Das passt fast eins zu eins zu den Lücken aus Abschnitt 1.
 
 **Kreatives Lernen (Resnick, Scratch).** Projekte, Leidenschaft, Gleichaltrige, Spiel, dazu
 „niedrige Schwelle, hohe Decke, **breite Wände**“: viele Wege zum Ziel, weil kein einzelnes
-Projekt alle anspricht. PyQuest hat Schwelle und Decke (Bonus-Aufgaben), aber nur einen Weg.
+Projekt alle anspricht. Codaluna hat Schwelle und Decke (Bonus-Aufgaben), aber nur einen Weg.
 
 **Entwicklungsstand ab 12.** Autonomie und Identität werden wichtig, das Urteil Gleichaltriger
 zählt viel, Vergleich mit anderen trifft empfindlich. Daraus folgt: nicht verkindlichen,
@@ -79,7 +79,7 @@ man ihn „reparieren“ kann. Elternratgeber beschreiben die Kehrseite als Stre
 die App nicht mehr zum Lernen, sondern um nichts zu verlieren. Die EU-Leitlinien zum Schutz Minderjähriger (Art. 28 DSA,
 14.07.2025) nennen Streaks und Push-Nachrichten ausdrücklich als Funktionen, die übermäßige
 Nutzung fördern und für Minderjährige standardmäßig aus sein sollen (dort mit Blick auf
-Kommunikations-Streaks). PyQuest ist vermutlich keine „Plattform“ im Sinne des DSA, aber die
+Kommunikations-Streaks). Codaluna ist vermutlich keine „Plattform“ im Sinne des DSA, aber die
 Leitlinien sind der aktuelle Maßstab.
 
 **Jugendschutz (§ 10b Abs. 3 JuSchG).** Bei der Alterseinstufung zählen auch Risiken durch
@@ -93,7 +93,7 @@ Die Messlatte für „macht Spaß“ ist also die Qualität echter Spiele, und M
 
 ### Leitplanken, die daraus folgen
 
-PyQuest übernimmt die Mittel von Spielen, die **Kompetenz, Autonomie, Neugier und Selbstausdruck**
+Codaluna übernimmt die Mittel von Spielen, die **Kompetenz, Autonomie, Neugier und Selbstausdruck**
 bedienen, und verzichtet konsequent auf die, die mit **Verlustangst, Zufall, Vergleich oder Druck**
 arbeiten:
 
@@ -112,7 +112,7 @@ arbeiten:
 
 ## 3. Was erfolgreiche Spiele und Apps vormachen
 
-| Vorbild | Was es gut macht | Für PyQuest |
+| Vorbild | Was es gut macht | Für Codaluna |
 |---|---|---|
 | **The Farmer Was Replaced** (Steam, Vollversion seit 10/2025) | Python-ähnlicher Code steuert eine Drohne auf einem Feld; Automatisieren schaltet Technik frei. Kein Level-Menü, sondern fortlaufender Fortschritt. | Code als Steuerung einer Figur in einer Welt. |
 | **Reeborg's World / Karel the Robot** | Klassiker im Unterricht: Roboter auf Gitter, `move()`, `turn_left()`, Schleifen und Bedingungen werden *sichtbar*. Reeborg läuft mit Python im Browser. | Bewährtes, kleines Modell für eine Gitter-Welt. |
@@ -270,7 +270,7 @@ erweitern) und einzeln committet.
 - **Beobachten statt messen:** drei bis vier Jugendliche der Zielgruppe (Mädchen und Jungen) je Paket
   20 Minuten spielen lassen, laut denken lassen, nicht helfen. Danach drei Fragen: Was war
   am besten? Wo war es langweilig? Würdest du morgen weitermachen?
-- **Freiwillige Rückkehr:** Wird PyQuest ohne Aufforderung wieder geöffnet? (Nur im Gespräch
+- **Freiwillige Rückkehr:** Wird Codaluna ohne Aufforderung wieder geöffnet? (Nur im Gespräch
   erfragen, nichts erheben.)
 - **Kurzfragebogen** zu Autonomie, Kompetenz, Eingebundenheit (angelehnt an den PENS von Ryan,
   Rigby & Przybylski) vor und nach Paket 3.

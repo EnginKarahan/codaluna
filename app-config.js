@@ -1,4 +1,4 @@
-// PyQuest – lokale Konfiguration.
+// Codaluna – lokale Konfiguration.
 //
 // Leer lassen = reiner GAST-MODUS (kein Login, nichts wird an einen Server gesendet).
 // Sobald hier eine Supabase-Projekt-URL und der anon key stehen, ist die Anmeldung aktiv.
@@ -22,5 +22,5 @@ export default {
   // Derzeit abgeschaltet. Vor dem Einschalten Datenschutzerklärung (Abschnitt 6) und Elternseite
   // (parents.data.text) anpassen und die Domain in der Webstatistik anlegen (README).
   STATS_URL: "",
-  STATS_DOMAIN: "pyquest.ethos-polis.info",
+  STATS_DOMAIN: "codaluna.ethos-polis.info",
 };

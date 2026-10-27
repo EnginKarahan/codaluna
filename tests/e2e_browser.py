@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PyQuest – Browser-Test (Ende zu Ende) mit Playwright.
+"""Codaluna – Browser-Test (Ende zu Ende) mit Playwright.
 
 Startet serve.py auf einem freien Port und bedient die App wie eine Lernende:
 Ausführen, Fehler, Erfolg, Weiter, input(), Stop, Endlosschleife, Editor-Tasten,
@@ -9,7 +9,7 @@ Fortschritt nach Neuladen, Sprachwechsel, Mobilansicht.
     python3 tests/e2e_browser.py              # Ergebnis in der Konsole
     python3 tests/e2e_browser.py --shots DIR  # zusätzlich Screenshots
 
-Eigenes Chromium:  PYQUEST_CHROMIUM=/pfad/zu/chrome python3 tests/e2e_browser.py
+Eigenes Chromium:  CODALUNA_CHROMIUM=/pfad/zu/chrome python3 tests/e2e_browser.py
 """
 import argparse
 import asyncio
@@ -388,7 +388,7 @@ async def main():
         time.sleep(0.8)
     try:
         async with async_playwright() as p:
-            exe = os.environ.get("PYQUEST_CHROMIUM")
+            exe = os.environ.get("CODALUNA_CHROMIUM")
             browser = await p.chromium.launch(executable_path=exe) if exe else await p.chromium.launch()
             await desktop(browser, base, args.shots)
             await mobile(browser, base, args.shots)

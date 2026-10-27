@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "PyQuest – Python lernen",
-  "short_name": "PyQuest",
+  "name": "Codaluna – Python lernen",
+  "short_name": "Codaluna",
   "description": "Lerne Python Schritt für Schritt: echter Code direkt im Browser, offline nutzbar, ohne Anmeldung.",
   "lang": "de",
   "start_url": "/",

@@ -1,9 +1,9 @@
 {
-  "name": "pyquest",
+  "name": "codaluna",
   "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "PyQuest – mehrsprachige Python-Lernapp für Jugendliche ab 12 (offline-first, Vanilla, kein Build-Step).",
+  "description": "Codaluna – mehrsprachige Python-Lernapp für Jugendliche ab 12 (offline-first, Vanilla, kein Build-Step).",
   "scripts": {
     "start": "python3 serve.py",
     "test": "npm run test:unit && npm run test:content && npm run i18n:check && node tools/sw-version.mjs --check",

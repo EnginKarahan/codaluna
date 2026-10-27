@@ -1,4 +1,4 @@
-# PyQuest – Mehrsprachige Python-Lernapp (offline-first)
+# Codaluna – Mehrsprachige Python-Lernapp (offline-first)
 
 ## Stand 16.10.2026 (Überarbeitung)
 
@@ -127,7 +127,7 @@ Fußball**. Umfang ~28 Lektionen in 4 Kapiteln, je mit Boss + Bonus-Aufgaben.
 
 ## Repo-Struktur (ursprünglich geplant)
 ```
-pyquest/
+codaluna/
   app/                    # Frontend (Vite)
     src/ (UI, Editor, Runner, i18n, SyncProvider-Interface, LocalProvider)
     public/vendor/pyodide/…   # Pyodide lokal (offline)

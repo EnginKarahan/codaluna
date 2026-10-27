@@ -1,4 +1,4 @@
-// PyQuest – Stationskarte: die Bereiche der Station Polaris leuchten auf, je weiter man ist.
+// Codaluna – Stationskarte: die Bereiche der Station Polaris leuchten auf, je weiter man ist.
 // Dazu der Moment „Bereich wieder online“, wenn ein Kapitel geschafft ist.
 // Die Karte ist eine Übersicht, keine Pflicht: Der Lernpfad in der Sidebar bleibt.
 

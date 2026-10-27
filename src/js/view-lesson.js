@@ -1,4 +1,4 @@
-// PyQuest – Lektionsspalte: Erklärung, Aufgabe, gestaffelte Tipps, Bonus-Aufgabe, Navigation.
+// Codaluna – Lektionsspalte: Erklärung, Aufgabe, gestaffelte Tipps, Bonus-Aufgabe, Navigation.
 
 import { t } from "/src/js/i18n.js";
 import { SANDBOX_ID } from "/src/js/course.js";
