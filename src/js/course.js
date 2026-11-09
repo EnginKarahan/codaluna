@@ -132,6 +132,7 @@ export function createCourse(course, overlays) {
     if (id === SANDBOX_ID) return true;
     const e = byId.get(id);
     if (!e) return false;
+    if (progress.isDone(id)) return true; // Geschafftes bleibt offen, auch wenn sich die Reihenfolge ändert
     if (missingRequirement(id, progress)) return false;
     return e.pos === 0 || progress.isDone(strands[e.strand][e.pos - 1].lesson.id);
   }

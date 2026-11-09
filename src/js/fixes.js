@@ -599,6 +599,8 @@ const RUNTIME_RULES = [
     const spot = at >= 0 ? { from: at, to: at + c.name.length } : undefined;
     const def = definedAt(c, c.name);
     if (def > c.line) return { key: "errx.usedBefore", params: [c.name, def], spot };
+    // punkte = punkte + 50 ohne Startwert: der Name bekommt seinen ersten Wert erst in dieser Zeile
+    if (def === c.line) return { key: /^\s/.test(c.text) ? "errx.noStartLoop" : "errx.noStart", params: [c.name, `${c.name} = 0`], spot };
     // Unbekanntes Wort direkt als Wert in print(…) oder input(…): sollte wohl Text sein
     const call = !def && at >= 0 ? c.masked.match(/(?<![\p{L}\p{N}_.])(?:print|input)\s*\(/u) : null;
     const open = call ? call.index + call[0].length - 1 : -1;

@@ -56,6 +56,7 @@ const PATTERNS = [
   [["ModuleNotFoundError"], /^No module named '([\w.]+)'/, "errx.moduleMissing"],
   [["RecursionError"], /maximum recursion depth/, "errx.recursion"],
   [["StationError"], /^unknown color (.+)$/, "errx.stationColor"],
+  [["StationError"], /^([xy]) must be between (\S+) and (\S+) \(got (.+)\)$/, "errx.stationCoord"],
   [["StationError"], /^(\w+) must be between (\S+) and (\S+) \(got (.+)\)$/, "errx.stationRange"],
   [["StationError"], /^(\w+) must be a whole number, not (\w+)/, "errx.stationWhole"],
   [["StationError"], /^(\w+) must be a number, not (\w+)/, "errx.stationNumber"],

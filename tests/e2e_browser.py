@@ -339,6 +339,19 @@ async def missions(browser, base, shots):
     await page.wait_for_selector(".result-card.ok", timeout=15000)
     card = await page.inner_text(".result-card.ok")
     check("Weiter öffnet keine gesperrte Nebenmission", "Lange" not in card and "Beat wiederholen" in card, card[:160])
+    # Gescheiterte Testwelt: Abzählen statt Sensor besteht nur das sichtbare Eisfeld, die andere Welt wird gezeigt
+    await page.evaluate("localStorage.setItem('pyquest.progress.v2', JSON.stringify({v:2, completed:{'s2-l6':'2026-10-16','d-1':'2026-10-16','d-2':'2026-10-16','d-3':'2026-10-16','d-4':'2026-10-16'}, last:'d-5'}))")
+    await page.reload()
+    await page.wait_for_selector("#boot.hide", timeout=20000)
+    await wait_idle(page, 60)
+    await set_code(page, "from drone import *\nschritte = 0\nwhile schritte < 7:\n    move()\n    schritte = schritte + 1\n")
+    await page.click("#run-btn")
+    await page.wait_for_selector(".result-card.hint", timeout=20000)
+    await asyncio.sleep(0.3)
+    worlds = await page.evaluate("document.querySelectorAll('.stage-world:not([hidden])').length")
+    check("Gescheiterte Testwelt erscheint als zweites Eisfeld", worlds == 2, str(worlds))
+    if shots:
+        await page.screenshot(path=os.path.join(shots, "drone-failed-world.png"))
     check("Missionen: keine JavaScript-Fehler", not errors, "; ".join(errors[:3]))
     await ctx.close()
 

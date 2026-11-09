@@ -16,22 +16,22 @@ export default {
     c1: {
       name: "Radio room",
       intro: "The radio room is dark. If the station is going to speak again, it needs commands, and you're the one who writes them.",
-      outro: "The station is talking, calculating and asking questions again. Lumo does a happy lap of the room.",
+      outro: "The station is talking, calculating and asking questions again. Lumo does a happy lap of the room and wants to get out onto the ice: under “Outdoor missions” in the learning path, you can already steer Lumo. Next, the station learns to make its own decisions.",
     },
     c2: {
       name: "Hangar",
       intro: "Doors, rovers and signal lamps are waiting in the hangar. To make their own decisions and repeat things, they need conditions and loops.",
-      outro: "The hangar gate opens, and outside the ice is glittering. From now on Lumo can fly missions outside, too.",
+      outro: "The hangar gate opens, and outside the ice is glittering. With loops and sensors, Lumo can now find paths on its outdoor missions that nobody knew in advance. Next, the station learns to collect things and to understand commands you build yourself.",
     },
     c3: {
       name: "Lab",
       intro: "Supplies, samples and notes are lying all over the lab. Lists, dictionaries and your own commands will bring some order to it.",
-      outro: "Everything is in its place, and the on-board AI recognises you as a crew member.",
+      outro: "Everything is in its place, and the on-board AI recognises you as a crew member. Next, you'll put it all together: a game, a secret code and the first picture for the control room.",
     },
     c4: {
       name: "Control room",
       intro: "All the station's systems come together in the control room. This is where you show what you can do: games, codes, pictures and real measurement data.",
-      outro: "Station Polaris is shining again! From now on you'll build your own modules.",
+      outro: "Station Polaris is shining again! From now on you'll build your own modules. You can keep building in the playground at any time, and with “Share” you can show others what you've built.",
     },
     d1: {
       name: "Ice field",
@@ -50,23 +50,16 @@ export default {
     title: "Hello, world!",
     story: "The station's radio has been silent for years. Send out the very first message, and make sure it sounds like you!",
     intro: `
-<p>A program is a list of <b>commands</b> that the computer works through one after another.
-Your very first command is <code>print()</code> – it writes something to the <b>console</b>
-(the dark area below the editor).</p>
-
-<p><b>Important: text needs quotation marks.</b> Anything Python should print <i>exactly as it is</i>
-goes between quotation marks: <code>"…"</code>. A piece of text like this is called a
-<b>string</b> (as in a string of characters). The quotation marks tell Python:
-“This is text, not a command.”</p>
+<p>A program is a list of <b>commands</b> that the computer carries out one after another.
+Your first command is <code>print()</code>. It writes something to the <b>console</b>, the dark
+area below the editor.</p>
 
 <pre><code>print("Hello, world!")</code></pre>
 
-<p>If you left out the quotation marks (<code>print(Hello)</code>), Python would think
-<code>Hello</code> is a name it ought to know – and report an error. By the way, the
-quotation marks themselves are <b>not</b> printed.</p>
+<p>Python prints everything between the quotation marks <code>"…"</code> exactly as it is. A piece
+of text like this is called a <b>string</b>. The quotation marks themselves don't appear.</p>
 
-<p>Don't worry, you can't break anything here. Change the text and press
-<b>Run</b> (or Ctrl + Enter).</p>`,
+<p>You can't break anything here. Change the text and press <b>Run</b>.</p>`,
     taskHtml:
       "Change the text: print <b>your own message</b> – your motto, a greeting or your favourite saying. Remember the quotation marks!",
     hints: [
@@ -113,7 +106,10 @@ print(favourite_number)</code></pre>
 <p><b>Number or text?</b> You write numbers <i>without</i> quotation marks (<code>7</code>).
 And to print the <i>variable</i>, its name goes into the brackets <b>without</b> quotation marks:
 <code>print(favourite_number)</code> prints <code>7</code>. <code>print("favourite_number")</code>,
-on the other hand, would simply print the word.</p>`,
+on the other hand, would simply print the word.</p>
+
+<p>Lines that start with <code>#</code> are <b>comments</b>: notes for you that Python
+skips. The starter code often contains little hints like this.</p>`,
     taskHtml:
       "Store your <b>favourite number</b> in the variable and print it with <code>print()</code> – using the variable's name without quotation marks!",
     hints: ["First assign it: <code>favourite_number = 42</code>", "Then print it: <code>print(favourite_number)</code>"],
@@ -132,10 +128,22 @@ on the other hand, would simply print the word.</p>`,
     },
     expert: {
       html: `
-<p>A variable can <b>change</b>. <code>points = points + 50</code> takes the old value,
-adds 50 and puts the result back into the same container. Names may contain letters,
-digits and <code>_</code>, but they can't start with a digit.</p>
-<p><b>Bonus:</b> Create <code>points = 100</code>, then increase the value by 50 and print it.</p>`,
+<p>A variable can <b>change</b>. To do that, you calculate with its old value and put the
+result back into the same container:</p>
+
+<pre><code>lives = 3
+lives = lives - 1
+print(lives)</code></pre>
+
+<p>The first line gives <code>lives</code> the starting value 3. The second takes this value,
+subtracts 1 and stores the result in <code>lives</code> again, so 2 is printed. Without the first
+line this doesn't work, because Python can only calculate with a value it already knows.</p>
+
+<p><b>Bonus:</b> Write three new lines below your code. First give <code>points</code> the starting
+value 100, then increase it by 50 and finally print it. The result should be 150.</p>
+
+<p>By the way: names like <code>points</code> may contain letters, digits and <code>_</code>, but
+they can't start with a digit.</p>`,
       solution: py`
         points = 100
         points = points + 50
@@ -143,14 +151,14 @@ digits and <code>_</code>, but they can't start with a digit.</p>
       `,
       feedback: {
         selfUpdate: "Increase the value with <code>points = points + 50</code> (or, for short, <code>points += 50</code>).",
-        result150: "At the end, 150 should be printed.",
+        result150: "At the end, 150 should be printed. Does <code>points</code> get the starting value 100 first?",
       },
     },
   },
 
   "s1-l3": {
     title: "The savings calculator",
-    story: "An old sum from the crew is still stuck in the on-board computer. Show it that the station can calculate again.",
+    story: "An old sum from the crew is still stuck in the on-board computer: how many energy cells are there in the emergency store? Show it that the station can calculate again.",
     intro: `
 <p>Python makes a great calculator. You can do sums with <code>+</code> (plus),
 <code>-</code> (minus), <code>*</code> (times) and <code>/</code> (divided by) – so you use
@@ -159,19 +167,19 @@ digits and <code>_</code>, but they can't start with a digit.</p>
 <p><b>Important:</b> write numbers without quotation marks. Otherwise Python treats them as
 text and doesn't calculate (<code>"5" + "3"</code> would give <code>"53"</code> instead of <code>8</code>!).</p>
 
-<pre><code>per_week = 5
-weeks = 8
-print(per_week * weeks)</code></pre>
+<pre><code>hours = 3
+per_hour = 12
+print(hours * per_hour)</code></pre>
 
-<p>The great thing about variables: if a value changes, the program automatically works it out again.
-Mia puts aside some pocket money every week. Calculate with her variables.</p>`,
+<p>What does the example print? Think about it first, then press <b>Try it</b>. The great thing
+about variables: if a value changes, the program automatically works it out again.</p>`,
     taskHtml:
-      "How much has Mia saved after <b>8 weeks</b> if she puts aside <b>€5</b> a week? Calculate with the two variables and print the result. (To check: it's 40.)",
-    hints: ["You multiply with <code>*</code>.", "<code>print(per_week * weeks)</code>"],
+      "For <b>8 weeks</b>, the crew put <b>5 energy cells</b> into the emergency store every week. How many are there altogether? Calculate with the two variables and print the result. (To check: it's 40.)",
+    hints: ["You multiply with <code>*</code>. Instead of the numbers, you write the names of the variables.", "<code>print(per_week * weeks)</code>"],
     starterCode: py`
       per_week = 5
       weeks = 8
-      # Work out the savings and print them
+      # Work out how many cells are in the store and print it
     `,
     solution: py`
       per_week = 5
@@ -186,18 +194,22 @@ Mia puts aside some pocket money every week. Calculate with her variables.</p>`,
     },
     expert: {
       html: `
-<p>After how many <b>whole</b> weeks will Mia have €100? The operator <code>//</code>
-divides and chops off everything after the decimal point (<code>100 // 5</code> gives 20).</p>
-<p><b>Bonus:</b> Create <code>goal = 100</code> and use <code>//</code> to work out how many weeks
-Mia needs.</p>`,
+<p>The operator <code>//</code> divides and leaves out the remainder: <code>17 // 5</code> gives 3.
+You get the remainder with <code>%</code>: <code>17 % 5</code> gives 2, because 3 times 5 is 15,
+and 2 more are needed to get to 17.</p>
+<p><b>Bonus:</b> There are <code>stock = 102</code> energy cells in the store. They are packed into
+crates of <code>per_crate = 5</code> each. Print how many <b>full</b> crates that makes and how many
+cells are left over.</p>`,
       solution: py`
-        per_week = 5
-        goal = 100
-        print(goal // per_week, "weeks")
+        stock = 102
+        per_crate = 5
+        print(stock // per_crate, "full crates")
+        print(stock % per_crate, "cells left over")
       `,
       feedback: {
-        floorDiv: "Use <code>//</code> to divide without a remainder: <code>goal // per_week</code>.",
-        result20: "The answer should be 20 weeks.",
+        floorDiv: "Use <code>//</code> for the full crates: <code>stock // per_crate</code>.",
+        mod: "You get the remainder with <code>%</code>: <code>stock % per_crate</code>.",
+        result: "The answer should be 20 full crates and 2 cells left over.",
       },
     },
   },
@@ -314,8 +326,9 @@ print(f"Name: {name}")</code></pre>
     taskHtml:
       "Ask for at least <b>three</b> things with <code>input()</code> and print a <b>profile</b> that includes all the answers – using f-strings.",
     hints: [
+      "Run the starter code once and answer the two questions. Then all that's missing is a third question and printing the profile.",
       'Add another <code>input(…)</code> below, for example <code>animal = input("Favourite animal: ")</code>.',
-      'One line for each answer: <code>print(f"Name: {name}")</code>',
+      'One line for each answer: <code>print(f"Name: {name}")</code>, and the same for <code>hobby</code> and your third variable.',
     ],
     starterCode: py`
       name = input("Name: ")
@@ -353,86 +366,22 @@ creates a line of 20 equals signs.</p>
   },
 
   // ================================================================== CHAPTER 2
-  "s2-l1": {
-    title: "If … then …",
-    story: "The hangar door only opens if there are enough energy points. Teach it to say no in a friendly way, too.",
-    intro: `
-<p>Programs have to make <b>decisions</b>. With <code>if</code> you check a condition:
-if it's true, the indented block below it runs. <code>else</code> takes care of the other case.</p>
-
-<pre><code>points = 120
-if points &gt;= 100:
-    print("Level complete!")
-else:
-    print("Almost! Keep going.")</code></pre>
-
-<p><b>Python is strict about two rules:</b> after the condition comes a <b>colon</b>
-<code>:</code>, and the lines that belong to it are <b>indented</b> (4 spaces – the
-Tab key does that for you).</p>
-
-<p>You can compare with <code>==</code> (equal to), <code>!=</code> (not equal to),
-<code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> and <code>&gt;=</code>.
-Careful: <code>==</code> asks “is it equal?”, while <code>=</code> assigns a value.</p>
-
-<p><b>New: entering numbers.</b> <code>input()</code> always gives you text. With <code>int(…)</code>
-you turn it into a whole number that Python can compare and calculate with:</p>
-<pre><code>points = int(input("How many points? "))</code></pre>`,
-    taskHtml:
-      "Add an <code>else</code> block that prints an encouraging message when there are <b>fewer than 100</b> points. Test your program with 120 and with 50.",
-    hints: [
-      "<code>else:</code> starts just as far to the left as the <code>if</code> – and it has a colon.",
-      'Indent the line below it: <code>    print("Almost! Keep practising!")</code>',
-    ],
-    starterCode: py`
-      points = int(input("How many points do you have? "))
-      if points >= 100:
-          print("Level complete! 🎉")
-      # Add the else case here
-    `,
-    solution: py`
-      points = int(input("How many points do you have? "))
-      if points >= 100:
-          print("Level complete! 🎉")
-      else:
-          print("Almost! Keep practising!")
-    `,
-    feedback: {
-      noElseOutput: "With 50 points nothing appears yet. Print a message in the <code>else</code> block.",
-      sameOutput: "With 120 and with 50 points you get the same output. The <code>else</code> block should print a different message.",
-      boundary: "With exactly 100 points the level is complete – leave the condition <code>points &gt;= 100</code> as it is.",
-    },
-    expert: {
-      html: `
-<p>For more than two cases there's <code>elif</code> (short for “else if”). Python checks the
-conditions from top to bottom and takes the first one that's true.</p>
-<p><b>Bonus:</b> Build three levels: from 100 points “Level complete”, from 50 points
-“Almost there”, otherwise “Keep practising”.</p>`,
-      solution: py`
-        points = int(input("How many points do you have? "))
-        if points >= 100:
-            print("Level complete! 🎉")
-        elif points >= 50:
-            print("Almost there!")
-        else:
-            print("Keep practising!")
-      `,
-      feedback: { threeCases: "With 120, 70 and 10 points, something different should appear each time." },
-    },
-  },
-
   "s2-l2": {
     title: "True or false?",
     story: "The sensors in the hangar only report True or False now. Test whether you understand their language.",
     intro: `
-<p>Every comparison has a result: <code>True</code> or <code>False</code>.
-This is called a <b>Boolean</b> value (a <i>truth value</i>). It's exactly what
-<code>if</code> uses to make its decision.</p>
+<p>Programs often have to <b>check</b> something: Is there enough energy? Is the code right? That's
+what <b>comparisons</b> are for. Every comparison has a result: <code>True</code> or <code>False</code>.
+This is called a <b>Boolean</b> value (a <i>truth value</i>).</p>
 
 <pre><code>print(10 &gt; 3)    # True
 print(5 == 6)   # False</code></pre>
 
-<p>Everything after a <code>#</code> is a <b>comment</b> – a note for humans that Python
-skips.</p>`,
+<p>You can compare with <code>==</code> (equal to), <code>!=</code> (not equal to),
+<code>&lt;</code> (less than), <code>&gt;</code> (greater than), <code>&lt;=</code> and <code>&gt;=</code>.
+Careful: <code>==</code> asks “is it equal?”, while a single <code>=</code> assigns a value.</p>
+
+<p>In the next lesson, your program uses comparisons like these to make real decisions.</p>`,
     taskHtml:
       "Print the results of <b>at least three different comparisons</b>. At least one of them should come out as <code>False</code>.",
     hints: [
@@ -470,9 +419,81 @@ is between 10 and 15. Print the result.</p>`,
     },
   },
 
+  "s2-l1": {
+    title: "If … then …",
+    story: "The hangar door only opens if there are enough energy points. Teach it to say no in a friendly way, too.",
+    intro: `
+<p>Programs have to make <b>decisions</b>. With <code>if</code> you check a condition,
+for example a comparison from the last lesson. If it's <code>True</code>, the indented block
+below it runs. <code>else</code> takes care of the other case.</p>
+
+<pre><code>points = 120
+if points &gt;= 100:
+    print("Level complete!")
+else:
+    print("Almost! Keep going.")</code></pre>
+
+<p><b>Python is strict about two rules:</b> after the condition comes a <b>colon</b>
+<code>:</code>, and the lines that belong to it are <b>indented</b> (4 spaces). After the
+colon, the editor indents the next line for you.</p>
+
+<p><b>More than two cases?</b> Then <code>elif</code> (short for “else if”) goes in between. Python
+checks from top to bottom and takes the first case that's true:</p>
+<pre><code>points = 70
+if points &gt;= 100:
+    print("Level complete!")
+elif points &gt;= 50:
+    print("Almost!")
+else:
+    print("Keep practising!")</code></pre>
+
+<p><b>New: entering numbers.</b> <code>input()</code> always gives you text. With <code>int(…)</code>
+you turn it into a whole number that Python can compare and calculate with:</p>
+<pre><code>points = int(input("How many points? "))</code></pre>`,
+    taskHtml:
+      "Add an <code>else</code> block that prints an encouraging message when there are <b>fewer than 100</b> points. Test your program with 120 and with 50.",
+    hints: [
+      "<code>else:</code> starts just as far to the left as the <code>if</code> – and it has a colon.",
+      'Indent the line below it: <code>    print("Almost! Keep practising!")</code>',
+    ],
+    starterCode: py`
+      points = int(input("How many points do you have? "))
+      if points >= 100:
+          print("Level complete! 🎉")
+      # Add the else case here
+    `,
+    solution: py`
+      points = int(input("How many points do you have? "))
+      if points >= 100:
+          print("Level complete! 🎉")
+      else:
+          print("Almost! Keep practising!")
+    `,
+    feedback: {
+      noElseOutput: "With 50 points nothing appears yet. Print a message in the <code>else</code> block.",
+      sameOutput: "With 120 and with 50 points you get the same output. The <code>else</code> block should print a different message.",
+      boundary: "With exactly 100 points the level is complete – leave the condition <code>points &gt;= 100</code> as it is.",
+    },
+    expert: {
+      html: `
+<p><b>Bonus:</b> Use <code>elif</code> to build three levels: from 100 points “Level complete”,
+from 50 points “Almost there”, otherwise “Keep practising”.</p>`,
+      solution: py`
+        points = int(input("How many points do you have? "))
+        if points >= 100:
+            print("Level complete! 🎉")
+        elif points >= 50:
+            print("Almost there!")
+        else:
+            print("Keep practising!")
+      `,
+      feedback: { threeCases: "With 120, 70 and 10 points, something different should appear each time." },
+    },
+  },
+
   "s2-l3": {
     title: "Leave it to chance",
-    story: "The crew's rover game is missing its dice. Lumo would love one that's truly random.",
+    story: "The crew's rover game is missing its dice. I'd love one that's truly random.",
     intro: `
 <p>Chance makes games exciting. Python comes with ready-made tools in <b>modules</b> – you
 bring them in with <code>import</code>. The <code>random</code> module can roll dice.</p>
@@ -505,8 +526,9 @@ With a comma you can mix text and numbers in <code>print</code>.</p>`,
     },
     expert: {
       html: `
-<p>With <code>random.choice([...])</code> you pick something at random <b>from a list</b> –
-perfect for a prize wheel.</p>
+<p>A <b>list</b> collects several values between square brackets, separated by commas:
+<code>prizes = ["Ice cream", "Wild card", "Extra round", "Break"]</code>. You'll learn more about
+lists in Chapter 3. <code>random.choice(prizes)</code> draws a random item from it.</p>
 <p><b>Bonus:</b> Build a prize wheel with at least <b>four</b> prizes of your own.</p>`,
       solution: py`
         import random
@@ -545,10 +567,8 @@ for i in range(4):
     drum("snare")
 note("C5", 2)</code></pre>
 
-<p>Drums: <code>"kick"</code>, <code>"snare"</code>, <code>"hihat"</code>, <code>"clap"</code>,
-<code>"tom"</code>. Notes: <code>"C4"</code>, <code>"D4"</code>, <code>"E4"</code> … or
-<code>"do4"</code>, <code>"re4"</code>, <code>"mi4"</code> … The number after the comma is how long
-the sound lasts, in beats (no number means one beat).</p>`,
+<p>You'll find the available sounds in the starter code. With <code>note</code>, the number after
+the comma is how long the sound lasts, in beats.</p>`,
     taskHtml:
       "Build a <b>beat</b> with a <b><code>for</code> loop</b> that repeats <b>at least three times</b> – so you can hear it with <code>drum()</code> or <code>note()</code>, or as text with <code>print()</code>. The command appears only once in your code – the loop repeats it.",
     hints: [
@@ -558,6 +578,8 @@ the sound lasts, in beats (no number means one beat).</p>`,
     starterCode: py`
       from station import drum, note
 
+      # Drums: "kick", "snare", "hihat", "clap", "tom"
+      # Notes: "C4", "D4", "E4" … or "do4", "re4", "mi4" …
       # Build your beat with a for loop
       drum("kick")
     `,
@@ -625,17 +647,27 @@ then 2, then 3 – and that's exactly how many characters end up in the line.</p
     },
     expert: {
       html: `
-<p>With spaces at the start of a line you can push a pattern to the right – that's how you make a
-<b>pyramid</b>. Tip: <code>" " * (5 - i)</code> for the gap and <code>"*" * (2 * i - 1)</code>
-for the stars.</p>
-<p><b>Bonus:</b> Draw a pyramid with at least four lines that gets wider towards the bottom.</p>`,
+<p>The real signal lamps are on the <b>station's screen</b>: 16 by 16 lamps.
+<code>pixel(x, y, colour)</code> switches one of them on. <code>x</code> counts from the left (0 to 15),
+<code>y</code> from the top (0 to 15).</p>
+
+<pre><code>from station import pixel
+
+for i in range(4):
+    pixel(i, 0, "yellow")</code></pre>
+
+<p>Here the counter <code>i</code> moves from lamp to lamp.</p>
+<p><b>Bonus:</b> Use a loop to light up a row of at least <b>8 signal lamps</b>.
+If you like, build a staircase: <code>pixel(i, i, "yellow")</code>.</p>`,
       solution: py`
-        for i in range(1, 6):
-            print(" " * (5 - i) + "*" * (2 * i - 1))
+        from station import pixel
+
+        for i in range(16):
+            pixel(i, 8, "yellow")
       `,
       feedback: {
-        indent: 'Each line should start with fewer spaces than the one before: <code>" " * (5 - i)</code>.',
-        wider: "There should be more stars on each line than on the one before.",
+        pixelInLoop: "Call <code>pixel(…)</code> indented inside the loop and use the counter <code>i</code> as a coordinate.",
+        eight: "At least 8 lamps should light up. Let the loop run more often, for example <code>range(8)</code>.",
       },
     },
   },
@@ -656,12 +688,16 @@ print("Go!")</code></pre>
 <p><b>Really important:</b> something inside the loop has to change so that the condition
 eventually becomes <code>False</code> – here <code>number</code> gets smaller. If that doesn't happen,
 the loop runs <i>forever</i>. Don't panic: Codaluna notices and stops your program (or you
-can press <b>Stop</b>).</p>`,
+can press <b>Stop</b>).</p>
+
+<p>By the way: <code>number = number - 1</code> can also be written for short as
+<code>number -= 1</code>, and the same goes for <code>number += 1</code>. Both are correct.</p>`,
     taskHtml:
       "Run a <b>countdown from 10 to 1</b> with a <code>while</code> loop and then print <code>Lift-off! 🚀</code>.",
     hints: [
-      "<code>while number &gt; 0:</code> – and below it, indented, <code>print(number)</code>.",
-      "Make the number smaller inside the loop: <code>number = number - 1</code>. Otherwise it runs forever!",
+      "A <code>while</code> loop runs as long as its condition is true. Which condition fits “the number is still greater than 0”?",
+      "Two things happen inside the loop: print the number, then make the number 1 smaller. After the loop, not indented, comes “Lift-off!”.",
+      '<code>while number &gt; 0:</code>, below it, indented, <code>print(number)</code> and <code>number = number - 1</code>, and right at the bottom, without indentation, <code>print("Lift-off! 🚀")</code>.',
     ],
     starterCode: py`
       number = 10
@@ -709,17 +745,23 @@ and print it.</p>`,
 <code>random</code>, <code>while</code>, <code>int(input())</code> and <code>if</code>/<code>elif</code>.</p>
 
 <p>The loop <code>while guess != secret:</code> keeps running as long as the guess is <b>not</b> right.
-The most important part is still missing inside it: the hints.</p>`,
+The most important part is still missing inside it: the hints.</p>
+
+<p>A quick reminder: <code>elif</code> means “else if”. Python only checks it if the condition
+before it was false. Here you need two comparisons: if the guess is bigger than the secret number,
+“too high” appears; if it's smaller, “too low” appears. If it's equal, no hint appears. Both
+comparisons go <b>inside</b> the loop, and you indent their <code>print</code> lines one more level.</p>`,
     taskHtml:
       "Complete the game: inside the loop, it should print <b>“too high”</b> or <b>“too low”</b>, depending on the guess. When the guess is right, no hint appears. Then try it out yourself!",
     hints: [
-      "<code>if guess &gt; secret:</code> → too high.",
-      "<code>elif guess &lt; secret:</code> → too low. Both go inside the loop, indented, below the <code>input</code> line.",
+      "A guess can be too high, too low or exactly right. You only need a hint for the first two cases. Why would <code>else</code> be wrong for the second hint?",
+      "Below the <code>input</code> line, indented inside the loop: first <code>if</code> for “too high”, then <code>elif</code> for “too low”.",
+      '<code>if guess &gt; secret:</code> with <code>print("too high")</code> below it, then <code>elif guess &lt; secret:</code> with <code>print("too low")</code>. The two <code>print</code> lines are indented one more level.',
     ],
     starterCode: py`
       import random
       secret = random.randint(1, 20)
-      guess = 0
+      guess = 0   # 0 is never the secret number, so the loop gets started
 
       while guess != secret:
           guess = int(input("Your number (1-20): "))
@@ -884,7 +926,7 @@ turns the order around.</p>
 
   "s3-l3": {
     title: "For every item …",
-    story: "Lumo has to check every item on the list, one after the other. A loop gets that done in seconds.",
+    story: "I have to check every item on the list, one after the other. With a loop, that only takes seconds.",
     intro: `
 <p>With <code>for … in my_list</code> you go through <b>every item</b> one after another – without
 having to count any positions:</p>
@@ -896,7 +938,7 @@ for song in songs:
 <p>On each pass, <code>song</code> is the next item. You can choose that name freely –
 <code>for x in songs</code> would work just as well, but a name that says what it means is easier to read.</p>`,
     taskHtml:
-      "Use a <code>for</code> loop to go through the list and print <b>each item on a line of its own</b> – with some text in front if you like, for example “Now playing: …”.",
+      "Use a <code>for</code> loop to go through the list and print <b>each item on a line of its own</b> – with some text in front if you like, for example “Now playing: …”. Once it works: add a fourth song to the list. Does the loop have to change for that? Try it out.",
     hints: ["<code>for song in songs:</code>", "Indented below it: <code>print(song)</code>"],
     starterCode: py`
       songs = ["Intro", "Beat 1", "Finale"]
@@ -933,25 +975,36 @@ for song in songs:
 
   "s3-l4": {
     title: "Building your own commands",
-    story: "Lumo is tired of explaining everything ten times. Build your own command that greets visitors.",
+    story: "Visitors come into the station every day, and I greet each of them one by one. Build me a command that does it for me.",
     intro: `
 <p>A <b>function</b> is your own command that you build once and can call as often as you like.
 You define it with <code>def</code>; the brackets contain the <b>parameters</b> – values
 the function receives when it's called.</p>
 
-<pre><code>def greet(name):
-    print(f"Hello {name}! 👋")
+<pre><code>def cheer(word):
+    print(f"{word}! {word}! {word}!")
 
-greet("Deniz")
-greet("Fatima")</code></pre>
+cheer("Hooray")
+cheer("Python")</code></pre>
 
 <p>The indented block is the “blueprint”. It only runs when you <b>call</b> the function – with
-the value you pass in. That saves you from repeating yourself.</p>`,
-    taskHtml: "Call the function <code>greet</code> with <b>two different names</b>.",
-    hints: ['Calling it: <code>greet("Mia")</code>', "Two calls, one below the other, not indented, with different names."],
+the value you pass in. That saves you from repeating yourself.</p>
+
+<p>The blueprint is already in the starter code, but it's still empty. <code>pass</code> is a
+placeholder and means “nothing happens here yet”. Replace it with your own code.</p>
+
+<p>With commands of your own, I can even turn right out on the ice. Try it in the outdoor
+mission “Right turn”.</p>`,
+    taskHtml:
+      "Complete the function <code>greet(name)</code>: it should print a greeting that includes the name. Then call it with <b>two different names</b>.",
+    hints: [
+      "Replace <code>pass</code> with an indented <code>print(…)</code> that includes <code>name</code>, for example using an f-string.",
+      'Inside the function: <code>    print(f"Hello {name}! 👋")</code>. Below it, not indented, two calls: <code>greet("Mia")</code> and one with a different name.',
+    ],
     starterCode: py`
       def greet(name):
-          print(f"Hello {name}! 👋")
+          # Print a greeting with the name here
+          pass
 
       # Call the function with two different names
     `,
@@ -964,6 +1017,8 @@ the value you pass in. That saves you from repeating yourself.</p>`,
     `,
     feedback: {
       twoCalls: 'Call the function twice, each time on a line of its own: <code>greet("Mia")</code>.',
+      useName:
+        'Your function should print the name it receives. Replace <code>pass</code> with a <code>print</code> that uses <code>name</code>, for example <code>print(f"Hello {name}!")</code>.',
       differentNames: "Use two <b>different</b> names.",
     },
     expert: {
@@ -1001,7 +1056,12 @@ result = double(5)
 print(result)   # 10</code></pre>
 
 <p>After <code>return</code>, the function is finished and hands the value back to the place
-where it was called. You can store that value, print it or keep using it.</p>`,
+where it was called. You can store that value, print it or keep using it.</p>
+
+<p>A function can also receive <b>several values</b>. The parameters then go into the brackets,
+separated by commas: <code>def average(a, b, c):</code>. When you call
+<code>average(2, 4, 6)</code>, <code>a</code> gets the first value, <code>b</code> the
+second and <code>c</code> the third.</p>`,
     taskHtml:
       "Complete <code>average</code> so that the function returns the <b>mean</b> of the three numbers. For 2, 4 and 6 the answer is <b>4.0</b> – and it should be right for any other numbers too.",
     hints: [
@@ -1057,7 +1117,7 @@ print(hero["level"])   # 3</code></pre>
 <p>Unlike with lists (where you use the <b>position</b>), here you use the <b>key</b>:
 <code>hero["name"]</code>. Great for bundling information that belongs together.</p>`,
     taskHtml:
-      "Extend the dictionary to at least <b>three</b> pairs (for example with a weapon, a pet or a colour) and print <b>two values</b> using their keys.",
+      "Extend the dictionary to at least <b>three</b> pairs (for example with a tool, a pet or a colour) and print <b>two values</b> using their keys.",
     hints: [
       'One more pair: <code>hero = {"name": "Ada", "level": 3, "colour": "Purple"}</code>',
       'Access via the key: <code>print(hero["colour"])</code>',
@@ -1097,93 +1157,106 @@ print(hero["level"])   # 3</code></pre>
     title: "Your mini quiz",
     story: "The on-board AI only lets crew members into the lab if they pass its quiz. Turn the tables and build a quiz of your own!",
     intro: `
-<p>Build a little <b>quiz</b> on a topic of your choice (animals, music, sport, space …).
-It asks questions with <code>input()</code>, checks the answers with <code>if</code> and keeps
-count of the points in a variable.</p>
+<p>Build a <b>quiz</b> on a topic of your choice (animals, music, sport, space …). This time
+you need everything from this chapter: the questions are written on <b>cards</b> in a list, and
+each card is a dictionary with a question and an answer. A loop asks each question, and your own
+function checks the answer.</p>
 
-<pre><code>points = 0
-answer = input("Question? ")
-if answer == "right":
-    points = points + 1</code></pre>
+<pre><code>def is_big(number):
+    if number &gt; 100:
+        return 1
+    else:
+        return 0
 
-<p>Tip: with <code>answer.lower()</code> you compare without worrying about capital and
-small letters – so “Rome” counts just the same as “rome”.</p>`,
+print(is_big(250))   # 1
+print(is_big(7))     # 0</code></pre>
+
+<p>The loop in the starter code is already finished. It asks each question and adds up what
+<code>check</code> gives back: 1 for right, 0 for wrong. <code>len(cards)</code> counts the
+cards in the list.</p>`,
     taskHtml:
-      "Add <b>at least two more questions</b> to the quiz (so three in total). Count correct answers as points and print the score at the end.",
+      "Complete the function <code>check(answer, correct)</code>: it should return <b>1</b> if the answer is right, and <b>0</b> otherwise. Also add <b>at least two cards of your own</b> to the list, so that your quiz has three questions.",
     hints: [
-      "For each question: one <code>input(…)</code> and one <code>if</code>/<code>else</code>.",
-      "For a correct answer: <code>points = points + 1</code>. The score goes right at the end.",
+      "Start with the function. It receives the answer and the correct solution. When is the answer right?",
+      'In <code>check</code>: <code>if answer == correct:</code> with <code>return 1</code>, otherwise <code>return 0</code>. A new card looks like this: <code>{"question": "Biggest planet? ", "answer": "jupiter"},</code>',
+      "<code>def check(answer, correct):</code>, below it, indented, <code>if answer == correct:</code> with <code>return 1</code> and <code>else:</code> with <code>return 0</code>. The cards go between the square brackets, each with a comma after it.",
     ],
     starterCode: py`
+      def check(answer, correct):
+          # Return 1 if the answer is right, otherwise 0
+          return 0
+
+      cards = [
+          {"question": "How many legs does a spider have? ", "answer": "8"},
+          # Add at least two cards of your own here
+      ]
+
       points = 0
+      for card in cards:
+          answer = input(card["question"])
+          points = points + check(answer, card["answer"])
 
-      answer = input("How many legs does a spider have? ")
-      if answer == "8":
-          points = points + 1
-          print("Correct! 🕷️")
-      else:
-          print("So close – it's 8.")
-
-      # Add at least two more questions here
-
-      print("Points:", points)
+      print("Points:", points, "out of", len(cards))
     `,
     solution: py`
+      def check(answer, correct):
+          if answer == correct:
+              print("Correct!")
+              return 1
+          else:
+              print("Sorry, wrong. The right answer is:", correct)
+              return 0
+
+      cards = [
+          {"question": "How many legs does a spider have? ", "answer": "8"},
+          {"question": "What is the capital of Italy? ", "answer": "rome"},
+          {"question": "Which planet is the biggest? ", "answer": "jupiter"},
+      ]
+
       points = 0
+      for card in cards:
+          answer = input(card["question"])
+          points = points + check(answer, card["answer"])
 
-      answer = input("How many legs does a spider have? ")
-      if answer == "8":
-          points = points + 1
-          print("Correct! 🕷️")
-      else:
-          print("So close – it's 8.")
-
-      answer = input("What is the capital of Italy? ")
-      if answer.lower() == "rome":
-          points = points + 1
-          print("Correct! 🇮🇹")
-      else:
-          print("It was Rome.")
-
-      answer = input("Which planet is the biggest? ")
-      if answer.lower() == "jupiter":
-          points = points + 1
-          print("Correct! 🪐")
-      else:
-          print("It's Jupiter.")
-
-      print("Points:", points)
+      print("Points:", points, "out of", len(cards))
     `,
     feedback: {
-      ifPerQuestion: "Check each answer with its own <code>if</code>.",
-      countPoints: "Increase the points for every correct answer: <code>points = points + 1</code>.",
+      threeCards: 'Add at least two cards of your own to the list <code>cards</code>, each with <code>"question"</code> and <code>"answer"</code>.',
+      returnOne: "For a correct answer, <code>check</code> should return 1. Compare <code>answer</code> with <code>correct</code> and write <code>return 1</code>.",
+      returnZero: "For a wrong answer, <code>check</code> should return 0: <code>else:</code> with <code>return 0</code>.",
       scoreAtEnd: 'Print the score right at the end, for example <code>print("Points:", points)</code>.',
     },
     expert: {
       html: `
-<p>Pro version: store the questions as a <b>list of dictionaries</b>
-(<code>{"question": …, "answer": …}</code>) and go through them with <b>one</b> loop. That way
-you only write the code for a question once – no matter how many questions there are.</p>
-<p><b>Bonus:</b> Rebuild your quiz like this (with at least two questions in the list).</p>`,
+<p><code>answer.lower()</code> turns all the letters into small letters. Then “Rome” counts just
+the same as “rome” or “ROME”.</p>
+<p><b>Bonus:</b> Make sure that <code>check</code> ignores the difference between capital and small
+letters: <code>check("ROME", "rome")</code> should give 1.</p>`,
       solution: py`
-        questions = [
-            {"question": "How many legs does a spider have? ", "answer": "8"},
-            {"question": "What is the capital of Italy? ", "answer": "rome"},
-            {"question": "Which planet is the biggest? ", "answer": "jupiter"},
-        ]
-        points = 0
-        for q in questions:
-            answer = input(q["question"])
-            if answer.lower() == q["answer"]:
-                points = points + 1
+        def check(answer, correct):
+            if answer.lower() == correct.lower():
                 print("Correct!")
+                return 1
             else:
-                print("Sorry, wrong – the right answer is:", q["answer"])
-        print("Points:", points, "out of", len(questions))
+                print("Sorry, wrong. The right answer is:", correct)
+                return 0
+
+        cards = [
+            {"question": "How many legs does a spider have? ", "answer": "8"},
+            {"question": "What is the capital of Italy? ", "answer": "Rome"},
+            {"question": "Which planet is the biggest? ", "answer": "Jupiter"},
+        ]
+
+        points = 0
+        for card in cards:
+            answer = input(card["question"])
+            points = points + check(answer, card["answer"])
+
+        print("Points:", points, "out of", len(cards))
       `,
       feedback: {
-        listOfDicts: 'Create a list with at least two dictionaries: <code>[{"question": …, "answer": …}, …]</code>.',
-        inputInLoop: 'Ask the questions <b>inside</b> the loop: <code>answer = input(q["question"])</code>.',
+        useLower: "Turn the answer into small letters before comparing: <code>answer.lower()</code>.",
+        ignoreCase: '<code>check("ROME", "rome")</code> doesn\'t give 1 yet. Are you comparing <code>answer.lower()</code> with <code>correct</code>?',
       },
     },
   },
@@ -1281,7 +1354,11 @@ To decrypt it, you simply shift in the other direction:</p>
 <pre><code>secret = ""
 for letter in "HELLO":
     secret = secret + chr(ord(letter) + 1)
-print(secret)   # IFMMP</code></pre>`,
+print(secret)   # IFMMP</code></pre>
+
+<p>A <code>for</code> loop can also go through a piece of text: <code>letter</code> is then the next
+letter on each pass. <code>secret</code> starts as an empty text <code>""</code> and grows letter
+by letter.</p>`,
     taskHtml:
       "Decrypt the secret message: use <code>ord()</code> and <code>chr()</code> to shift every letter <b>back by 1</b>. What comes out?",
     hints: [
@@ -1310,8 +1387,16 @@ print(secret)   # IFMMP</code></pre>`,
     expert: {
       html: `
 <p>Real Caesar ciphers usually shift by 3. But what happens with <code>"Z"</code> + 3? To carry on
-from A again after Z, you use the remainder of a division: <code>% 26</code>. The formula for
-capital letters is <code>chr((ord(c) - 65 + shift) % 26 + 65)</code>.</p>
+from A again after Z, the <b>remainder</b> of a division with <code>%</code> helps:
+<code>27 % 26</code> gives 1, <code>28 % 26</code> gives 2.</p>
+<p>The trick in three steps: turn the letter into a number from 0 to 25
+(<code>ord(c) - 65</code>), shift it and keep it inside the alphabet with <code>% 26</code>, then turn
+it back into a letter (<code>+ 65</code>, then <code>chr</code>). Try it with a single letter
+first:</p>
+<pre><code>c = "Z"
+number = ord(c) - 65         # 25
+new = (number + 3) % 26      # 2
+print(chr(new + 65))         # C</code></pre>
 <p><b>Bonus:</b> Write a function <code>caesar(text, shift)</code> that shifts capital letters
 (even past Z) and leaves everything else, such as spaces, unchanged. With a negative shift, it
 decrypts the text again.</p>`,
@@ -1347,7 +1432,7 @@ decrypts the text again.</p>`,
 <code>pixel(x, y, colour)</code> you switch one of them on. <code>x</code> counts from left
 (0) to right (15), <code>y</code> from top (0) to bottom (15).</p>
 
-<pre><code>from station import pixel
+<pre><code>from station import pixel, fill
 
 for x in range(16):
     pixel(x, 12, "teal")   # a line right across the screen
@@ -1357,8 +1442,7 @@ pixel(7, 4, "gold")</code></pre>
 <code>"gold"</code> …) or as a colour code like <code>"#ff8800"</code>. <code>"black"</code>
 switches a pixel off again, and <code>fill(colour)</code> colours in the whole screen.</p>
 
-<p>With loops you can paint lines and areas in a single line of code – and a loop inside a
-loop can even fill a whole rectangle.</p>`,
+<p>With a loop you can paint a whole line. The bonus challenge shows you how to fill areas.</p>`,
     taskHtml:
       "Paint a <b>picture on the station screen</b>: at least <b>12 pixels</b> in at least <b>two colours</b>, and use at least <b>one loop</b> to do it. A tree, a rocket, a face, your favourite logo …",
     hints: [
@@ -1366,7 +1450,7 @@ loop can even fill a whole rectangle.</p>`,
       "For the second colour, just put a few more pixels on top in a different colour.",
     ],
     starterCode: py`
-      from station import pixel
+      from station import pixel, fill
 
       # Paint your picture: pixel(x, y, "colour")  (x and y from 0 to 15)
       pixel(7, 7, "gold")
@@ -1392,8 +1476,13 @@ loop can even fill a whole rectangle.</p>`,
     },
     expert: {
       html: `
-<p>Pixel artists often draw their pictures as a <b>list of text lines</b>: each character is one
-pixel, and a dictionary tells you which colour belongs to which character.</p>
+<p>A loop <b>inside</b> a loop fills an area: for each row <code>y</code>, the inner loop goes
+through all the columns <code>x</code>.</p>
+<pre><code>for y in range(2, 5):
+    for x in range(3, 9):
+        pixel(x, y, "blue")   # a rectangle of 3 by 6 pixels</code></pre>
+<p>Pixel artists also like to draw their pictures as a <b>list of text lines</b>: each character is
+one pixel, and a dictionary tells you which colour belongs to which character.</p>
 <pre><code>picture = [
     ".RR.RR.",
     "RRRRRRR",
@@ -1403,8 +1492,7 @@ pixel, and a dictionary tells you which colour belongs to which character.</p>
 ]
 colours = {"R": "red"}</code></pre>
 <p><b>Bonus:</b> Paint a picture made of at least <b>20 pixels</b> using two <b>nested</b>
-loops: the outer one goes through the rows (<code>y</code>), the inner one through the characters
-in a row (<code>x</code>).</p>`,
+loops, for example a rectangle, a pattern or a picture from a list of text lines.</p>`,
       solution: py`
         from station import pixel
 
@@ -1430,41 +1518,41 @@ in a row (<code>x</code>).</p>`,
 
   "s4-l4": {
     title: "Analysing real data",
-    story: "The weather station outside has been measuring temperatures for a week. Analyse the data.",
+    story: "The sensors in the station's greenhouse have measured the temperature for six days. Analyse the data.",
     intro: `
 <p>Programming helps you make sense of real data. For lists of numbers there are ready-made
 tools: <code>max()</code> (largest value), <code>min()</code> (smallest),
 <code>sum()</code> (total) and <code>len()</code> (how many).</p>
 
-<pre><code>temps = [21, 25, 19, 28, 23]
-print("Coldest day:", min(temps))</code></pre>
+<pre><code>temps = [21, 25, 19, 28, 23, 24]
+print("Lowest temperature:", min(temps))</code></pre>
 
 <p>You get the <b>average</b> with “total divided by how many” – so by using
 <code>sum</code> and <code>len</code> together.</p>`,
     taskHtml:
-      "Use <code>max()</code> to find the <b>warmest day</b> and work out the <b>average</b> temperature with <code>sum()</code> and <code>len()</code>. Print both.",
+      "Use <code>max()</code> to find the <b>highest temperature</b> and work out the <b>average</b> temperature with <code>sum()</code> and <code>len()</code>. Print both.",
     hints: ["<code>max(temps)</code> gives you the largest value.", "Average: <code>sum(temps) / len(temps)</code>"],
     starterCode: py`
-      temps = [21, 25, 19, 28, 23]
-      # Print the warmest day and the average
+      temps = [21, 25, 19, 28, 23, 24]
+      # Print the highest temperature and the average
     `,
     solution: py`
-      temps = [21, 25, 19, 28, 23]
-      print("Warmest day:", max(temps))
+      temps = [21, 25, 19, 28, 23, 24]
+      print("Highest temperature:", max(temps))
       print("Average:", sum(temps) / len(temps))
     `,
     feedback: {
-      useMax: "Use <code>max(temps)</code> for the warmest day.",
+      useMax: "Use <code>max(temps)</code> for the highest temperature.",
       useSumLen: "Work out the average with <code>sum(temps) / len(temps)</code>.",
-      max28: "The warmest day was 28 degrees – print it.",
-      average: "The average should be 23.2. Are you dividing the total by the number of values?",
+      max28: "The highest temperature was 28 degrees – print it.",
+      average: "The average should be about 23.33. Are you dividing the total by the number of values?",
     },
     expert: {
       html: `
 <p><b>Bonus:</b> Round the average to one decimal place with <code>round(value, 1)</code>
 and use a loop to find out on how many days it was <b>warmer than 22 degrees</b>.</p>`,
       solution: py`
-        temps = [21, 25, 19, 28, 23]
+        temps = [21, 25, 19, 28, 23, 24]
         print("Average:", round(sum(temps) / len(temps), 1))
         warm = 0
         for temp in temps:
@@ -1475,7 +1563,7 @@ and use a loop to find out on how many days it was <b>warmer than 22 degrees</b>
       feedback: {
         useRound: "Round with <code>round(…, 1)</code>.",
         countLoop: "Use a <code>for</code> loop and an <code>if</code> to count how many values are above 22.",
-        count3: "There were 3 days above 22 degrees (25, 28 and 23).",
+        count4: "There were 4 days above 22 degrees (25, 28, 23 and 24).",
       },
     },
   },
@@ -1499,7 +1587,7 @@ or text and a number mixed with <code>+</code> (<code>str(…)</code> fixes that
     ],
     starterCode: py`
       name = "Emma"
-      age = 11
+      age = 13
       print("Hello " + name)
       print("Next year you'll be " + (age + 1) + " years old")
       for i in range(3)
@@ -1507,7 +1595,7 @@ or text and a number mixed with <code>+</code> (<code>str(…)</code> fixes that
     `,
     solution: py`
       name = "Emma"
-      age = 11
+      age = 13
       print("Hello " + name)
       print("Next year you'll be " + str(age + 1) + " years old")
       for i in range(3):
@@ -1516,7 +1604,7 @@ or text and a number mixed with <code>+</code> (<code>str(…)</code> fixes that
     feedback: {
       keepLoop: "Keep the loop and fix it.",
       allLines: "All the lines should be printed – don't delete any commands, fix them instead.",
-      age: "The output should say how old Emma will be next year (12). Use <code>str(age + 1)</code>.",
+      age: "The output should say how old Emma will be next year (14). Use <code>str(age + 1)</code>.",
       threeHurra: "“Hooray!” should appear three times: the <code>print</code> line belongs inside the loop, indented.",
     },
     expert: {
@@ -1551,12 +1639,16 @@ useful tool. Use what you've learned: <code>input()</code>, <code>if</code>,
 loops, lists, dictionaries, your own functions, <code>random</code> …</p>
 
 <p>It doesn't have to be perfect – what matters is that it's yours. Start small, test often and then
-build it up bit by bit. When you're done, your diploma is waiting for you. 🚀</p>`,
+build it up bit by bit. No idea yet? There are two building plans in the hints.</p>
+
+<p>With <b>Share</b> above the editor, you get a link to your program that you can send to
+others. Show it to someone! And when you're done, your diploma is waiting for you. 🚀</p>`,
     taskHtml:
-      "Write your own program that uses at least <b>three building blocks</b> from the course (<code>input()</code>, <code>if</code>, a loop, a list or a dictionary, your own function, <code>random</code>) and runs without errors. Be creative – this is your masterpiece!",
+      "Build your own program that uses at least <b>three building blocks</b> from the course (<code>input()</code>, <code>if</code>, a loop, a list or a dictionary, your own function, <code>random</code>, the station's screen or speaker) and runs without errors. Think first: what should the first small version be able to do? Build it and then expand it.",
     hints: [
-      "Start small: print something first, then add to it step by step.",
-      "Ideas: a dice game with points, a vocabulary quiz from a list, a pocket-money planner with a function.",
+      "Pick <b>one</b> idea from the comments in the starter code. First write just one line that prints something, and run it. Then add one building block after another.",
+      "Building plan for a dice game: 1. <code>import random</code> and a list of names · 2. a <code>for</code> loop over the names · 3. inside the loop, roll the dice for each person and print the result · 4. use <code>if</code> to celebrate a six.",
+      "Building plan for a quiz: 1. a list of question cards like in the mini quiz · 2. a loop over the cards · 3. <code>input()</code> inside the loop · 4. use <code>if</code> to count points and print them at the end.",
     ],
     starterCode: py`
       # 🌟 Your project. A few ideas:
@@ -1564,6 +1656,8 @@ build it up bit by bit. When you're done, your diploma is waiting for you. 🚀<
       #  - a quiz about your favourite topic
       #  - a dice game or a maths trainer
       #  - a useful tool (converter, idea generator)
+      #  - a picture or a melody with the station
+      # You'll find two building plans in the hints.
 
       print("My project is starting …")
     `,
@@ -1586,14 +1680,13 @@ build it up bit by bit. When you're done, your diploma is waiting for you. 🚀<
     feedback: {
       blocks:
         "So far your program only uses {n} of the building blocks. Add a few more – for example a loop, a list or your own function.",
-      tooShort: "Your project can be a bit bigger – at least 6 lines of code.",
     },
   },
 
   // ================================================================== OUTDOOR MISSIONS
   "d-1": {
     title: "First trip outside",
-    story: "Outside the station, the ice is glittering. Lumo can fly out, but only with your commands. Get Lumo to the charging station!",
+    story: "Outside the station, the ice is glittering. I'm allowed to fly out, but only with your commands. Get me to the charging station!",
     intro: `
 <p>Here you steer Lumo directly with Python. You get the flight commands with
 <code>from drone import *</code>. The asterisk means “all commands”.</p>
@@ -1607,7 +1700,11 @@ move()</code></pre>
 The goal is the <b>charging station</b> ⚡. If Lumo flies into a wall, it's no big deal. You get
 a glitch and simply try again.</p>`,
     taskHtml: "Get Lumo to the <b>charging station</b> ⚡. Count the squares!",
-    hints: ["Every square needs its own <code>move()</code>.", "It's five squares, so five <code>move()</code> commands, one below the other."],
+    hints: [
+      "Count the ice squares between Lumo and the charging station.",
+      "Every square needs its own <code>move()</code>.",
+      "It's five squares, so five <code>move()</code> commands, one below the other.",
+    ],
     starterCode: py`
       from drone import *
 
@@ -1626,7 +1723,7 @@ a glitch and simply try again.</p>`,
 
   "d-2": {
     title: "Round the corner",
-    story: "The charging station is hidden behind a wall of ice. Lumo has to turn, and luckily a drone can turn on the spot.",
+    story: "The charging station is hidden behind a wall of ice. I have to turn, and luckily I can turn on the spot.",
     intro: `
 <p><code>turn_left()</code> turns Lumo to the left on the spot, a quarter turn. There's no command
 for right. Can you still get to the right somehow? You'll find out later.</p>
@@ -1634,10 +1731,13 @@ for right. Can you still get to the right somehow? You'll find out later.</p>
 <pre><code>from drone import *
 
 move()
-turn_left()
-move()</code></pre>`,
+turn_left()</code></pre>
+
+<p>Try it out: Lumo flies one square and then faces up. To get to the charging station, you have
+to combine flying and turning in the right way.</p>`,
     taskHtml: "Fly Lumo round the corner to the charging station ⚡.",
     hints: [
+      "Where does Lumo have to turn? Count the squares up to the corner and from the corner to the charging station.",
       "First fly straight ahead until you're right in front of the wall, then <code>turn_left()</code>, then carry on with <code>move()</code>.",
       "Four times <code>move()</code>, once <code>turn_left()</code>, twice <code>move()</code>.",
     ],
@@ -1677,7 +1777,7 @@ move()</code></pre>`,
 
   "d-3": {
     title: "Collecting crystals",
-    story: "There are energy crystals lying on the ice. Every single one helps the station, so Lumo should pick them up on the way.",
+    story: "There are energy crystals lying on the ice. Every single one helps the station, so help me pick them up on the way.",
     intro: `
 <p>Ice crystals store energy. <code>collect()</code> picks up the crystal on the square
 Lumo is standing on right now. If there isn't one there, Lumo reports a glitch.</p>
@@ -1689,6 +1789,7 @@ move()
 collect()</code></pre>`,
     taskHtml: "Collect <b>both crystals</b> and then fly to the charging station ⚡.",
     hints: [
+      "Lumo can only collect the crystal it's standing on right now.",
       "Fly onto the square with the crystal and call <code>collect()</code> there.",
       "The first crystal is two squares in front of Lumo, the second one is two squares further on, and the charging station is another two squares after that.",
     ],
@@ -1714,7 +1815,7 @@ collect()</code></pre>`,
 
   "d-4": {
     title: "Long corridors",
-    story: "A narrow ice channel leads to the outer charging station. It's long, and Lumo doesn't like long lists of commands.",
+    story: "A narrow ice channel leads to the outer charging station. It's long, and I don't like long lists of commands.",
     intro: `
 <p>13 squares, 13 lines of <code>move()</code>? With a <code>for</code> loop you can do it in
 two lines:</p>
@@ -1726,7 +1827,11 @@ for i in range(4):
 
 <p>Lumo repeats everything that's indented under the <code>for</code> line.</p>`,
     taskHtml: "The corridor is <b>13 squares</b> long. Get Lumo to the charging station ⚡ with a <b><code>for</code> loop</b>.",
-    hints: ["<code>for i in range(…):</code> with <code>move()</code> indented underneath.", "<code>range(13)</code> repeats 13 times."],
+    hints: [
+      "Which command repeats? You only write it once, indented inside the loop.",
+      "<code>for i in range(…):</code> with <code>move()</code> indented underneath.",
+      "<code>range(13)</code> repeats 13 times.",
+    ],
     starterCode: py`
       from drone import *
 
@@ -1740,19 +1845,23 @@ for i in range(4):
           move()
     `,
     expert: {
-      html: "<p><b>Bonus for pros:</b> Do it in <b>3 lines</b> of code at most. The import line counts, but comments and blank lines don't.</p>",
+      html: "<p><b>Bonus:</b> Have Lumo radio the number of the square at every step: 1, 2, 3 … up to 13, each number on its own line. Tip: <code>i</code> starts counting at 0.</p>",
       solution: py`
         from drone import *
+
         for i in range(13):
             move()
+            print("Square", i + 1)
       `,
-      feedback: { short: "That's still too many lines. Let the loop do all the work." },
+      feedback: {
+        count13: "Inside the loop, print the number of the square at every step, from 1 to 13. Because <code>i</code> starts at 0: <code>print(i + 1)</code>.",
+      },
     },
   },
 
   "d-5": {
     title: "Unknown distance",
-    story: "The snowstorm keeps shifting the ice plates around. Nobody knows how far away the charging station is today, so Lumo has to work it out for itself.",
+    story: "The snowstorm keeps shifting the ice plates around. Nobody knows how far away the charging station is today, so I have to work it out for myself on the way.",
     intro: `
 <p>Lumo has <b>sensors</b>. They answer questions with <code>True</code> or <code>False</code>.
 <code>at_goal()</code> is <code>True</code> when Lumo is standing on the charging station:</p>
@@ -1765,8 +1874,12 @@ print(at_goal())   # False, Lumo is still at the start</code></pre>
 <code>not</code> swaps <code>True</code> and <code>False</code> round: <code>not at_goal()</code>
 means “not at the goal yet”.</p>`,
     taskHtml:
-      "The distance is <b>different</b> on every mission. Get Lumo to the charging station ⚡ with a <b><code>while</code> loop</b> and <code>at_goal()</code>, however far away it is.",
-    hints: ["<code>while not at_goal():</code> means “as long as Lumo isn't at the goal yet”.", "Indented underneath, all you need is <code>move()</code>."],
+      "Here you can see one possible route. Your program will also be tested on <b>shorter and longer</b> routes that you can't see. Get Lumo to the charging station ⚡ with a <b><code>while</code> loop</b> and <code>at_goal()</code>, without counting the squares.",
+    hints: [
+      "Lumo should keep flying until it reaches the goal. Which sensor tells you whether Lumo is there yet?",
+      "<code>while not at_goal():</code> means “as long as Lumo isn't at the goal yet”.",
+      "Indented underneath, all you need is <code>move()</code>.",
+    ],
     starterCode: py`
       from drone import *
 
@@ -1787,16 +1900,16 @@ means “not at the goal yet”.</p>`,
         squares = 0
         while not at_goal():
             move()
-            squares += 1
+            squares = squares + 1
         print("Squares flown:", squares)
       `,
-      feedback: { count: "At the end, print how many squares Lumo has flown. Count along in the loop with <code>squares += 1</code>." },
+      feedback: { count: "At the end, print how many squares Lumo has flown. Count along in the loop with <code>squares = squares + 1</code>." },
     },
   },
 
   "d-6": {
     title: "Crystal trail",
-    story: "After the storm, crystals are scattered along the route, and they're somewhere different on every mission. Lumo mustn't miss a single one.",
+    story: "After the storm, crystals are scattered along the route, and they're somewhere different every time. I don't want to miss a single one.",
     intro: `
 <p>With <code>if</code>, Lumo makes decisions on the way. <code>on_crystal()</code> is
 <code>True</code> when there's a crystal underneath Lumo:</p>
@@ -1808,8 +1921,10 @@ if on_crystal():
 print("Crystal under me?", on_crystal())</code></pre>
 
 <p>If you put the decision <b>inside</b> a loop, Lumo checks every square it passes.</p>`,
-    taskHtml: "There are crystals along the route, in different places on every mission. Collect <b>all</b> of them and fly to the charging station ⚡.",
+    taskHtml:
+      "Collect <b>all</b> the crystals and fly to the charging station ⚡. In the test, the crystals are in other places as well, so your program should check every square.",
     hints: [
+      "On every square, Lumo asks itself: is there a crystal here? If so, collect it. Then move on.",
       "In the <code>while</code> loop, first check whether there's a crystal, then move on one square.",
       "<code>while not at_goal():</code>, underneath it <code>if on_crystal():</code> with <code>collect()</code>, and after that <code>move()</code>.",
     ],
@@ -1836,7 +1951,7 @@ print("Crystal under me?", on_crystal())</code></pre>
         while not at_goal():
             if on_crystal():
                 collect()
-                crystals += 1
+                crystals = crystals + 1
             move()
         print("Crystals:", crystals)
       `,
@@ -1844,9 +1959,46 @@ print("Crystal under me?", on_crystal())</code></pre>
     },
   },
 
+  "d-8": {
+    title: "Spiral",
+    story: "A passage winds like a spiral into the heart of an old ice cave. Every cave is different, so I have to decide for myself when to turn.",
+    intro: `
+<p><code>front_clear()</code> is <code>True</code> when the way ahead of Lumo is clear. With <code>if</code> and
+<code>else</code>, Lumo makes a fresh decision at every step:</p>
+
+<pre><code>from drone import *
+
+if front_clear():
+    move()
+else:
+    turn_left()</code></pre>`,
+    taskHtml:
+      "The passage winds inwards like a spiral. Let Lumo find its own way to the charging station ⚡ with <code>while</code>, <code>if</code> and <code>else</code>. Your program will also be tested in a different spiral that you can't see.",
+    hints: [
+      "At every step, Lumo only has to answer one question: is the way ahead clear?",
+      "As long as Lumo isn't at the goal, it flies on if the way ahead is clear, and otherwise it turns left.",
+      "<code>while not at_goal():</code>, inside it <code>if front_clear():</code> with <code>move()</code> and <code>else:</code> with <code>turn_left()</code>.",
+    ],
+    starterCode: py`
+      from drone import *
+
+      # Lumo should decide for itself: fly on or turn?
+      move()
+    `,
+    solution: py`
+      from drone import *
+
+      while not at_goal():
+          if front_clear():
+              move()
+          else:
+              turn_left()
+    `,
+  },
+
   "d-7": {
     title: "Right turn",
-    story: "A staircase of ice blocks leads up to the right. But Lumo can only turn left … or can it?",
+    story: "A staircase of ice blocks leads up to the right. But I can only turn left … or can I?",
     intro: `
 <p>Three lefts make a right! Instead of writing three lines every time, you build
 your <b>own command</b>:</p>
@@ -1860,19 +2012,22 @@ def turn_right():
 
 turn_right()</code></pre>
 
-<p>From now on, Python knows <code>turn_right()</code> just as well as the built-in commands.</p>`,
+<p>From now on, Python knows <code>turn_right()</code> just as well as the built-in commands. In the
+starter code, the command still contains the placeholder <code>pass</code>. Replace it with your
+three turning commands.</p>`,
     taskHtml:
       "Build the command <code>turn_right()</code> with <code>def</code> and fly Lumo up the ice staircase to the charging station ⚡. It's easiest one step at a time with a loop.",
     hints: [
-      "One step is <code>move()</code>, <code>turn_left()</code>, <code>move()</code>, <code>turn_right()</code>.",
-      "There are four steps, and after them one more <code>move()</code>. Use <code>for i in range(4):</code>",
+      "Look at the staircase: what does a single step look like, and how many times does it appear?",
+      "One step is <code>move()</code>, <code>turn_left()</code>, <code>move()</code>, <code>turn_right()</code>. There are four steps, and after them one more square is missing.",
+      "<code>for i in range(4):</code> and below it, indented, the four commands for one step. After the loop, not indented, one more <code>move()</code>.",
     ],
     starterCode: py`
       from drone import *
 
       def turn_right():
           # three lefts make a right
-          pass
+          pass   # placeholder: replace this line with your commands
 
       move()
     `,
@@ -1916,45 +2071,71 @@ turn_right()</code></pre>
     },
   },
 
-  "d-8": {
-    title: "Spiral",
-    story: "A passage winds like a spiral into the heart of an old ice cave. Every cave is different, so Lumo has to decide for itself when to turn.",
+  "d-10": {
+    title: "Flight plan",
+    story: "The control room is radioing me a flight plan as a list. I'm supposed to fly it exactly as it is, step by step.",
     intro: `
-<p><code>front_clear()</code> is <code>True</code> when the way ahead of Lumo is clear. With <code>if</code> and
-<code>else</code>, Lumo makes a fresh decision at every step:</p>
+<p>A flight plan is a <b>list</b> of commands written as text. A <code>for</code> loop goes through
+it item by item, and with <code>if</code> and <code>elif</code> Lumo decides what to do for each
+item:</p>
 
 <pre><code>from drone import *
 
-if front_clear():
-    move()
-else:
-    turn_left()</code></pre>`,
+plan = ["forward", "left", "forward"]
+for step in plan:
+    if step == "forward":
+        move()
+    elif step == "left":
+        turn_left()</code></pre>
+
+<p>That way the control room can send Lumo along any route without anyone changing the program.
+Only the plan is new each time.</p>`,
     taskHtml:
-      "The passage winds inwards like a spiral, and every spiral is different. Let Lumo find its own way to the charging station ⚡ with <code>while</code>, <code>if</code> and <code>else</code>.",
+      'Have Lumo fly the flight plan from the starter code. It also contains <code>"right"</code>, and <code>turn_right()</code> is already there for that. Go through the plan with a <code>for</code> loop and get Lumo to the charging station ⚡.',
     hints: [
-      "As long as Lumo isn't at the goal, it flies on if the way ahead is clear, and otherwise it turns left.",
-      "<code>while not at_goal():</code>, inside it <code>if front_clear():</code> with <code>move()</code> and <code>else:</code> with <code>turn_left()</code>.",
+      "For every item in the plan, Lumo asks: is it “forward”, “left” or “right”? Each word has its own command.",
+      '<code>for step in plan:</code>, inside it <code>if step == "forward":</code> with <code>move()</code>, then two <code>elif</code> for “left” and “right”.',
+      'After <code>elif step == "left":</code> comes <code>turn_left()</code>, after <code>elif step == "right":</code> comes <code>turn_right()</code>, each indented one more level.',
     ],
     starterCode: py`
       from drone import *
 
-      # Lumo should decide for itself: fly on or turn?
-      move()
+      def turn_right():
+          turn_left()
+          turn_left()
+          turn_left()
+
+      plan = ["forward", "forward", "right", "forward", "forward", "left", "forward", "forward"]
+
+      # Go through the plan with a for loop
     `,
     solution: py`
       from drone import *
 
-      while not at_goal():
-          if front_clear():
+      def turn_right():
+          turn_left()
+          turn_left()
+          turn_left()
+
+      plan = ["forward", "forward", "right", "forward", "forward", "left", "forward", "forward"]
+
+      for step in plan:
+          if step == "forward":
               move()
-          else:
+          elif step == "left":
               turn_left()
+          elif step == "right":
+              turn_right()
     `,
+    feedback: {
+      loopOverPlan: "Let the loop run directly over the plan: <code>for step in plan:</code>",
+      allCommands: "Inside the loop, Lumo should understand all three commands: <code>move()</code>, <code>turn_left()</code> and <code>turn_right()</code>.",
+    },
   },
 
   "d-9": {
     title: "Maze rescue",
-    story: "A snowstorm has blown Lumo into an ice maze, and no two mazes look the same. Only a clever program can bring Lumo home.",
+    story: "A snowstorm has blown me into an ice maze, and no two mazes look the same. Only a clever program can bring me home.",
     intro: `
 <p>An old trick for mazes: <b>always keep your right hand on the wall.</b> If you do that,
 you're sure to find the exit in mazes like these. For Lumo, that means at every step:</p>
@@ -1963,10 +2144,15 @@ you're sure to find the exit in mazes like these. For Lumo, that means at every 
 <li>then turn left as long as there's a wall in front,</li>
 <li>then fly one square.</li>
 </ul>
-<p>A loop <b>inside</b> a loop, and Lumo has a plan.</p>`,
-    taskHtml: "Write a program that gets Lumo from <b>any</b> maze to the charging station ⚡. It will be tested with mazes you can't see.",
+<p>For this you need a loop <b>inside</b> a loop. The <b>outer loop</b> takes care of the whole
+route: it runs until Lumo reaches the goal. The <b>inner loop</b> only takes care of the next
+direction: it turns Lumo left as long as there's a wall in front. Then the inner loop ends, Lumo
+flies one square, and the next step begins.</p>`,
+    taskHtml:
+      "Use the right-hand rule to get Lumo through the maze to the charging station ⚡. Your program will also be tested in other mazes of this kind that you can't see.",
     hints: [
-      "You need <code>turn_right()</code> from “Right turn”. The starter code already has it.",
+      "Play through one step in your head: Lumo turns right. If there's a wall there, it turns left until the way ahead is clear. Then it flies one square. <code>turn_right()</code> from “Right turn” is already in the starter code.",
+      "Two loops: the outer one runs with <code>while not at_goal():</code>. Inside it comes <code>turn_right()</code> first, then the inner loop, which turns with <code>turn_left()</code> as long as the way ahead isn't clear, and after that exactly one <code>move()</code>.",
       "On the outside <code>while not at_goal():</code>, inside it <code>turn_right()</code>, then <code>while not front_clear():</code> with <code>turn_left()</code>, then <code>move()</code>.",
     ],
     starterCode: py`
@@ -2011,8 +2197,8 @@ broken one. This is how the pros do it:</p>
     taskHtml:
       "Repair the program. It should ask for a name and then print <b>two lines</b>, a greeting with the name and “Welcome aboard!”.",
     hints: [
-      "Python cares about upper and lower case: <code>name</code> and <code>Name</code> are two different names.",
-      "In the last line, a quotation mark is missing before the bracket.",
+      "Python reports the last line first: a quotation mark is missing there before the bracket.",
+      "After that: Python cares about upper and lower case. <code>name</code> and <code>Name</code> are two different names.",
     ],
     starterCode: py`
       name = input("What's your name? ")
@@ -2086,9 +2272,12 @@ the loop so that the condition becomes <code>False</code> at some point.</p>`,
     title: "Wonky list",
     story: "The storeroom list in the lab breaks off every time before it's finished. Somewhere the program is miscounting.",
     intro: `
+<p>You can also go through a list using its <b>positions</b>. <code>len(supplies)</code> counts
+the items, and here there are four. So the positions are 0, 1, 2 and 3, and <code>range(4)</code>
+gives you exactly these four numbers. <code>supplies[i]</code> then gets the item at position
+<code>i</code>.</p>
 <p>There are two glitches hiding in this program. The first one stops it from even starting. The second
-only shows up while it's running, and it has to do with the <b>positions</b> in a list. The first
-position is 0, and the last one is <code>len(list) - 1</code>.</p>`,
+only shows up while it's running, and it has to do with exactly these positions.</p>`,
     taskHtml: "Repair the storeroom list. Every supply should appear on its own line, with the total number at the end.",
     hints: ["Count the brackets in the last line.", "<code>range(len(supplies))</code> counts exactly the positions in the list, without <code>+ 1</code>."],
     starterCode: py`
@@ -2138,6 +2327,66 @@ again by the program. Without <code>return</code>, a function gives back <code>N
     feedback: {
       double: "The function should give back double the number, so for 7 that's 14.",
       fifty: "At the end, “Total energy: 50” should appear.",
+    },
+  },
+
+  "g-6": {
+    title: "Wrong key",
+    story: "A crew member's ID card can't be read any more. Something goes wrong when it's looked up.",
+    intro: `
+<p>A <code>KeyError</code> means that this key doesn't exist in the dictionary. Often it's just a
+typo, or a capital letter where a small one belongs. Compare the key in the square brackets letter
+by letter with the ones in the dictionary.</p>`,
+    taskHtml: "Repair the ID card. It should print the name, role and age, each on its own line.",
+    hints: [
+      "Python reports the last line first: a bracket is missing there.",
+      'After that: in the dictionary, the key is called <code>"role"</code>, in small letters.',
+    ],
+    starterCode: py`
+      id_card = {"name": "Yara", "role": "Pilot", "age": 14}
+      print("Name:", id_card["name"])
+      print("Role:", id_card["Role"])
+      print("Age:", id_card["age"]
+    `,
+    solution: py`
+      id_card = {"name": "Yara", "role": "Pilot", "age": 14}
+      print("Name:", id_card["name"])
+      print("Role:", id_card["role"])
+      print("Age:", id_card["age"])
+    `,
+    feedback: { card: "The card should show exactly three lines: the name, role and age from the dictionary." },
+  },
+
+  "g-7": {
+    title: "Pixels in the void",
+    story: "The screen in the control room is supposed to show a line of light and a status dot. Instead, the program crashes.",
+    intro: `
+<p>The screen has 16 by 16 pixels. Because counting starts at 0, the coordinates go from 0 to 15.
+If you try to switch on a lamp at 16, you're reaching into nothing, and Python reports a glitch.
+The error card tells you which value was too big.</p>`,
+    taskHtml:
+      "Repair the program. A blue line should go across the <b>whole</b> screen (row 8), and a red dot should light up in the <b>top right corner</b>.",
+    hints: [
+      "<code>range(17)</code> counts from 0 to 16. Which number is one too many?",
+      "The far right is <code>x = 15</code>, not 16.",
+    ],
+    starterCode: py`
+      from station import pixel
+
+      for x in range(17):
+          pixel(x, 8, "blue")
+      pixel(16, 0, "red")
+    `,
+    solution: py`
+      from station import pixel
+
+      for x in range(16):
+          pixel(x, 8, "blue")
+      pixel(15, 0, "red")
+    `,
+    feedback: {
+      line: "The line in row 8 should cover all 16 pixels, from x = 0 to x = 15, in one colour.",
+      corner: "In the top right corner, so at <code>pixel(15, 0, …)</code>, a dot in a different colour should light up.",
     },
   },
 };

@@ -23,10 +23,13 @@ Doppelklick (`file://`) funktioniert **nicht**.
   Mission mit kurzem Aufhänger, Kapitel sind Bereiche der Station, die auf der **Stationskarte**
   wieder online gehen. Hintergrund und Begründung: [`docs/spielend-lernen.md`](docs/spielend-lernen.md).
 - **Kurs „Season 1: Python-Starter“**: 4 Kapitel, 26 Lektionen (mit Kapitel-Bossen und Finale),
-  jede mit Erklärung, Aufgabe, gestaffelten Tipps, Musterlösung und **Bonus-Aufgabe**.
-- **Nebenmissionen**: 9 **Außeneinsätze**, in denen der Code Lumo über ein Eisfeld steuert
-  (`from drone import *`, Schleifen, Sensoren, Labyrinth-Boss mit versteckten Testwelten), und
-  5 Rätsel der **Glitch-Jagd** (kaputte Programme reparieren). Sie öffnen sich mit dem Hauptkurs.
+  jede mit Erklärung, Aufgabe, gestaffelten Tipps, Musterlösung und **Bonus-Aufgabe**
+  (gekennzeichnet als „Weiterbauen“ oder „Neues Werkzeug“).
+- **Nebenmissionen**: 10 **Außeneinsätze**, in denen der Code Lumo über ein Eisfeld steuert
+  (`from drone import *`, Schleifen, Sensoren, Flugplan aus einer Liste, Labyrinth-Boss mit
+  versteckten Testwelten; scheitert eine versteckte Welt, zeigt die Konsole Lumos Flug darin), und
+  7 Rätsel der **Glitch-Jagd** (kaputte Programme reparieren). Sie öffnen sich mit dem Hauptkurs,
+  die ersten drei Außeneinsätze schon ab dem ersten Tag.
 - **Code bewirkt etwas Sichtbares**: Modul `station` mit 16×16-Pixelbildschirm (`pixel`, `fill`)
   und Lautsprecher (`note`, `drum`); „▶ Ausprobieren“ an jedem Codebeispiel.
 - **Automatische Prüfung mit konkreter Rückmeldung** („Es fehlt noch der andere Fall mit

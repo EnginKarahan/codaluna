@@ -352,6 +352,7 @@
   grid-template-rows: 50px minmax(120px, 1fr) minmax(150px, 1fr);
   min-height: 0;
   background: var(--bg-deep);
+  container-type: inline-size;  /* Werkzeugleiste richtet sich nach der Spaltenbreite, nicht nach dem Fenster */
 }
 .toolbar {
   display: flex; align-items: center; gap: 4px;
@@ -359,6 +360,18 @@
   border-bottom: 1px solid var(--chrome-line);
   background: var(--chrome);
   min-width: 0;
+  overflow-x: auto; scrollbar-width: none;  /* Notnagel für Browser ohne Container-Abfragen */
+}
+/* Schmale Editorspalte (iPad quer, Laptops bis 1280 px): Nebenknöpfe nur als Symbol */
+@container (max-width: 620px) {
+  .toolbar #stop-btn .btxt, .toolbar #share-btn .btxt, .toolbar #reset-btn .btxt { display: none; }
+  .toolbar #stop-btn, .toolbar #share-btn, .toolbar #reset-btn { padding-left: .7em; padding-right: .7em; }
+}
+@container (max-width: 440px) {
+  .toolbar .btxt { display: none; }
+  .toolbar .btn { padding-left: .7em; padding-right: .7em; }
+  #run-btn { min-width: 0; }
+  #run-btn .btxt { display: inline; }  /* "Ausführen" bleibt lesbar */
 }
 .toolbar .spacer { flex: 1; }
 .toolbar .btn-ghost { color: var(--chrome-muted); }

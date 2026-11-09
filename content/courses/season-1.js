@@ -21,7 +21,7 @@
 // Breite Themen (Spiele, Musik, Kunst, Geschichten, Alltag, Daten) und gemischte
 // Namen, damit sich alle angesprochen fühlen. Ton: ermutigend, Fehler sind normal.
 
-import { need, rules as R, numbers, hasNumber, width, leadingSpaces, py } from "../lib/check-kit.js";
+import { need, rules as R, numbers, hasNumber, width, py } from "../lib/check-kit.js";
 import missions from "./season-1-missions.js";
 
 // ---- kleine Helfer für die Prüfungen ----
@@ -69,30 +69,23 @@ const course = {
       title: "Erste Befehle",
       region: { icon: "antenna", name: "Funkraum", pos: [88, 150],
         intro: "Der Funkraum ist dunkel. Wenn die Station wieder sprechen soll, braucht sie Befehle – und die schreibst du.",
-        outro: "Die Station spricht, rechnet und fragt wieder zurück. Lumo dreht vor Freude eine Runde." },
+        outro: "Die Station spricht, rechnet und fragt wieder zurück. Lumo dreht vor Freude eine Runde und will hinaus aufs Eis: Unter „Außeneinsätze“ im Lernpfad kannst du Lumo schon steuern. Als Nächstes lernt die Station, selbst zu entscheiden." },
       lessons: [
         {
           id: "s1-l1",
           title: "Hallo, Welt!",
           story: "Das Funkgerät der Station schweigt seit Jahren. Schick die allererste Nachricht hinaus – Hauptsache, sie klingt nach dir!",
           intro: `
-<p>Ein Programm ist eine Liste von <b>Befehlen</b>, die der Computer der Reihe nach abarbeitet.
-Dein allererster Befehl ist <code>print()</code> – er schreibt etwas in die <b>Konsole</b>
-(das dunkle Feld unter dem Editor).</p>
-
-<p><b>Wichtig: Text braucht Anführungszeichen.</b> Alles, was Python <i>wörtlich</i> ausgeben soll,
-schreibst du zwischen Anführungszeichen: <code>"…"</code>. So einen Text nennt man einen
-<b>String</b> (englisch für „Zeichenkette“). Die Anführungszeichen sagen Python:
-„Das hier ist Text, kein Befehl.“</p>
+<p>Ein Programm ist eine Liste von <b>Befehlen</b>, die der Computer der Reihe nach ausführt.
+Dein erster Befehl ist <code>print()</code>. Er schreibt etwas in die <b>Konsole</b>, das dunkle
+Feld unter dem Editor.</p>
 
 <pre><code>print("Hallo Welt!")</code></pre>
 
-<p>Ließe man die Anführungszeichen weg (<code>print(Hallo)</code>), würde Python glauben,
-<code>Hallo</code> sei ein Name, den es kennen müsste – und einen Fehler melden. Die
-Anführungszeichen selbst werden übrigens <b>nicht</b> mit ausgegeben.</p>
+<p>Alles zwischen den Anführungszeichen <code>"…"</code> gibt Python wörtlich aus. So einen Text
+nennt man <b>String</b>. Die Anführungszeichen selbst erscheinen nicht.</p>
 
-<p>Keine Sorge, hier kann nichts kaputtgehen. Ändere den Text und drück
-<b>Ausführen</b> (oder Strg + Enter).</p>`,
+<p>Hier kann nichts kaputtgehen. Ändere den Text und drück <b>Ausführen</b>.</p>`,
           taskHtml:
             "Ändere den Text: Gib eine <b>eigene Nachricht</b> aus – dein Motto, einen Gruß oder deinen Lieblingsspruch. Denk an die Anführungszeichen!",
           hints: [
@@ -108,6 +101,7 @@ Anführungszeichen selbst werden übrigens <b>nicht</b> mit ausgegeben.</p>
           xp: 20,
           check: (r) => need(R.print(r), R.changed(r), R.output(r)),
           expert: {
+            tool: true,
             xp: 10,
             html: `
 <p>Du kannst <b>mehrere Dinge</b> mit Komma ausgeben – Python setzt automatisch ein Leerzeichen
@@ -148,7 +142,10 @@ bedeutet hier „bekommt den Wert“ – nicht „ist gleich“ wie in Mathe.</p
 <p><b>Zahl oder Text?</b> Zahlen schreibst du <i>ohne</i> Anführungszeichen (<code>7</code>).
 Und um die <i>Variable</i> auszugeben, kommt ihr Name <b>ohne</b> Anführungszeichen in die
 Klammern: <code>print(lieblingszahl)</code> gibt <code>7</code> aus. <code>print("lieblingszahl")</code>
-würde dagegen einfach das Wort ausgeben.</p>`,
+würde dagegen einfach das Wort ausgeben.</p>
+
+<p>Zeilen, die mit <code>#</code> beginnen, sind <b>Kommentare</b>: Notizen für dich, die Python
+überspringt. Im Start-Code stehen dort oft kleine Hinweise.</p>`,
           taskHtml:
             "Speichere deine <b>Lieblingszahl</b> in der Variablen und gib sie mit <code>print()</code> aus – den Namen der Variablen ohne Anführungszeichen!",
           hints: [
@@ -174,10 +171,22 @@ würde dagegen einfach das Wort ausgeben.</p>`,
           expert: {
             xp: 10,
             html: `
-<p>Eine Variable kann sich <b>ändern</b>. <code>punkte = punkte + 50</code> nimmt den alten Wert,
-rechnet 50 dazu und legt das Ergebnis zurück in denselben Behälter. Namen dürfen Buchstaben,
-Ziffern und <code>_</code> enthalten, aber nicht mit einer Ziffer beginnen.</p>
-<p><b>Bonus:</b> Leg <code>punkte = 100</code> an, erhöhe den Wert danach um 50 und gib ihn aus.</p>`,
+<p>Eine Variable kann sich <b>ändern</b>. Dafür rechnest du mit ihrem alten Wert und legst das
+Ergebnis zurück in denselben Behälter:</p>
+
+<pre><code>leben = 3
+leben = leben - 1
+print(leben)</code></pre>
+
+<p>Die erste Zeile gibt <code>leben</code> den Startwert 3. Die zweite nimmt diesen Wert, zieht 1 ab
+und speichert das Ergebnis wieder in <code>leben</code>, ausgegeben wird also 2. Ohne die erste Zeile
+klappt das nicht, weil Python nur mit einem Wert rechnen kann, den es schon kennt.</p>
+
+<p><b>Bonus:</b> Schreib unter deinen Code drei neue Zeilen. Gib <code>punkte</code> zuerst den
+Startwert 100, erhöhe ihn dann um 50 und gib ihn zum Schluss aus. Herauskommen soll 150.</p>
+
+<p>Übrigens: Namen wie <code>punkte</code> dürfen Buchstaben, Ziffern und <code>_</code> enthalten,
+aber nicht mit einer Ziffer beginnen.</p>`,
             solution: py`
               punkte = 100
               punkte = punkte + 50
@@ -186,14 +195,14 @@ Ziffern und <code>_</code> enthalten, aber nicht mit einer Ziffer beginnen.</p>
             check: (r) => need([r.ast.selfUpdates > 0, "selfUpdate"], [r.num(150), "result150"]),
             feedback: {
               selfUpdate: "Erhöhe den Wert mit <code>punkte = punkte + 50</code> (oder kurz <code>punkte += 50</code>).",
-              result150: "Am Ende sollte 150 ausgegeben werden.",
+              result150: "Am Ende sollte 150 ausgegeben werden. Bekommt <code>punkte</code> vorher den Startwert 100?",
             },
           },
         },
         {
           id: "s1-l3",
           title: "Der Spar-Rechner",
-          story: "Im Bordcomputer klemmt noch eine alte Rechenaufgabe der Crew. Zeig ihm, dass die Station wieder rechnen kann.",
+          story: "Im Bordcomputer klemmt noch eine alte Rechenaufgabe der Crew: Wie viele Energiezellen liegen im Notfalllager? Zeig ihm, dass die Station wieder rechnen kann.",
           intro: `
 <p>Python ist ein prima Taschenrechner. Rechnen geht mit <code>+</code> (plus),
 <code>-</code> (minus), <code>*</code> (mal) und <code>/</code> (geteilt) – man nimmt also
@@ -202,19 +211,19 @@ Ziffern und <code>_</code> enthalten, aber nicht mit einer Ziffer beginnen.</p>
 <p><b>Wichtig:</b> Zahlen schreibst du ohne Anführungszeichen. Sonst behandelt Python sie als
 Text und rechnet nicht (<code>"5" + "3"</code> ergäbe <code>"53"</code> statt <code>8</code>!).</p>
 
-<pre><code>pro_woche = 5
-wochen = 8
-print(pro_woche * wochen)</code></pre>
+<pre><code>stunden = 3
+pro_stunde = 12
+print(stunden * pro_stunde)</code></pre>
 
-<p>Das Schöne an Variablen: Ändert sich ein Wert, rechnet das Programm automatisch neu.
-Mia legt jede Woche etwas Taschengeld zurück. Rechne mit ihren Variablen.</p>`,
+<p>Was gibt das Beispiel aus? Überleg zuerst und drück dann auf <b>Ausprobieren</b>. Das Schöne
+an Variablen: Ändert sich ein Wert, rechnet das Programm automatisch neu.</p>`,
           taskHtml:
-            "Wie viel hat Mia nach <b>8 Wochen</b> gespart, wenn sie <b>5&nbsp;€</b> pro Woche zurücklegt? Rechne mit den beiden Variablen und gib das Ergebnis aus. (Zur Kontrolle: Es sind 40.)",
-          hints: ["Malnehmen geht mit <code>*</code>.", "<code>print(pro_woche * wochen)</code>"],
+            "Die Crew hat <b>8 Wochen</b> lang jede Woche <b>5 Energiezellen</b> ins Notfalllager gelegt. Wie viele sind es zusammen? Rechne mit den beiden Variablen und gib das Ergebnis aus. (Zur Kontrolle: Es sind 40.)",
+          hints: ["Malnehmen geht mit <code>*</code>. Statt der Zahlen schreibst du die Namen der Variablen.", "<code>print(pro_woche * wochen)</code>"],
           starterCode: py`
             pro_woche = 5
             wochen = 8
-            # Berechne die Ersparnis und gib sie aus
+            # Berechne, wie viele Zellen im Lager liegen, und gib es aus
           `,
           solution: py`
             pro_woche = 5
@@ -236,21 +245,26 @@ Mia legt jede Woche etwas Taschengeld zurück. Rechne mit ihren Variablen.</p>`,
             result40: "Das Ergebnis sollte 40 sein. Prüf deine Rechnung.",
           },
           expert: {
+            tool: true,
             xp: 10,
             html: `
-<p>Nach wie vielen <b>ganzen</b> Wochen sind 100&nbsp;€ zusammen? Der Operator <code>//</code>
-teilt und schneidet die Nachkommastellen ab (<code>100 // 5</code> ergibt 20).</p>
-<p><b>Bonus:</b> Leg <code>ziel = 100</code> an und berechne mit <code>//</code>, wie viele Wochen
-Mia braucht.</p>`,
+<p>Der Operator <code>//</code> teilt und lässt den Rest weg: <code>17 // 5</code> ergibt 3.
+Den Rest bekommst du mit <code>%</code>: <code>17 % 5</code> ergibt 2, denn 3 mal 5 ist 15, und bis
+17 fehlen noch 2.</p>
+<p><b>Bonus:</b> Im Lager liegen <code>vorrat = 102</code> Energiezellen. Sie kommen in Kisten zu je
+<code>pro_kiste = 5</code> Stück. Gib aus, wie viele <b>volle</b> Kisten es werden und wie viele
+Zellen übrig bleiben.</p>`,
             solution: py`
-              pro_woche = 5
-              ziel = 100
-              print(ziel // pro_woche, "Wochen")
+              vorrat = 102
+              pro_kiste = 5
+              print(vorrat // pro_kiste, "volle Kisten")
+              print(vorrat % pro_kiste, "Zellen bleiben übrig")
             `,
-            check: (r) => need([r.node("FloorDiv") > 0, "floorDiv"], [r.num(20), "result20"]),
+            check: (r) => need([r.node("FloorDiv") > 0, "floorDiv"], [r.node("Mod") > 0, "mod"], [r.num(20) && r.num(2), "result"]),
             feedback: {
-              floorDiv: "Nutze <code>//</code> zum Teilen ohne Rest: <code>ziel // pro_woche</code>.",
-              result20: "Es sollten 20 Wochen herauskommen.",
+              floorDiv: "Nutze <code>//</code> für die vollen Kisten: <code>vorrat // pro_kiste</code>.",
+              mod: "Den Rest bekommst du mit <code>%</code>: <code>vorrat % pro_kiste</code>.",
+              result: "Es sollten 20 volle Kisten und 2 übrige Zellen herauskommen.",
             },
           },
         },
@@ -299,6 +313,7 @@ Geschichten oder Steckbriefe.</p>`,
             valuesInOutput: "In der Ausgabe sollen die Werte von <code>tier</code> und <code>ort</code> stehen – mit f-String und geschweiften Klammern.",
           },
           expert: {
+            tool: true,
             xp: 10,
             html: `
 <p>In den <code>{ }</code> darf sogar <b>gerechnet</b> werden: <code>print(f"{3 * 4} Tore")</code>
@@ -387,8 +402,9 @@ print(f"Name: {name}")</code></pre>
           taskHtml:
             "Frag mindestens <b>drei</b> Dinge mit <code>input()</code> ab und gib einen <b>Steckbrief</b> aus, in dem alle Antworten vorkommen – mit f-Strings.",
           hints: [
+            "Führ den Start-Code einmal aus und beantworte die zwei Fragen. Dann fehlen noch eine dritte Frage und die Ausgabe des Steckbriefs.",
             'Noch ein <code>input(…)</code> darunter, zum Beispiel <code>tier = input("Lieblingstier: ")</code>.',
-            'Für jede Antwort eine Zeile: <code>print(f"Name: {name}")</code>',
+            'Für jede Antwort eine Zeile: <code>print(f"Name: {name}")</code>, genauso mit <code>hobby</code> und deiner dritten Variablen.',
           ],
           starterCode: py`
             name = input("Name: ")
@@ -417,6 +433,7 @@ print(f"Name: {name}")</code></pre>
             allAnswers: "Im Steckbrief sollen <b>alle</b> Antworten erscheinen. Gib jede Variable mit einem f-String aus.",
           },
           expert: {
+            tool: true,
             xp: 15,
             html: `
 <p>Mach die Karte hübscher: Ein Rahmen aus Zeichen macht was her. <code>"=" * 20</code>
@@ -445,15 +462,79 @@ erzeugt eine Linie aus 20 Gleichheitszeichen.</p>
       title: "Entscheidungen & Schleifen",
       region: { icon: "hangar", name: "Hangar", pos: [196, 200],
         intro: "Im Hangar warten Türen, Rover und Signallampen. Damit sie selbst entscheiden und Dinge wiederholen, brauchen sie Bedingungen und Schleifen.",
-        outro: "Das Hangartor öffnet sich, und draußen glitzert das Eis. Ab jetzt kann Lumo auch Außeneinsätze fliegen." },
+        outro: "Das Hangartor öffnet sich, und draußen glitzert das Eis. Mit Schleifen und Sensoren findet Lumo bei den Außeneinsätzen jetzt auch Wege, die niemand vorher kennt. Als Nächstes lernt die Station, Dinge zu sammeln und eigene Befehle zu verstehen." },
       lessons: [
+        {
+          id: "s2-l2",
+          title: "Wahr oder falsch?",
+          story: "Die Sensoren im Hangar melden nur noch True oder False. Teste, ob du ihre Sprache verstehst.",
+          intro: `
+<p>Programme müssen oft etwas <b>prüfen</b>: Reicht die Energie? Stimmt der Code? Dafür gibt es
+<b>Vergleiche</b>. Jeder Vergleich hat ein Ergebnis: <code>True</code> (wahr) oder <code>False</code>
+(falsch). Das nennt man einen <b>Wahrheitswert</b> (englisch: <i>boolean</i>).</p>
+
+<pre><code>print(10 &gt; 3)    # True
+print(5 == 6)   # False</code></pre>
+
+<p>Vergleichen kannst du mit <code>==</code> (gleich), <code>!=</code> (ungleich),
+<code>&lt;</code> (kleiner), <code>&gt;</code> (größer), <code>&lt;=</code> und <code>&gt;=</code>.
+Achtung: <code>==</code> fragt „ist gleich?“, ein einzelnes <code>=</code> weist einen Wert zu.</p>
+
+<p>In der nächsten Lektion trifft dein Programm mit solchen Vergleichen echte Entscheidungen.</p>`,
+          taskHtml:
+            "Gib die Ergebnisse von <b>mindestens drei verschiedenen Vergleichen</b> aus. Mindestens einer soll <code>False</code> ergeben.",
+          hints: [
+            "Vergleiche direkt ausgeben: <code>print(7 &gt; 2)</code>",
+            "Für <code>False</code> zum Beispiel: <code>print(5 == 6)</code>",
+          ],
+          starterCode: py`
+            # Lass Python mindestens drei Vergleiche prüfen
+            print(10 > 3)
+          `,
+          solution: py`
+            print(10 > 3)
+            print(5 == 5)
+            print("Apfel" == "Birne")
+          `,
+          xp: 30,
+          check: (r) =>
+            need(
+              [r.ast.compares >= 3, "threeCompares"],
+              [(r.out.match(/\b(True|False)\b/g) || []).length >= 3, "printResults"],
+              [/\bFalse\b/.test(r.out), "needFalse"]
+            ),
+          feedback: {
+            threeCompares: "Du brauchst mindestens drei Vergleiche, zum Beispiel mit <code>&gt;</code>, <code>&lt;</code> und <code>==</code>.",
+            printResults: "Gib jedes Vergleichsergebnis mit <code>print(…)</code> aus.",
+            needFalse: "Mindestens ein Vergleich soll <code>False</code> ergeben, zum Beispiel <code>print(5 == 6)</code>.",
+          },
+          expert: {
+            tool: true,
+            xp: 10,
+            html: `
+<p>Bedingungen lassen sich <b>verbinden</b>: <code>and</code> (beide müssen wahr sein),
+<code>or</code> (mindestens eine) und <code>not</code> (kehrt um).</p>
+<p><b>Bonus:</b> Leg <code>alter = 12</code> an und prüf mit <code>and</code>, ob das Alter
+zwischen 10 und 15 liegt. Gib das Ergebnis aus.</p>`,
+            solution: py`
+              alter = 12
+              print(alter >= 10 and alter <= 15)
+            `,
+            check: (r) => need([r.node("And") > 0, "useAnd"], [/\b(True|False)\b/.test(r.out), "printBool"]),
+            feedback: {
+              useAnd: "Verbinde die zwei Vergleiche mit <code>and</code>: <code>alter &gt;= 10 and alter &lt;= 15</code>.",
+              printBool: "Gib das Ergebnis (<code>True</code> oder <code>False</code>) mit <code>print(…)</code> aus.",
+            },
+          },
+        },
         {
           id: "s2-l1",
           title: "Wenn … dann …",
           story: "Die Hangartür öffnet sich nur bei genug Energiepunkten. Bring ihr bei, auch freundlich Nein zu sagen.",
           intro: `
-<p>Programme müssen <b>entscheiden</b>. Mit <code>if</code> („wenn“) prüfst du eine Bedingung:
-Ist sie wahr, läuft der eingerückte Block darunter. <code>else</code> („sonst“) ist der andere Fall.</p>
+<p>Programme müssen <b>entscheiden</b>. Mit <code>if</code> („wenn“) prüfst du eine Bedingung,
+zum Beispiel einen Vergleich aus der letzten Lektion. Ist sie <code>True</code>, läuft der eingerückte
+Block darunter. <code>else</code> („sonst“) ist der andere Fall.</p>
 
 <pre><code>punkte = 120
 if punkte &gt;= 100:
@@ -462,12 +543,18 @@ else:
     print("Fast! Weiter geht's.")</code></pre>
 
 <p><b>Zwei Regeln nimmt Python streng:</b> Nach der Bedingung steht ein <b>Doppelpunkt</b>
-<code>:</code>, und die Zeilen, die dazugehören, werden <b>eingerückt</b> (4 Leerzeichen – die
-Tab-Taste macht das für dich).</p>
+<code>:</code>, und die Zeilen, die dazugehören, werden <b>eingerückt</b> (4 Leerzeichen). Nach dem
+Doppelpunkt rückt der Editor die nächste Zeile von selbst ein.</p>
 
-<p>Vergleichen kannst du mit <code>==</code> (gleich), <code>!=</code> (ungleich),
-<code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> und <code>&gt;=</code>.
-Achtung: <code>==</code> fragt „ist gleich?“, <code>=</code> weist zu.</p>
+<p><b>Mehr als zwei Fälle?</b> Dann kommt <code>elif</code> („sonst wenn“) dazwischen. Python prüft
+von oben nach unten und nimmt den ersten Fall, der stimmt:</p>
+<pre><code>punkte = 70
+if punkte &gt;= 100:
+    print("Level geschafft!")
+elif punkte &gt;= 50:
+    print("Fast!")
+else:
+    print("Weiter üben!")</code></pre>
 
 <p><b>Neu: Zahlen eingeben.</b> <code>input()</code> liefert immer Text. Mit <code>int(…)</code>
 machst du daraus eine ganze Zahl, mit der Python vergleichen und rechnen kann:</p>
@@ -510,9 +597,7 @@ machst du daraus eine ganze Zahl, mit der Python vergleichen und rechnen kann:</
           expert: {
             xp: 10,
             html: `
-<p>Für mehr als zwei Fälle gibt es <code>elif</code> („sonst wenn“). Python prüft die
-Bedingungen von oben nach unten und nimmt die erste, die stimmt.</p>
-<p><b>Bonus:</b> Bau drei Stufen: ab 100 Punkten „Level geschafft“, ab 50 Punkten
+<p><b>Bonus:</b> Bau mit <code>elif</code> drei Stufen: ab 100 Punkten „Level geschafft“, ab 50 Punkten
 „Fast geschafft“, sonst „Weiter üben“.</p>`,
             solution: py`
               punkte = int(input("Wie viele Punkte hast du? "))
@@ -529,68 +614,9 @@ Bedingungen von oben nach unten und nimmt die erste, die stimmt.</p>
           },
         },
         {
-          id: "s2-l2",
-          title: "Wahr oder falsch?",
-          story: "Die Sensoren im Hangar melden nur noch True oder False. Teste, ob du ihre Sprache verstehst.",
-          intro: `
-<p>Jeder Vergleich hat ein Ergebnis: <code>True</code> (wahr) oder <code>False</code> (falsch).
-Das nennt man einen <b>Wahrheitswert</b> (englisch: <i>boolean</i>). Genau damit trifft
-<code>if</code> seine Entscheidung.</p>
-
-<pre><code>print(10 &gt; 3)    # True
-print(5 == 6)   # False</code></pre>
-
-<p>Alles hinter <code>#</code> ist ein <b>Kommentar</b> – eine Notiz für Menschen, die Python
-überspringt.</p>`,
-          taskHtml:
-            "Gib die Ergebnisse von <b>mindestens drei verschiedenen Vergleichen</b> aus. Mindestens einer soll <code>False</code> ergeben.",
-          hints: [
-            "Vergleiche direkt ausgeben: <code>print(7 &gt; 2)</code>",
-            "Für <code>False</code> zum Beispiel: <code>print(5 == 6)</code>",
-          ],
-          starterCode: py`
-            # Lass Python mindestens drei Vergleiche prüfen
-            print(10 > 3)
-          `,
-          solution: py`
-            print(10 > 3)
-            print(5 == 5)
-            print("Apfel" == "Birne")
-          `,
-          xp: 30,
-          check: (r) =>
-            need(
-              [r.ast.compares >= 3, "threeCompares"],
-              [(r.out.match(/\b(True|False)\b/g) || []).length >= 3, "printResults"],
-              [/\bFalse\b/.test(r.out), "needFalse"]
-            ),
-          feedback: {
-            threeCompares: "Du brauchst mindestens drei Vergleiche, zum Beispiel mit <code>&gt;</code>, <code>&lt;</code> und <code>==</code>.",
-            printResults: "Gib jedes Vergleichsergebnis mit <code>print(…)</code> aus.",
-            needFalse: "Mindestens ein Vergleich soll <code>False</code> ergeben, zum Beispiel <code>print(5 == 6)</code>.",
-          },
-          expert: {
-            xp: 10,
-            html: `
-<p>Bedingungen lassen sich <b>verbinden</b>: <code>and</code> (beide müssen wahr sein),
-<code>or</code> (mindestens eine) und <code>not</code> (kehrt um).</p>
-<p><b>Bonus:</b> Leg <code>alter = 12</code> an und prüf mit <code>and</code>, ob das Alter
-zwischen 10 und 15 liegt. Gib das Ergebnis aus.</p>`,
-            solution: py`
-              alter = 12
-              print(alter >= 10 and alter <= 15)
-            `,
-            check: (r) => need([r.node("And") > 0, "useAnd"], [/\b(True|False)\b/.test(r.out), "printBool"]),
-            feedback: {
-              useAnd: "Verbinde die zwei Vergleiche mit <code>and</code>: <code>alter &gt;= 10 and alter &lt;= 15</code>.",
-              printBool: "Gib das Ergebnis (<code>True</code> oder <code>False</code>) mit <code>print(…)</code> aus.",
-            },
-          },
-        },
-        {
           id: "s2-l3",
           title: "Der Zufall entscheidet",
-          story: "Für das Rover-Spiel der Crew fehlt der Würfel. Lumo hätte gern einen, der wirklich zufällig ist.",
+          story: "Für das Rover-Spiel der Crew fehlt der Würfel. Ich hätte gern einen, der wirklich zufällig ist.",
           intro: `
 <p>Zufall macht Spiele spannend. Python bringt fertige Werkzeuge in <b>Modulen</b> mit – die
 holst du dir mit <code>import</code>. Das Modul <code>random</code> kann würfeln.</p>
@@ -633,10 +659,12 @@ Mit Komma kannst du in <code>print</code> Text und Zahl mischen.</p>`,
             notRandom: "Die Zahl ist jedes Mal gleich. Gib das Ergebnis von <code>random.randint(1, 6)</code> aus.",
           },
           expert: {
+            tool: true,
             xp: 10,
             html: `
-<p>Mit <code>random.choice([...])</code> wählst du zufällig etwas <b>aus einer Liste</b> –
-perfekt für ein Glücksrad.</p>
+<p>Eine <b>Liste</b> sammelt mehrere Werte zwischen eckigen Klammern, getrennt durch Kommas:
+<code>preise = ["Eis", "Joker", "Extrarunde", "Pause"]</code>. Mehr über Listen lernst du in
+Kapitel 3. <code>random.choice(preise)</code> zieht zufällig einen Eintrag daraus.</p>
 <p><b>Bonus:</b> Bau ein Glücksrad mit mindestens <b>vier</b> eigenen Preisen.</p>`,
             solution: py`
               import random
@@ -683,10 +711,8 @@ for i in range(4):
     drum("snare")
 note("C5", 2)</code></pre>
 
-<p>Schlagzeug: <code>"kick"</code>, <code>"snare"</code>, <code>"hihat"</code>, <code>"clap"</code>,
-<code>"tom"</code>. Töne: <code>"C4"</code>, <code>"D4"</code>, <code>"E4"</code> … oder
-<code>"do4"</code>, <code>"re4"</code>, <code>"mi4"</code> … Die Zahl nach dem Komma ist die Länge
-in Schlägen (ohne Zahl: ein Schlag).</p>`,
+<p>Welche Klänge es gibt, steht im Start-Code. Bei <code>note</code> ist die Zahl nach dem Komma
+die Länge in Schlägen.</p>`,
           taskHtml:
             "Bau einen <b>Beat</b> mit einer <b><code>for</code>-Schleife</b>, die sich <b>mindestens dreimal</b> wiederholt – hörbar mit <code>drum()</code> oder <code>note()</code>, oder als Text mit <code>print()</code>. Der Befehl steht dabei nur einmal im Code, die Schleife wiederholt ihn.",
           hints: [
@@ -696,6 +722,8 @@ in Schlägen (ohne Zahl: ein Schlag).</p>`,
           starterCode: py`
             from station import drum, note
 
+            # Schlagzeug: "kick", "snare", "hihat", "clap", "tom"
+            # Töne: "C4", "D4", "E4" … oder "do4", "re4", "mi4" …
             # Bau deinen Beat mit einer for-Schleife
             drum("kick")
           `,
@@ -724,6 +752,7 @@ in Schlägen (ohne Zahl: ein Schlag).</p>`,
             threeTimes: "Dein Beat soll mindestens dreimal erklingen (oder drei Zeilen ergeben). Zähl mit <code>range(…)</code> höher.",
           },
           expert: {
+            tool: true,
             xp: 10,
             html: `
 <p>Der Zähler <code>i</code> ist nützlich: Damit kannst du deine Ausgabe nummerieren.
@@ -776,25 +805,36 @@ dann 2, dann 3 – und genauso viele Zeichen landen in der Zeile.</p>`,
             ),
           feedback: { grow: 'Die Zeilen sind noch gleich lang. Lass die Länge mit dem Zähler wachsen: <code>"⭐" * i</code>.' },
           expert: {
+            tool: true,
             xp: 15,
             html: `
-<p>Mit Leerzeichen am Anfang kannst du ein Muster nach rechts schieben – so entsteht eine
-<b>Pyramide</b>. Tipp: <code>" " * (5 - i)</code> für die Lücke und <code>"*" * (2 * i - 1)</code>
-für die Sterne.</p>
-<p><b>Bonus:</b> Mal eine Pyramide aus mindestens vier Zeilen, die nach unten breiter wird.</p>`,
+<p>Die echten Signallampen hängen am <b>Bildschirm der Station</b>: 16 mal 16 Lampen.
+<code>pixel(x, y, farbe)</code> schaltet eine davon ein. <code>x</code> zählt von links (0 bis 15),
+<code>y</code> von oben (0 bis 15).</p>
+
+<pre><code>from station import pixel
+
+for i in range(4):
+    pixel(i, 0, "gelb")</code></pre>
+
+<p>Der Zähler <code>i</code> wandert hier von Lampe zu Lampe.</p>
+<p><b>Bonus:</b> Lass mit einer Schleife eine Reihe aus mindestens <b>8 Signallampen</b> leuchten.
+Wer mag, baut eine Treppe: <code>pixel(i, i, "gelb")</code>.</p>`,
             solution: py`
-              for i in range(1, 6):
-                  print(" " * (5 - i) + "*" * (2 * i - 1))
+              from station import pixel
+
+              for i in range(16):
+                  pixel(i, 8, "gelb")
             `,
             check: (r) =>
               need(
-                R.minLines(r, 4),
-                [decreasing(r.lines.map(leadingSpaces)), "indent"],
-                [increasing(r.lines.map((l) => width(l.trim()))), "wider"]
+                R.station(r),
+                [(r.ast.callsInLoop.pixel || 0) > 0, "pixelInLoop"],
+                [r.screen.lit >= 8, "eight"]
               ),
             feedback: {
-              indent: 'Jede Zeile soll weniger Leerzeichen am Anfang haben als die davor: <code>" " * (5 - i)</code>.',
-              wider: "Die Sterne sollen von Zeile zu Zeile mehr werden.",
+              pixelInLoop: "Ruf <code>pixel(…)</code> eingerückt in der Schleife auf und nimm den Zähler <code>i</code> als Koordinate.",
+              eight: "Es sollen mindestens 8 Lampen leuchten. Lass die Schleife öfter laufen, zum Beispiel <code>range(8)</code>.",
             },
           },
         },
@@ -815,12 +855,16 @@ print("Los!")</code></pre>
 <p><b>Ganz wichtig:</b> In der Schleife muss sich etwas ändern, das die Bedingung irgendwann
 <code>False</code> macht – hier wird <code>zahl</code> kleiner. Passiert das nicht, läuft die
 Schleife <i>ewig</i>. Keine Panik: Codaluna merkt das und hält dein Programm an (oder du
-drückst <b>Stop</b>).</p>`,
+drückst <b>Stop</b>).</p>
+
+<p>Übrigens: <code>zahl = zahl - 1</code> kann man auch kurz <code>zahl -= 1</code> schreiben,
+genauso <code>zahl += 1</code>. Beides ist richtig.</p>`,
           taskHtml:
             'Lass einen <b>Countdown von 10 bis 1</b> mit einer <code>while</code>-Schleife laufen und gib danach <code>Start! 🚀</code> aus.',
           hints: [
-            "<code>while zahl &gt; 0:</code> – und darunter eingerückt <code>print(zahl)</code>.",
-            "Verkleinere die Zahl in der Schleife: <code>zahl = zahl - 1</code>. Sonst läuft sie ewig!",
+            "Eine <code>while</code>-Schleife läuft, solange ihre Bedingung wahr ist. Welche Bedingung passt zu „die Zahl ist noch größer als 0“?",
+            "In der Schleife passieren zwei Dinge: die Zahl ausgeben, dann die Zahl um 1 kleiner machen. Nach der Schleife, nicht eingerückt, kommt „Start!“.",
+            '<code>while zahl &gt; 0:</code>, darunter eingerückt <code>print(zahl)</code> und <code>zahl = zahl - 1</code>, ganz unten ohne Einrückung <code>print("Start! 🚀")</code>.',
           ],
           starterCode: py`
             zahl = 10
@@ -878,17 +922,23 @@ und gib sie aus.</p>`,
 <code>random</code>, <code>while</code>, <code>int(input())</code> und <code>if</code>/<code>elif</code>.</p>
 
 <p>Die Schleife <code>while tipp != geheim:</code> läuft, solange der Tipp <b>nicht</b> stimmt.
-Darin fehlt noch der wichtigste Teil: die Hinweise.</p>`,
+Darin fehlt noch der wichtigste Teil: die Hinweise.</p>
+
+<p>Zur Erinnerung: <code>elif</code> heißt „sonst wenn“. Python prüft es nur, wenn die Bedingung
+davor falsch war. Hier brauchst du zwei Vergleiche: Ist der Tipp größer als die geheime Zahl, kommt
+„zu hoch“, ist er kleiner, kommt „zu tief“. Ist er gleich, kommt kein Hinweis. Beide Vergleiche
+stehen <b>in</b> der Schleife, ihre <code>print</code>-Zeilen rückst du noch einmal ein.</p>`,
           taskHtml:
             "Vervollständige das Spiel: In der Schleife soll <b>„zu hoch“</b> oder <b>„zu tief“</b> ausgegeben werden, je nach Tipp. Bei einem richtigen Tipp kommt kein Hinweis. Probier es danach selbst aus!",
           hints: [
-            "<code>if tipp &gt; geheim:</code> → zu hoch.",
-            "<code>elif tipp &lt; geheim:</code> → zu tief. Beide stehen eingerückt in der Schleife, unter der <code>input</code>-Zeile.",
+            "Ein Tipp kann zu hoch, zu tief oder genau richtig sein. Nur für die ersten beiden Fälle brauchst du einen Hinweis. Warum wäre <code>else</code> beim zweiten Hinweis falsch?",
+            "Unter der <code>input</code>-Zeile, eingerückt in der Schleife: zuerst <code>if</code> für „zu hoch“, dann <code>elif</code> für „zu tief“.",
+            '<code>if tipp &gt; geheim:</code> mit <code>print("zu hoch")</code> darunter, dann <code>elif tipp &lt; geheim:</code> mit <code>print("zu tief")</code>. Die beiden <code>print</code>-Zeilen sind noch einmal eingerückt.',
           ],
           starterCode: py`
             import random
             geheim = random.randint(1, 20)
-            tipp = 0
+            tipp = 0   # 0 ist nie die geheime Zahl, so startet die Schleife
 
             while tipp != geheim:
                 tipp = int(input("Deine Zahl (1-20): "))
@@ -987,7 +1037,7 @@ den Wert bei jedem Tipp.</p>`,
       title: "Sammlungen & eigene Befehle",
       region: { icon: "flask", name: "Labor", pos: [304, 150],
         intro: "Im Labor liegen Vorräte, Proben und Notizen durcheinander. Listen, Dictionaries und eigene Befehle bringen Ordnung hinein.",
-        outro: "Alles hat seinen Platz, und die Bord-KI erkennt dich als Crew-Mitglied." },
+        outro: "Alles hat seinen Platz, und die Bord-KI erkennt dich als Crew-Mitglied. Als Nächstes setzt du alles zusammen: ein Spiel, einen Geheimcode und das erste Bild für die Zentrale." },
       lessons: [
         {
           id: "s3-l1",
@@ -1034,6 +1084,7 @@ print(playlist[0])   # der erste Eintrag</code></pre>
             printFirst: "Gib danach den ersten Eintrag in einer eigenen Zeile aus. Positionen zählen ab 0: <code>liste[0]</code>.",
           },
           expert: {
+            tool: true,
             xp: 10,
             html: `
 <p><code>len(liste)</code> verrät, wie viele Einträge in einer Liste stecken. Und mit
@@ -1111,6 +1162,7 @@ Liste. Solche Methoden verändern die Liste direkt – deshalb steht vor dem Pun
             sorted: "Gib die Liste <b>sortiert</b> aus. Rufst du <code>.sort()</code> <b>nach</b> dem Hinzufügen und vor dem <code>print</code> auf?",
           },
           expert: {
+            tool: true,
             xp: 10,
             html: `
 <p>Weitere Methoden: <code>.remove("x")</code> entfernt einen Eintrag, <code>.reverse()</code>
@@ -1132,7 +1184,7 @@ dreht die Reihenfolge um.</p>
         {
           id: "s3-l3",
           title: "Für jedes Ding …",
-          story: "Lumo soll jeden Eintrag der Liste prüfen, einen nach dem anderen. Eine Schleife erledigt das in Sekunden.",
+          story: "Ich soll jeden Eintrag der Liste prüfen, einen nach dem anderen. Mit einer Schleife geht das in Sekunden.",
           intro: `
 <p>Mit <code>for … in liste</code> gehst du <b>jeden Eintrag</b> der Reihe nach durch – ganz
 ohne Positionen zu zählen:</p>
@@ -1144,7 +1196,7 @@ for song in songs:
 <p><code>song</code> ist bei jedem Durchlauf der nächste Eintrag. Den Namen davor darfst du frei
 wählen – <code>for x in songs</code> ginge genauso, aber ein sprechender Name liest sich besser.</p>`,
           taskHtml:
-            "Geh mit einer <code>for</code>-Schleife durch die Liste und gib <b>jeden Eintrag in einer eigenen Zeile</b> aus – gern mit einem Text davor, zum Beispiel „Jetzt läuft: …“.",
+            "Geh mit einer <code>for</code>-Schleife durch die Liste und gib <b>jeden Eintrag in einer eigenen Zeile</b> aus – gern mit einem Text davor, zum Beispiel „Jetzt läuft: …“. Wenn es klappt: Ergänze einen vierten Song in der Liste. Muss die Schleife dafür geändert werden? Probier es aus.",
           hints: ["<code>for song in songs:</code>", "Darunter eingerückt: <code>print(song)</code>"],
           starterCode: py`
             songs = ["Intro", "Beat 1", "Finale"]
@@ -1196,25 +1248,36 @@ zusammen (ohne <code>sum()</code>) und gib die Summe aus.</p>`,
         {
           id: "s3-l4",
           title: "Eigene Befehle bauen",
-          story: "Lumo hat genug davon, alles zehnmal zu erklären. Bau einen eigenen Befehl, der Besucher begrüßt.",
+          story: "Jeden Tag kommen Besucher in die Station, und ich begrüße jeden einzeln. Bau mir einen Befehl, der das übernimmt.",
           intro: `
 <p>Eine <b>Funktion</b> ist ein eigener Befehl, den du einmal baust und beliebig oft aufrufst.
 Mit <code>def</code> definierst du sie; in den Klammern stehen die <b>Parameter</b> – Werte,
 die die Funktion beim Aufruf bekommt.</p>
 
-<pre><code>def begruesse(name):
-    print(f"Hallo {name}! 👋")
+<pre><code>def jubel(wort):
+    print(f"{wort}! {wort}! {wort}!")
 
-begruesse("Deniz")
-begruesse("Fatima")</code></pre>
+jubel("Hurra")
+jubel("Python")</code></pre>
 
 <p>Der eingerückte Block ist der „Bauplan“. Erst beim <b>Aufruf</b> wird er ausgeführt – mit
-dem Wert, den du mitgibst. So sparst du dir Wiederholungen.</p>`,
-          taskHtml: "Ruf die Funktion <code>begruesse</code> mit <b>zwei verschiedenen Namen</b> auf.",
-          hints: ['Aufruf: <code>begruesse("Mia")</code>', "Zwei Aufrufe untereinander, nicht eingerückt, mit verschiedenen Namen."],
+dem Wert, den du mitgibst. So sparst du dir Wiederholungen.</p>
+
+<p>Im Start-Code steht der Bauplan schon, aber noch ohne Inhalt. <code>pass</code> ist ein
+Platzhalter und heißt „hier passiert noch nichts“. Ersetze ihn durch deinen eigenen Code.</p>
+
+<p>Mit eigenen Befehlen kann ich draußen sogar nach rechts abbiegen. Probier es im Außeneinsatz
+„Rechts herum“ aus.</p>`,
+          taskHtml:
+            "Vervollständige die Funktion <code>begruesse(name)</code>: Sie soll eine Begrüßung ausgeben, in der der Name vorkommt. Ruf sie danach mit <b>zwei verschiedenen Namen</b> auf.",
+          hints: [
+            "Ersetze <code>pass</code> durch ein eingerücktes <code>print(…)</code>, in dem <code>name</code> vorkommt, zum Beispiel mit einem f-String.",
+            'In der Funktion: <code>    print(f"Hallo {name}! 👋")</code>. Darunter, nicht eingerückt, zwei Aufrufe: <code>begruesse("Mia")</code> und einer mit einem anderen Namen.',
+          ],
           starterCode: py`
             def begruesse(name):
-                print(f"Hallo {name}! 👋")
+                # Gib hier eine Begrüßung mit dem Namen aus
+                pass
 
             # Ruf die Funktion mit zwei verschiedenen Namen auf
           `,
@@ -1226,18 +1289,24 @@ dem Wert, den du mitgibst. So sparst du dir Wiederholungen.</p>`,
             begruesse("Jonas")
           `,
           xp: 40,
+          tests: [{ probe: 'call(fn(1), "Zora")' }],
           check: (r) =>
             need(
               R.def(r),
               [r.ast.userCalls >= 2 || r.ast.defs.some((d) => (r.ast.callsInLoop[d.name] || 0) > 0), "twoCalls"],
+              R.tests(r),
+              [T(r).out.includes("Zora"), "useName"],
               R.minLines(r, 2),
               [new Set(r.lines).size >= 2, "differentNames"]
             ),
           feedback: {
             twoCalls: 'Ruf die Funktion zweimal auf, jeweils in einer eigenen Zeile: <code>begruesse("Mia")</code>.',
+            useName:
+              'Deine Funktion soll den Namen ausgeben, den sie bekommt. Ersetze <code>pass</code> durch ein <code>print</code> mit <code>name</code>, zum Beispiel <code>print(f"Hallo {name}!")</code>.',
             differentNames: "Nimm zwei <b>verschiedene</b> Namen.",
           },
           expert: {
+            tool: true,
             xp: 10,
             html: `
 <p>Eine Funktion kann <b>mehrere Parameter</b> haben, getrennt durch Kommas.</p>
@@ -1281,7 +1350,12 @@ ergebnis = doppelt(5)
 print(ergebnis)   # 10</code></pre>
 
 <p>Nach <code>return</code> ist die Funktion beendet und gibt den Wert an die Stelle des
-Aufrufs zurück. Diesen Wert kannst du speichern, ausgeben oder weiterverwenden.</p>`,
+Aufrufs zurück. Diesen Wert kannst du speichern, ausgeben oder weiterverwenden.</p>
+
+<p>Eine Funktion kann auch <b>mehrere Werte</b> bekommen. Die Parameter stehen dann mit Kommas
+getrennt in den Klammern: <code>def durchschnitt(a, b, c):</code>. Beim Aufruf
+<code>durchschnitt(2, 4, 6)</code> bekommt <code>a</code> den ersten Wert, <code>b</code> den
+zweiten und <code>c</code> den dritten.</p>`,
           taskHtml:
             "Vervollständige <code>durchschnitt</code> so, dass die Funktion den <b>Mittelwert</b> der drei Zahlen zurückgibt. Für 2, 4 und 6 kommt <b>4.0</b> heraus – und für alle anderen Zahlen soll es auch stimmen.",
           hints: [
@@ -1350,7 +1424,7 @@ print(held["level"])   # 3</code></pre>
 <p>Anders als bei Listen (Zugriff über die <b>Position</b>) nimmst du hier den <b>Schlüssel</b>:
 <code>held["name"]</code>. Super, um zusammengehörige Infos zu bündeln.</p>`,
           taskHtml:
-            "Erweitere das Dictionary auf mindestens <b>drei</b> Paare (zum Beispiel mit einer Waffe, einem Haustier oder einer Farbe) und gib <b>zwei Werte</b> über ihren Schlüssel aus.",
+            "Erweitere das Dictionary auf mindestens <b>drei</b> Paare (zum Beispiel mit einem Werkzeug, einem Haustier oder einer Farbe) und gib <b>zwei Werte</b> über ihren Schlüssel aus.",
           hints: [
             'Ein weiteres Paar: <code>held = {"name": "Ada", "level": 3, "farbe": "Lila"}</code>',
             'Zugriff über den Schlüssel: <code>print(held["farbe"])</code>',
@@ -1379,6 +1453,7 @@ print(held["level"])   # 3</code></pre>
             printValues: "Gib mindestens zwei Werte aus dem Dictionary aus.",
           },
           expert: {
+            tool: true,
             xp: 10,
             html: `
 <p>Neue Paare fügst du so hinzu: <code>held["punkte"] = 100</code>. Und mit
@@ -1408,112 +1483,125 @@ print(held["level"])   # 3</code></pre>
           title: "Dein Mini-Quiz",
           story: "Die Bord-KI lässt nur Crew-Mitglieder ins Labor, die ihr Quiz bestehen. Dreh den Spieß um und bau selbst ein Quiz!",
           intro: `
-<p>Bau ein kleines <b>Quiz</b> zu einem Thema deiner Wahl (Tiere, Musik, Sport, Weltraum …).
-Es stellt Fragen mit <code>input()</code>, prüft die Antworten mit <code>if</code> und zählt
-mit einer Variablen die Punkte.</p>
+<p>Bau ein <b>Quiz</b> zu einem Thema deiner Wahl (Tiere, Musik, Sport, Weltraum …). Diesmal
+brauchst du alles aus diesem Kapitel: Die Fragen stehen als <b>Karten</b> in einer Liste, jede
+Karte ist ein Dictionary mit Frage und Antwort. Eine Schleife stellt jede Frage, und deine eigene
+Funktion prüft die Antwort.</p>
 
-<pre><code>punkte = 0
-antwort = input("Frage? ")
-if antwort == "richtig":
-    punkte = punkte + 1</code></pre>
+<pre><code>def ist_gross(zahl):
+    if zahl &gt; 100:
+        return 1
+    else:
+        return 0
 
-<p>Tipp: Mit <code>antwort.lower()</code> vergleichst du ohne Rücksicht auf Groß- und
-Kleinschreibung – dann zählt „Rom“ genauso wie „rom“.</p>`,
+print(ist_gross(250))   # 1
+print(ist_gross(7))     # 0</code></pre>
+
+<p>Die Schleife im Start-Code ist schon fertig. Sie stellt jede Frage und zählt zusammen, was
+<code>pruefe</code> zurückgibt: 1 für richtig, 0 für falsch. <code>len(karten)</code> zählt die
+Karten in der Liste.</p>`,
           taskHtml:
-            "Erweitere das Quiz um <b>mindestens zwei weitere Fragen</b> (insgesamt also drei). Zähle richtige Antworten als Punkte und gib am Ende den Punktestand aus.",
+            "Vervollständige die Funktion <code>pruefe(antwort, richtig)</code>: Sie soll <b>1</b> zurückgeben, wenn die Antwort stimmt, sonst <b>0</b>. Ergänze außerdem <b>mindestens zwei eigene Karten</b> in der Liste, damit dein Quiz drei Fragen hat.",
           hints: [
-            "Für jede Frage: ein <code>input(…)</code> und ein <code>if</code>/<code>else</code>.",
-            "Bei einer richtigen Antwort: <code>punkte = punkte + 1</code>. Der Punktestand kommt ganz am Ende.",
+            "Fang mit der Funktion an. Sie bekommt die Antwort und die richtige Lösung. Wann ist die Antwort richtig?",
+            'In <code>pruefe</code>: <code>if antwort == richtig:</code> mit <code>return 1</code>, sonst <code>return 0</code>. Eine neue Karte sieht so aus: <code>{"frage": "Größter Planet? ", "antwort": "jupiter"},</code>',
+            "<code>def pruefe(antwort, richtig):</code>, darunter eingerückt <code>if antwort == richtig:</code> mit <code>return 1</code> und <code>else:</code> mit <code>return 0</code>. Die Karten kommen zwischen die eckigen Klammern, jede mit einem Komma dahinter.",
           ],
           starterCode: py`
+            def pruefe(antwort, richtig):
+                # Gib 1 zurück, wenn die Antwort stimmt, sonst 0
+                return 0
+
+            karten = [
+                {"frage": "Wie viele Beine hat eine Spinne? ", "antwort": "8"},
+                # Ergänze hier mindestens zwei eigene Karten
+            ]
+
             punkte = 0
+            for karte in karten:
+                antwort = input(karte["frage"])
+                punkte = punkte + pruefe(antwort, karte["antwort"])
 
-            antwort = input("Wie viele Beine hat eine Spinne? ")
-            if antwort == "8":
-                punkte = punkte + 1
-                print("Richtig! 🕷️")
-            else:
-                print("Knapp daneben – es sind 8.")
-
-            # Füge hier mindestens zwei weitere Fragen hinzu
-
-            print("Punkte:", punkte)
+            print("Punkte:", punkte, "von", len(karten))
           `,
           solution: py`
+            def pruefe(antwort, richtig):
+                if antwort == richtig:
+                    print("Richtig!")
+                    return 1
+                else:
+                    print("Leider falsch, richtig ist:", richtig)
+                    return 0
+
+            karten = [
+                {"frage": "Wie viele Beine hat eine Spinne? ", "antwort": "8"},
+                {"frage": "Hauptstadt von Italien? ", "antwort": "rom"},
+                {"frage": "Welcher Planet ist der größte? ", "antwort": "jupiter"},
+            ]
+
             punkte = 0
+            for karte in karten:
+                antwort = input(karte["frage"])
+                punkte = punkte + pruefe(antwort, karte["antwort"])
 
-            antwort = input("Wie viele Beine hat eine Spinne? ")
-            if antwort == "8":
-                punkte = punkte + 1
-                print("Richtig! 🕷️")
-            else:
-                print("Knapp daneben – es sind 8.")
-
-            antwort = input("Hauptstadt von Italien? ")
-            if antwort.lower() == "rom":
-                punkte = punkte + 1
-                print("Richtig! 🇮🇹")
-            else:
-                print("Es war Rom.")
-
-            antwort = input("Welcher Planet ist der größte? ")
-            if antwort.lower() == "jupiter":
-                punkte = punkte + 1
-                print("Richtig! 🪐")
-            else:
-                print("Es ist Jupiter.")
-
-            print("Punkte:", punkte)
+            print("Punkte:", punkte, "von", len(karten))
           `,
           xp: 60,
-          tests: [{ fill: "???" }],
+          tests: [{ fill: "???" }, { fill: "???", probe: 'call(fn(2), "8", "8")' }, { fill: "???", probe: 'call(fn(2), "7", "8")' }],
           check: (r) =>
             need(
-              R.input(r, 3),
-              [r.node("If") >= 3, "ifPerQuestion"],
-              [r.ast.selfUpdates >= 3, "countPoints"],
+              R.def(r),
+              R.ret(r),
+              [r.ast.listDicts >= 3, "threeCards"],
+              R.forLoop(r),
+              // Gibt pruefe bei falschen Antworten nichts zurück, stürzt „punkte + None“ ab
+              [!(T(r).error && T(r).error.type === "TypeError"), "returnZero"],
+              [Number(T(r, 1).value) === 1, "returnOne"],
+              [Number(T(r, 2).value) === 0 && T(r, 2).value !== null, "returnZero"],
               R.tests(r),
               [hasNumber(T(r).lines[T(r).lines.length - 1] || "", 0), "scoreAtEnd"]
             ),
           feedback: {
-            ifPerQuestion: "Prüf jede Antwort mit einem eigenen <code>if</code>.",
-            countPoints: "Erhöhe bei jeder richtigen Antwort die Punkte: <code>punkte = punkte + 1</code>.",
+            threeCards: 'Ergänze in der Liste <code>karten</code> mindestens zwei eigene Karten, jede mit <code>"frage"</code> und <code>"antwort"</code>.',
+            returnOne: "Bei einer richtigen Antwort soll <code>pruefe</code> 1 zurückgeben. Vergleiche <code>antwort</code> mit <code>richtig</code> und schreib <code>return 1</code>.",
+            returnZero: "Bei einer falschen Antwort soll <code>pruefe</code> 0 zurückgeben: <code>else:</code> mit <code>return 0</code>.",
             scoreAtEnd: 'Gib ganz am Ende den Punktestand aus, zum Beispiel <code>print("Punkte:", punkte)</code>.',
           },
           expert: {
             xp: 15,
+            tool: true,
             html: `
-<p>Profi-Variante: Speichere die Fragen als <b>Liste von Dictionaries</b>
-(<code>{"frage": …, "antwort": …}</code>) und geh sie mit <b>einer</b> Schleife durch. So
-schreibst du den Code für eine Frage nur einmal – egal, wie viele Fragen es sind.</p>
-<p><b>Bonus:</b> Bau dein Quiz so um (mindestens zwei Fragen in der Liste).</p>`,
+<p><code>antwort.lower()</code> macht aus allen Buchstaben kleine. Dann zählt „Rom“ genauso wie
+„rom“ oder „ROM“.</p>
+<p><b>Bonus:</b> Sorg dafür, dass <code>pruefe</code> Groß- und Kleinschreibung nicht beachtet:
+<code>pruefe("ROM", "rom")</code> soll 1 ergeben.</p>`,
             solution: py`
-              fragen = [
-                  {"frage": "Wie viele Beine hat eine Spinne? ", "antwort": "8"},
-                  {"frage": "Hauptstadt von Italien? ", "antwort": "rom"},
-                  {"frage": "Welcher Planet ist der größte? ", "antwort": "jupiter"},
-              ]
-              punkte = 0
-              for f in fragen:
-                  antwort = input(f["frage"])
-                  if antwort.lower() == f["antwort"]:
-                      punkte = punkte + 1
+              def pruefe(antwort, richtig):
+                  if antwort.lower() == richtig.lower():
                       print("Richtig!")
+                      return 1
                   else:
-                      print("Leider falsch – richtig ist:", f["antwort"])
-              print("Punkte:", punkte, "von", len(fragen))
+                      print("Leider falsch, richtig ist:", richtig)
+                      return 0
+
+              karten = [
+                  {"frage": "Wie viele Beine hat eine Spinne? ", "antwort": "8"},
+                  {"frage": "Hauptstadt von Italien? ", "antwort": "Rom"},
+                  {"frage": "Welcher Planet ist der größte? ", "antwort": "Jupiter"},
+              ]
+
+              punkte = 0
+              for karte in karten:
+                  antwort = input(karte["frage"])
+                  punkte = punkte + pruefe(antwort, karte["antwort"])
+
+              print("Punkte:", punkte, "von", len(karten))
             `,
-            tests: [{ fill: "???" }],
-            check: (r) =>
-              need(
-                [r.ast.listDicts >= 2, "listOfDicts"],
-                R.forLoop(r),
-                [(r.ast.callsInLoop.input || 0) > 0, "inputInLoop"],
-                R.tests(r)
-              ),
+            tests: [{ fill: "???" }, { fill: "???", probe: 'call(fn(2), "ROM", "rom")' }],
+            check: (r) => need([r.method("lower") > 0, "useLower"], R.tests(r), [Number(T(r, 1).value) === 1, "ignoreCase"]),
             feedback: {
-              listOfDicts: 'Leg eine Liste mit mindestens zwei Dictionaries an: <code>[{"frage": …, "antwort": …}, …]</code>.',
-              inputInLoop: 'Stell die Fragen <b>in</b> der Schleife: <code>antwort = input(f["frage"])</code>.',
+              useLower: "Mach die Antwort vor dem Vergleich klein: <code>antwort.lower()</code>.",
+              ignoreCase: '<code>pruefe("ROM", "rom")</code> ergibt noch nicht 1. Vergleichst du <code>antwort.lower()</code> mit <code>richtig</code>?',
             },
           },
         },
@@ -1526,7 +1614,7 @@ schreibst du den Code für eine Frage nur einmal – egal, wie viele Fragen es s
       title: "Alles zusammen",
       region: { icon: "monitor", name: "Zentrale", pos: [196, 84],
         intro: "In der Zentrale laufen alle Systeme zusammen. Hier zeigt sich, was du kannst: Spiele, Codes, Bilder und echte Messdaten.",
-        outro: "Station Polaris leuchtet wieder! Ab jetzt baust du deine eigenen Module." },
+        outro: "Station Polaris leuchtet wieder! Ab jetzt baust du deine eigenen Module. Im Spielplatz kannst du jederzeit weiterbauen, und mit „Teilen“ zeigst du anderen, was du gebaut hast." },
       lessons: [
         {
           id: "s4-l1",
@@ -1644,7 +1732,11 @@ Zum Entschlüsseln verschiebst du einfach in die andere Richtung:</p>
 <pre><code>geheim = ""
 for zeichen in "HALLO":
     geheim = geheim + chr(ord(zeichen) + 1)
-print(geheim)   # IBMMP</code></pre>`,
+print(geheim)   # IBMMP</code></pre>
+
+<p>Eine <code>for</code>-Schleife kann auch über einen Text laufen: <code>zeichen</code> ist dann
+bei jedem Durchgang der nächste Buchstabe. <code>geheim</code> beginnt als leerer Text
+<code>""</code> und wächst Buchstabe für Buchstabe.</p>`,
           taskHtml:
             "Entschlüssele die geheime Nachricht: Verschiebe jeden Buchstaben mit <code>ord()</code> und <code>chr()</code> um <b>1 zurück</b>. Was kommt heraus?",
           hints: [
@@ -1674,10 +1766,19 @@ print(geheim)   # IBMMP</code></pre>`,
           },
           expert: {
             xp: 15,
+            tool: true,
             html: `
-<p>Echte Caesar-Codes verschieben meist um 3. Aber was passiert bei <code>"Z"</code> + 3? Damit es nach dem Z wieder bei A weitergeht, rechnet man
-mit dem Rest der Division: <code>% 26</code>. Die Formel für Großbuchstaben lautet
-<code>chr((ord(z) - 65 + v) % 26 + 65)</code>.</p>
+<p>Echte Caesar-Codes verschieben meist um 3. Aber was passiert bei <code>"Z"</code> + 3? Damit es
+nach dem Z wieder bei A weitergeht, hilft der <b>Rest</b> einer Division mit <code>%</code>:
+<code>27 % 26</code> ergibt 1, <code>28 % 26</code> ergibt 2.</p>
+<p>Der Trick in drei Schritten: den Buchstaben in eine Zahl von 0 bis 25 verwandeln
+(<code>ord(z) - 65</code>), verschieben und mit <code>% 26</code> im Alphabet halten, wieder in einen
+Buchstaben verwandeln (<code>+ 65</code>, dann <code>chr</code>). Probier es zuerst mit einem
+einzigen Buchstaben:</p>
+<pre><code>z = "Z"
+nummer = ord(z) - 65         # 25
+neu = (nummer + 3) % 26      # 2
+print(chr(neu + 65))         # C</code></pre>
 <p><b>Bonus:</b> Schreib eine Funktion <code>caesar(text, versatz)</code>, die Großbuchstaben
 verschiebt (auch über Z hinaus) und alles andere, etwa Leerzeichen, unverändert lässt. Mit
 negativem Versatz entschlüsselt sie wieder.</p>`,
@@ -1730,7 +1831,7 @@ negativem Versatz entschlüsselt sie wieder.</p>`,
 <code>pixel(x, y, farbe)</code> schaltest du einen davon an. <code>x</code> zählt von links
 (0) nach rechts (15), <code>y</code> von oben (0) nach unten (15).</p>
 
-<pre><code>from station import pixel
+<pre><code>from station import pixel, fill
 
 for x in range(16):
     pixel(x, 12, "teal")   # eine Linie quer über den Bildschirm
@@ -1741,8 +1842,7 @@ pixel(7, 4, "gold")</code></pre>
 <code>"#ff8800"</code>. <code>"schwarz"</code> schaltet einen Pixel wieder aus, und
 <code>fill(farbe)</code> färbt den ganzen Bildschirm.</p>
 
-<p>Mit Schleifen malst du Linien und Flächen in einer einzigen Zeile – eine Schleife in einer
-Schleife füllt sogar ein ganzes Rechteck.</p>`,
+<p>Mit einer Schleife malst du eine ganze Linie. Wie man Flächen füllt, zeigt die Bonus-Aufgabe.</p>`,
           taskHtml:
             "Male ein <b>Bild auf den Stationsbildschirm</b>: mindestens <b>12 Pixel</b> in mindestens <b>zwei Farben</b>, und nutze dafür mindestens <b>eine Schleife</b>. Ein Baum, eine Rakete, ein Gesicht, dein Lieblingslogo …",
           hints: [
@@ -1750,7 +1850,7 @@ Schleife füllt sogar ein ganzes Rechteck.</p>`,
             "Für die zweite Farbe setzt du einfach noch ein paar Pixel mit einer anderen Farbe darüber.",
           ],
           starterCode: py`
-            from station import pixel
+            from station import pixel, fill
 
             # Male dein Bild: pixel(x, y, "farbe")  (x und y von 0 bis 15)
             pixel(7, 7, "gold")
@@ -1784,8 +1884,14 @@ Schleife füllt sogar ein ganzes Rechteck.</p>`,
           },
           expert: {
             xp: 15,
+            tool: true,
             html: `
-<p>Pixel-Künstler zeichnen ihre Bilder oft als <b>Liste von Texten</b>: Jedes Zeichen ist ein
+<p>Eine Schleife <b>in</b> einer Schleife füllt eine Fläche: Für jede Zeile <code>y</code> läuft die
+innere Schleife über alle Spalten <code>x</code>.</p>
+<pre><code>for y in range(2, 5):
+    for x in range(3, 9):
+        pixel(x, y, "blau")   # ein Rechteck aus 3 mal 6 Pixeln</code></pre>
+<p>Pixel-Künstler zeichnen ihre Bilder auch gern als <b>Liste von Texten</b>: Jedes Zeichen ist ein
 Pixel, und ein Dictionary verrät, welche Farbe zu welchem Zeichen gehört.</p>
 <pre><code>bild = [
     ".RR.RR.",
@@ -1796,8 +1902,7 @@ Pixel, und ein Dictionary verrät, welche Farbe zu welchem Zeichen gehört.</p>
 ]
 farben = {"R": "rot"}</code></pre>
 <p><b>Bonus:</b> Male ein Bild aus mindestens <b>20 Pixeln</b> mit zwei <b>verschachtelten</b>
-Schleifen: Die äußere läuft über die Zeilen (<code>y</code>), die innere über die Zeichen einer
-Zeile (<code>x</code>).</p>`,
+Schleifen, zum Beispiel ein Rechteck, ein Muster oder ein Bild aus einer Textliste.</p>`,
             solution: py`
               from station import pixel
 
@@ -1824,27 +1929,27 @@ Zeile (<code>x</code>).</p>`,
         {
           id: "s4-l4",
           title: "Echte Daten auswerten",
-          story: "Die Wetterstation draußen hat eine Woche lang Temperaturen gemessen. Werte die Daten aus.",
+          story: "Die Sensoren im Gewächshaus der Station haben sechs Tage lang die Temperatur gemessen. Werte die Daten aus.",
           intro: `
 <p>Programmieren hilft, echte Daten zu verstehen. Für Listen aus Zahlen gibt es fertige
 Werkzeuge: <code>max()</code> (größter Wert), <code>min()</code> (kleinster),
 <code>sum()</code> (Summe) und <code>len()</code> (Anzahl).</p>
 
-<pre><code>temps = [21, 25, 19, 28, 23]
-print("Kältester Tag:", min(temps))</code></pre>
+<pre><code>temps = [21, 25, 19, 28, 23, 24]
+print("Niedrigste Temperatur:", min(temps))</code></pre>
 
 <p>Den <b>Durchschnitt</b> bekommst du mit „Summe geteilt durch Anzahl“ – also mit
 <code>sum</code> und <code>len</code> zusammen.</p>`,
           taskHtml:
-            "Finde mit <code>max()</code> den <b>wärmsten Tag</b> und berechne den <b>Durchschnitt</b> der Temperaturen mit <code>sum()</code> und <code>len()</code>. Gib beides aus.",
+            "Finde mit <code>max()</code> die <b>höchste Temperatur</b> und berechne den <b>Durchschnitt</b> der Temperaturen mit <code>sum()</code> und <code>len()</code>. Gib beides aus.",
           hints: ["<code>max(temps)</code> liefert den größten Wert.", "Durchschnitt: <code>sum(temps) / len(temps)</code>"],
           starterCode: py`
-            temps = [21, 25, 19, 28, 23]
-            # Gib den wärmsten Tag und den Durchschnitt aus
+            temps = [21, 25, 19, 28, 23, 24]
+            # Gib die höchste Temperatur und den Durchschnitt aus
           `,
           solution: py`
-            temps = [21, 25, 19, 28, 23]
-            print("Wärmster Tag:", max(temps))
+            temps = [21, 25, 19, 28, 23, 24]
+            print("Höchste Temperatur:", max(temps))
             print("Durchschnitt:", sum(temps) / len(temps))
           `,
           xp: 50,
@@ -1853,22 +1958,23 @@ print("Kältester Tag:", min(temps))</code></pre>
               [r.call("max") > 0, "useMax"],
               [r.call("sum") > 0 && r.call("len") > 0, "useSumLen"],
               [r.num(28), "max28"],
-              [r.num(23.2), "average"]
+              [r.num(140 / 6), "average"]
             ),
           feedback: {
-            useMax: "Nutze <code>max(temps)</code> für den wärmsten Tag.",
+            useMax: "Nutze <code>max(temps)</code> für die höchste Temperatur.",
             useSumLen: "Berechne den Durchschnitt mit <code>sum(temps) / len(temps)</code>.",
-            max28: "Der wärmste Tag hatte 28 Grad – gib ihn aus.",
-            average: "Der Durchschnitt sollte 23.2 sein. Teilst du die Summe durch die Anzahl?",
+            max28: "Die höchste Temperatur war 28 Grad – gib sie aus.",
+            average: "Der Durchschnitt sollte etwa 23.33 sein. Teilst du die Summe durch die Anzahl?",
           },
           expert: {
+            tool: true,
             xp: 15,
             html: `
 <p><b>Bonus:</b> Runde den Durchschnitt mit <code>round(wert, 1)</code> auf eine
 Nachkommastelle und finde mit einer Schleife heraus, an wie vielen Tagen es <b>über 22 Grad</b>
 warm war.</p>`,
             solution: py`
-              temps = [21, 25, 19, 28, 23]
+              temps = [21, 25, 19, 28, 23, 24]
               print("Durchschnitt:", round(sum(temps) / len(temps), 1))
               warm = 0
               for t in temps:
@@ -1880,12 +1986,12 @@ warm war.</p>`,
               need(
                 [r.call("round") > 0, "useRound"],
                 [r.node("For") > 0 && r.node("If") > 0, "countLoop"],
-                [r.num(3), "count3"]
+                [r.num(4), "count4"]
               ),
             feedback: {
               useRound: "Runde mit <code>round(…, 1)</code>.",
               countLoop: "Zähle mit einer <code>for</code>-Schleife und einem <code>if</code>, wie viele Werte über 22 liegen.",
-              count3: "Es waren 3 Tage über 22 Grad (25, 28 und 23).",
+              count4: "Es waren 4 Tage über 22 Grad (25, 28, 23 und 24).",
             },
           },
         },
@@ -1909,7 +2015,7 @@ oder Text und Zahl mit <code>+</code> gemischt (das löst <code>str(…)</code>)
           ],
           starterCode: py`
             name = "Emma"
-            alter = 11
+            alter = 13
             print("Hallo " + name)
             print("Nächstes Jahr bist du " + (alter + 1) + " Jahre alt")
             for i in range(3)
@@ -1917,7 +2023,7 @@ oder Text und Zahl mit <code>+</code> gemischt (das löst <code>str(…)</code>)
           `,
           solution: py`
             name = "Emma"
-            alter = 11
+            alter = 13
             print("Hallo " + name)
             print("Nächstes Jahr bist du " + str(alter + 1) + " Jahre alt")
             for i in range(3):
@@ -1930,17 +2036,18 @@ oder Text und Zahl mit <code>+</code> gemischt (das löst <code>str(…)</code>)
             return need(
               [r.node("For") > 0, "keepLoop"],
               [r.lines.length >= 5, "allLines"],
-              [r.num(12), "age"],
+              [r.num(14), "age"],
               [Math.max(0, ...Object.values(counts)) >= 3, "threeHurra"]
             );
           },
           feedback: {
             keepLoop: "Lass die Schleife stehen und repariere sie.",
             allLines: "Alle Zeilen sollen ausgegeben werden – lösch keine Befehle, sondern repariere sie.",
-            age: "In der Ausgabe soll stehen, wie alt Emma nächstes Jahr ist (12). Nutze <code>str(alter + 1)</code>.",
+            age: "In der Ausgabe soll stehen, wie alt Emma nächstes Jahr ist (14). Nutze <code>str(alter + 1)</code>.",
             threeHurra: "„Hurra!“ soll dreimal erscheinen: Die <code>print</code>-Zeile gehört eingerückt in die Schleife.",
           },
           expert: {
+            tool: true,
             xp: 15,
             html: `
 <p>Manche Fehler kann man vorhersehen – zum Beispiel, wenn jemand Buchstaben eintippt, wo eine
@@ -1983,12 +2090,16 @@ nützliches Werkzeug. Nutze, was du gelernt hast: <code>input()</code>, <code>if
 Schleifen, Listen, Dictionaries, eigene Funktionen, <code>random</code> …</p>
 
 <p>Es muss nicht perfekt sein – Hauptsache, es ist deins. Fang klein an, teste oft und bau
-dann Stück für Stück weiter. Wenn du fertig bist, wartet dein Diplom. 🚀</p>`,
+dann Stück für Stück weiter. Keine Idee? In den Tipps stehen zwei Baupläne.</p>
+
+<p>Mit <b>Teilen</b> über dem Editor bekommst du einen Link zu deinem Programm, den du verschicken
+kannst. Zeig es jemandem! Und wenn du fertig bist, wartet dein Diplom. 🚀</p>`,
           taskHtml:
-            "Schreib ein eigenes Programm, das mindestens <b>drei Bausteine</b> aus dem Kurs nutzt (<code>input()</code>, <code>if</code>, eine Schleife, eine Liste oder ein Dictionary, eine eigene Funktion, <code>random</code>) und ohne Fehler läuft. Sei kreativ – das ist dein Meisterstück!",
+            "Bau ein eigenes Programm, das mindestens <b>drei Bausteine</b> aus dem Kurs nutzt (<code>input()</code>, <code>if</code>, eine Schleife, eine Liste oder ein Dictionary, eine eigene Funktion, <code>random</code>, Bildschirm oder Lautsprecher der Station) und ohne Fehler läuft. Überleg zuerst: Was soll die erste kleine Version können? Bau sie und erweitere sie danach.",
           hints: [
-            "Fang klein an: erst etwas ausgeben, dann Schritt für Schritt erweitern.",
-            "Ideen: ein Würfelspiel mit Punkten, ein Vokabel-Quiz aus einer Liste, ein Taschengeld-Planer mit Funktion.",
+            "Such dir <b>eine</b> Idee aus den Kommentaren im Start-Code aus. Schreib zuerst nur eine Zeile, die etwas ausgibt, und führ sie aus. Dann kommt Baustein für Baustein dazu.",
+            "Bauplan Würfelspiel: 1. <code>import random</code> und eine Liste mit Namen · 2. eine <code>for</code>-Schleife über die Namen · 3. in der Schleife für jeden würfeln und ausgeben · 4. mit <code>if</code> eine Sechs feiern.",
+            "Bauplan Quiz: 1. eine Liste mit Fragekarten wie im Mini-Quiz · 2. eine Schleife über die Karten · 3. <code>input()</code> in der Schleife · 4. mit <code>if</code> Punkte zählen und am Ende ausgeben.",
           ],
           starterCode: py`
             # 🌟 Dein Projekt. Ein paar Ideen:
@@ -1996,6 +2107,8 @@ dann Stück für Stück weiter. Wenn du fertig bist, wartet dein Diplom. 🚀</p
             #  - ein Quiz zu deinem Lieblingsthema
             #  - ein Würfelspiel oder Rechen-Trainer
             #  - ein nützliches Werkzeug (Umrechner, Ideen-Generator)
+            #  - ein Bild oder eine Melodie mit der Station
+            # Zwei Baupläne findest du in den Tipps.
 
             print("Mein Projekt startet …")
           `,
@@ -2024,13 +2137,13 @@ dann Stück für Stück weiter. Wenn du fertig bist, wartet dein Diplom. 🚀</p
               r.ast.listLens.length + r.ast.dictLens.length > 0,
               r.node("FunctionDef") > 0,
               r.ast.imports.includes("random"),
+              r.ast.imports.includes("station"),
             ].filter(Boolean).length;
-            return need(R.changed(r), [blocks >= 3, "blocks", { n: blocks }], [r.ast.codeLines >= 6, "tooShort"], R.output(r));
+            return need(R.changed(r), [blocks >= 3, "blocks", { n: blocks }], R.output(r));
           },
           feedback: {
             blocks:
               "Dein Programm nutzt erst {n} der Bausteine. Nimm noch weitere dazu – zum Beispiel eine Schleife, eine Liste oder eine eigene Funktion.",
-            tooShort: "Dein Projekt darf ruhig etwas größer werden – mindestens 6 Zeilen Code.",
           },
         },
       ],

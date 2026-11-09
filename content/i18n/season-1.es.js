@@ -17,22 +17,22 @@ export default {
     c1: {
       name: "Sala de radio",
       intro: "La sala de radio está a oscuras. Si la estación ha de volver a hablar, necesita comandos, y esos los escribes tú.",
-      outro: "La estación vuelve a hablar, a calcular y a hacer preguntas. Lumo da una vuelta de alegría.",
+      outro: "La estación vuelve a hablar, a calcular y a hacer preguntas. Lumo da una vuelta de alegría y quiere salir al hielo: en «Misiones exteriores», dentro de la ruta de aprendizaje, ya puedes pilotar a Lumo. A continuación, la estación aprenderá a decidir por sí misma.",
     },
     c2: {
       name: "Hangar",
       intro: "En el hangar esperan puertas, rovers y luces de señal. Para que decidan por su cuenta y repitan cosas, necesitan condiciones y bucles.",
-      outro: "El portón del hangar se abre y fuera brilla el hielo. A partir de ahora, Lumo también puede volar en misiones al exterior.",
+      outro: "El portón del hangar se abre y fuera brilla el hielo. Con bucles y sensores, Lumo encuentra ahora en las misiones exteriores incluso caminos que nadie conocía de antemano. A continuación, la estación aprenderá a reunir cosas y a entender comandos propios.",
     },
     c3: {
       name: "Laboratorio",
       intro: "En el laboratorio, las provisiones, las muestras y las notas están revueltas. Las listas, los diccionarios y los comandos propios pondrán orden.",
-      outro: "Todo está en su sitio, y la IA de a bordo te reconoce como miembro de la tripulación.",
+      outro: "Todo está en su sitio, y la IA de a bordo te reconoce como miembro de la tripulación. A continuación lo juntarás todo: un juego, un código secreto y la primera imagen para la sala de control.",
     },
     c4: {
       name: "Sala de control",
       intro: "En la sala de control se unen todos los sistemas. Aquí demuestras lo que sabes: juegos, códigos, imágenes y datos de medición reales.",
-      outro: "¡La estación Polaris vuelve a brillar! A partir de ahora construyes tus propios módulos.",
+      outro: "¡La estación Polaris vuelve a brillar! A partir de ahora construyes tus propios módulos. En la zona libre puedes seguir construyendo cuando quieras, y con «Compartir» enseñas a otras personas lo que has creado.",
     },
     d1: {
       name: "Campo de hielo",
@@ -51,23 +51,16 @@ export default {
     title: "¡Hola, mundo!",
     story: "La radio de la estación lleva años en silencio. Envía el primer mensaje de todos: ¡lo importante es que suene a ti!",
     intro: `
-<p>Un programa es una lista de <b>comandos</b> que Python ejecuta uno tras otro.
-Tu primer comando es <code>print()</code>: escribe algo en la <b>consola</b>
-(el recuadro oscuro que hay debajo del editor).</p>
-
-<p><b>Importante: el texto va entre comillas.</b> Todo lo que Python deba mostrar <i>tal cual</i>
-lo escribes entre comillas: <code>"…"</code>. A un texto así se le llama <b>string</b>
-(en español, «cadena de texto»). Las comillas le dicen a Python:
-«Esto es texto, no un comando».</p>
+<p>Un programa es una lista de <b>comandos</b> que el ordenador ejecuta uno tras otro.
+Tu primer comando es <code>print()</code>. Escribe algo en la <b>consola</b>, el recuadro oscuro
+que hay debajo del editor.</p>
 
 <pre><code>print("¡Hola, mundo!")</code></pre>
 
-<p>Si quitaras las comillas (<code>print(Hola)</code>), Python pensaría que
-<code>Hola</code> es un nombre que debería conocer y mostraría un error. Por cierto,
-las comillas en sí <b>no</b> aparecen en la salida.</p>
+<p>Todo lo que va entre las comillas <code>"…"</code> lo muestra Python tal cual. A un texto así
+se le llama <b>string</b>. Las comillas en sí no aparecen.</p>
 
-<p>No te preocupes: aquí no se puede romper nada. Cambia el texto y pulsa
-<b>Ejecutar</b> (o Ctrl + Enter).</p>`,
+<p>Aquí no se puede romper nada. Cambia el texto y pulsa <b>Ejecutar</b>.</p>`,
     taskHtml:
       "Cambia el texto: muestra un <b>mensaje propio</b>, por ejemplo tu lema, un saludo o tu frase favorita. ¡No olvides las comillas!",
     hints: [
@@ -116,7 +109,10 @@ nombres de variables es mejor no usar tildes ni la ñ: por eso escribimos <code>
 <p><b>¿Número o texto?</b> Los números se escriben <i>sin</i> comillas (<code>7</code>).
 Y para mostrar la <i>variable</i>, su nombre va entre los paréntesis <b>sin</b> comillas:
 <code>print(numero_favorito)</code> muestra <code>7</code>. En cambio, <code>print("numero_favorito")</code>
-mostraría simplemente esa palabra.</p>`,
+mostraría simplemente esa palabra.</p>
+
+<p>Las líneas que empiezan por <code>#</code> son <b>comentarios</b>: notas para ti que Python
+se salta. En el código inicial suele haber pequeñas indicaciones así.</p>`,
     taskHtml:
       "Guarda tu <b>número favorito</b> en la variable y muéstralo con <code>print()</code>. ¡El nombre de la variable va sin comillas!",
     hints: ["Primero asigna: <code>numero_favorito = 42</code>", "Después muéstralo: <code>print(numero_favorito)</code>"],
@@ -135,10 +131,22 @@ mostraría simplemente esa palabra.</p>`,
     },
     expert: {
       html: `
-<p>Una variable puede <b>cambiar</b>. <code>puntos = puntos + 50</code> toma el valor anterior,
-le suma 50 y vuelve a guardar el resultado en la misma caja. Los nombres pueden tener letras,
-cifras y <code>_</code>, pero no pueden empezar por una cifra.</p>
-<p><b>Reto extra:</b> Crea <code>puntos = 100</code>, aumenta después el valor en 50 y muéstralo.</p>`,
+<p>Una variable puede <b>cambiar</b>. Para ello calculas con su valor anterior y vuelves a guardar
+el resultado en la misma caja:</p>
+
+<pre><code>vidas = 3
+vidas = vidas - 1
+print(vidas)</code></pre>
+
+<p>La primera línea le da a <code>vidas</code> el valor inicial 3. La segunda toma ese valor, le resta 1
+y guarda el resultado otra vez en <code>vidas</code>, así que se muestra 2. Sin la primera línea no
+funciona, porque Python solo puede calcular con un valor que ya conoce.</p>
+
+<p><b>Reto extra:</b> Escribe tres líneas nuevas debajo de tu código. Primero dale a <code>puntos</code>
+el valor inicial 100, luego auméntalo en 50 y al final muéstralo. Debe salir 150.</p>
+
+<p>Por cierto, los nombres como <code>puntos</code> pueden tener letras, cifras y <code>_</code>, pero no
+pueden empezar por una cifra.</p>`,
       solution: py`
         puntos = 100
         puntos = puntos + 50
@@ -146,14 +154,14 @@ cifras y <code>_</code>, pero no pueden empezar por una cifra.</p>
       `,
       feedback: {
         selfUpdate: "Aumenta el valor con <code>puntos = puntos + 50</code> (o, más corto, <code>puntos += 50</code>).",
-        result150: "Al final debería mostrarse 150.",
+        result150: "Al final debería mostrarse 150. ¿Le das antes a <code>puntos</code> el valor inicial 100?",
       },
     },
   },
 
   "s1-l3": {
     title: "La calculadora de ahorro",
-    story: "En el sistema de a bordo sigue atascado un viejo cálculo de la tripulación. Demuéstrale que la estación vuelve a saber calcular.",
+    story: "En el sistema de a bordo sigue atascado un viejo cálculo de la tripulación: ¿cuántas celdas de energía hay en el almacén de emergencia? Demuéstrale que la estación vuelve a saber calcular.",
     intro: `
 <p>Python es una calculadora genial. Puedes calcular con <code>+</code> (más),
 <code>-</code> (menos), <code>*</code> (por) y <code>/</code> (entre). Es decir, se usa
@@ -162,19 +170,22 @@ cifras y <code>_</code>, pero no pueden empezar por una cifra.</p>
 <p><b>Importante:</b> los números se escriben sin comillas. Si no, Python los trata como
 texto y no calcula (¡<code>"5" + "3"</code> daría <code>"53"</code> en vez de <code>8</code>!).</p>
 
-<pre><code>por_semana = 5
-semanas = 8
-print(por_semana * semanas)</code></pre>
+<pre><code>horas = 3
+por_hora = 12
+print(horas * por_hora)</code></pre>
 
-<p>Lo bueno de las variables: si cambia un valor, el programa vuelve a calcularlo todo automáticamente.
-Mia aparta un poco de dinero cada semana. Calcula con sus variables.</p>`,
+<p>¿Qué muestra el ejemplo? Piénsalo primero y después pulsa <b>Probar</b>. Lo bueno de las
+variables: si cambia un valor, el programa vuelve a calcularlo todo automáticamente.</p>`,
     taskHtml:
-      "¿Cuánto ha ahorrado Mia después de <b>8 semanas</b> si aparta <b>5&nbsp;€</b> cada semana? Calcula con las dos variables y muestra el resultado. (Para comprobarlo: son 40.)",
-    hints: ["Para multiplicar se usa <code>*</code>.", "<code>print(por_semana * semanas)</code>"],
+      "Durante <b>8 semanas</b>, la tripulación ha llevado cada semana <b>5 celdas de energía</b> al almacén de emergencia. ¿Cuántas hay en total? Calcula con las dos variables y muestra el resultado. (Para comprobarlo: son 40.)",
+    hints: [
+      "Para multiplicar se usa <code>*</code>. En lugar de los números, escribe los nombres de las variables.",
+      "<code>print(por_semana * semanas)</code>",
+    ],
     starterCode: py`
       por_semana = 5
       semanas = 8
-      # Calcula lo que ha ahorrado y muéstralo
+      # Calcula cuántas celdas hay en el almacén y muéstralo
     `,
     solution: py`
       por_semana = 5
@@ -189,18 +200,22 @@ Mia aparta un poco de dinero cada semana. Calcula con sus variables.</p>`,
     },
     expert: {
       html: `
-<p>¿Después de cuántas semanas <b>completas</b> tendrá Mia 100&nbsp;€? El operador <code>//</code>
-divide y quita los decimales (<code>100 // 5</code> da 20).</p>
-<p><b>Reto extra:</b> Crea <code>meta = 100</code> y calcula con <code>//</code> cuántas semanas
-necesita Mia.</p>`,
+<p>El operador <code>//</code> divide y descarta el resto: <code>17 // 5</code> da 3.
+El resto lo obtienes con <code>%</code>: <code>17 % 5</code> da 2, porque 3 por 5 son 15, y hasta
+17 faltan 2.</p>
+<p><b>Reto extra:</b> En el almacén hay <code>reserva = 102</code> celdas de energía. Van en cajas de
+<code>por_caja = 5</code> unidades. Muestra cuántas cajas <b>llenas</b> salen y cuántas celdas
+sobran.</p>`,
       solution: py`
-        por_semana = 5
-        meta = 100
-        print(meta // por_semana, "semanas")
+        reserva = 102
+        por_caja = 5
+        print(reserva // por_caja, "cajas llenas")
+        print(reserva % por_caja, "celdas sobrantes")
       `,
       feedback: {
-        floorDiv: "Usa <code>//</code> para dividir sin decimales: <code>meta // por_semana</code>.",
-        result20: "Deberían salir 20 semanas.",
+        floorDiv: "Usa <code>//</code> para las cajas llenas: <code>reserva // por_caja</code>.",
+        mod: "El resto lo obtienes con <code>%</code>: <code>reserva % por_caja</code>.",
+        result: "Deberían salir 20 cajas llenas y 2 celdas sobrantes.",
       },
     },
   },
@@ -319,8 +334,9 @@ print(f"Nombre: {nombre}")</code></pre>
     taskHtml:
       "Pregunta al menos <b>tres</b> cosas con <code>input()</code> y muestra un <b>perfil</b> en el que aparezcan todas las respuestas, usando f-strings.",
     hints: [
+      "Ejecuta una vez el código inicial y responde las dos preguntas. Después faltan una tercera pregunta y mostrar el perfil.",
       'Añade otro <code>input(…)</code> debajo, por ejemplo <code>animal = input("Animal favorito: ")</code>.',
-      'Una línea por respuesta: <code>print(f"Nombre: {nombre}")</code>',
+      'Una línea por respuesta: <code>print(f"Nombre: {nombre}")</code>, y lo mismo con <code>hobby</code> y tu tercera variable.',
     ],
     starterCode: py`
       nombre = input("Nombre: ")
@@ -362,8 +378,9 @@ crea una línea de 20 signos de igual.</p>
     title: "Si… entonces…",
     story: "La puerta del hangar solo se abre si hay suficientes puntos de energía. Enséñale también a decir que no, con amabilidad.",
     intro: `
-<p>Los programas tienen que <b>decidir</b>. Con <code>if</code> («si») compruebas una condición:
-si se cumple, se ejecuta el bloque con sangría que hay debajo. <code>else</code> («si no») es el otro caso.</p>
+<p>Los programas tienen que <b>decidir</b>. Con <code>if</code> («si») compruebas una condición,
+por ejemplo una comparación de la lección anterior. Si es <code>True</code>, se ejecuta el bloque con
+sangría que hay debajo. <code>else</code> («si no») es el otro caso.</p>
 
 <pre><code>puntos = 120
 if puntos &gt;= 100:
@@ -373,11 +390,18 @@ else:
 
 <p><b>Python es estricto con dos reglas:</b> después de la condición van los <b>dos puntos</b>
 <code>:</code>, y las líneas que dependen de ella llevan <b>sangría</b> (también se dice «indentación»):
-van 4 espacios más a la derecha. La tecla Tab lo hace por ti.</p>
+van 4 espacios más a la derecha. Después de los dos puntos, el editor pone él solo la sangría de la
+línea siguiente.</p>
 
-<p>Puedes comparar con <code>==</code> (igual), <code>!=</code> (distinto),
-<code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> y <code>&gt;=</code>.
-Ojo: <code>==</code> pregunta «¿es igual?», mientras que <code>=</code> asigna un valor.</p>
+<p><b>¿Más de dos casos?</b> Entonces va <code>elif</code> («si no, si») en medio. Python comprueba
+de arriba abajo y se queda con el primer caso que se cumple:</p>
+<pre><code>puntos = 70
+if puntos &gt;= 100:
+    print("¡Nivel superado!")
+elif puntos &gt;= 50:
+    print("¡Casi!")
+else:
+    print("¡Sigue practicando!")</code></pre>
 
 <p><b>Nuevo: escribir números.</b> <code>input()</code> siempre devuelve texto. Con <code>int(…)</code>
 lo conviertes en un número entero con el que Python puede comparar y calcular:</p>
@@ -408,10 +432,8 @@ lo conviertes en un número entero con el que Python puede comparar y calcular:<
     },
     expert: {
       html: `
-<p>Para más de dos casos existe <code>elif</code> («si no, si»). Python comprueba las
-condiciones de arriba abajo y se queda con la primera que se cumple.</p>
-<p><b>Reto extra:</b> Crea tres niveles: a partir de 100 puntos, «Nivel superado»; a partir de 50 puntos,
-«Casi lo tienes»; y si no, «Sigue practicando».</p>`,
+<p><b>Reto extra:</b> Crea con <code>elif</code> tres niveles: a partir de 100 puntos, «Nivel superado»;
+a partir de 50 puntos, «Casi lo tienes»; y si no, «Sigue practicando».</p>`,
       solution: py`
         puntos = int(input("¿Cuántos puntos tienes? "))
         if puntos >= 100:
@@ -429,15 +451,18 @@ condiciones de arriba abajo y se queda con la primera que se cumple.</p>
     title: "¿Verdadero o falso?",
     story: "Los sensores del hangar ya solo responden True o False. Comprueba si entiendes su idioma.",
     intro: `
-<p>Toda comparación tiene un resultado: <code>True</code> (verdadero) o <code>False</code> (falso).
-A esto se le llama <b>valor booleano</b> (en inglés, <i>boolean</i>). Justo con eso toma
-<code>if</code> sus decisiones.</p>
+<p>Los programas a menudo tienen que <b>comprobar</b> algo: ¿alcanza la energía? ¿Es correcto el código?
+Para eso existen las <b>comparaciones</b>. Cada comparación tiene un resultado: <code>True</code> (verdadero)
+o <code>False</code> (falso). A esto se le llama <b>valor booleano</b> (en inglés, <i>boolean</i>).</p>
 
 <pre><code>print(10 &gt; 3)    # True
 print(5 == 6)   # False</code></pre>
 
-<p>Todo lo que va detrás de <code>#</code> es un <b>comentario</b>: una nota para las personas que
-Python se salta.</p>`,
+<p>Puedes comparar con <code>==</code> (igual), <code>!=</code> (distinto),
+<code>&lt;</code> (menor), <code>&gt;</code> (mayor), <code>&lt;=</code> y <code>&gt;=</code>.
+Ojo: <code>==</code> pregunta «¿es igual?», mientras que un solo <code>=</code> asigna un valor.</p>
+
+<p>En la próxima lección, tu programa tomará decisiones de verdad con comparaciones como estas.</p>`,
     taskHtml:
       "Muestra los resultados de <b>al menos tres comparaciones distintas</b>. Al menos una tiene que dar <code>False</code>.",
     hints: [
@@ -477,7 +502,7 @@ está entre 10 y 15. Muestra el resultado.</p>`,
 
   "s2-l3": {
     title: "El azar decide",
-    story: "Al juego de rover de la tripulación le falta el dado. A Lumo le encantaría tener uno que sea aleatorio de verdad.",
+    story: "Al juego de rover de la tripulación le falta el dado. Me encantaría tener uno que sea aleatorio de verdad.",
     intro: `
 <p>El azar hace que los juegos sean emocionantes. Python trae herramientas listas para usar en
 <b>módulos</b>, que cargas con <code>import</code>. El módulo <code>random</code> sabe tirar dados.</p>
@@ -510,8 +535,9 @@ Con comas puedes mezclar texto y números dentro de <code>print</code>.</p>`,
     },
     expert: {
       html: `
-<p>Con <code>random.choice([...])</code> eliges al azar algo <b>de una lista</b>:
-perfecto para una ruleta de premios.</p>
+<p>Una <b>lista</b> reúne varios valores entre corchetes, separados por comas:
+<code>premios = ["Helado", "Comodín", "Ronda extra", "Pausa"]</code>. Aprenderás más sobre las listas en
+el capítulo 3. <code>random.choice(premios)</code> saca al azar un elemento de ella.</p>
 <p><b>Reto extra:</b> Construye una ruleta de premios con al menos <b>cuatro</b> premios inventados por ti.</p>`,
       solution: py`
         import random
@@ -550,10 +576,8 @@ for i in range(4):
     drum("snare")
 note("do5", 2)</code></pre>
 
-<p>Batería: <code>"kick"</code>, <code>"snare"</code>, <code>"hihat"</code>, <code>"clap"</code>,
-<code>"tom"</code>. Notas: <code>"do4"</code>, <code>"re4"</code>, <code>"mi4"</code>… o también
-<code>"C4"</code>, <code>"D4"</code>, <code>"E4"</code>… El número después de la coma es la duración
-en tiempos (sin número: un tiempo).</p>`,
+<p>Qué sonidos hay lo tienes en el código inicial. En <code>note</code>, el número después de la coma
+es la duración en tiempos.</p>`,
     taskHtml:
       "Crea un <b>ritmo</b> con un <b>bucle <code>for</code></b> que se repita <b>al menos tres veces</b>: que se oiga con <code>drum()</code> o <code>note()</code>, o como texto con <code>print()</code>. La instrucción aparece una sola vez en el código: el bucle se encarga de repetirla.",
     hints: [
@@ -563,6 +587,8 @@ en tiempos (sin número: un tiempo).</p>`,
     starterCode: py`
       from station import drum, note
 
+      # Batería: "kick", "snare", "hihat", "clap", "tom"
+      # Notas: "do4", "re4", "mi4"… o también "C4", "D4", "E4"…
       # Crea tu ritmo con un bucle for
       drum("kick")
     `,
@@ -628,17 +654,27 @@ después 2 y después 3, y esa misma cantidad de caracteres aparece en la línea
     feedback: { grow: 'Las líneas todavía miden lo mismo. Haz que la longitud crezca con el contador: <code>"⭐" * i</code>.' },
     expert: {
       html: `
-<p>Con espacios al principio puedes desplazar un patrón hacia la derecha, y así sale una
-<b>pirámide</b>. Truco: <code>" " * (5 - i)</code> para el hueco y <code>"*" * (2 * i - 1)</code>
-para las estrellas.</p>
-<p><b>Reto extra:</b> Dibuja una pirámide de al menos cuatro líneas que se vaya ensanchando hacia abajo.</p>`,
+<p>Las luces de señal de verdad están en la <b>pantalla de la estación</b>: 16 por 16 luces.
+<code>pixel(x, y, color)</code> enciende una de ellas. <code>x</code> cuenta desde la izquierda (0 a 15),
+<code>y</code> desde arriba (0 a 15).</p>
+
+<pre><code>from station import pixel
+
+for i in range(4):
+    pixel(i, 0, "amarillo")</code></pre>
+
+<p>Aquí el contador <code>i</code> va pasando de luz en luz.</p>
+<p><b>Reto extra:</b> Haz que se encienda con un bucle una fila de al menos <b>8 luces de señal</b>.
+Si te apetece, construye una escalera: <code>pixel(i, i, "amarillo")</code>.</p>`,
       solution: py`
-        for i in range(1, 6):
-            print(" " * (5 - i) + "*" * (2 * i - 1))
+        from station import pixel
+
+        for i in range(16):
+            pixel(i, 8, "amarillo")
       `,
       feedback: {
-        indent: 'Cada línea debe tener menos espacios al principio que la anterior: <code>" " * (5 - i)</code>.',
-        wider: "Las estrellas tienen que aumentar de una línea a la siguiente.",
+        pixelInLoop: "Llama a <code>pixel(…)</code> con sangría dentro del bucle y usa el contador <code>i</code> como coordenada.",
+        eight: "Tienen que encenderse al menos 8 luces. Haz que el bucle dé más vueltas, por ejemplo con <code>range(8)</code>.",
       },
     },
   },
@@ -659,12 +695,16 @@ print("¡Ya!")</code></pre>
 <p><b>Muy importante:</b> dentro del bucle tiene que cambiar algo que, en algún momento, haga que la
 condición sea <code>False</code>. Aquí, <code>numero</code> se va haciendo más pequeño. Si eso no pasa,
 el bucle sigue <i>para siempre</i>. No te preocupes: Codaluna se da cuenta y detiene tu programa
-(o puedes pulsar <b>Detener</b>).</p>`,
+(o puedes pulsar <b>Detener</b>).</p>
+
+<p>Por cierto, <code>numero = numero - 1</code> también se puede escribir más corto:
+<code>numero -= 1</code>, y lo mismo con <code>numero += 1</code>. Las dos formas son correctas.</p>`,
     taskHtml:
       "Cuenta <b>hacia atrás del 10 al 1</b> con un bucle <code>while</code> y después muestra <code>¡Despegue! 🚀</code>.",
     hints: [
-      "<code>while numero &gt; 0:</code> y debajo, con sangría, <code>print(numero)</code>.",
-      "Haz el número más pequeño dentro del bucle: <code>numero = numero - 1</code>. ¡Si no, no se acaba nunca!",
+      "Un bucle <code>while</code> se repite mientras su condición sea verdadera. ¿Qué condición encaja con «el número todavía es mayor que 0»?",
+      "Dentro del bucle pasan dos cosas: mostrar el número y después hacerlo 1 más pequeño. Después del bucle, sin sangría, va «¡Despegue!».",
+      '<code>while numero &gt; 0:</code>, debajo con sangría <code>print(numero)</code> y <code>numero = numero - 1</code>, y abajo del todo, sin sangría, <code>print("¡Despegue! 🚀")</code>.',
     ],
     starterCode: py`
       numero = 10
@@ -712,17 +752,23 @@ y muéstrala.</p>`,
 <code>random</code>, <code>int(input())</code>, <code>if</code>/<code>elif</code> y <code>while</code>.</p>
 
 <p>El bucle <code>while numero != secreto:</code> se repite mientras tu número <b>no</b> sea el correcto.
-Dentro todavía falta lo más importante: las pistas.</p>`,
+Dentro todavía falta lo más importante: las pistas.</p>
+
+<p>Recuerda: <code>elif</code> significa «si no, si». Python solo lo comprueba si la condición anterior
+era falsa. Aquí necesitas dos comparaciones: si el número es mayor que el secreto, sale «demasiado
+alto»; si es menor, sale «demasiado bajo». Si es igual, no sale ninguna pista. Las dos comparaciones
+van <b>dentro</b> del bucle, y sus líneas de <code>print</code> llevan una sangría más.</p>`,
     taskHtml:
       "Completa el juego: dentro del bucle debe mostrarse <b>«demasiado alto»</b> o <b>«demasiado bajo»</b>, según el número que escribas. Si aciertas, no sale ninguna pista. ¡Después pruébalo tú!",
     hints: [
-      "<code>if numero &gt; secreto:</code> → demasiado alto.",
-      "<code>elif numero &lt; secreto:</code> → demasiado bajo. Los dos van con sangría dentro del bucle, debajo de la línea del <code>input</code>.",
+      "Un número puede ser demasiado alto, demasiado bajo o justo el correcto. Solo necesitas una pista para los dos primeros casos. ¿Por qué estaría mal usar <code>else</code> para la segunda pista?",
+      "Debajo de la línea del <code>input</code>, con sangría dentro del bucle: primero <code>if</code> para «demasiado alto» y después <code>elif</code> para «demasiado bajo».",
+      '<code>if numero &gt; secreto:</code> con <code>print("demasiado alto")</code> debajo, y después <code>elif numero &lt; secreto:</code> con <code>print("demasiado bajo")</code>. Las dos líneas de <code>print</code> llevan una sangría más.',
     ],
     starterCode: py`
       import random
       secreto = random.randint(1, 20)
-      numero = 0
+      numero = 0   # 0 nunca es el número secreto, así el bucle arranca
 
       while numero != secreto:
           numero = int(input("Tu número (1-20): "))
@@ -887,7 +933,7 @@ invierte el orden.</p>
 
   "s3-l3": {
     title: "Para cada cosa…",
-    story: "Lumo tiene que revisar cada elemento de la lista, uno tras otro. Un bucle lo hace en segundos.",
+    story: "Tengo que revisar cada elemento de la lista, uno tras otro. Con un bucle, eso se hace en segundos.",
     intro: `
 <p>Con <code>for … in lista</code> recorres <b>cada elemento</b> uno tras otro, sin
 tener que contar posiciones:</p>
@@ -899,7 +945,7 @@ for cancion in canciones:
 <p>En cada vuelta, <code>cancion</code> es el siguiente elemento. Ese nombre lo eliges tú:
 <code>for x in canciones</code> funcionaría igual, pero un nombre que diga algo se lee mejor.</p>`,
     taskHtml:
-      "Recorre la lista con un bucle <code>for</code> y muestra <b>cada elemento en su propia línea</b>. Si quieres, pon un texto delante, por ejemplo «Ahora suena: …».",
+      "Recorre la lista con un bucle <code>for</code> y muestra <b>cada elemento en su propia línea</b>. Si quieres, pon un texto delante, por ejemplo «Ahora suena: …». Cuando funcione, añade una cuarta canción a la lista. ¿Hay que cambiar el bucle para eso? Pruébalo.",
     hints: ["<code>for cancion in canciones:</code>", "Debajo, con sangría: <code>print(cancion)</code>"],
     starterCode: py`
       canciones = ["Intro", "Beat 1", "Final"]
@@ -936,25 +982,36 @@ for cancion in canciones:
 
   "s3-l4": {
     title: "Crea tus propios comandos",
-    story: "Lumo está harto de explicarlo todo diez veces. Crea un comando propio que salude a los visitantes.",
+    story: "Cada día llegan visitantes a la estación, y yo saludo a cada uno por separado. Constrúyeme un comando que se encargue de eso.",
     intro: `
 <p>Una <b>función</b> es un comando propio que construyes una vez y puedes usar tantas veces como quieras.
 La defines con <code>def</code>; entre los paréntesis van los <b>parámetros</b>, es decir, los valores
 que recibe la función cuando la llamas.</p>
 
-<pre><code>def saludar(nombre):
-    print(f"¡Hola, {nombre}! 👋")
+<pre><code>def animar(palabra):
+    print(f"¡{palabra}! ¡{palabra}! ¡{palabra}!")
 
-saludar("Deniz")
-saludar("Fátima")</code></pre>
+animar("Hurra")
+animar("Python")</code></pre>
 
 <p>El bloque con sangría es el «plano de construcción». Solo se ejecuta cuando <b>llamas</b> a la
-función, con el valor que le pasas. Así te ahorras repetir código.</p>`,
-    taskHtml: "Llama a la función <code>saludar</code> con <b>dos nombres distintos</b>.",
-    hints: ['Llamada: <code>saludar("Mia")</code>', "Dos llamadas, una debajo de otra, sin sangría y con nombres distintos."],
+función, con el valor que le pasas. Así te ahorras repetir código.</p>
+
+<p>En el código inicial ya está el plano, pero todavía sin contenido. <code>pass</code> es un marcador
+de posición y significa «aquí todavía no pasa nada». Sustitúyelo por tu propio código.</p>
+
+<p>Con comandos propios, ahí fuera puedo incluso girar a la derecha. Pruébalo en la misión
+exterior «Hacia la derecha».</p>`,
+    taskHtml:
+      "Completa la función <code>saludar(nombre)</code>: debe mostrar un saludo en el que aparezca el nombre. Después llámala con <b>dos nombres distintos</b>.",
+    hints: [
+      "Sustituye <code>pass</code> por un <code>print(…)</code> con sangría en el que aparezca <code>nombre</code>, por ejemplo con un f-string.",
+      'Dentro de la función: <code>    print(f"¡Hola, {nombre}! 👋")</code>. Debajo, sin sangría, dos llamadas: <code>saludar("Mia")</code> y otra con un nombre distinto.',
+    ],
     starterCode: py`
       def saludar(nombre):
-          print(f"¡Hola, {nombre}! 👋")
+          # Muestra aquí un saludo con el nombre
+          pass
 
       # Llama a la función con dos nombres distintos
     `,
@@ -967,6 +1024,8 @@ función, con el valor que le pasas. Así te ahorras repetir código.</p>`,
     `,
     feedback: {
       twoCalls: 'Llama a la función dos veces, cada vez en su propia línea: <code>saludar("Mia")</code>.',
+      useName:
+        'Tu función debe mostrar el nombre que recibe. Sustituye <code>pass</code> por un <code>print</code> con <code>nombre</code>, por ejemplo <code>print(f"¡Hola, {nombre}!")</code>.',
       differentNames: "Usa dos nombres <b>distintos</b>.",
     },
     expert: {
@@ -1004,7 +1063,12 @@ resultado = doble(5)
 print(resultado)   # 10</code></pre>
 
 <p>Después de <code>return</code>, la función termina y devuelve el valor al lugar desde donde
-la llamaste. Ese valor lo puedes guardar, mostrar o seguir usando.</p>`,
+la llamaste. Ese valor lo puedes guardar, mostrar o seguir usando.</p>
+
+<p>Una función también puede recibir <b>varios valores</b>. Entonces los parámetros van entre los
+paréntesis, separados por comas: <code>def promedio(a, b, c):</code>. Al llamarla con
+<code>promedio(2, 4, 6)</code>, <code>a</code> recibe el primer valor, <code>b</code> el segundo y
+<code>c</code> el tercero.</p>`,
     taskHtml:
       "Completa <code>promedio</code> para que la función devuelva el <b>promedio</b> de los tres números. Para 2, 4 y 6 sale <b>4.0</b>, y con cualquier otro número también tiene que ser correcto.",
     hints: [
@@ -1062,7 +1126,7 @@ print(personaje["nivel"])    # 3</code></pre>
 <p>A diferencia de las listas (donde accedes por la <b>posición</b>), aquí usas la <b>clave</b>:
 <code>personaje["nombre"]</code>. Es genial para agrupar información que va junta.</p>`,
     taskHtml:
-      "Amplía el diccionario a al menos <b>tres</b> pares (por ejemplo, con un arma, una mascota o un color) y muestra <b>dos valores</b> usando su clave.",
+      "Amplía el diccionario a al menos <b>tres</b> pares (por ejemplo, con una herramienta, una mascota o un color) y muestra <b>dos valores</b> usando su clave.",
     hints: [
       'Un par más: <code>personaje = {"nombre": "Ada", "nivel": 3, "color": "lila"}</code>',
       'Acceso por la clave: <code>print(personaje["color"])</code>',
@@ -1102,93 +1166,106 @@ print(personaje["nivel"])    # 3</code></pre>
     title: "Tu miniquiz",
     story: "La IA de a bordo solo deja entrar al laboratorio a quien supera su quiz. ¡Cambia los papeles: ahora el quiz lo creas tú!",
     intro: `
-<p>Construye un pequeño <b>quiz</b> sobre el tema que tú elijas (animales, música, deporte, el espacio…).
-El programa hace preguntas con <code>input()</code>, comprueba las respuestas con <code>if</code> y
-cuenta los puntos con una variable.</p>
+<p>Construye un <b>quiz</b> sobre el tema que tú elijas (animales, música, deporte, el espacio…). Esta vez
+necesitas todo lo de este capítulo: las preguntas están como <b>tarjetas</b> en una lista, y cada tarjeta
+es un diccionario con pregunta y respuesta. Un bucle hace cada pregunta, y tu propia función comprueba
+la respuesta.</p>
 
-<pre><code>puntos = 0
-respuesta = input("¿Pregunta? ")
-if respuesta == "correcta":
-    puntos = puntos + 1</code></pre>
+<pre><code>def es_grande(numero):
+    if numero &gt; 100:
+        return 1
+    else:
+        return 0
 
-<p>Consejo: con <code>respuesta.lower()</code> comparas sin que importen las mayúsculas y
-minúsculas, así que «Roma» cuenta igual que «roma».</p>`,
+print(es_grande(250))   # 1
+print(es_grande(7))     # 0</code></pre>
+
+<p>El bucle del código inicial ya está terminado. Hace cada pregunta y va sumando lo que devuelve
+<code>comprobar</code>: 1 si la respuesta es correcta y 0 si es falsa. <code>len(tarjetas)</code> cuenta
+las tarjetas de la lista.</p>`,
     taskHtml:
-      "Amplía el quiz con <b>al menos dos preguntas más</b> (tres en total). Cuenta las respuestas correctas como puntos y muestra la puntuación al final.",
+      "Completa la función <code>comprobar(respuesta, correcta)</code>: debe devolver <b>1</b> si la respuesta es correcta y <b>0</b> si no lo es. Además, añade <b>al menos dos tarjetas propias</b> a la lista para que tu quiz tenga tres preguntas.",
     hints: [
-      "Para cada pregunta: un <code>input(…)</code> y un <code>if</code>/<code>else</code>.",
-      "Si la respuesta es correcta: <code>puntos = puntos + 1</code>. La puntuación va al final del todo.",
+      "Empieza por la función. Recibe la respuesta y la solución correcta. ¿Cuándo es correcta la respuesta?",
+      'En <code>comprobar</code>: <code>if respuesta == correcta:</code> con <code>return 1</code>, y si no, <code>return 0</code>. Una tarjeta nueva tiene este aspecto: <code>{"pregunta": "¿Cuál es el planeta rojo? ", "respuesta": "marte"},</code>',
+      "<code>def comprobar(respuesta, correcta):</code>, debajo con sangría <code>if respuesta == correcta:</code> con <code>return 1</code> y <code>else:</code> con <code>return 0</code>. Las tarjetas van entre los corchetes, cada una con una coma detrás.",
     ],
     starterCode: py`
+      def comprobar(respuesta, correcta):
+          # Devuelve 1 si la respuesta es correcta y 0 si no lo es
+          return 0
+
+      tarjetas = [
+          {"pregunta": "¿Cuántas patas tiene una araña? ", "respuesta": "8"},
+          # Añade aquí al menos dos tarjetas propias
+      ]
+
       puntos = 0
+      for tarjeta in tarjetas:
+          respuesta = input(tarjeta["pregunta"])
+          puntos = puntos + comprobar(respuesta, tarjeta["respuesta"])
 
-      respuesta = input("¿Cuántas patas tiene una araña? ")
-      if respuesta == "8":
-          puntos = puntos + 1
-          print("¡Correcto! 🕷️")
-      else:
-          print("¡Casi! Son 8.")
-
-      # Añade aquí al menos dos preguntas más
-
-      print("Puntos:", puntos)
+      print("Puntos:", puntos, "de", len(tarjetas))
     `,
     solution: py`
+      def comprobar(respuesta, correcta):
+          if respuesta == correcta:
+              print("¡Correcto!")
+              return 1
+          else:
+              print("Lo siento, la respuesta correcta es:", correcta)
+              return 0
+
+      tarjetas = [
+          {"pregunta": "¿Cuántas patas tiene una araña? ", "respuesta": "8"},
+          {"pregunta": "¿Cuál es la capital de Italia? ", "respuesta": "roma"},
+          {"pregunta": "¿Qué planeta se conoce como el planeta rojo? ", "respuesta": "marte"},
+      ]
+
       puntos = 0
+      for tarjeta in tarjetas:
+          respuesta = input(tarjeta["pregunta"])
+          puntos = puntos + comprobar(respuesta, tarjeta["respuesta"])
 
-      respuesta = input("¿Cuántas patas tiene una araña? ")
-      if respuesta == "8":
-          puntos = puntos + 1
-          print("¡Correcto! 🕷️")
-      else:
-          print("¡Casi! Son 8.")
-
-      respuesta = input("¿Cuál es la capital de Italia? ")
-      if respuesta.lower() == "roma":
-          puntos = puntos + 1
-          print("¡Correcto! 🇮🇹")
-      else:
-          print("Era Roma.")
-
-      respuesta = input("¿Qué planeta se conoce como el planeta rojo? ")
-      if respuesta.lower() == "marte":
-          puntos = puntos + 1
-          print("¡Correcto! 🔴")
-      else:
-          print("Es Marte.")
-
-      print("Puntos:", puntos)
+      print("Puntos:", puntos, "de", len(tarjetas))
     `,
     feedback: {
-      ifPerQuestion: "Comprueba cada respuesta con su propio <code>if</code>.",
-      countPoints: "Suma un punto con cada respuesta correcta: <code>puntos = puntos + 1</code>.",
+      threeCards: 'Añade a la lista <code>tarjetas</code> al menos dos tarjetas propias, cada una con <code>"pregunta"</code> y <code>"respuesta"</code>.',
+      returnOne: "Si la respuesta es correcta, <code>comprobar</code> debe devolver 1. Compara <code>respuesta</code> con <code>correcta</code> y escribe <code>return 1</code>.",
+      returnZero: "Si la respuesta es falsa, <code>comprobar</code> debe devolver 0: <code>else:</code> con <code>return 0</code>.",
       scoreAtEnd: 'Muestra la puntuación al final del todo, por ejemplo <code>print("Puntos:", puntos)</code>.',
     },
     expert: {
       html: `
-<p>Versión pro: guarda las preguntas en una <b>lista de diccionarios</b>
-(<code>{"pregunta": …, "respuesta": …}</code>) y recórrelas con <b>un solo</b> bucle. Así
-escribes el código de una pregunta una sola vez, da igual cuántas preguntas haya.</p>
-<p><b>Reto extra:</b> Rehaz tu quiz de esta forma (con al menos dos preguntas en la lista).</p>`,
+<p><code>respuesta.lower()</code> convierte todas las letras en minúsculas. Así, «Roma» cuenta igual que
+«roma» o «ROMA».</p>
+<p><b>Reto extra:</b> Haz que <code>comprobar</code> no tenga en cuenta las mayúsculas y minúsculas:
+<code>comprobar("ROMA", "roma")</code> debe dar 1.</p>`,
       solution: py`
-        preguntas = [
-            {"pregunta": "¿Cuántas patas tiene una araña? ", "respuesta": "8"},
-            {"pregunta": "¿Cuál es la capital de Italia? ", "respuesta": "roma"},
-            {"pregunta": "¿Qué planeta se conoce como el planeta rojo? ", "respuesta": "marte"},
-        ]
-        puntos = 0
-        for p in preguntas:
-            respuesta = input(p["pregunta"])
-            if respuesta.lower() == p["respuesta"]:
-                puntos = puntos + 1
+        def comprobar(respuesta, correcta):
+            if respuesta.lower() == correcta.lower():
                 print("¡Correcto!")
+                return 1
             else:
-                print("Lo siento. La respuesta correcta es:", p["respuesta"])
-        print("Puntos:", puntos, "de", len(preguntas))
+                print("Lo siento, la respuesta correcta es:", correcta)
+                return 0
+
+        tarjetas = [
+            {"pregunta": "¿Cuántas patas tiene una araña? ", "respuesta": "8"},
+            {"pregunta": "¿Cuál es la capital de Italia? ", "respuesta": "Roma"},
+            {"pregunta": "¿Qué planeta se conoce como el planeta rojo? ", "respuesta": "Marte"},
+        ]
+
+        puntos = 0
+        for tarjeta in tarjetas:
+            respuesta = input(tarjeta["pregunta"])
+            puntos = puntos + comprobar(respuesta, tarjeta["respuesta"])
+
+        print("Puntos:", puntos, "de", len(tarjetas))
       `,
       feedback: {
-        listOfDicts: 'Crea una lista con al menos dos diccionarios: <code>[{"pregunta": …, "respuesta": …}, …]</code>.',
-        inputInLoop: 'Haz las preguntas <b>dentro</b> del bucle: <code>respuesta = input(p["pregunta"])</code>.',
+        useLower: "Pasa la respuesta a minúsculas antes de comparar: <code>respuesta.lower()</code>.",
+        ignoreCase: '<code>comprobar("ROMA", "roma")</code> todavía no da 1. ¿Comparas <code>respuesta.lower()</code> con <code>correcta</code>?',
       },
     },
   },
@@ -1285,7 +1362,11 @@ Para descifrarlo, simplemente desplazas en la dirección contraria:</p>
 <pre><code>secreto = ""
 for letra in "HOLA":
     secreto = secreto + chr(ord(letra) + 1)
-print(secreto)   # IPMB</code></pre>`,
+print(secreto)   # IPMB</code></pre>
+
+<p>Un bucle <code>for</code> también puede recorrer un texto: entonces <code>letra</code> es, en cada
+vuelta, la siguiente letra. <code>secreto</code> empieza como un texto vacío <code>""</code> y va
+creciendo letra a letra.</p>`,
     taskHtml:
       "Descifra el mensaje secreto: desplaza cada letra <b>1 posición hacia atrás</b> con <code>ord()</code> y <code>chr()</code>. ¿Qué sale?",
     hints: [
@@ -1313,9 +1394,16 @@ print(secreto)   # IPMB</code></pre>`,
     },
     expert: {
       html: `
-<p>Los cifrados César de verdad suelen desplazar 3 posiciones. Pero ¿qué pasa con <code>"Z"</code> + 3? Para que después
-de la Z se vuelva a empezar por la A, se calcula con el resto de la división: <code>% 26</code>. La fórmula para
-mayúsculas es <code>chr((ord(c) - 65 + desplazamiento) % 26 + 65)</code>.</p>
+<p>Los cifrados César de verdad suelen desplazar 3 posiciones. Pero ¿qué pasa con <code>"Z"</code> + 3?
+Para que después de la Z se vuelva a empezar por la A, ayuda el <b>resto</b> de una división con
+<code>%</code>: <code>27 % 26</code> da 1 y <code>28 % 26</code> da 2.</p>
+<p>El truco en tres pasos: convertir la letra en un número del 0 al 25 (<code>ord(c) - 65</code>),
+desplazarlo y mantenerlo dentro del alfabeto con <code>% 26</code>, y convertirlo otra vez en letra
+(<code>+ 65</code> y después <code>chr</code>). Pruébalo primero con una sola letra:</p>
+<pre><code>c = "Z"
+numero = ord(c) - 65         # 25
+nuevo = (numero + 3) % 26    # 2
+print(chr(nuevo + 65))       # C</code></pre>
 <p><b>Reto extra:</b> Escribe una función <code>cesar(texto, desplazamiento)</code> que desplace las letras
 mayúsculas (también más allá de la Z) y deje todo lo demás, como los espacios, sin cambios. Con un
 desplazamiento negativo, la función vuelve a descifrar.</p>`,
@@ -1351,7 +1439,7 @@ desplazamiento negativo, la función vuelve a descifrar.</p>`,
 <code>pixel(x, y, color)</code> enciendes uno de ellos. <code>x</code> cuenta de izquierda
 (0) a derecha (15), y <code>y</code>, de arriba (0) abajo (15).</p>
 
-<pre><code>from station import pixel
+<pre><code>from station import pixel, fill
 
 for x in range(16):
     pixel(x, 12, "turquesa")   # una línea a lo ancho de la pantalla
@@ -1362,8 +1450,7 @@ pixel(7, 4, "dorado")</code></pre>
 <code>"#ff8800"</code>. <code>"negro"</code> vuelve a apagar un píxel, y
 <code>fill(color)</code> pinta toda la pantalla de un color.</p>
 
-<p>Con un bucle dibujas una línea o una superficie entera con muy pocas instrucciones, y un bucle
-dentro de otro bucle llena incluso un rectángulo completo.</p>`,
+<p>Con un bucle dibujas una línea entera. Cómo se rellenan superficies te lo enseña el reto extra.</p>`,
     taskHtml:
       "Dibuja una <b>imagen en la pantalla de la estación</b>: al menos <b>12 píxeles</b> en al menos <b>dos colores</b>, y usa para ello al menos <b>un bucle</b>. Un árbol, un cohete, una cara, tu logo favorito…",
     hints: [
@@ -1371,7 +1458,7 @@ dentro de otro bucle llena incluso un rectángulo completo.</p>`,
       "Para el segundo color, simplemente pon encima unos cuantos píxeles más de otro color.",
     ],
     starterCode: py`
-      from station import pixel
+      from station import pixel, fill
 
       # Dibuja tu imagen: pixel(x, y, "color")  (x e y van de 0 a 15)
       pixel(7, 7, "dorado")
@@ -1397,8 +1484,13 @@ dentro de otro bucle llena incluso un rectángulo completo.</p>`,
     },
     expert: {
       html: `
-<p>Quienes hacen pixel art suelen dibujar sus imágenes como una <b>lista de textos</b>: cada carácter es un
-píxel, y un diccionario indica qué color corresponde a cada carácter.</p>
+<p>Un bucle <b>dentro</b> de otro bucle rellena una superficie: para cada fila <code>y</code>, el bucle
+de dentro recorre todas las columnas <code>x</code>.</p>
+<pre><code>for y in range(2, 5):
+    for x in range(3, 9):
+        pixel(x, y, "azul")   # un rectángulo de 3 por 6 píxeles</code></pre>
+<p>Quienes hacen pixel art también suelen dibujar sus imágenes como una <b>lista de textos</b>: cada
+carácter es un píxel, y un diccionario indica qué color corresponde a cada carácter.</p>
 <pre><code>imagen = [
     ".RR.RR.",
     "RRRRRRR",
@@ -1408,8 +1500,7 @@ píxel, y un diccionario indica qué color corresponde a cada carácter.</p>
 ]
 colores = {"R": "rojo"}</code></pre>
 <p><b>Reto extra:</b> Dibuja una imagen de al menos <b>20 píxeles</b> con dos bucles
-<b>anidados</b>: el de fuera recorre las filas (<code>y</code>) y el de dentro, los caracteres de
-cada fila (<code>x</code>).</p>`,
+<b>anidados</b>, por ejemplo un rectángulo, un patrón o una imagen hecha con una lista de textos.</p>`,
       solution: py`
         from station import pixel
 
@@ -1435,41 +1526,41 @@ cada fila (<code>x</code>).</p>`,
 
   "s4-l4": {
     title: "Analizar datos reales",
-    story: "La estación meteorológica de fuera ha medido temperaturas durante una semana. Analiza los datos.",
+    story: "Los sensores del invernadero de la estación han medido la temperatura durante seis días. Analiza los datos.",
     intro: `
 <p>Programar ayuda a entender datos reales. Para listas de números hay herramientas
 listas para usar: <code>max()</code> (el valor más grande), <code>min()</code> (el más pequeño),
 <code>sum()</code> (la suma) y <code>len()</code> (la cantidad).</p>
 
-<pre><code>temperaturas = [21, 25, 19, 28, 23]
-print("Día más frío:", min(temperaturas))</code></pre>
+<pre><code>temperaturas = [21, 25, 19, 28, 23, 24]
+print("Temperatura más baja:", min(temperaturas))</code></pre>
 
 <p>El <b>promedio</b> se obtiene con «suma entre cantidad», es decir, usando
 <code>sum</code> y <code>len</code> juntos.</p>`,
     taskHtml:
-      "Encuentra con <code>max()</code> el <b>día más caluroso</b> y calcula el <b>promedio</b> de las temperaturas con <code>sum()</code> y <code>len()</code>. Muestra las dos cosas.",
+      "Encuentra con <code>max()</code> la <b>temperatura más alta</b> y calcula el <b>promedio</b> de las temperaturas con <code>sum()</code> y <code>len()</code>. Muestra las dos cosas.",
     hints: ["<code>max(temperaturas)</code> te da el valor más grande.", "Promedio: <code>sum(temperaturas) / len(temperaturas)</code>"],
     starterCode: py`
-      temperaturas = [21, 25, 19, 28, 23]
-      # Muestra el día más caluroso y el promedio
+      temperaturas = [21, 25, 19, 28, 23, 24]
+      # Muestra la temperatura más alta y el promedio
     `,
     solution: py`
-      temperaturas = [21, 25, 19, 28, 23]
-      print("Día más caluroso:", max(temperaturas))
+      temperaturas = [21, 25, 19, 28, 23, 24]
+      print("Temperatura más alta:", max(temperaturas))
       print("Promedio:", sum(temperaturas) / len(temperaturas))
     `,
     feedback: {
-      useMax: "Usa <code>max(temperaturas)</code> para el día más caluroso.",
+      useMax: "Usa <code>max(temperaturas)</code> para la temperatura más alta.",
       useSumLen: "Calcula el promedio con <code>sum(temperaturas) / len(temperaturas)</code>.",
-      max28: "El día más caluroso tuvo 28 grados: muéstralo.",
-      average: "El promedio debería ser 23.2. ¿Divides la suma entre la cantidad?",
+      max28: "La temperatura más alta fue de 28 grados: muéstrala.",
+      average: "El promedio debería ser aproximadamente 23.33. ¿Divides la suma entre la cantidad?",
     },
     expert: {
       html: `
 <p><b>Reto extra:</b> Redondea el promedio a un decimal con <code>round(valor, 1)</code>
 y averigua con un bucle cuántos días hizo <b>más de 22 grados</b>.</p>`,
       solution: py`
-        temperaturas = [21, 25, 19, 28, 23]
+        temperaturas = [21, 25, 19, 28, 23, 24]
         print("Promedio:", round(sum(temperaturas) / len(temperaturas), 1))
         calurosos = 0
         for t in temperaturas:
@@ -1480,7 +1571,7 @@ y averigua con un bucle cuántos días hizo <b>más de 22 grados</b>.</p>`,
       feedback: {
         useRound: "Redondea con <code>round(…, 1)</code>.",
         countLoop: "Cuenta con un bucle <code>for</code> y un <code>if</code> cuántos valores son mayores que 22.",
-        count3: "Hubo 3 días de más de 22 grados (25, 28 y 23).",
+        count4: "Hubo 4 días de más de 22 grados (25, 28, 23 y 24).",
       },
     },
   },
@@ -1504,7 +1595,7 @@ o se mezclan texto y número con <code>+</code> (eso se arregla con <code>str(�
     ],
     starterCode: py`
       nombre = "Emma"
-      edad = 11
+      edad = 13
       print("Hola, " + nombre)
       print("El año que viene tendrás " + (edad + 1) + " años")
       for i in range(3)
@@ -1512,7 +1603,7 @@ o se mezclan texto y número con <code>+</code> (eso se arregla con <code>str(�
     `,
     solution: py`
       nombre = "Emma"
-      edad = 11
+      edad = 13
       print("Hola, " + nombre)
       print("El año que viene tendrás " + str(edad + 1) + " años")
       for i in range(3):
@@ -1521,7 +1612,7 @@ o se mezclan texto y número con <code>+</code> (eso se arregla con <code>str(�
     feedback: {
       keepLoop: "Deja el bucle donde está y arréglalo.",
       allLines: "Deben mostrarse todas las líneas: no borres comandos, corrígelos.",
-      age: "En la salida debe aparecer cuántos años tendrá Emma el año que viene (12). Usa <code>str(edad + 1)</code>.",
+      age: "En la salida debe aparecer cuántos años tendrá Emma el año que viene (14). Usa <code>str(edad + 1)</code>.",
       threeHurra: "«¡Hurra!» debe aparecer tres veces: la línea del <code>print</code> va dentro del bucle, con sangría.",
     },
     expert: {
@@ -1556,12 +1647,16 @@ la edad que tendrá la persona el año que viene; si son letras, muestra un mens
 diccionarios, funciones propias, <code>random</code>…</p>
 
 <p>No tiene que ser perfecto: lo importante es que sea tuyo. Empieza con algo pequeño, pruébalo a menudo
-y luego ve ampliándolo poco a poco. Cuando termines, te espera tu diploma. 🚀</p>`,
+y luego ve ampliándolo poco a poco. ¿No se te ocurre nada? En las pistas hay dos planos de construcción.</p>
+
+<p>Con <b>Compartir</b>, encima del editor, obtienes un enlace a tu programa que puedes enviar.
+¡Enséñaselo a alguien! Y cuando termines, te espera tu diploma. 🚀</p>`,
     taskHtml:
-      "Escribe tu propio programa que use al menos <b>tres piezas</b> del curso (<code>input()</code>, <code>if</code>, un bucle, una lista o un diccionario, una función propia, <code>random</code>) y que funcione sin errores. ¡Deja volar tu imaginación! Es tu obra maestra.",
+      "Crea tu propio programa que use al menos <b>tres piezas</b> del curso (<code>input()</code>, <code>if</code>, un bucle, una lista o un diccionario, una función propia, <code>random</code>, la pantalla o el altavoz de la estación) y que funcione sin errores. Piensa primero: ¿qué debe saber hacer la primera versión pequeña? Constrúyela y después amplíala.",
     hints: [
-      "Empieza con algo pequeño: primero muestra algo y después amplíalo paso a paso.",
-      "Ideas: un juego de dados con puntos, un quiz de vocabulario hecho con una lista, un planificador de ahorro con una función.",
+      "Elige <b>una</b> idea de los comentarios del código inicial. Escribe primero solo una línea que muestre algo y ejecútala. Después añade pieza por pieza.",
+      "Plano del juego de dados: 1. <code>import random</code> y una lista con nombres · 2. un bucle <code>for</code> que recorra los nombres · 3. dentro del bucle, tirar el dado para cada uno y mostrar el resultado · 4. celebrar un seis con <code>if</code>.",
+      "Plano del quiz: 1. una lista con tarjetas de preguntas, como en el miniquiz · 2. un bucle que recorra las tarjetas · 3. <code>input()</code> dentro del bucle · 4. contar puntos con <code>if</code> y mostrarlos al final.",
     ],
     starterCode: py`
       # 🌟 Tu proyecto. Algunas ideas:
@@ -1569,6 +1664,8 @@ y luego ve ampliándolo poco a poco. Cuando termines, te espera tu diploma. 🚀
       #  - un quiz sobre tu tema favorito
       #  - un juego de dados o un entrenador de cálculo mental
       #  - una herramienta útil (conversor, generador de ideas)
+      #  - una imagen o una melodía con la estación
+      # En las pistas encontrarás dos planos de construcción.
 
       print("Mi proyecto arranca…")
     `,
@@ -1591,14 +1688,13 @@ y luego ve ampliándolo poco a poco. Cuando termines, te espera tu diploma. 🚀
     feedback: {
       blocks:
         "Tu programa solo usa {n} de las piezas. Añade alguna más, por ejemplo un bucle, una lista o una función propia.",
-      tooShort: "Tu proyecto puede ser un poco más grande: al menos 6 líneas de código.",
     },
   },
 
   // ================================================================== MISIONES EXTERIORES
   "d-1": {
     title: "Primera salida",
-    story: "Fuera de la estación, el hielo brilla. Lumo puede salir volando, pero solo con tus comandos. ¡Lleva a Lumo a la base de carga!",
+    story: "Fuera de la estación, el hielo brilla. Puedo salir volando, pero solo con tus comandos. ¡Llévame a la base de carga!",
     intro: `
 <p>Aquí pilotas a Lumo directamente con Python. Los comandos de vuelo los traes con
 <code>from drone import *</code>: el asterisco significa «todos los comandos».</p>
@@ -1612,7 +1708,11 @@ move()</code></pre>
 La meta es la <b>base de carga</b> ⚡. Si Lumo choca contra una pared, no pasa nada grave: aparece
 un glitch y lo vuelves a intentar.</p>`,
     taskHtml: "Lleva a Lumo a la <b>base de carga</b> ⚡. ¡Cuenta las casillas!",
-    hints: ["Cada casilla necesita su propio <code>move()</code>.", "Son cinco casillas: cinco veces <code>move()</code>, una debajo de otra."],
+    hints: [
+      "Cuenta las casillas de hielo que hay entre Lumo y la base de carga.",
+      "Cada casilla necesita su propio <code>move()</code>.",
+      "Son cinco casillas: cinco veces <code>move()</code>, una debajo de otra.",
+    ],
     starterCode: py`
       from drone import *
 
@@ -1631,7 +1731,7 @@ un glitch y lo vuelves a intentar.</p>`,
 
   "d-2": {
     title: "A la vuelta de la esquina",
-    story: "La base de carga está detrás de una pared de hielo. Lumo tiene que girar; por suerte, un dron puede girar sobre sí mismo.",
+    story: "La base de carga está detrás de una pared de hielo. Tengo que girar; por suerte, puedo girar sobre mí mismo.",
     intro: `
 <p><code>turn_left()</code> hace girar a Lumo sobre sí mismo hacia la izquierda, un cuarto de vuelta. Un comando
 para girar a la derecha no existe. ¿Se podrá llegar a la derecha de todos modos? Lo descubrirás más adelante.</p>
@@ -1639,10 +1739,13 @@ para girar a la derecha no existe. ¿Se podrá llegar a la derecha de todos modo
 <pre><code>from drone import *
 
 move()
-turn_left()
-move()</code></pre>`,
+turn_left()</code></pre>
+
+<p>Pruébalo: Lumo vuela una casilla y después mira hacia arriba. Para llegar a la base de carga
+tienes que combinar bien volar y girar.</p>`,
     taskHtml: "Haz volar a Lumo por la esquina hasta la base de carga ⚡.",
     hints: [
+      "¿Dónde tiene que girar Lumo? Cuenta las casillas hasta la esquina y desde la esquina hasta la base de carga.",
       "Primero todo recto hasta la pared, después <code>turn_left()</code> y luego sigue con <code>move()</code>.",
       "Cuatro veces <code>move()</code>, una vez <code>turn_left()</code> y dos veces <code>move()</code>.",
     ],
@@ -1682,7 +1785,7 @@ move()</code></pre>`,
 
   "d-3": {
     title: "Recoger cristales",
-    story: "Sobre el hielo hay cristales de energía. Cada uno ayuda a la estación, así que Lumo debe recogerlos por el camino.",
+    story: "Sobre el hielo hay cristales de energía. Cada uno ayuda a la estación: ayúdame a recogerlos por el camino.",
     intro: `
 <p>Los cristales de hielo almacenan energía. <code>collect()</code> recoge el cristal de la casilla
 en la que Lumo está en ese momento. Si ahí no hay ninguno, Lumo avisa de un glitch.</p>
@@ -1694,6 +1797,7 @@ move()
 collect()</code></pre>`,
     taskHtml: "Recoge <b>los dos cristales</b> y después vuela hasta la base de carga ⚡.",
     hints: [
+      "Lumo solo puede recoger el cristal de la casilla en la que está.",
       "Vuela hasta la casilla del cristal y llama ahí a <code>collect()</code>.",
       "El primer cristal está dos casillas delante de Lumo, el segundo dos casillas más allá, y la base de carga, otras dos casillas detrás.",
     ],
@@ -1719,7 +1823,7 @@ collect()</code></pre>`,
 
   "d-4": {
     title: "Pasillos largos",
-    story: "Un estrecho canal de hielo lleva a la base de carga exterior. Es largo, y a Lumo no le gustan nada las listas de comandos largas.",
+    story: "Un estrecho canal de hielo lleva a la base de carga exterior. Es largo, y a mí no me gustan nada las listas de comandos largas.",
     intro: `
 <p>¿13 casillas, 13 líneas de <code>move()</code>? Con un bucle <code>for</code> lo haces en
 dos líneas:</p>
@@ -1731,7 +1835,11 @@ for i in range(4):
 
 <p>Lumo repite todo lo que va con sangría debajo de la línea del <code>for</code>.</p>`,
     taskHtml: "El pasillo mide <b>13 casillas</b>. Lleva a Lumo a la base de carga ⚡ con un <b>bucle <code>for</code></b>.",
-    hints: ["<code>for i in range(…):</code> y debajo, con sangría, <code>move()</code>.", "<code>range(13)</code> repite 13 veces."],
+    hints: [
+      "¿Qué comando se repite? Lo escribes una sola vez, con sangría, dentro del bucle.",
+      "<code>for i in range(…):</code> y debajo, con sangría, <code>move()</code>.",
+      "<code>range(13)</code> repite 13 veces.",
+    ],
     starterCode: py`
       from drone import *
 
@@ -1745,19 +1853,21 @@ for i in range(4):
           move()
     `,
     expert: {
-      html: "<p><b>Reto extra para pros:</b> Consíguelo con <b>3 líneas</b> de código como máximo. La línea del import cuenta; los comentarios y las líneas vacías, no.</p>",
+      html: "<p><b>Reto extra:</b> Haz que Lumo transmita por radio el número de la casilla en cada paso: 1, 2, 3… hasta 13, cada número en su propia línea. Consejo: <code>i</code> empieza a contar en 0.</p>",
       solution: py`
         from drone import *
+
         for i in range(13):
             move()
+            print("Casilla", i + 1)
       `,
-      feedback: { short: "Todavía son demasiadas líneas. Deja que el bucle haga todo el trabajo." },
+      feedback: { count13: "Dentro del bucle, muestra en cada paso el número de la casilla, del 1 al 13. Como <code>i</code> empieza en 0: <code>print(i + 1)</code>." },
     },
   },
 
   "d-5": {
     title: "Distancia desconocida",
-    story: "La tormenta de nieve mueve sin parar las placas de hielo. Nadie sabe a qué distancia está hoy la base de carga: Lumo tiene que darse cuenta solo.",
+    story: "La tormenta de nieve mueve sin parar las placas de hielo. Nadie sabe a qué distancia está hoy la base de carga: tengo que darme cuenta yo solo por el camino.",
     intro: `
 <p>Lumo tiene <b>sensores</b>. Responden preguntas con <code>True</code> o <code>False</code>.
 <code>at_goal()</code> es <code>True</code> cuando Lumo está en la base de carga:</p>
@@ -1770,8 +1880,9 @@ print(at_goal())   # False: Lumo todavía está en el punto de partida</code></p
 <code>not</code> le da la vuelta a <code>True</code> y <code>False</code>: <code>not at_goal()</code>
 significa «todavía no está en la meta».</p>`,
     taskHtml:
-      "El recorrido tiene una <b>longitud distinta</b> en cada misión. Lleva a Lumo a la base de carga ⚡ con un <b>bucle <code>while</code></b> y <code>at_goal()</code>, esté a la distancia que esté.",
+      "Aquí ves un recorrido posible. Además, tu programa se prueba en recorridos <b>más cortos y más largos</b> que no ves. Lleva a Lumo a la base de carga ⚡ con un <b>bucle <code>while</code></b> y <code>at_goal()</code>, sin contar las casillas.",
     hints: [
+      "Lumo debe volar hasta llegar a la meta. ¿Qué sensor te dice si Lumo ya ha llegado?",
       "<code>while not at_goal():</code> significa «mientras Lumo todavía no esté en la meta».",
       "Debajo, con sangría, solo va <code>move()</code>.",
     ],
@@ -1795,16 +1906,16 @@ significa «todavía no está en la meta».</p>`,
         casillas = 0
         while not at_goal():
             move()
-            casillas += 1
+            casillas = casillas + 1
         print("Casillas voladas:", casillas)
       `,
-      feedback: { count: "Al final, muestra cuántas casillas ha volado Lumo. Cuenta dentro del bucle con <code>casillas += 1</code>." },
+      feedback: { count: "Al final, muestra cuántas casillas ha volado Lumo. Cuenta dentro del bucle con <code>casillas = casillas + 1</code>." },
     },
   },
 
   "d-6": {
     title: "Rastro de cristales",
-    story: "Después de la tormenta hay cristales repartidos por el recorrido, cada vez en otro sitio. Lumo no debe pasar ninguno por alto.",
+    story: "Después de la tormenta hay cristales repartidos por el recorrido, y cada vez en otro sitio. No quiero pasar ninguno por alto.",
     intro: `
 <p>Con <code>if</code>, Lumo toma decisiones por el camino. <code>on_crystal()</code> es
 <code>True</code> cuando debajo de Lumo hay un cristal:</p>
@@ -1816,8 +1927,10 @@ if on_crystal():
 print("¿Hay un cristal debajo de mí?", on_crystal())</code></pre>
 
 <p>Si pones la decisión <b>dentro</b> de un bucle, Lumo revisa cada casilla por la que pasa.</p>`,
-    taskHtml: "En el recorrido hay cristales, cada vez en otro sitio. Recoge <b>todos</b> y vuela hasta la base de carga ⚡.",
+    taskHtml:
+      "Recoge <b>todos</b> los cristales y vuela hasta la base de carga ⚡. En la comprobación, los cristales también están en otros sitios, así que tu programa debe revisar cada casilla.",
     hints: [
+      "En cada casilla, Lumo se pregunta: ¿hay aquí un cristal? Si es así, lo recoge. Después sigue adelante.",
       "Dentro del bucle <code>while</code>: primero comprueba si hay un cristal y después avanza una casilla.",
       "<code>while not at_goal():</code>, debajo <code>if on_crystal():</code> con <code>collect()</code> y después <code>move()</code>.",
     ],
@@ -1844,7 +1957,7 @@ print("¿Hay un cristal debajo de mí?", on_crystal())</code></pre>
         while not at_goal():
             if on_crystal():
                 collect()
-                cristales += 1
+                cristales = cristales + 1
             move()
         print("Cristales:", cristales)
       `,
@@ -1852,9 +1965,46 @@ print("¿Hay un cristal debajo de mí?", on_crystal())</code></pre>
     },
   },
 
+  "d-8": {
+    title: "Espiral",
+    story: "Un pasillo se enrosca como una espiral hacia el interior de una vieja cueva de hielo. Cada cueva es distinta, así que tengo que decidir yo solo cuándo girar.",
+    intro: `
+<p><code>front_clear()</code> es <code>True</code> cuando delante de Lumo está libre. Con <code>if</code> y
+<code>else</code>, Lumo vuelve a decidir en cada paso:</p>
+
+<pre><code>from drone import *
+
+if front_clear():
+    move()
+else:
+    turn_left()</code></pre>`,
+    taskHtml:
+      "El pasillo se enrosca hacia dentro como una espiral. Deja que Lumo encuentre solo el camino hasta la base de carga ⚡ con <code>while</code>, <code>if</code> y <code>else</code>. Tu programa también se prueba en otra espiral que no ves.",
+    hints: [
+      "En cada paso, Lumo solo tiene que responder a una pregunta: ¿está libre delante?",
+      "Mientras Lumo no esté en la meta: si delante está libre, Lumo sigue volando; si no, gira a la izquierda.",
+      "<code>while not at_goal():</code>, dentro <code>if front_clear():</code> con <code>move()</code> y <code>else:</code> con <code>turn_left()</code>.",
+    ],
+    starterCode: py`
+      from drone import *
+
+      # Lumo debe decidir solo: ¿seguir volando o girar?
+      move()
+    `,
+    solution: py`
+      from drone import *
+
+      while not at_goal():
+          if front_clear():
+              move()
+          else:
+              turn_left()
+    `,
+  },
+
   "d-7": {
     title: "Hacia la derecha",
-    story: "Una escalera de bloques de hielo sube hacia la derecha. Pero Lumo solo sabe girar a la izquierda… ¿o no?",
+    story: "Una escalera de bloques de hielo sube hacia la derecha. Pero yo solo sé girar a la izquierda… ¿o no?",
     intro: `
 <p>¡Girar tres veces a la izquierda es lo mismo que girar una vez a la derecha! En lugar de escribir tres líneas
 cada vez, te construyes un <b>comando propio</b>:</p>
@@ -1868,19 +2018,22 @@ def turn_right():
 
 turn_right()</code></pre>
 
-<p>A partir de ahora, Python conoce <code>turn_right()</code> igual de bien que los comandos incorporados.</p>`,
+<p>A partir de ahora, Python conoce <code>turn_right()</code> igual de bien que los comandos incorporados.
+En el código inicial, dentro del comando todavía está el marcador de posición <code>pass</code>.
+Sustitúyelo por tus tres comandos de giro.</p>`,
     taskHtml:
       "Construye el comando <code>turn_right()</code> con <code>def</code> y haz subir a Lumo por la escalera de hielo hasta la base de carga ⚡. Lo mejor es ir escalón a escalón con un bucle.",
     hints: [
-      "Un escalón es: <code>move()</code>, <code>turn_left()</code>, <code>move()</code>, <code>turn_right()</code>.",
-      "Son cuatro escalones y después un <code>move()</code> más: <code>for i in range(4):</code>",
+      "Mira la escalera: ¿cómo es un solo escalón y cuántas veces aparece?",
+      "Un escalón es: <code>move()</code>, <code>turn_left()</code>, <code>move()</code>, <code>turn_right()</code>. Son cuatro escalones, y después falta una casilla más.",
+      "<code>for i in range(4):</code> y debajo, con sangría, los cuatro comandos de un escalón. Después del bucle, sin sangría, un <code>move()</code> más.",
     ],
     starterCode: py`
       from drone import *
 
       def turn_right():
           # tres veces a la izquierda es una vez a la derecha
-          pass
+          pass   # marcador de posición: sustituye esta línea por tus comandos
 
       move()
     `,
@@ -1924,45 +2077,71 @@ turn_right()</code></pre>
     },
   },
 
-  "d-8": {
-    title: "Espiral",
-    story: "Un pasillo se enrosca como una espiral hacia el interior de una vieja cueva de hielo. Cada cueva es distinta, así que Lumo tiene que decidir solo cuándo girar.",
+  "d-10": {
+    title: "Plan de vuelo",
+    story: "La sala de control me envía por radio un plan de vuelo en forma de lista. Tengo que seguirlo tal cual, paso a paso.",
     intro: `
-<p><code>front_clear()</code> es <code>True</code> cuando delante de Lumo está libre. Con <code>if</code> y
-<code>else</code>, Lumo vuelve a decidir en cada paso:</p>
+<p>Un plan de vuelo es una <b>lista</b> de comandos escritos como texto. Un bucle <code>for</code> lo
+recorre elemento a elemento, y con <code>if</code> y <code>elif</code> Lumo decide en cada elemento
+qué hacer:</p>
 
 <pre><code>from drone import *
 
-if front_clear():
-    move()
-else:
-    turn_left()</code></pre>`,
+plan = ["adelante", "izquierda", "adelante"]
+for paso in plan:
+    if paso == "adelante":
+        move()
+    elif paso == "izquierda":
+        turn_left()</code></pre>
+
+<p>Así, la sala de control puede enviar a Lumo por cualquier camino sin que nadie cambie el programa.
+Lo único nuevo cada vez es el plan.</p>`,
     taskHtml:
-      "El pasillo se enrosca hacia dentro como una espiral, y cada espiral es distinta. Deja que Lumo encuentre solo el camino hasta la base de carga ⚡ con <code>while</code>, <code>if</code> y <code>else</code>.",
+      'Haz que Lumo siga el plan de vuelo del código inicial. En él también aparece <code>"derecha"</code>; para eso ya tienes preparado <code>turn_right()</code>. Recorre el plan con un bucle <code>for</code> y lleva a Lumo a la base de carga ⚡.',
     hints: [
-      "Mientras Lumo no esté en la meta: si delante está libre, Lumo sigue volando; si no, gira a la izquierda.",
-      "<code>while not at_goal():</code>, dentro <code>if front_clear():</code> con <code>move()</code> y <code>else:</code> con <code>turn_left()</code>.",
+      "Para cada elemento del plan, Lumo se pregunta: ¿es «adelante», «izquierda» o «derecha»? Cada palabra va con un comando.",
+      '<code>for paso in plan:</code>, dentro <code>if paso == "adelante":</code> con <code>move()</code>, y después dos <code>elif</code> para «izquierda» y «derecha».',
+      'Después de <code>elif paso == "izquierda":</code> va <code>turn_left()</code>, y después de <code>elif paso == "derecha":</code> va <code>turn_right()</code>, cada uno con una sangría más.',
     ],
     starterCode: py`
       from drone import *
 
-      # Lumo debe decidir solo: ¿seguir volando o girar?
-      move()
+      def turn_right():
+          turn_left()
+          turn_left()
+          turn_left()
+
+      plan = ["adelante", "adelante", "derecha", "adelante", "adelante", "izquierda", "adelante", "adelante"]
+
+      # Recorre el plan con un bucle for
     `,
     solution: py`
       from drone import *
 
-      while not at_goal():
-          if front_clear():
+      def turn_right():
+          turn_left()
+          turn_left()
+          turn_left()
+
+      plan = ["adelante", "adelante", "derecha", "adelante", "adelante", "izquierda", "adelante", "adelante"]
+
+      for paso in plan:
+          if paso == "adelante":
               move()
-          else:
+          elif paso == "izquierda":
               turn_left()
+          elif paso == "derecha":
+              turn_right()
     `,
+    feedback: {
+      loopOverPlan: "Haz que el bucle recorra directamente el plan: <code>for paso in plan:</code>",
+      allCommands: "Dentro del bucle, Lumo debe entender los tres comandos: <code>move()</code>, <code>turn_left()</code> y <code>turn_right()</code>.",
+    },
   },
 
   "d-9": {
     title: "Rescate en el laberinto",
-    story: "Una tormenta de nieve ha arrastrado a Lumo hasta un laberinto de hielo, y no hay dos iguales. Solo un programa inteligente puede traer a Lumo de vuelta a casa.",
+    story: "Una tormenta de nieve me ha arrastrado hasta un laberinto de hielo, y no hay dos iguales. Solo un programa inteligente puede traerme de vuelta a casa.",
     intro: `
 <p>Un viejo truco para laberintos: <b>mantén siempre la mano derecha en la pared.</b> Quien lo hace
 encuentra con seguridad la salida en laberintos como estos. Para Lumo, eso significa en cada paso:</p>
@@ -1971,11 +2150,15 @@ encuentra con seguridad la salida en laberintos como estos. Para Lumo, eso signi
 <li>después girar a la izquierda mientras delante haya una pared,</li>
 <li>y luego volar una casilla.</li>
 </ul>
-<p>Un bucle <b>dentro</b> de otro bucle, y Lumo ya tiene un plan.</p>`,
+<p>Para eso necesitas un bucle <b>dentro</b> de otro bucle. El <b>bucle de fuera</b> se ocupa de todo el
+camino: se repite hasta que Lumo llega a la meta. El <b>bucle de dentro</b> solo se ocupa de la siguiente
+dirección: gira a Lumo a la izquierda mientras delante haya una pared. Entonces termina el bucle de
+dentro, Lumo vuela una casilla y empieza el siguiente paso.</p>`,
     taskHtml:
-      "Escribe un programa con el que Lumo encuentre el camino hasta la base de carga ⚡ desde <b>cualquier</b> laberinto. Se prueba con laberintos que tú no ves.",
+      "Lleva a Lumo por el laberinto hasta la base de carga ⚡ con la regla de la mano derecha. Tu programa también se prueba en otros laberintos de este tipo que no ves.",
     hints: [
-      "Necesitas <code>turn_right()</code> de «Hacia la derecha»: el código inicial ya lo trae.",
+      "Repasa un paso mentalmente: Lumo gira a la derecha. Si ahí hay una pared, gira a la izquierda hasta que delante esté libre. Después vuela una casilla. <code>turn_right()</code> de «Hacia la derecha» ya está en el código inicial.",
+      "Dos bucles: el de fuera se repite con <code>while not at_goal():</code>. Dentro va primero <code>turn_right()</code>, después el bucle de dentro, que gira con <code>turn_left()</code> mientras delante no esté libre, y luego exactamente un <code>move()</code>.",
       "Por fuera, <code>while not at_goal():</code>; dentro, <code>turn_right()</code>, después <code>while not front_clear():</code> con <code>turn_left()</code> y luego <code>move()</code>.",
     ],
     starterCode: py`
@@ -2020,8 +2203,8 @@ reparas uno roto. Así lo hacen los profesionales:</p>
     taskHtml:
       "Repara el programa: debe preguntar el nombre y después mostrar <b>dos líneas</b>, un saludo con el nombre y «¡Te damos la bienvenida a bordo!».",
     hints: [
-      "Python distingue entre mayúsculas y minúsculas: <code>nombre</code> y <code>Nombre</code> son dos nombres distintos.",
-      "En la última línea falta una comilla antes del paréntesis.",
+      "Primero Python señala la última línea: ahí falta una comilla antes del paréntesis.",
+      "Después: Python distingue entre mayúsculas y minúsculas. <code>nombre</code> y <code>Nombre</code> son dos nombres distintos.",
     ],
     starterCode: py`
       nombre = input("¿Cómo te llamas? ")
@@ -2095,9 +2278,11 @@ cambiar dentro del bucle para que, en algún momento, la condición sea <code>Fa
     title: "Lista descolocada",
     story: "La lista del almacén del laboratorio se corta siempre antes de terminar. En algún sitio, el programa cuenta mal.",
     intro: `
+<p>Una lista también se puede recorrer por sus <b>posiciones</b>. <code>len(provisiones)</code> cuenta los
+elementos; aquí son cuatro. Por eso las posiciones son 0, 1, 2 y 3, y <code>range(4)</code> da justo
+esos cuatro números. <code>provisiones[i]</code> obtiene entonces el elemento de la posición <code>i</code>.</p>
 <p>En este programa se esconden dos glitches. El primero impide que llegue siquiera a arrancar. El segundo
-solo aparece al ejecutarlo y tiene que ver con las <b>posiciones</b> de una lista: la primera
-posición es 0 y la última es <code>len(lista) - 1</code>.</p>`,
+solo aparece al ejecutarlo y tiene que ver justo con esas posiciones.</p>`,
     taskHtml: "Repara la lista del almacén: cada provisión debe aparecer en su propia línea y, al final, la cantidad.",
     hints: [
       "Cuenta los paréntesis de la última línea.",
@@ -2150,6 +2335,66 @@ Sin <code>return</code>, una función devuelve <code>None</code>, es decir, «na
     feedback: {
       double: "La función debe devolver el doble, es decir, 14 si recibe 7.",
       fifty: "Al final debe aparecer «Energía total: 50».",
+    },
+  },
+
+  "g-6": {
+    title: "Clave equivocada",
+    story: "El carnet de un miembro de la tripulación ya no se puede leer. Algo falla al buscar los datos.",
+    intro: `
+<p>Un <code>KeyError</code> significa que esa clave no existe en el diccionario. Muchas veces es solo una
+errata o una mayúscula donde va una minúscula. Compara la clave que va entre los corchetes, letra a
+letra, con las del diccionario.</p>`,
+    taskHtml: "Repara el carnet: debe mostrar el nombre, el rol y la edad, cada uno en su propia línea.",
+    hints: [
+      "Primero Python señala la última línea: ahí falta un paréntesis.",
+      'Después: en el diccionario, la clave se llama <code>"rol"</code>, en minúsculas.',
+    ],
+    starterCode: py`
+      carnet = {"nombre": "Yara", "rol": "piloto", "edad": 14}
+      print("Nombre:", carnet["nombre"])
+      print("Rol:", carnet["Rol"])
+      print("Edad:", carnet["edad"]
+    `,
+    solution: py`
+      carnet = {"nombre": "Yara", "rol": "piloto", "edad": 14}
+      print("Nombre:", carnet["nombre"])
+      print("Rol:", carnet["rol"])
+      print("Edad:", carnet["edad"])
+    `,
+    feedback: { card: "El carnet debe mostrar exactamente tres líneas: el nombre, el rol y la edad del diccionario." },
+  },
+
+  "g-7": {
+    title: "Píxeles en la nada",
+    story: "La pantalla de la sala de control debería mostrar una línea luminosa y un punto de estado. En lugar de eso, el programa falla.",
+    intro: `
+<p>La pantalla tiene 16 por 16 píxeles. Como se empieza a contar desde 0, las coordenadas van de 0 a 15.
+Quien quiere encender una luz en el 16 apunta al vacío, y Python avisa de un glitch. La tarjeta de error
+te dice qué valor era demasiado grande.</p>`,
+    taskHtml:
+      "Repara el programa: una línea azul debe cruzar <b>toda</b> la pantalla (fila 8), y <b>arriba del todo a la derecha</b> debe brillar un punto rojo.",
+    hints: [
+      "<code>range(17)</code> cuenta de 0 a 16. ¿Qué número sobra?",
+      "Lo más a la derecha es <code>x = 15</code>, no 16.",
+    ],
+    starterCode: py`
+      from station import pixel
+
+      for x in range(17):
+          pixel(x, 8, "azul")
+      pixel(16, 0, "rojo")
+    `,
+    solution: py`
+      from station import pixel
+
+      for x in range(16):
+          pixel(x, 8, "azul")
+      pixel(15, 0, "rojo")
+    `,
+    feedback: {
+      line: "La línea de la fila 8 debe ocupar los 16 píxeles, de x = 0 a x = 15, en un solo color.",
+      corner: "Arriba del todo a la derecha, es decir, en <code>pixel(15, 0, …)</code>, debe brillar un punto de otro color.",
     },
   },
 };

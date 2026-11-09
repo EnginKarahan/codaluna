@@ -40,7 +40,7 @@ export function renderLessonPane(pane, ctx) {
             <span class="label">${icon("spark")} ${t("expert.label")}</span>
             <span class="xp-chip">${bonusDone ? icon("check", { size: 15 }) + " " + t("expert.solved") : "+" + (lesson.expert.xp || 0) + " XP"}</span>
           </span>
-          <span class="sub">${t("expert.sub")}</span>
+          <span class="sub">${t(lesson.expert.tool ? "expert.subTool" : "expert.sub")}</span>
           <span class="chev" aria-hidden="true">${icon("chevron")}</span>
         </button>
         <div class="expert-body" id="expert-body"${ctx.expertOpen ? "" : " hidden"}>

@@ -16,22 +16,22 @@ export default {
     c1: {
       name: "Telsiz odası",
       intro: "Telsiz odası karanlık. İstasyonun yeniden konuşabilmesi için komutlara ihtiyacı var ve o komutları sen yazacaksın.",
-      outro: "İstasyon yeniden konuşuyor, hesap yapıyor ve soru soruyor. Lumo sevinçten havada bir tur atıyor.",
+      outro: "İstasyon yeniden konuşuyor, hesap yapıyor ve soru soruyor. Lumo sevinçten havada bir tur atıyor ve buza çıkmak istiyor: Öğrenme yolundaki “Dış görevler” bölümünde Lumo'yu şimdiden yönetebilirsin. Sırada istasyonun kendi başına karar vermeyi öğrenmesi var.",
     },
     c2: {
       name: "Hangar",
       intro: "Hangarda kapılar, keşif araçları ve sinyal lambaları bekliyor. Kendi başlarına karar verip işleri tekrarlayabilmeleri için koşullara ve döngülere ihtiyaçları var.",
-      outro: "Hangar kapısı açılıyor ve dışarıda buz pırıl pırıl parlıyor. Artık Lumo dışarıdaki görevlere de uçabilir.",
+      outro: "Hangar kapısı açılıyor ve dışarıda buz pırıl pırıl parlıyor. Döngüler ve sensörler sayesinde Lumo dış görevlerde artık kimsenin önceden bilmediği yolları da buluyor. Sırada istasyonun bir şeyleri toplamayı ve kendi komutlarını anlamayı öğrenmesi var.",
     },
     c3: {
       name: "Laboratuvar",
       intro: "Laboratuvarda malzemeler, numuneler ve notlar birbirine karışmış. Listeler, sözlükler ve kendi komutların buraya düzen getirecek.",
-      outro: "Her şey yerli yerinde ve istasyonun yapay zekâsı seni artık bir mürettebat üyesi olarak tanıyor.",
+      outro: "Her şey yerli yerinde ve istasyonun yapay zekâsı seni artık bir mürettebat üyesi olarak tanıyor. Sırada her şeyi bir araya getirmek var: bir oyun, gizli bir şifre ve kontrol merkezi için ilk resim.",
     },
     c4: {
       name: "Kontrol merkezi",
       intro: "Kontrol merkezinde bütün sistemler bir araya geliyor. Burada neler yapabildiğini göstereceksin: oyunlar, şifreler, resimler ve gerçek ölçüm verileri.",
-      outro: "Polaris İstasyonu yeniden ışıl ışıl! Artık kendi modüllerini sen kuruyorsun.",
+      outro: "Polaris İstasyonu yeniden ışıl ışıl! Artık kendi modüllerini sen kuruyorsun. Oyun alanında istediğin zaman geliştirmeye devam edebilir, “Paylaş” ile yaptıklarını başkalarına gösterebilirsin.",
     },
     d1: {
       name: "Buz tarlası",
@@ -51,22 +51,15 @@ export default {
     story: `İstasyonun telsizi yıllardır susuyor. İlk mesajı dışarıya sen gönder, yeter ki tam senin tarzında olsun!`,
     intro: `
 <p>Bir program, bilgisayarın sırayla yerine getirdiği <b>komutlardan</b> oluşan bir listedir.
-İlk komutun <code>print()</code> olacak. Bu komut, <b>konsola</b> (editörün altındaki koyu alana)
+İlk komutun <code>print()</code>. Bu komut, editörün altındaki koyu alana, yani <b>konsola</b>
 bir şey yazar.</p>
-
-<p><b>Önemli: Metinler tırnak içinde yazılır.</b> Python'un <i>olduğu gibi</i> ekrana yazmasını
-istediğin her şeyi tırnak işaretlerinin arasına koyarsın: <code>"…"</code>. Böyle bir metne
-<b>string</b> denir (Türkçesi “karakter dizisi”). Tırnak işaretleri Python'a “Bu bir metin,
-komut değil.” der.</p>
 
 <pre><code>print("Merhaba dünya!")</code></pre>
 
-<p>Tırnakları unutursan (<code>print(Merhaba)</code>), Python <code>Merhaba</code> kelimesini
-tanıması gereken bir ad sanır ve hata verir. Bu arada tırnak işaretlerinin kendisi ekrana
-<b>yazılmaz</b>.</p>
+<p>Tırnak işaretlerinin <code>"…"</code> arasındaki her şeyi Python olduğu gibi ekrana yazar. Böyle
+bir metne <b>string</b> denir. Tırnak işaretlerinin kendisi ekranda görünmez.</p>
 
-<p>Merak etme, burada hiçbir şey bozulmaz. Metni değiştir ve <b>Çalıştır</b> düğmesine bas
-(ya da Ctrl + Enter).</p>`,
+<p>Burada hiçbir şey bozulmaz. Metni değiştir ve <b>Çalıştır</b> düğmesine bas.</p>`,
     taskHtml: `Metni değiştir ve <b>kendi mesajını</b> yazdır: sloganın, bir selam ya da en sevdiğin söz olabilir. Tırnak işaretlerini unutma!`,
     hints: [
       `Metnini tırnak işaretlerinin arasına yaz: <code>print("…")</code>.`,
@@ -114,7 +107,10 @@ s, u kullanmak yaygın bir alışkanlıktır. Bu yüzden <code>en_sevdiğin_say�
 <p><b>Sayı mı, metin mi?</b> Sayıları tırnak <i>olmadan</i> yazarsın (<code>7</code>). Bir
 <i>değişkeni</i> yazdırmak için de adını parantezin içine <b>tırnaksız</b> yazarsın:
 <code>print(en_sevdigin_sayi)</code> ekrana <code>7</code> yazar.
-<code>print("en_sevdigin_sayi")</code> ise sadece bu kelimeyi olduğu gibi yazar.</p>`,
+<code>print("en_sevdigin_sayi")</code> ise sadece bu kelimeyi olduğu gibi yazar.</p>
+
+<p><code>#</code> ile başlayan satırlar <b>yorumdur</b>, yani Python'un atladığı ve sana yönelik
+notlardır. Başlangıç kodunda bu satırlarda çoğu zaman küçük ipuçları bulunur.</p>`,
     taskHtml: `<b>En sevdiğin sayıyı</b> değişkene kaydet ve <code>print()</code> ile yazdır. Değişkenin adını tırnaksız yazmayı unutma!`,
     hints: [
       `Önce ata: <code>en_sevdigin_sayi = 42</code>`,
@@ -134,10 +130,22 @@ s, u kullanmak yaygın bir alışkanlıktır. Bu yüzden <code>en_sevdiğin_say�
     },
     expert: {
       html: `
-<p>Bir değişkenin değeri <b>değişebilir</b>. <code>puan = puan + 50</code> eski değeri alır, üstüne
-50 ekler ve sonucu yine aynı kutuya koyar. Adlarda harf, rakam ve <code>_</code> kullanabilirsin,
-ama bir ad rakamla başlayamaz.</p>
-<p><b>Bonus:</b> <code>puan = 100</code> diye bir değişken oluştur, sonra değerini 50 artır ve yazdır.</p>`,
+<p>Bir değişkenin değeri <b>değişebilir</b>. Bunun için eski değeriyle hesap yapar ve sonucu yine aynı
+kutuya koyarsın:</p>
+
+<pre><code>can = 3
+can = can - 1
+print(can)</code></pre>
+
+<p>İlk satır <code>can</code> değişkenine başlangıç değeri olarak 3 verir. İkinci satır bu değeri alır,
+1 çıkarır ve sonucu yeniden <code>can</code> içine kaydeder, yani ekrana 2 yazılır. İlk satır olmadan bu
+çalışmaz, çünkü Python yalnızca zaten bildiği bir değerle hesap yapabilir.</p>
+
+<p><b>Bonus:</b> Kodunun altına üç yeni satır yaz. Önce <code>puan</code> değişkenine başlangıç değeri
+olarak 100 ver, sonra onu 50 artır ve en sonda yazdır. Sonuç 150 olmalı.</p>
+
+<p>Bu arada, <code>puan</code> gibi adlarda harf, rakam ve <code>_</code> kullanabilirsin, ama bir ad
+rakamla başlayamaz.</p>`,
       solution: py`
         puan = 100
         puan = puan + 50
@@ -145,14 +153,14 @@ ama bir ad rakamla başlayamaz.</p>
       `,
       feedback: {
         selfUpdate: `Değeri <code>puan = puan + 50</code> ile artır (kısaca <code>puan += 50</code> da olur).`,
-        result150: `Sonunda ekranda 150 yazmalı.`,
+        result150: `Sonunda ekranda 150 yazmalı. <code>puan</code> önce 100 başlangıç değerini alıyor mu?`,
       },
     },
   },
 
   "s1-l3": {
     title: `Kumbara hesabı`,
-    story: `Ana bilgisayarda mürettebattan kalma eski bir hesap problemi takılı kalmış. Ona istasyonun yeniden hesap yapabildiğini göster.`,
+    story: `Ana bilgisayarda mürettebattan kalma eski bir hesap problemi takılı kalmış: Acil durum deposunda kaç enerji hücresi var? Ona istasyonun yeniden hesap yapabildiğini göster.`,
     intro: `
 <p>Python aynı zamanda çok iyi bir hesap makinesidir. <code>+</code> (artı), <code>-</code> (eksi),
 <code>*</code> (çarpı) ve <code>/</code> (bölü) ile hesap yaparsın. Yani “×” yerine <code>*</code>,
@@ -161,18 +169,21 @@ ama bir ad rakamla başlayamaz.</p>
 <p><b>Önemli:</b> Sayıları tırnaksız yaz. Yoksa Python onları metin sanır ve hesap yapmaz
 (<code>"5" + "3"</code> işleminin sonucu <code>8</code> değil, <code>"53"</code> olur!).</p>
 
-<pre><code>haftalik = 5
-hafta = 8
-print(haftalik * hafta)</code></pre>
+<pre><code>saat = 3
+saat_basina = 12
+print(saat * saat_basina)</code></pre>
 
-<p>Değişkenlerin güzel yanı şu: Bir değer değişirse program hesabı kendiliğinden yeniden yapar.
-Mia her hafta harçlığından biraz kenara koyuyor. Onun değişkenleriyle hesap yap.</p>`,
-    taskHtml: `Mia haftada <b>5&nbsp;€</b> biriktirirse <b>8 hafta</b> sonra ne kadar parası olur? İki değişkenle hesapla ve sonucu yazdır. (Kontrol için: Sonuç 40.)`,
-    hints: [`Çarpma işlemi <code>*</code> ile yapılır.`, `<code>print(haftalik * hafta)</code>`],
+<p>Bu örnek ekrana ne yazar? Önce düşün, sonra <b>Dene</b> düğmesine bas. Değişkenlerin güzel yanı
+şu: Bir değer değişirse program hesabı kendiliğinden yeniden yapar.</p>`,
+    taskHtml: `Mürettebat <b>8 hafta</b> boyunca her hafta acil durum deposuna <b>5 enerji hücresi</b> koymuş. Toplam kaç hücre var? İki değişkenle hesapla ve sonucu yazdır. (Kontrol için: Sonuç 40.)`,
+    hints: [
+      `Çarpma işlemi <code>*</code> ile yapılır. Sayıların yerine değişkenlerin adlarını yaz.`,
+      `<code>print(haftalik * hafta)</code>`,
+    ],
     starterCode: py`
       haftalik = 5
       hafta = 8
-      # Birikimi hesapla ve yazdır
+      # Depoda kaç hücre olduğunu hesapla ve yazdır
     `,
     solution: py`
       haftalik = 5
@@ -186,18 +197,22 @@ Mia her hafta harçlığından biraz kenara koyuyor. Onun değişkenleriyle hesa
     },
     expert: {
       html: `
-<p>100&nbsp;€ kaç <b>tam</b> haftada birikir? <code>//</code> operatörü bölme yapar ve virgülden
-sonrasını atar (<code>100 // 5</code> işleminin sonucu 20).</p>
-<p><b>Bonus:</b> <code>hedef = 100</code> diye bir değişken oluştur ve Mia'nın kaç haftaya ihtiyacı
-olduğunu <code>//</code> ile hesapla.</p>`,
+<p><code>//</code> operatörü bölme yapar ve kalanı atar: <code>17 // 5</code> işleminin sonucu 3.
+Kalanı <code>%</code> ile bulursun: <code>17 % 5</code> işleminin sonucu 2, çünkü 3 kere 5, 15 eder
+ve 17'ye ulaşmak için 2 daha gerekir.</p>
+<p><b>Bonus:</b> Depoda <code>stok = 102</code> enerji hücresi var. Hücreler, her birinde
+<code>kutu_basina = 5</code> tane olacak şekilde kutulara konuyor. Kaç <b>dolu</b> kutu olduğunu ve
+kaç hücrenin arta kaldığını yazdır.</p>`,
       solution: py`
-        haftalik = 5
-        hedef = 100
-        print(hedef // haftalik, "hafta")
+        stok = 102
+        kutu_basina = 5
+        print(stok // kutu_basina, "dolu kutu")
+        print(stok % kutu_basina, "hücre arta kalıyor")
       `,
       feedback: {
-        floorDiv: `Tam sayı bölmesi için <code>//</code> kullan: <code>hedef // haftalik</code>.`,
-        result20: `Sonuç 20 hafta olmalı.`,
+        floorDiv: `Dolu kutular için <code>//</code> kullan: <code>stok // kutu_basina</code>.`,
+        mod: `Kalanı <code>%</code> ile bulursun: <code>stok % kutu_basina</code>.`,
+        result: `Sonuç 20 dolu kutu ve arta kalan 2 hücre olmalı.`,
       },
     },
   },
@@ -312,8 +327,9 @@ print(f"Ad: {isim}")</code></pre>
 <p>İpucu: Tek bir soruyla başla, dene, sonra adım adım yenilerini ekle.</p>`,
     taskHtml: `<code>input()</code> ile en az <b>üç</b> şey sor ve f-string'ler kullanarak bütün cevapların yer aldığı bir <b>profil kartı</b> yazdır.`,
     hints: [
+      `Başlangıç kodunu bir kez çalıştır ve iki soruyu cevapla. Sonra bir üçüncü soru ve profil kartının yazdırılması eksik kalıyor.`,
       `Altına bir <code>input(…)</code> daha ekle, örneğin <code>hayvan = input("En sevdiğin hayvan: ")</code>.`,
-      `Her cevap için bir satır: <code>print(f"Ad: {isim}")</code>`,
+      `Her cevap için bir satır: <code>print(f"Ad: {isim}")</code>, aynısını <code>hobi</code> ve üçüncü değişkenin için de yap.`,
     ],
     starterCode: py`
       isim = input("Adın: ")
@@ -351,86 +367,23 @@ print(f"Ad: {isim}")</code></pre>
   },
 
   // ================================================================== BÖLÜM 2
-  "s2-l1": {
-    title: `Eğer … ise …`,
-    story: `Hangar kapısı ancak yeterince enerji puanı varsa açılıyor. Ona kibarca “hayır” demeyi de öğret.`,
-    intro: `
-<p>Programlar <b>karar vermek</b> zorundadır. <code>if</code> (“eğer”) ile bir koşulu kontrol
-edersin: Koşul doğruysa altındaki girintili blok çalışır. <code>else</code> (“değilse”) ise diğer
-durumdur.</p>
-
-<pre><code>puan = 120
-if puan &gt;= 100:
-    print("Seviyeyi geçtin!")
-else:
-    print("Az kaldı! Devam et.")</code></pre>
-
-<p><b>Python iki kurala çok dikkat eder:</b> Koşuldan sonra bir <b>iki nokta üst üste</b>
-<code>:</code> gelir ve koşula ait satırlar <b>girintili</b> yazılır (4 boşluk; Tab tuşu bunu
-senin yerine yapar).</p>
-
-<p>Karşılaştırma için <code>==</code> (eşit), <code>!=</code> (eşit değil), <code>&lt;</code>,
-<code>&gt;</code>, <code>&lt;=</code> ve <code>&gt;=</code> kullanılır. Dikkat: <code>==</code>
-“eşit mi?” diye sorar, <code>=</code> ise atama yapar.</p>
-
-<p><b>Yeni: Sayı girmek.</b> <code>input()</code> her zaman metin verir. <code>int(…)</code> ile
-onu, Python'un karşılaştırma ve hesap yapabileceği bir tam sayıya çevirirsin:</p>
-<pre><code>puan = int(input("Kaç puanın var? "))</code></pre>`,
-    taskHtml: `Puan <b>100'den az</b> olduğunda moral veren bir mesaj yazdıran bir <code>else</code> bloğu ekle. Programını önce 120, sonra 50 ile dene.`,
-    hints: [
-      `<code>else:</code>, <code>if</code> ile aynı hizada başlar ve sonunda iki nokta üst üste vardır.`,
-      `Altındaki satırı girintili yaz: <code>    print("Az kaldı! Çalışmaya devam!")</code>`,
-    ],
-    starterCode: py`
-      puan = int(input("Kaç puanın var? "))
-      if puan >= 100:
-          print("Seviyeyi geçtin! 🎉")
-      # else durumunu buraya ekle
-    `,
-    solution: py`
-      puan = int(input("Kaç puanın var? "))
-      if puan >= 100:
-          print("Seviyeyi geçtin! 🎉")
-      else:
-          print("Az kaldı! Çalışmaya devam!")
-    `,
-    feedback: {
-      noElseOutput: `50 puanda henüz hiçbir şey görünmüyor. <code>else</code> bloğunda bir mesaj yazdır.`,
-      sameOutput: `120 puanda da 50 puanda da aynı şey çıkıyor. <code>else</code> bloğunda farklı bir mesaj olmalı.`,
-      boundary: `Tam 100 puanda da seviye geçilmiş sayılır. <code>puan &gt;= 100</code> koşulunu olduğu gibi bırak.`,
-    },
-    expert: {
-      html: `
-<p>İkiden fazla durum için <code>elif</code> (“değilse eğer”) vardır. Python koşulları yukarıdan
-aşağıya doğru kontrol eder ve doğru olan ilk koşulu seçer.</p>
-<p><b>Bonus:</b> Üç kademe kur: 100 ve üstü puanda “Seviyeyi geçtin”, 50 ve üstünde “Az kaldı”,
-diğer durumlarda “Çalışmaya devam”.</p>`,
-      solution: py`
-        puan = int(input("Kaç puanın var? "))
-        if puan >= 100:
-            print("Seviyeyi geçtin! 🎉")
-        elif puan >= 50:
-            print("Az kaldı!")
-        else:
-            print("Çalışmaya devam!")
-      `,
-      feedback: { threeCases: `120, 70 ve 10 puanda her seferinde farklı bir mesaj görünmeli.` },
-    },
-  },
-
   "s2-l2": {
     title: `Doğru mu, yanlış mı?`,
     story: `Hangardaki sensörler artık yalnızca True ya da False bildiriyor. Onların dilini anlayıp anlamadığını sına.`,
     intro: `
-<p>Her karşılaştırmanın bir sonucu vardır: <code>True</code> (doğru) ya da <code>False</code>
-(yanlış). Buna <b>mantıksal değer</b> denir (İngilizcesi <i>boolean</i>). <code>if</code>
-kararını tam olarak bununla verir.</p>
+<p>Programlar çoğu zaman bir şeyi <b>kontrol etmek</b> zorundadır: Enerji yetiyor mu? Şifre doğru
+mu? Bunun için <b>karşılaştırmalar</b> vardır. Her karşılaştırmanın bir sonucu olur: <code>True</code>
+(doğru) ya da <code>False</code> (yanlış). Buna <b>mantıksal değer</b> denir (İngilizcesi
+<i>boolean</i>).</p>
 
 <pre><code>print(10 &gt; 3)    # True
 print(5 == 6)   # False</code></pre>
 
-<p><code>#</code> işaretinden sonra gelen her şey bir <b>yorumdur</b>. Yorumlar insanlar için
-yazılmış notlardır, Python onları atlar.</p>`,
+<p>Karşılaştırma için <code>==</code> (eşit), <code>!=</code> (eşit değil), <code>&lt;</code>
+(küçük), <code>&gt;</code> (büyük), <code>&lt;=</code> ve <code>&gt;=</code> kullanılır. Dikkat:
+<code>==</code> “eşit mi?” diye sorar, tek bir <code>=</code> ise bir değer atar.</p>
+
+<p>Bir sonraki derste programın bu tür karşılaştırmalarla gerçek kararlar verecek.</p>`,
     taskHtml: `<b>En az üç farklı karşılaştırmanın</b> sonucunu yazdır. En az biri <code>False</code> çıkmalı.`,
     hints: [
       `Karşılaştırmayı doğrudan yazdır: <code>print(7 &gt; 2)</code>`,
@@ -468,9 +421,80 @@ olmadığını <code>and</code> ile kontrol et. Sonucu yazdır.</p>`,
     },
   },
 
+  "s2-l1": {
+    title: `Eğer … ise …`,
+    story: `Hangar kapısı ancak yeterince enerji puanı varsa açılıyor. Ona kibarca “hayır” demeyi de öğret.`,
+    intro: `
+<p>Programlar <b>karar vermek</b> zorundadır. <code>if</code> (“eğer”) ile bir koşulu kontrol
+edersin, örneğin önceki dersteki gibi bir karşılaştırmayı. Koşul <code>True</code> ise altındaki
+girintili blok çalışır. <code>else</code> (“değilse”) ise diğer durumdur.</p>
+
+<pre><code>puan = 120
+if puan &gt;= 100:
+    print("Seviyeyi geçtin!")
+else:
+    print("Az kaldı! Devam et.")</code></pre>
+
+<p><b>Python iki kurala çok dikkat eder:</b> Koşuldan sonra bir <b>iki nokta üst üste</b>
+<code>:</code> gelir ve koşula ait satırlar <b>girintili</b> yazılır (4 boşluk). İki nokta üst
+üsteden sonra editör bir sonraki satırı kendiliğinden içeri kaydırır.</p>
+
+<p><b>İkiden fazla durum mu var?</b> O zaman araya <code>elif</code> (“değilse eğer”) girer. Python
+yukarıdan aşağıya doğru kontrol eder ve doğru olan ilk durumu seçer:</p>
+<pre><code>puan = 70
+if puan &gt;= 100:
+    print("Seviyeyi geçtin!")
+elif puan &gt;= 50:
+    print("Az kaldı!")
+else:
+    print("Çalışmaya devam!")</code></pre>
+
+<p><b>Yeni: Sayı girmek.</b> <code>input()</code> her zaman metin verir. <code>int(…)</code> ile
+onu, Python'un karşılaştırma ve hesap yapabileceği bir tam sayıya çevirirsin:</p>
+<pre><code>puan = int(input("Kaç puanın var? "))</code></pre>`,
+    taskHtml: `Puan <b>100'den az</b> olduğunda moral veren bir mesaj yazdıran bir <code>else</code> bloğu ekle. Programını önce 120, sonra 50 ile dene.`,
+    hints: [
+      `<code>else:</code>, <code>if</code> ile aynı hizada başlar ve sonunda iki nokta üst üste vardır.`,
+      `Altındaki satırı girintili yaz: <code>    print("Az kaldı! Çalışmaya devam!")</code>`,
+    ],
+    starterCode: py`
+      puan = int(input("Kaç puanın var? "))
+      if puan >= 100:
+          print("Seviyeyi geçtin! 🎉")
+      # else durumunu buraya ekle
+    `,
+    solution: py`
+      puan = int(input("Kaç puanın var? "))
+      if puan >= 100:
+          print("Seviyeyi geçtin! 🎉")
+      else:
+          print("Az kaldı! Çalışmaya devam!")
+    `,
+    feedback: {
+      noElseOutput: `50 puanda henüz hiçbir şey görünmüyor. <code>else</code> bloğunda bir mesaj yazdır.`,
+      sameOutput: `120 puanda da 50 puanda da aynı şey çıkıyor. <code>else</code> bloğunda farklı bir mesaj olmalı.`,
+      boundary: `Tam 100 puanda da seviye geçilmiş sayılır. <code>puan &gt;= 100</code> koşulunu olduğu gibi bırak.`,
+    },
+    expert: {
+      html: `
+<p><b>Bonus:</b> <code>elif</code> ile üç kademe kur: 100 ve üstü puanda “Seviyeyi geçtin”, 50 ve
+üstünde “Az kaldı”, diğer durumlarda “Çalışmaya devam”.</p>`,
+      solution: py`
+        puan = int(input("Kaç puanın var? "))
+        if puan >= 100:
+            print("Seviyeyi geçtin! 🎉")
+        elif puan >= 50:
+            print("Az kaldı!")
+        else:
+            print("Çalışmaya devam!")
+      `,
+      feedback: { threeCases: `120, 70 ve 10 puanda her seferinde farklı bir mesaj görünmeli.` },
+    },
+  },
+
   "s2-l3": {
     title: `Şansa bırak`,
-    story: `Mürettebatın keşif aracı oyununun zarı kaybolmuş. Lumo gerçekten rastgele atan bir zar istiyor.`,
+    story: `Mürettebatın keşif aracı oyununun zarı kaybolmuş. Gerçekten rastgele atan bir zarım olsun isterdim.`,
     intro: `
 <p>Şans, oyunları heyecanlı yapar. Python'un hazır araçları <b>modüllerde</b> bulunur; onları
 <code>import</code> ile programına eklersin. <code>random</code> modülü zar atabilir.</p>
@@ -503,8 +527,10 @@ dahil). <code>import random</code> satırını programın en üstüne bir kez ya
     },
     expert: {
       html: `
-<p><code>random.choice([...])</code> ile <b>bir listeden</b> rastgele bir şey seçersin. Bir
-çarkıfelek için biçilmiş kaftan!</p>
+<p><b>Liste</b>, birden fazla değeri köşeli parantezlerin arasında, virgülle ayırarak bir arada
+tutar: <code>oduller = ["Dondurma", "Joker", "Ekstra tur", "Mola"]</code>. Listeler hakkında daha
+fazlasını 3. bölümde öğreneceksin. <code>random.choice(oduller)</code> bu listeden rastgele bir
+eleman çeker.</p>
 <p><b>Bonus:</b> En az <b>dört</b> ödülün olduğu kendi çarkıfeleğini yap.</p>`,
       solution: py`
         import random
@@ -544,10 +570,8 @@ for i in range(4):
     drum("snare")
 note("do5", 2)</code></pre>
 
-<p>Davul sesleri: <code>"kick"</code>, <code>"snare"</code>, <code>"hihat"</code>, <code>"clap"</code>,
-<code>"tom"</code>. Notalar: <code>"do4"</code>, <code>"re4"</code>, <code>"mi4"</code> … ya da
-<code>"C4"</code>, <code>"D4"</code>, <code>"E4"</code> … Virgülden sonraki sayı, sesin kaç vuruş
-süreceğini belirler (sayı yazmazsan bir vuruş sürer).</p>`,
+<p>Hangi seslerin olduğu başlangıç kodunda yazıyor. <code>note</code> komutunda virgülden sonraki
+sayı, sesin kaç vuruş süreceğini belirler.</p>`,
     taskHtml: `<b>En az üç kez</b> tekrar eden bir <b><code>for</code> döngüsüyle</b> bir <b>ritim</b> oluştur. Ritmin <code>drum()</code> ya da <code>note()</code> ile duyulabilir ya da <code>print()</code> ile metin olarak yazılabilir. Komut kodda yalnızca bir kez yer alsın, tekrarı döngü yapsın.`,
     hints: [
       `<code>for i in range(4):</code> ve altına girintili olarak <code>drum("kick")</code> ya da <code>print(…)</code>.`,
@@ -556,6 +580,8 @@ süreceğini belirler (sayı yazmazsan bir vuruş sürer).</p>`,
     starterCode: py`
       from station import drum, note
 
+      # Davul: "kick", "snare", "hihat", "clap", "tom"
+      # Notalar: "do4", "re4", "mi4" … ya da "C4", "D4", "E4" …
       # Ritmini bir for döngüsüyle oluştur
       drum("kick")
     `,
@@ -619,17 +645,27 @@ sonra 3 olur ve satıra her seferinde o kadar karakter yazılır.</p>`,
     feedback: { grow: `Satırlar hâlâ aynı uzunlukta. Uzunluğu sayaçla büyüt: <code>"⭐" * i</code>.` },
     expert: {
       html: `
-<p>Satır başına boşluk koyarak deseni sağa kaydırabilirsin; böylece bir <b>piramit</b> ortaya
-çıkar. İpucu: Boşluk için <code>" " * (5 - i)</code>, yıldızlar için
-<code>"*" * (2 * i - 1)</code>.</p>
-<p><b>Bonus:</b> Aşağıya doğru genişleyen, en az dört satırlık bir piramit çiz.</p>`,
+<p>Gerçek sinyal lambaları <b>istasyonun ekranında</b>: 16'ya 16 lamba.
+<code>pixel(x, y, renk)</code> bunlardan birini yakar. <code>x</code> soldan sayar (0'dan 15'e),
+<code>y</code> de yukarıdan (0'dan 15'e).</p>
+
+<pre><code>from station import pixel
+
+for i in range(4):
+    pixel(i, 0, "sarı")</code></pre>
+
+<p>Buradaki sayaç <code>i</code> lambadan lambaya ilerliyor.</p>
+<p><b>Bonus:</b> Bir döngüyle en az <b>8 sinyal lambasından</b> oluşan bir sıra yak. İstersen bir
+merdiven yap: <code>pixel(i, i, "sarı")</code>.</p>`,
       solution: py`
-        for i in range(1, 6):
-            print(" " * (5 - i) + "*" * (2 * i - 1))
+        from station import pixel
+
+        for i in range(16):
+            pixel(i, 8, "sarı")
       `,
       feedback: {
-        indent: `Her satırın başında bir öncekinden daha az boşluk olmalı: <code>" " * (5 - i)</code>.`,
-        wider: `Yıldızların sayısı satırdan satıra artmalı.`,
+        pixelInLoop: `<code>pixel(…)</code> komutunu döngünün içinde girintili olarak çağır ve koordinat olarak sayaç <code>i</code> değerini kullan.`,
+        eight: `En az 8 lamba yanmalı. Döngüyü daha çok döndür, örneğin <code>range(8)</code>.`,
       },
     },
   },
@@ -650,11 +686,15 @@ print("Başla!")</code></pre>
 <p><b>Çok önemli:</b> Döngünün içinde, koşulu bir noktada <code>False</code> yapacak bir şey
 değişmeli. Burada <code>sayi</code> her turda küçülüyor. Böyle bir değişiklik olmazsa döngü
 <i>sonsuza kadar</i> döner. Panik yapma: Codaluna bunu fark eder ve programını durdurur (ya da sen
-<b>Durdur</b> düğmesine basarsın).</p>`,
+<b>Durdur</b> düğmesine basarsın).</p>
+
+<p>Bu arada, <code>sayi = sayi - 1</code> yerine kısaca <code>sayi -= 1</code> da yazabilirsin, aynı
+şekilde <code>sayi += 1</code>. İkisi de doğru.</p>`,
     taskHtml: `Bir <code>while</code> döngüsüyle <b>10'dan 1'e geri sayım</b> yap ve ardından <code>Kalkış! 🚀</code> yazdır.`,
     hints: [
-      `<code>while sayi &gt; 0:</code> ve altına girintili olarak <code>print(sayi)</code>.`,
-      `Döngünün içinde sayıyı küçült: <code>sayi = sayi - 1</code>. Yoksa döngü hiç bitmez!`,
+      `Bir <code>while</code> döngüsü, koşulu doğru olduğu sürece döner. “Sayı hâlâ 0'dan büyük” cümlesine hangi koşul uyar?`,
+      `Döngünün içinde iki şey olur: sayıyı yazdırmak, sonra sayıyı 1 küçültmek. Döngüden sonra, girintisiz olarak “Kalkış!” gelir.`,
+      `<code>while sayi &gt; 0:</code>, altına girintili olarak <code>print(sayi)</code> ve <code>sayi = sayi - 1</code>, en altta da girintisiz <code>print("Kalkış! 🚀")</code>.`,
     ],
     starterCode: py`
       sayi = 10
@@ -703,16 +743,22 @@ ipuçlarıyla o sayıyı bulana kadar tahmin edersin. Bu bölümde öğrendiğin
 <code>if</code>/<code>elif</code>.</p>
 
 <p><code>while tahmin != gizli:</code> döngüsü, tahmin doğru <b>olmadığı</b> sürece döner.
-Döngüde en önemli parça hâlâ eksik: ipuçları.</p>`,
+Döngüde en önemli parça hâlâ eksik: ipuçları.</p>
+
+<p>Hatırlatma: <code>elif</code> “değilse eğer” demektir. Python onu yalnızca önceki koşul yanlış
+çıktıysa kontrol eder. Burada iki karşılaştırmaya ihtiyacın var: Tahmin gizli sayıdan büyükse
+“çok büyük”, küçükse “çok küçük” yazılır. Eşitse ipucu çıkmaz. İki karşılaştırma da döngünün
+<b>içinde</b> durur, onların <code>print</code> satırlarını bir kez daha içeri kaydırırsın.</p>`,
     taskHtml: `Oyunu tamamla: Döngüde, tahmine göre <b>“çok büyük”</b> ya da <b>“çok küçük”</b> yazdırılsın. Doğru tahminde ipucu çıkmasın. Sonra oyunu kendin oyna!`,
     hints: [
-      `<code>if tahmin &gt; gizli:</code> → çok büyük.`,
-      `<code>elif tahmin &lt; gizli:</code> → çok küçük. İkisi de döngünün içinde, <code>input</code> satırının altında girintili durur.`,
+      `Bir tahmin çok büyük, çok küçük ya da tam doğru olabilir. Yalnızca ilk iki durum için ipucu gerekir. İkinci ipucunda <code>else</code> kullanmak neden yanlış olurdu?`,
+      `<code>input</code> satırının altında, döngünün içinde girintili olarak: önce “çok büyük” için <code>if</code>, sonra “çok küçük” için <code>elif</code>.`,
+      `Altında <code>print("çok büyük")</code> olan bir <code>if tahmin &gt; gizli:</code>, sonra altında <code>print("çok küçük")</code> olan bir <code>elif tahmin &lt; gizli:</code>. İki <code>print</code> satırı da bir kez daha içeri kaydırılmış olur.`,
     ],
     starterCode: py`
       import random
       gizli = random.randint(1, 20)
-      tahmin = 0
+      tahmin = 0   # 0 hiçbir zaman gizli sayı olmaz, böylece döngü başlar
 
       while tahmin != gizli:
           tahmin = int(input("Tahminin (1-20): "))
@@ -878,7 +924,7 @@ yazılır.</p>`,
 
   "s3-l3": {
     title: `Her biri için …`,
-    story: `Lumo listedeki her kaydı tek tek kontrol etmeli. Bir döngü bunu saniyeler içinde halleder.`,
+    story: `Listedeki her kaydı tek tek kontrol etmem gerekiyor. Bir döngüyle bu saniyeler içinde biter.`,
     intro: `
 <p><code>for … in liste</code> ile konum saymana gerek kalmadan listedeki <b>her elemanı</b>
 sırayla dolaşırsın:</p>
@@ -890,7 +936,7 @@ for sarki in sarkilar:
 <p><code>sarki</code> her turda listedeki bir sonraki elemandır. Bu adı istediğin gibi
 seçebilirsin; <code>for x in sarkilar</code> da çalışır ama anlamlı bir ad kodu daha okunaklı
 yapar.</p>`,
-    taskHtml: `Bir <code>for</code> döngüsüyle listeyi dolaş ve <b>her elemanı ayrı bir satırda</b> yazdır. İstersen önüne bir metin de ekle, örneğin “Şimdi çalıyor: …”.`,
+    taskHtml: `Bir <code>for</code> döngüsüyle listeyi dolaş ve <b>her elemanı ayrı bir satırda</b> yazdır. İstersen önüne bir metin de ekle, örneğin “Şimdi çalıyor: …”. Çalışınca listeye dördüncü bir şarkı ekle. Bunun için döngüyü değiştirmek gerekiyor mu? Dene ve gör.`,
     hints: [`<code>for sarki in sarkilar:</code>`, `Altına girintili olarak: <code>print(sarki)</code>`],
     starterCode: py`
       sarkilar = ["Giriş", "Ritim 1", "Final"]
@@ -927,25 +973,35 @@ yapar.</p>`,
 
   "s3-l4": {
     title: `Kendi komutlarını yaz`,
-    story: `Lumo her şeyi on kez anlatmaktan bıktı. Ziyaretçileri selamlayan kendi komutunu yaz.`,
+    story: `İstasyona her gün ziyaretçiler geliyor ve ben her birini tek tek selamlıyorum. Bu işi benim yerime yapan bir komut yaz.`,
     intro: `
 <p><b>Fonksiyon</b>, bir kez yazıp istediğin kadar çağırabildiğin kendi komutundur. Onu
 <code>def</code> ile tanımlarsın. Parantezlerin içinde <b>parametreler</b> yer alır; bunlar,
 fonksiyonun çağrıldığında aldığı değerlerdir.</p>
 
-<pre><code>def selamla(isim):
-    print(f"Merhaba {isim}! 👋")
+<pre><code>def tezahurat(kelime):
+    print(f"{kelime}! {kelime}! {kelime}!")
 
-selamla("Deniz")
-selamla("Fatima")</code></pre>
+tezahurat("Yaşasın")
+tezahurat("Python")</code></pre>
 
 <p>Girintili blok, fonksiyonun “planıdır”. Bu plan ancak fonksiyonu <b>çağırdığında</b>, verdiğin
-değerle çalışır. Böylece aynı kodu tekrar tekrar yazmaktan kurtulursun.</p>`,
-    taskHtml: `<code>selamla</code> fonksiyonunu <b>iki farklı isimle</b> çağır.`,
-    hints: [`Çağırmak için: <code>selamla("Mia")</code>`, `Alt alta, girintisiz ve farklı isimlerle iki çağrı yaz.`],
+değerle çalışır. Böylece aynı kodu tekrar tekrar yazmaktan kurtulursun.</p>
+
+<p>Başlangıç kodunda plan zaten var ama henüz içi boş. <code>pass</code> bir yer tutucudur ve
+“burada henüz bir şey olmuyor” demektir. Onu kendi kodunla değiştir.</p>
+
+<p>Kendi komutlarınla dışarıda sağa bile dönebilirim. Bunu “Sağa dönüş” dış görevinde
+dene.</p>`,
+    taskHtml: `<code>selamla(isim)</code> fonksiyonunu tamamla: İçinde ismin geçtiği bir selam yazdırsın. Ardından onu <b>iki farklı isimle</b> çağır.`,
+    hints: [
+      `<code>pass</code> satırını, içinde <code>isim</code> geçen girintili bir <code>print(…)</code> ile değiştir, örneğin bir f-string ile.`,
+      `Fonksiyonun içinde: <code>    print(f"Merhaba {isim}! 👋")</code>. Altına, girintisiz olarak iki çağrı: <code>selamla("Mia")</code> ve başka bir isimle bir tane daha.`,
+    ],
     starterCode: py`
       def selamla(isim):
-          print(f"Merhaba {isim}! 👋")
+          # Buraya içinde ismin geçtiği bir selam yazdır
+          pass
 
       # Fonksiyonu iki farklı isimle çağır
     `,
@@ -958,6 +1014,7 @@ değerle çalışır. Böylece aynı kodu tekrar tekrar yazmaktan kurtulursun.</
     `,
     feedback: {
       twoCalls: `Fonksiyonu her biri ayrı satırda olmak üzere iki kez çağır: <code>selamla("Mia")</code>.`,
+      useName: `Fonksiyonun, aldığı ismi yazdırmalı. <code>pass</code> satırını <code>isim</code> içeren bir <code>print</code> ile değiştir, örneğin <code>print(f"Merhaba {isim}!")</code>.`,
       differentNames: `İki <b>farklı</b> isim kullan.`,
     },
     expert: {
@@ -995,7 +1052,12 @@ sonuc = iki_kati(5)
 print(sonuc)   # 10</code></pre>
 
 <p><code>return</code> satırından sonra fonksiyon biter ve değeri, çağrıldığı yere geri gönderir.
-Bu değeri bir değişkende saklayabilir, yazdırabilir ya da başka bir hesapta kullanabilirsin.</p>`,
+Bu değeri bir değişkende saklayabilir, yazdırabilir ya da başka bir hesapta kullanabilirsin.</p>
+
+<p>Bir fonksiyon <b>birden fazla değer</b> de alabilir. O zaman parametreler parantezlerin içinde
+virgülle ayrılarak yazılır: <code>def ortalama(a, b, c):</code>. <code>ortalama(2, 4, 6)</code>
+çağrısında <code>a</code> ilk değeri, <code>b</code> ikinci değeri, <code>c</code> de üçüncü değeri
+alır.</p>`,
     taskHtml: `<code>ortalama</code> fonksiyonunu, üç sayının <b>ortalamasını</b> geri döndürecek şekilde tamamla. 2, 4 ve 6 için sonuç <b>4.0</b> olmalı; başka sayılarla da doğru çalışmalı.`,
     hints: [
       `Toplamı adede böl: <code>(a + b + c) / 3</code>. Parantezler önemli!`,
@@ -1051,7 +1113,7 @@ print(kahraman["seviye"])   # 3</code></pre>
 
 <p>Listelerde elemanlara <b>konumla</b> ulaşırken burada <b>anahtarı</b> kullanırsın:
 <code>kahraman["isim"]</code>. Birbirine ait bilgileri bir arada tutmak için harikadır.</p>`,
-    taskHtml: `Sözlüğü en az <b>üç</b> çifte çıkar (örneğin bir silah, bir evcil hayvan ya da bir renk ekleyerek) ve <b>iki değeri</b> anahtarları üzerinden yazdır.`,
+    taskHtml: `Sözlüğü en az <b>üç</b> çifte çıkar (örneğin bir alet, bir evcil hayvan ya da bir renk ekleyerek) ve <b>iki değeri</b> anahtarları üzerinden yazdır.`,
     hints: [
       `Bir çift daha: <code>kahraman = {"isim": "Ada", "seviye": 3, "renk": "Mor"}</code>`,
       `Anahtarla erişim: <code>print(kahraman["renk"])</code>`,
@@ -1091,94 +1153,107 @@ print(kahraman["seviye"])   # 3</code></pre>
     title: `Kendi bilgi yarışman`,
     story: `İstasyonun yapay zekâsı laboratuvara yalnızca bilgi yarışmasını geçen mürettebatı alıyor. Bu kez rolleri değiştir ve yarışmayı sen hazırla!`,
     intro: `
-<p>İstediğin bir konuda (hayvanlar, müzik, spor, uzay …) küçük bir <b>bilgi yarışması</b>
-hazırla. Yarışman <code>input()</code> ile sorular sorsun, cevapları <code>if</code> ile kontrol
-etsin ve puanları bir değişkenle saysın.</p>
+<p>İstediğin bir konuda (hayvanlar, müzik, spor, uzay …) bir <b>bilgi yarışması</b> hazırla. Bu kez
+bu bölümde öğrendiğin her şey lazım olacak: Sorular bir listede <b>kartlar</b> olarak duruyor ve her
+kart, içinde soru ile cevabın olduğu bir sözlük. Bir döngü her soruyu soruyor, kendi fonksiyonun da
+cevabı kontrol ediyor.</p>
 
-<pre><code>puan = 0
-cevap = input("Soru? ")
-if cevap == "doğru":
-    puan = puan + 1</code></pre>
+<pre><code>def buyuk_mu(sayi):
+    if sayi &gt; 100:
+        return 1
+    else:
+        return 0
 
-<p>İpucu: <code>cevap.lower()</code> ile büyük/küçük harf farkına takılmadan karşılaştırma
-yaparsın; böylece “Roma” da “roma” da doğru sayılır. Küçük bir uyarı: <code>lower()</code>
-Türkçedeki I/ı ve İ/i farkını bilmez, o yüzden bu harfleri içeren cevaplarda (örneğin İstanbul)
-dikkatli ol.</p>`,
-    taskHtml: `Yarışmaya <b>en az iki soru daha</b> ekle (toplamda üç soru olsun). Her doğru cevap için puan ver ve en sonda toplam puanı yazdır.`,
+print(buyuk_mu(250))   # 1
+print(buyuk_mu(7))     # 0</code></pre>
+
+<p>Başlangıç kodundaki döngü zaten hazır. Her soruyu soruyor ve <code>kontrol_et</code>
+fonksiyonunun geri döndürdüğü değerleri topluyor: doğru için 1, yanlış için 0.
+<code>len(kartlar)</code> listedeki kartları sayar.</p>`,
+    taskHtml: `<code>kontrol_et(cevap, dogru)</code> fonksiyonunu tamamla: Cevap doğruysa <b>1</b>, değilse <b>0</b> geri döndürsün. Ayrıca yarışmanda üç soru olsun diye listeye <b>en az iki kendi kartını</b> ekle.`,
     hints: [
-      `Her soru için bir <code>input(…)</code> ve bir <code>if</code>/<code>else</code>.`,
-      `Cevap doğruysa: <code>puan = puan + 1</code>. Toplam puan en sonda yazdırılır.`,
+      `Fonksiyonla başla. Fonksiyon, verilen cevabı ve doğru cevabı alıyor. Cevap ne zaman doğrudur?`,
+      `<code>kontrol_et</code> içinde: <code>if cevap == dogru:</code> ise <code>return 1</code>, değilse <code>return 0</code>. Yeni bir kart şöyle görünür: <code>{"soru": "En büyük gezegen? ", "cevap": "jüpiter"},</code>`,
+      `<code>def kontrol_et(cevap, dogru):</code>, altına girintili olarak <code>return 1</code> içeren bir <code>if cevap == dogru:</code> ve <code>return 0</code> içeren bir <code>else:</code>. Kartlar köşeli parantezlerin arasına gelir, her birinin arkasında bir virgül olur.`,
     ],
     starterCode: py`
+      def kontrol_et(cevap, dogru):
+          # Cevap doğruysa 1, değilse 0 geri döndür
+          return 0
+
+      kartlar = [
+          {"soru": "Bir örümceğin kaç bacağı var? ", "cevap": "8"},
+          # Buraya en az iki kendi kartını ekle
+      ]
+
       puan = 0
+      for kart in kartlar:
+          cevap = input(kart["soru"])
+          puan = puan + kontrol_et(cevap, kart["cevap"])
 
-      cevap = input("Bir örümceğin kaç bacağı var? ")
-      if cevap == "8":
-          puan = puan + 1
-          print("Doğru! 🕷️")
-      else:
-          print("Olmadı, doğru cevap 8.")
-
-      # Buraya en az iki soru daha ekle
-
-      print("Puan:", puan)
+      print("Puan:", puan, "/", len(kartlar))
     `,
     solution: py`
+      def kontrol_et(cevap, dogru):
+          if cevap == dogru:
+              print("Doğru!")
+              return 1
+          else:
+              print("Maalesef yanlış, doğru cevap:", dogru)
+              return 0
+
+      kartlar = [
+          {"soru": "Bir örümceğin kaç bacağı var? ", "cevap": "8"},
+          {"soru": "İtalya'nın başkenti neresi? ", "cevap": "roma"},
+          {"soru": "En büyük gezegen hangisi? ", "cevap": "jüpiter"},
+      ]
+
       puan = 0
+      for kart in kartlar:
+          cevap = input(kart["soru"])
+          puan = puan + kontrol_et(cevap, kart["cevap"])
 
-      cevap = input("Bir örümceğin kaç bacağı var? ")
-      if cevap == "8":
-          puan = puan + 1
-          print("Doğru! 🕷️")
-      else:
-          print("Olmadı, doğru cevap 8.")
-
-      cevap = input("İtalya'nın başkenti neresi? ")
-      if cevap.lower() == "roma":
-          puan = puan + 1
-          print("Doğru! 🇮🇹")
-      else:
-          print("Cevap Roma'ydı.")
-
-      cevap = input("En büyük gezegen hangisi? ")
-      if cevap.lower() == "jüpiter":
-          puan = puan + 1
-          print("Doğru! 🪐")
-      else:
-          print("Cevap Jüpiter'di.")
-
-      print("Puan:", puan)
+      print("Puan:", puan, "/", len(kartlar))
     `,
     feedback: {
-      ifPerQuestion: `Her cevabı ayrı bir <code>if</code> ile kontrol et.`,
-      countPoints: `Her doğru cevapta puanı artır: <code>puan = puan + 1</code>.`,
+      threeCards: `<code>kartlar</code> listesine en az iki kendi kartını ekle, her birinde <code>"soru"</code> ve <code>"cevap"</code> olsun.`,
+      returnOne: `Cevap doğruysa <code>kontrol_et</code> 1 geri döndürmeli. <code>cevap</code> ile <code>dogru</code> değerlerini karşılaştır ve <code>return 1</code> yaz.`,
+      returnZero: `Cevap yanlışsa <code>kontrol_et</code> 0 geri döndürmeli: <code>return 0</code> içeren bir <code>else:</code>.`,
       scoreAtEnd: `En sonda toplam puanı yazdır, örneğin <code>print("Puan:", puan)</code>.`,
     },
     expert: {
       html: `
-<p>Profesyonel yöntem: Soruları bir <b>sözlük listesi</b> olarak sakla
-(<code>{"soru": …, "cevap": …}</code>) ve hepsini <b>tek bir</b> döngüyle dolaş. Böylece kaç soru
-olursa olsun, bir sorunun kodunu yalnızca bir kez yazarsın.</p>
-<p><b>Bonus:</b> Yarışmanı bu şekilde yeniden kur (listede en az iki soru olsun).</p>`,
+<p><code>cevap.lower()</code> bütün harfleri küçük harfe çevirir. Böylece “Roma” da “roma” ya da
+“ROMA” ile aynı sayılır.</p>
+<p><b>Bonus:</b> <code>kontrol_et</code> fonksiyonunun büyük/küçük harf farkını önemsememesini sağla:
+<code>kontrol_et("ROMA", "roma")</code> 1 vermeli.</p>
+<p>Küçük bir uyarı: <code>lower()</code> Türkçedeki I/ı ve İ/i farkını bilmez, o yüzden bu harfleri
+içeren cevaplarda (örneğin İstanbul) dikkatli ol.</p>`,
       solution: py`
-        sorular = [
-            {"soru": "Bir örümceğin kaç bacağı var? ", "cevap": "8"},
-            {"soru": "İtalya'nın başkenti neresi? ", "cevap": "roma"},
-            {"soru": "En büyük gezegen hangisi? ", "cevap": "jüpiter"},
-        ]
-        puan = 0
-        for s in sorular:
-            cevap = input(s["soru"])
-            if cevap.lower() == s["cevap"]:
-                puan = puan + 1
+        def kontrol_et(cevap, dogru):
+            if cevap.lower() == dogru.lower():
                 print("Doğru!")
+                return 1
             else:
-                print("Maalesef yanlış, doğru cevap:", s["cevap"])
-        print("Puan:", puan, "/", len(sorular))
+                print("Maalesef yanlış, doğru cevap:", dogru)
+                return 0
+
+        kartlar = [
+            {"soru": "Bir örümceğin kaç bacağı var? ", "cevap": "8"},
+            {"soru": "İtalya'nın başkenti neresi? ", "cevap": "Roma"},
+            {"soru": "En büyük gezegen hangisi? ", "cevap": "Jüpiter"},
+        ]
+
+        puan = 0
+        for kart in kartlar:
+            cevap = input(kart["soru"])
+            puan = puan + kontrol_et(cevap, kart["cevap"])
+
+        print("Puan:", puan, "/", len(kartlar))
       `,
       feedback: {
-        listOfDicts: `En az iki sözlükten oluşan bir liste oluştur: <code>[{"soru": …, "cevap": …}, …]</code>.`,
-        inputInLoop: `Soruları döngünün <b>içinde</b> sor: <code>cevap = input(s["soru"])</code>.`,
+        useLower: `Karşılaştırmadan önce cevabı küçük harfe çevir: <code>cevap.lower()</code>.`,
+        ignoreCase: `<code>kontrol_et("ROMA", "roma")</code> henüz 1 vermiyor. <code>cevap.lower()</code> değerini <code>dogru</code> ile mi karşılaştırıyorsun?`,
       },
     },
   },
@@ -1274,7 +1349,11 @@ için de harfleri ters yöne kaydırman yeterli:</p>
 <pre><code>gizli = ""
 for harf in "MERHABA":
     gizli = gizli + chr(ord(harf) + 1)
-print(gizli)   # NFSIBCB</code></pre>`,
+print(gizli)   # NFSIBCB</code></pre>
+
+<p>Bir <code>for</code> döngüsü bir metnin üzerinde de dönebilir: O zaman <code>harf</code> her turda
+bir sonraki harf olur. <code>gizli</code> boş bir metin olarak <code>""</code> başlar ve harf harf
+büyür.</p>`,
     taskHtml: `Gizli mesajı çöz: Her harfi <code>ord()</code> ve <code>chr()</code> ile <b>1 geri</b> kaydır. Ortaya ne çıkıyor?`,
     hints: [
       `<code>ord(harf)</code> numarayı verir, <code>- 1</code> geri kaydırır, <code>chr(…)</code> de sonucu yeniden harfe çevirir.`,
@@ -1302,9 +1381,16 @@ print(gizli)   # NFSIBCB</code></pre>`,
     expert: {
       html: `
 <p>Gerçek Sezar şifreleri genellikle 3 harf kaydırır. Peki <code>"Z"</code> + 3 olunca ne olur?
-Z'den sonra yeniden A'dan devam etmek için bölmeden kalanı kullanırız: <code>% 26</code>. Büyük
-harfler için formül şöyle: <code>chr((ord(h) - 65 + kaydirma) % 26 + 65)</code>. Burada İngiliz
-alfabesinin 26 harfiyle çalışıyoruz; Ç, Ğ, İ, Ö, Ş, Ü gibi harfler olduğu gibi kalır.</p>
+Z'den sonra yeniden A'dan devam etmek için bir bölmenin <b>kalanı</b> işe yarar, onu <code>%</code>
+ile bulursun: <code>27 % 26</code> işleminin sonucu 1, <code>28 % 26</code> işleminin sonucu 2.</p>
+<p>Üç adımda hile şu: Harfi 0 ile 25 arasında bir sayıya çevir (<code>ord(h) - 65</code>), kaydır ve
+<code>% 26</code> ile alfabenin içinde tut, sonra yeniden harfe çevir (<code>+ 65</code>, ardından
+<code>chr</code>). Burada İngiliz alfabesinin 26 harfiyle çalışıyoruz; Ç, Ğ, İ, Ö, Ş, Ü gibi harfler
+olduğu gibi kalır. Önce tek bir harfle dene:</p>
+<pre><code>h = "Z"
+numara = ord(h) - 65         # 25
+yeni = (numara + 3) % 26     # 2
+print(chr(yeni + 65))        # C</code></pre>
 <p><b>Bonus:</b> Büyük harfleri kaydıran (Z'yi geçince de doğru çalışan), boşluk gibi diğer bütün
 karakterleri ise olduğu gibi bırakan bir <code>sezar(metin, kaydirma)</code> fonksiyonu yaz.
 Kaydırma negatif olursa fonksiyon şifreyi geri çözsün.</p>`,
@@ -1340,7 +1426,7 @@ Kaydırma negatif olursa fonksiyon şifreyi geri çözsün.</p>`,
 <code>pixel(x, y, renk)</code> ile bunlardan birini yakarsın. <code>x</code> soldan (0) sağa (15),
 <code>y</code> de yukarıdan (0) aşağıya (15) doğru sayar.</p>
 
-<pre><code>from station import pixel
+<pre><code>from station import pixel, fill
 
 for x in range(16):
     pixel(x, 12, "turkuaz")   # ekranın bir ucundan öbür ucuna bir çizgi
@@ -1351,15 +1437,14 @@ pixel(7, 4, "altın")</code></pre>
 bir renk koduyla verebilirsin. <code>"siyah"</code> bir pikseli yeniden söndürür,
 <code>fill(renk)</code> ise bütün ekranı boyar.</p>
 
-<p>Döngülerle çizgileri ve alanları tek bir satırla çizersin. Bir döngünün içine konan ikinci bir
-döngü ise koca bir dikdörtgeni bile doldurur.</p>`,
+<p>Bir döngüyle koca bir çizgi çizersin. Alanların nasıl doldurulduğunu bonus görev gösteriyor.</p>`,
     taskHtml: `<b>İstasyon ekranına bir resim</b> çiz. Resmin en az <b>iki renkten</b> ve en az <b>12 pikselden</b> oluşsun, bunun için de en az <b>bir döngü</b> kullan. Bir ağaç, bir roket, bir yüz, en sevdiğin logo …`,
     hints: [
       `Bir çizgiyi döngüyle çizersin: <code>for x in range(3, 13):</code> ve altına <code>pixel(x, 14, "yeşil")</code>.`,
       `İkinci renk için üstüne başka bir renkte birkaç piksel daha koyman yeterli.`,
     ],
     starterCode: py`
-      from station import pixel
+      from station import pixel, fill
 
       # Resmini çiz: pixel(x, y, "renk")  (x ve y 0'dan 15'e kadar)
       pixel(7, 7, "altın")
@@ -1385,7 +1470,12 @@ döngü ise koca bir dikdörtgeni bile doldurur.</p>`,
     },
     expert: {
       html: `
-<p>Piksel sanatçıları resimlerini çoğu zaman bir <b>metin listesi</b> olarak çizer. Her karakter bir
+<p>Bir döngünün <b>içindeki</b> ikinci bir döngü bir alanı doldurur: Her satır <code>y</code> için
+içteki döngü bütün sütunları <code>x</code> dolaşır.</p>
+<pre><code>for y in range(2, 5):
+    for x in range(3, 9):
+        pixel(x, y, "mavi")   # 3'e 6 piksellik bir dikdörtgen</code></pre>
+<p>Piksel sanatçıları resimlerini bir <b>metin listesi</b> olarak çizmeyi de sever. Her karakter bir
 piksel olur, bir sözlük de hangi karakterin hangi renge ait olduğunu söyler.</p>
 <pre><code>resim = [
     ".KK.KK.",
@@ -1395,9 +1485,8 @@ piksel olur, bir sözlük de hangi karakterin hangi renge ait olduğunu söyler.
     "...K...",
 ]
 renkler = {"K": "kırmızı"}</code></pre>
-<p><b>Bonus:</b> <b>İç içe</b> iki döngüyle en az <b>20 pikselden</b> oluşan bir resim çiz. Dıştaki
-döngü satırlar (<code>y</code>) üzerinde, içteki döngü de bir satırın karakterleri (<code>x</code>)
-üzerinde dolaşsın.</p>`,
+<p><b>Bonus:</b> <b>İç içe</b> iki döngüyle en az <b>20 pikselden</b> oluşan bir resim çiz, örneğin bir
+dikdörtgen, bir desen ya da bir metin listesinden bir resim.</p>`,
       solution: py`
         from station import pixel
 
@@ -1423,43 +1512,43 @@ döngü satırlar (<code>y</code>) üzerinde, içteki döngü de bir satırın k
 
   "s4-l4": {
     title: `Gerçek verileri incele`,
-    story: `Dışarıdaki hava istasyonu bir hafta boyunca sıcaklık ölçtü. Bu verileri incele.`,
+    story: `İstasyonun serasındaki sensörler altı gün boyunca sıcaklığı ölçtü. Bu verileri incele.`,
     intro: `
 <p>Programlama, gerçek verileri anlamana yardım eder. Sayı listeleri için hazır araçlar var:
 <code>max()</code> (en büyük değer), <code>min()</code> (en küçük değer), <code>sum()</code>
 (toplam) ve <code>len()</code> (adet).</p>
 
-<pre><code>sicakliklar = [21, 25, 19, 28, 23]
-print("En soğuk gün:", min(sicakliklar))</code></pre>
+<pre><code>sicakliklar = [21, 25, 19, 28, 23, 24]
+print("En düşük sıcaklık:", min(sicakliklar))</code></pre>
 
 <p><b>Ortalamayı</b> “toplam bölü adet” ile bulursun, yani <code>sum</code> ve <code>len</code>
 birlikte.</p>`,
-    taskHtml: `<code>max()</code> ile <b>en sıcak günü</b> bul, <code>sum()</code> ve <code>len()</code> ile de sıcaklıkların <b>ortalamasını</b> hesapla. İkisini de yazdır.`,
+    taskHtml: `<code>max()</code> ile <b>en yüksek sıcaklığı</b> bul, <code>sum()</code> ve <code>len()</code> ile de sıcaklıkların <b>ortalamasını</b> hesapla. İkisini de yazdır.`,
     hints: [
       `<code>max(sicakliklar)</code> en büyük değeri verir.`,
       `Ortalama: <code>sum(sicakliklar) / len(sicakliklar)</code>`,
     ],
     starterCode: py`
-      sicakliklar = [21, 25, 19, 28, 23]
-      # En sıcak günü ve ortalamayı yazdır
+      sicakliklar = [21, 25, 19, 28, 23, 24]
+      # En yüksek sıcaklığı ve ortalamayı yazdır
     `,
     solution: py`
-      sicakliklar = [21, 25, 19, 28, 23]
-      print("En sıcak gün:", max(sicakliklar))
+      sicakliklar = [21, 25, 19, 28, 23, 24]
+      print("En yüksek sıcaklık:", max(sicakliklar))
       print("Ortalama:", sum(sicakliklar) / len(sicakliklar))
     `,
     feedback: {
-      useMax: `En sıcak gün için <code>max(sicakliklar)</code> kullan.`,
+      useMax: `En yüksek sıcaklık için <code>max(sicakliklar)</code> kullan.`,
       useSumLen: `Ortalamayı <code>sum(sicakliklar) / len(sicakliklar)</code> ile hesapla.`,
-      max28: `En sıcak gün 28 dereceydi, onu yazdır.`,
-      average: `Ortalama 23.2 olmalı. Toplamı adede bölüyor musun?`,
+      max28: `En yüksek sıcaklık 28 dereceydi, onu yazdır.`,
+      average: `Ortalama yaklaşık 23.33 olmalı. Toplamı adede bölüyor musun?`,
     },
     expert: {
       html: `
 <p><b>Bonus:</b> Ortalamayı <code>round(deger, 1)</code> ile virgülden sonra tek basamağa yuvarla
 ve bir döngüyle kaç gün sıcaklığın <b>22 derecenin üstünde</b> olduğunu bul.</p>`,
       solution: py`
-        sicakliklar = [21, 25, 19, 28, 23]
+        sicakliklar = [21, 25, 19, 28, 23, 24]
         print("Ortalama:", round(sum(sicakliklar) / len(sicakliklar), 1))
         sicak = 0
         for s in sicakliklar:
@@ -1470,7 +1559,7 @@ ve bir döngüyle kaç gün sıcaklığın <b>22 derecenin üstünde</b> olduğu
       feedback: {
         useRound: `<code>round(…, 1)</code> ile yuvarla.`,
         countLoop: `Kaç değerin 22'nin üstünde olduğunu bir <code>for</code> döngüsü ve bir <code>if</code> ile say.`,
-        count3: `22 derecenin üstünde 3 gün vardı (25, 28 ve 23).`,
+        count4: `22 derecenin üstünde 4 gün vardı (25, 28, 23 ve 24).`,
       },
     },
   },
@@ -1494,7 +1583,7 @@ ya da <code>+</code> ile birleştirilmeye çalışılan metin ve sayı (bunu <co
     ],
     starterCode: py`
       isim = "Emma"
-      yas = 11
+      yas = 13
       print("Merhaba " + isim)
       print("Seneye " + (yas + 1) + " yaşında olacaksın")
       for i in range(3)
@@ -1502,7 +1591,7 @@ ya da <code>+</code> ile birleştirilmeye çalışılan metin ve sayı (bunu <co
     `,
     solution: py`
       isim = "Emma"
-      yas = 11
+      yas = 13
       print("Merhaba " + isim)
       print("Seneye " + str(yas + 1) + " yaşında olacaksın")
       for i in range(3):
@@ -1511,7 +1600,7 @@ ya da <code>+</code> ile birleştirilmeye çalışılan metin ve sayı (bunu <co
     feedback: {
       keepLoop: `Döngüyü silme, onu düzelt.`,
       allLines: `Bütün satırlar yazdırılmalı. Komutları silme, onları düzelt.`,
-      age: `Çıktıda Emma'nın seneye kaç yaşında olacağı (12) yazmalı. <code>str(yas + 1)</code> kullan.`,
+      age: `Çıktıda Emma'nın seneye kaç yaşında olacağı (14) yazmalı. <code>str(yas + 1)</code> kullan.`,
       threeHurra: `“Yaşasın!” üç kez görünmeli. Bunun için <code>print</code> satırı döngünün içinde, girintili durmalı.`,
     },
     expert: {
@@ -1546,11 +1635,15 @@ yarar bir araç olabilir. Öğrendiklerini kullan: <code>input()</code>, <code>i
 listeler, sözlükler, kendi fonksiyonların, <code>random</code> …</p>
 
 <p>Mükemmel olması gerekmiyor, önemli olan senin eserin olması. Küçük başla, sık sık dene ve parça
-parça geliştir. Bitirdiğinde diploman seni bekliyor. 🚀</p>`,
-    taskHtml: `Kurstan en az <b>üç yapı taşı</b> kullanan (<code>input()</code>, <code>if</code>, bir döngü, bir liste ya da sözlük, kendi fonksiyonun, <code>random</code>) ve hatasız çalışan kendi programını yaz. Yaratıcı ol, bu senin ustalık eserin!`,
+parça geliştir. Aklına bir fikir gelmiyor mu? İpuçlarında iki yapım planı var.</p>
+
+<p>Editörün üstündeki <b>Paylaş</b> düğmesiyle programına bir bağlantı alırsın ve onu
+gönderebilirsin. Birine göster! Bitirdiğinde de diploman seni bekliyor. 🚀</p>`,
+    taskHtml: `Kurstan en az <b>üç yapı taşı</b> kullanan (<code>input()</code>, <code>if</code>, bir döngü, bir liste ya da sözlük, kendi fonksiyonun, <code>random</code>, istasyonun ekranı ya da hoparlörü) ve hatasız çalışan kendi programını yap. Önce düşün: İlk küçük sürüm neler yapabilmeli? Onu yap, sonra geliştir.`,
     hints: [
-      `Küçük başla: Önce bir şey yazdır, sonra adım adım geliştir.`,
-      `Fikirler: puan tutan bir zar oyunu, bir listedeki kelimeleri soran bir İngilizce kelime yarışması ya da hesabı bir fonksiyonla yapan bir harçlık planlayıcısı.`,
+      `Başlangıç kodundaki yorumlardan <b>bir</b> fikir seç. Önce yalnızca bir şey yazdıran tek bir satır yaz ve çalıştır. Sonra yapı taşlarını tek tek ekle.`,
+      `Zar oyunu planı: 1. <code>import random</code> ve isimlerden oluşan bir liste · 2. isimlerin üzerinde dönen bir <code>for</code> döngüsü · 3. döngüde her biri için zar at ve sonucu yazdır · 4. <code>if</code> ile altı gelince kutla.`,
+      `Bilgi yarışması planı: 1. “Kendi bilgi yarışman” dersindeki gibi soru kartlarından oluşan bir liste · 2. kartların üzerinde dönen bir döngü · 3. döngüde <code>input()</code> · 4. <code>if</code> ile puan say ve sonunda yazdır.`,
     ],
     starterCode: py`
       # 🌟 Senin projen. Birkaç fikir:
@@ -1558,6 +1651,8 @@ parça geliştir. Bitirdiğinde diploman seni bekliyor. 🚀</p>`,
       #  - en sevdiğin konuda bir bilgi yarışması
       #  - bir zar oyunu ya da matematik antrenörü
       #  - işe yarar bir araç (birim çevirici, fikir üretici)
+      #  - istasyonla bir resim ya da bir melodi
+      # İki yapım planını ipuçlarında bulabilirsin.
 
       print("Projem başlıyor …")
     `,
@@ -1579,14 +1674,13 @@ parça geliştir. Bitirdiğinde diploman seni bekliyor. 🚀</p>`,
     `,
     feedback: {
       blocks: `Programın şu an yapı taşlarından yalnızca {n} tanesini kullanıyor. Birkaç tane daha ekle, örneğin bir döngü, bir liste ya da kendi fonksiyonun.`,
-      tooShort: `Projen biraz daha büyüyebilir; en az 6 satır kod olsun.`,
     },
   },
 
   // ================================================================== DIŞ GÖREVLER (yan görevler)
   "d-1": {
     title: `İlk uçuş`,
-    story: `İstasyonun dışında buz pırıl pırıl parlıyor. Lumo dışarı uçabilir, ama yalnızca senin komutlarınla. Lumo'yu şarj istasyonuna götür!`,
+    story: `İstasyonun dışında buz pırıl pırıl parlıyor. Dışarı uçabilirim, ama yalnızca senin komutlarınla. Beni şarj istasyonuna götür!`,
     intro: `
 <p>Burada Lumo'yu doğrudan Python ile yönetiyorsun. Uçuş komutlarını
 <code>from drone import *</code> ile alırsın. Yıldız işareti “bütün komutlar” demek.</p>
@@ -1600,7 +1694,11 @@ move()</code></pre>
 <b>şarj istasyonu</b> ⚡. Lumo bir duvara çarparsa dert etme: Küçük bir arıza çıkar, sen de
 yeniden denersin.</p>`,
     taskHtml: `Lumo'yu <b>şarj istasyonuna</b> ⚡ götür. Kareleri say!`,
-    hints: [`Her kare için ayrı bir <code>move()</code> gerekir.`, `Beş kare var: alt alta beş kez <code>move()</code>.`],
+    hints: [
+      `Lumo ile şarj istasyonu arasındaki buz karelerini say.`,
+      `Her kare için ayrı bir <code>move()</code> gerekir.`,
+      `Beş kare var: alt alta beş kez <code>move()</code>.`,
+    ],
     starterCode: py`
       from drone import *
 
@@ -1619,7 +1717,7 @@ yeniden denersin.</p>`,
 
   "d-2": {
     title: `Köşeyi dön`,
-    story: `Şarj istasyonu bir buz duvarının arkasında. Lumo'nun dönmesi gerekiyor; neyse ki bir drone olduğu yerde dönebilir.`,
+    story: `Şarj istasyonu bir buz duvarının arkasında. Dönmem gerekiyor; neyse ki olduğum yerde dönebiliyorum.`,
     intro: `
 <p><code>turn_left()</code> Lumo'yu olduğu yerde sola, çeyrek tur döndürür. Sağa dönmek için bir
 komut yok. Yine de sağa gidilebilir mi? Bunu ileride keşfedeceksin.</p>
@@ -1627,10 +1725,13 @@ komut yok. Yine de sağa gidilebilir mi? Bunu ileride keşfedeceksin.</p>
 <pre><code>from drone import *
 
 move()
-turn_left()
-move()</code></pre>`,
+turn_left()</code></pre>
+
+<p>Dene bakalım: Lumo bir kare uçar ve ardından yukarı bakar. Şarj istasyonuna giden yol için
+uçmayı ve dönmeyi doğru şekilde birleştirmen gerekiyor.</p>`,
     taskHtml: `Lumo'yu köşeden döndürüp şarj istasyonuna ⚡ uçur.`,
     hints: [
+      `Lumo nerede dönmeli? Köşeye kadar olan kareleri ve köşeden şarj istasyonuna kadar olan kareleri say.`,
       `Önce duvarın önüne kadar dümdüz git, sonra <code>turn_left()</code>, ardından <code>move()</code> ile devam et.`,
       `Dört kez <code>move()</code>, bir kez <code>turn_left()</code>, iki kez <code>move()</code>.`,
     ],
@@ -1670,7 +1771,7 @@ move()</code></pre>`,
 
   "d-3": {
     title: `Kristal topla`,
-    story: `Buzun üzerinde enerji kristalleri var. Her biri istasyona yardımcı oluyor; Lumo onları yol üstünde toplasın.`,
+    story: `Buzun üzerinde enerji kristalleri var. Her biri istasyona yardımcı oluyor; onları yol üstünde toplamama yardım et.`,
     intro: `
 <p>Buz kristalleri enerji depolar. <code>collect()</code>, Lumo'nun o anda üzerinde durduğu
 karedeki kristali toplar. Orada kristal yoksa Lumo bir arıza bildirir.</p>
@@ -1682,6 +1783,7 @@ move()
 collect()</code></pre>`,
     taskHtml: `<b>İki kristali de</b> topla ve ardından şarj istasyonuna ⚡ uç.`,
     hints: [
+      `Lumo yalnızca o anda üzerinde durduğu kristali toplayabilir.`,
       `Kristalin olduğu kareye uç ve orada <code>collect()</code> komutunu çağır.`,
       `İlk kristal Lumo'nun iki kare önünde, ikincisi iki kare daha ileride, şarj istasyonu da onun iki kare arkasında.`,
     ],
@@ -1707,7 +1809,7 @@ collect()</code></pre>`,
 
   "d-4": {
     title: `Uzun koridorlar`,
-    story: `Dar bir buz kanalı dıştaki şarj istasyonuna uzanıyor. Kanal çok uzun ve Lumo uzun komut listelerini hiç sevmez.`,
+    story: `Dar bir buz kanalı dıştaki şarj istasyonuna uzanıyor. Kanal çok uzun ve ben uzun komut listelerini hiç sevmem.`,
     intro: `
 <p>13 kare için 13 satır <code>move()</code> mı? Bir <code>for</code> döngüsüyle iki satır yeter:</p>
 
@@ -1718,7 +1820,11 @@ for i in range(4):
 
 <p><code>for</code> satırının altında girintili duran her şeyi Lumo tekrar eder.</p>`,
     taskHtml: `Koridor <b>13 kare</b> uzunluğunda. Lumo'yu bir <b><code>for</code> döngüsüyle</b> şarj istasyonuna ⚡ götür.`,
-    hints: [`<code>for i in range(…):</code> ve altına girintili olarak <code>move()</code>.`, `<code>range(13)</code> 13 kez tekrar eder.`],
+    hints: [
+      `Hangi komut tekrar ediyor? Onu yalnızca bir kez, döngünün içine girintili olarak yazarsın.`,
+      `<code>for i in range(…):</code> ve altına girintili olarak <code>move()</code>.`,
+      `<code>range(13)</code> 13 kez tekrar eder.`,
+    ],
     starterCode: py`
       from drone import *
 
@@ -1732,19 +1838,21 @@ for i in range(4):
           move()
     `,
     expert: {
-      html: `<p><b>Profiler için bonus:</b> En fazla <b>3 satır</b> kodla başar. İçe aktarma satırı da sayılır, yorumlar ve boş satırlar sayılmaz.</p>`,
+      html: `<p><b>Bonus:</b> Lumo her adımda karenin numarasını telsizle bildirsin: 1, 2, 3 … 13'e kadar, her sayı ayrı bir satırda. İpucu: <code>i</code> 0'dan saymaya başlar.</p>`,
       solution: py`
         from drone import *
+
         for i in range(13):
             move()
+            print("Kare", i + 1)
       `,
-      feedback: { short: `Bu hâlâ çok fazla satır. Bütün işi döngü yapsın.` },
+      feedback: { count13: `Döngüde her adımda karenin numarasını yazdır, 1'den 13'e kadar. <code>i</code> 0'dan başladığı için: <code>print(i + 1)</code>.` },
     },
   },
 
   "d-5": {
     title: `Bilinmeyen yol`,
-    story: `Kar fırtınası buz levhalarını durmadan kaydırıyor. Şarj istasyonunun bugün ne kadar uzakta olduğunu kimse bilmiyor; Lumo bunu kendisi fark etmeli.`,
+    story: `Kar fırtınası buz levhalarını durmadan kaydırıyor. Şarj istasyonunun bugün ne kadar uzakta olduğunu kimse bilmiyor; bunu yolda kendim fark etmeliyim.`,
     intro: `
 <p>Lumo'nun <b>sensörleri</b> var. Sensörler soruları <code>True</code> ya da <code>False</code>
 ile cevaplar. Lumo şarj istasyonunun üzerindeyse <code>at_goal()</code> <code>True</code> olur:</p>
@@ -1756,8 +1864,9 @@ print(at_goal())   # False, çünkü Lumo henüz başlangıçta</code></pre>
 <p><code>while</code> ile Lumo bir koşul doğru <b>olduğu sürece</b> bir şeyi tekrar eder.
 <code>not</code> ise <code>True</code> ve <code>False</code> değerlerini tersine çevirir:
 <code>not at_goal()</code> “henüz hedefte değil” demek.</p>`,
-    taskHtml: `Yol her görevde <b>farklı uzunlukta</b>. Lumo'yu bir <b><code>while</code> döngüsü</b> ve <code>at_goal()</code> ile şarj istasyonuna ⚡ götür; istasyon ne kadar uzakta olursa olsun.`,
+    taskHtml: `Burada olası yollardan birini görüyorsun. Programın ayrıca göremediğin <b>daha kısa ve daha uzun</b> yollarda da kontrol edilir. Kareleri saymadan, bir <b><code>while</code> döngüsü</b> ve <code>at_goal()</code> ile Lumo'yu şarj istasyonuna ⚡ götür.`,
     hints: [
+      `Lumo hedefe varana kadar uçmalı. Lumo'nun oraya varıp varmadığını hangi sensör söyler?`,
       `<code>while not at_goal():</code> “Lumo henüz hedefte olmadığı sürece” demek.`,
       `Altına girintili olarak yalnızca <code>move()</code> yazılır.`,
     ],
@@ -1781,16 +1890,16 @@ print(at_goal())   # False, çünkü Lumo henüz başlangıçta</code></pre>
         kareler = 0
         while not at_goal():
             move()
-            kareler += 1
+            kareler = kareler + 1
         print("Uçulan kare:", kareler)
       `,
-      feedback: { count: `Sonunda Lumo'nun kaç kare uçtuğunu yazdır. Döngüde <code>kareler += 1</code> ile say.` },
+      feedback: { count: `Sonunda Lumo'nun kaç kare uçtuğunu yazdır. Döngüde <code>kareler = kareler + 1</code> ile say.` },
     },
   },
 
   "d-6": {
     title: `Kristal izi`,
-    story: `Fırtınadan sonra kristaller yola dağılmış, hem de her görevde başka yerlere. Lumo hiçbirini gözden kaçırmamalı.`,
+    story: `Fırtınadan sonra kristaller yola dağılmış, hem de her seferinde başka yerlere. Hiçbirini gözden kaçırmak istemiyorum.`,
     intro: `
 <p><code>if</code> ile Lumo yolda kararlar verir. Lumo'nun altında bir kristal varsa
 <code>on_crystal()</code> <code>True</code> olur:</p>
@@ -1802,8 +1911,9 @@ if on_crystal():
 print("Altımda kristal var mı?", on_crystal())</code></pre>
 
 <p>Kararı bir döngünün <b>içine</b> koyarsan Lumo, üzerinden geçtiği her kareyi kontrol eder.</p>`,
-    taskHtml: `Yolda kristaller var, hem de her görevde başka yerlerde. <b>Hepsini</b> topla ve şarj istasyonuna ⚡ uç.`,
+    taskHtml: `<b>Bütün</b> kristalleri topla ve şarj istasyonuna ⚡ uç. Kontrolde kristaller başka yerlerde de olabilir, bu yüzden programın her kareyi kontrol etmeli.`,
     hints: [
+      `Lumo her karede kendine sorar: Burada kristal var mı? Varsa toplar. Sonra devam eder.`,
       `<code>while</code> döngüsünde önce kristal olup olmadığını kontrol et, sonra bir kare ilerle.`,
       `<code>while not at_goal():</code>, altına <code>collect()</code> içeren bir <code>if on_crystal():</code>, ardından <code>move()</code>.`,
     ],
@@ -1830,7 +1940,7 @@ print("Altımda kristal var mı?", on_crystal())</code></pre>
         while not at_goal():
             if on_crystal():
                 collect()
-                kristaller += 1
+                kristaller = kristaller + 1
             move()
         print("Toplanan kristal:", kristaller)
       `,
@@ -1838,9 +1948,45 @@ print("Altımda kristal var mı?", on_crystal())</code></pre>
     },
   },
 
+  "d-8": {
+    title: `Sarmal`,
+    story: `Bir koridor, eski bir buz mağarasının içine doğru sarmal gibi kıvrılıyor. Her mağara farklı; ne zaman döneceğime kendim karar vermeliyim.`,
+    intro: `
+<p>Lumo'nun önü boşsa <code>front_clear()</code> <code>True</code> olur. <code>if</code> ve
+<code>else</code> ile Lumo her adımda yeniden karar verir:</p>
+
+<pre><code>from drone import *
+
+if front_clear():
+    move()
+else:
+    turn_left()</code></pre>`,
+    taskHtml: `Koridor bir sarmal gibi içeri doğru kıvrılıyor. Lumo, <code>while</code>, <code>if</code> ve <code>else</code> ile şarj istasyonuna ⚡ giden yolu kendisi bulsun. Programın, göremediğin başka bir sarmalda da kontrol edilir.`,
+    hints: [
+      `Lumo'nun her adımda yalnızca tek bir soruyu cevaplaması gerekiyor: Önü boş mu?`,
+      `Lumo hedefte olmadığı sürece: Önü boşsa ilerler, değilse sola döner.`,
+      `<code>while not at_goal():</code>, içinde <code>move()</code> ile <code>if front_clear():</code> ve <code>turn_left()</code> ile <code>else:</code>.`,
+    ],
+    starterCode: py`
+      from drone import *
+
+      # Lumo kendisi karar versin: ilerlemek mi, dönmek mi?
+      move()
+    `,
+    solution: py`
+      from drone import *
+
+      while not at_goal():
+          if front_clear():
+              move()
+          else:
+              turn_left()
+    `,
+  },
+
   "d-7": {
     title: `Sağa dönüş`,
-    story: `Buz bloklarından bir merdiven sağa ve yukarı doğru uzanıyor. Ama Lumo yalnızca sola dönebiliyor … öyle mi?`,
+    story: `Buz bloklarından bir merdiven sağa ve yukarı doğru uzanıyor. Ama ben yalnızca sola dönebiliyorum … öyle mi?`,
     intro: `
 <p>Üç kez sola dönmek, bir kez sağa dönmekle aynı şey! Her seferinde üç satır yazmak yerine
 <b>kendi komutunu</b> yaparsın:</p>
@@ -1854,18 +2000,21 @@ def turn_right():
 
 turn_right()</code></pre>
 
-<p>Artık Python <code>turn_right()</code> komutunu da yerleşik komutlar kadar iyi tanıyor.</p>`,
+<p>Artık Python <code>turn_right()</code> komutunu da yerleşik komutlar kadar iyi tanıyor.
+Başlangıç kodunda komutun içinde henüz <code>pass</code> yer tutucusu duruyor. Onu üç dönüş
+komutunla değiştir.</p>`,
     taskHtml: `<code>def</code> ile <code>turn_right()</code> komutunu yap ve Lumo'yu buz merdiveninden yukarı, şarj istasyonuna ⚡ uçur. En iyisi bir döngüyle basamak basamak.`,
     hints: [
-      `Bir basamak şöyle: <code>move()</code>, <code>turn_left()</code>, <code>move()</code>, <code>turn_right()</code>.`,
-      `Dört basamak var, ardından bir <code>move()</code> daha: <code>for i in range(4):</code>`,
+      `Merdivene bak: Tek bir basamak neye benziyor ve kaç kez tekrar ediyor?`,
+      `Bir basamak şöyle: <code>move()</code>, <code>turn_left()</code>, <code>move()</code>, <code>turn_right()</code>. Dört basamak var, ardından bir kare daha eksik.`,
+      `<code>for i in range(4):</code> ve altına girintili olarak bir basamağın dört komutu. Döngüden sonra, girintisiz olarak bir <code>move()</code> daha.`,
     ],
     starterCode: py`
       from drone import *
 
       def turn_right():
           # üç kez sola, bir kez sağa demek
-          pass
+          pass   # yer tutucu: Bu satırı kendi komutlarınla değiştir
 
       move()
     `,
@@ -1909,44 +2058,70 @@ turn_right()</code></pre>
     },
   },
 
-  "d-8": {
-    title: `Sarmal`,
-    story: `Bir koridor, eski bir buz mağarasının içine doğru sarmal gibi kıvrılıyor. Her mağara farklı; ne zaman döneceğine Lumo kendisi karar vermeli.`,
+  "d-10": {
+    title: `Uçuş planı`,
+    story: `Kontrol merkezi bana telsizle liste hâlinde bir uçuş planı gönderiyor. Onu adım adım, tam olarak yazıldığı gibi uçmam gerekiyor.`,
     intro: `
-<p>Lumo'nun önü boşsa <code>front_clear()</code> <code>True</code> olur. <code>if</code> ve
-<code>else</code> ile Lumo her adımda yeniden karar verir:</p>
+<p>Bir uçuş planı, metin olarak yazılmış komutlardan oluşan bir <b>listedir</b>. Bir <code>for</code>
+döngüsü planı eleman eleman dolaşır, Lumo da <code>if</code> ve <code>elif</code> ile her elemanda
+ne yapacağına karar verir:</p>
 
 <pre><code>from drone import *
 
-if front_clear():
-    move()
-else:
-    turn_left()</code></pre>`,
-    taskHtml: `Koridor bir sarmal gibi içeri doğru kıvrılıyor ve her sarmal farklı. Lumo, <code>while</code>, <code>if</code> ve <code>else</code> ile şarj istasyonuna ⚡ giden yolu kendisi bulsun.`,
+plan = ["ileri", "sol", "ileri"]
+for adim in plan:
+    if adim == "ileri":
+        move()
+    elif adim == "sol":
+        turn_left()</code></pre>
+
+<p>Böylece kontrol merkezi, kimse programı değiştirmeden Lumo'yu her yola gönderebilir. Değişen
+tek şey plandır.</p>`,
+    taskHtml: `Lumo başlangıç kodundaki uçuş planını uçsun. Planda <code>"sag"</code> da geçiyor, bunun için <code>turn_right()</code> zaten hazır. Planı bir <code>for</code> döngüsüyle dolaş ve Lumo'yu şarj istasyonuna ⚡ götür.`,
     hints: [
-      `Lumo hedefte olmadığı sürece: Önü boşsa ilerler, değilse sola döner.`,
-      `<code>while not at_goal():</code>, içinde <code>move()</code> ile <code>if front_clear():</code> ve <code>turn_left()</code> ile <code>else:</code>.`,
+      `Lumo plandaki her eleman için sorar: “ileri” mi, “sol” mu, yoksa “sag” mı? Her kelimeye bir komut karşılık gelir.`,
+      `<code>for adim in plan:</code>, içinde <code>move()</code> içeren bir <code>if adim == "ileri":</code>, ardından “sol” ve “sag” için iki <code>elif</code>.`,
+      `<code>elif adim == "sol":</code> satırından sonra <code>turn_left()</code>, <code>elif adim == "sag":</code> satırından sonra <code>turn_right()</code> gelir, ikisi de bir kez daha içeri kaydırılmış olarak.`,
     ],
     starterCode: py`
       from drone import *
 
-      # Lumo kendisi karar versin: ilerlemek mi, dönmek mi?
-      move()
+      def turn_right():
+          turn_left()
+          turn_left()
+          turn_left()
+
+      plan = ["ileri", "ileri", "sag", "ileri", "ileri", "sol", "ileri", "ileri"]
+
+      # Planı bir for döngüsüyle dolaş
     `,
     solution: py`
       from drone import *
 
-      while not at_goal():
-          if front_clear():
+      def turn_right():
+          turn_left()
+          turn_left()
+          turn_left()
+
+      plan = ["ileri", "ileri", "sag", "ileri", "ileri", "sol", "ileri", "ileri"]
+
+      for adim in plan:
+          if adim == "ileri":
               move()
-          else:
+          elif adim == "sol":
               turn_left()
+          elif adim == "sag":
+              turn_right()
     `,
+    feedback: {
+      loopOverPlan: `Döngüyü doğrudan planın üzerinde çalıştır: <code>for adim in plan:</code>`,
+      allCommands: `Lumo döngüde üç komutun hepsini anlamalı: <code>move()</code>, <code>turn_left()</code> ve <code>turn_right()</code>.`,
+    },
   },
 
   "d-9": {
     title: `Labirent kurtarması`,
-    story: `Bir kar fırtınası Lumo'yu buzdan bir labirente sürükledi ve hiçbir labirent diğerine benzemiyor. Lumo'yu eve ancak akıllı bir program getirebilir.`,
+    story: `Bir kar fırtınası beni buzdan bir labirente sürükledi ve hiçbir labirent diğerine benzemiyor. Beni eve ancak akıllı bir program getirebilir.`,
     intro: `
 <p>Labirentler için eski bir hile: <b>Sağ elini hep duvarda tut.</b> Bunu yapan, bunun gibi
 labirentlerde çıkışı mutlaka bulur. Lumo için bu, her adımda şu demek:</p>
@@ -1955,10 +2130,14 @@ labirentlerde çıkışı mutlaka bulur. Lumo için bu, her adımda şu demek:</
 <li>sonra önünde duvar olduğu sürece sola dön,</li>
 <li>sonra bir kare uç.</li>
 </ul>
-<p>Bir döngünün <b>içinde</b> bir döngü daha, işte Lumo'nun planı hazır.</p>`,
-    taskHtml: `Lumo'nun <b>her</b> labirentten şarj istasyonuna ⚡ giden yolu bulmasını sağlayan bir program yaz. Kontrol, senin göremediğin labirentlerle yapılır.`,
+<p>Bunun için bir döngünün <b>içinde</b> bir döngü daha gerekir. <b>Dıştaki döngü</b> bütün yolla
+ilgilenir: Lumo hedefe varana kadar döner. <b>İçteki döngü</b> yalnızca bir sonraki yönle ilgilenir:
+Önde duvar olduğu sürece Lumo'yu sola döndürür. Sonra içteki döngü biter, Lumo bir kare uçar ve bir
+sonraki adım başlar.</p>`,
+    taskHtml: `Sağ el kuralıyla Lumo'yu labirentten geçirip şarj istasyonuna ⚡ götür. Programın, bu türden göremediğin başka labirentlerde de kontrol edilir.`,
     hints: [
-      `“Sağa dönüş” görevindeki <code>turn_right()</code> komutuna ihtiyacın var; başlangıç kodunda zaten hazır.`,
+      `Bir adımı kafanda canlandır: Lumo sağa döner. Orada duvar varsa önü boşalana kadar sola döner. Sonra bir kare uçar. “Sağa dönüş” görevindeki <code>turn_right()</code> başlangıç kodunda zaten hazır.`,
+      `İki döngü: Dıştaki <code>while not at_goal():</code> ile döner. Onun içinde önce <code>turn_right()</code>, sonra önü boş olmadığı sürece <code>turn_left()</code> ile döndüren içteki döngü, ardından da tam bir <code>move()</code> gelir.`,
       `Dışta <code>while not at_goal():</code>, içinde <code>turn_right()</code>, sonra <code>turn_left()</code> ile <code>while not front_clear():</code>, sonra <code>move()</code>.`,
     ],
     starterCode: py`
@@ -2002,8 +2181,8 @@ onarıyorsun. Profesyoneller şöyle çalışır:</p>
 </ul>`,
     taskHtml: `Programı onar: Adını sormalı, sonra <b>iki satır</b> yazdırmalı. Biri adın geçtiği bir selam, diğeri “İstasyona hoş geldin!”.`,
     hints: [
-      `Python büyük ve küçük harfi ayırt eder: <code>isim</code> ile <code>Isim</code> iki farklı addır.`,
-      `Son satırda parantezden önce bir tırnak işareti eksik.`,
+      `Python önce son satırı bildirir: Orada parantezden önce bir tırnak işareti eksik.`,
+      `Sonra: Python büyük ve küçük harfi ayırt eder. <code>isim</code> ile <code>Isim</code> iki farklı addır.`,
     ],
     starterCode: py`
       isim = input("Adın ne? ")
@@ -2077,9 +2256,11 @@ Codaluna onu bir süre sonra durdurur. O zaman şu soruyu sormaya değer: Koşul
     title: `Kaymış liste`,
     story: `Laboratuvardaki depo listesi her seferinde bitmeden yarıda kesiliyor. Program bir yerde yanlış sayıyor.`,
     intro: `
+<p>Bir listeyi <b>konumları</b> üzerinden de dolaşabilirsin. <code>len(malzemeler)</code> elemanları
+sayar, burada dört tane var. Bu yüzden konumlar 0, 1, 2 ve 3'tür ve <code>range(4)</code> tam olarak
+bu dört sayıyı verir. <code>malzemeler[i]</code> de <code>i</code> konumundaki elemanı getirir.</p>
 <p>Bu programda iki arıza saklı. Birincisi programın hiç başlamasını engelliyor. İkincisi ancak
-program çalışırken ortaya çıkıyor ve bir listedeki <b>konumlarla</b> ilgili: İlk konum 0, son
-konum <code>len(liste) - 1</code>.</p>`,
+program çalışırken ortaya çıkıyor ve tam da bu konumlarla ilgili.</p>`,
     taskHtml: `Depo listesini onar: Her malzeme ayrı bir satırda görünmeli, en sonda da toplam sayı.`,
     hints: [
       `Son satırdaki parantezleri say.`,
@@ -2132,6 +2313,65 @@ döndürür, yani “hiçbir şey”.</p>`,
     feedback: {
       double: `Fonksiyon sayının iki katını geri döndürmeli; 7 için yani 14.`,
       fifty: `En sonda “Toplam enerji: 50” görünmeli.`,
+    },
+  },
+
+  "g-6": {
+    title: `Yanlış anahtar`,
+    story: `Bir mürettebat üyesinin kimlik kartı artık okunamıyor. Bilgiler aranırken bir yerde bir sorun çıkıyor.`,
+    intro: `
+<p><code>KeyError</code> şu demektir: Sözlükte böyle bir anahtar yok. Çoğu zaman bu sadece bir yazım
+hatası ya da küçük harf olması gereken yerde bir büyük harftir. Köşeli parantezlerin içindeki
+anahtarı sözlükteki anahtarlarla harf harf karşılaştır.</p>`,
+    taskHtml: `Kimlik kartını onar: Ad, görev ve yaş, her biri ayrı bir satırda yazdırılmalı.`,
+    hints: [
+      `Python önce son satırı bildirir: Orada bir parantez eksik.`,
+      `Sonra: Sözlükte anahtarın adı küçük harfle yazılmış: <code>"gorev"</code>.`,
+    ],
+    starterCode: py`
+      kimlik = {"isim": "Yara", "gorev": "Pilot", "yas": 14}
+      print("Ad:", kimlik["isim"])
+      print("Görev:", kimlik["Gorev"])
+      print("Yaş:", kimlik["yas"]
+    `,
+    solution: py`
+      kimlik = {"isim": "Yara", "gorev": "Pilot", "yas": 14}
+      print("Ad:", kimlik["isim"])
+      print("Görev:", kimlik["gorev"])
+      print("Yaş:", kimlik["yas"])
+    `,
+    feedback: { card: `Kart tam üç satır göstermeli: sözlükteki ad, görev ve yaş.` },
+  },
+
+  "g-7": {
+    title: `Boşluktaki piksel`,
+    story: `Kontrol merkezindeki ekran parlak bir çizgi ve bir durum noktası göstermeli. Onun yerine program çöküyor.`,
+    intro: `
+<p>Ekranda 16'ya 16 piksel var. Sayma 0'dan başladığı için koordinatlar 0'dan 15'e kadar gider.
+16 numaralı bir lambayı yakmaya çalışırsan boşluğa uzanmış olursun ve Python bir arıza bildirir.
+Hata kartı sana hangi değerin çok büyük olduğunu söyler.</p>`,
+    taskHtml: `Programı onar: Mavi bir çizgi <b>bütün</b> ekranı boydan boya geçmeli (8 numaralı satır) ve <b>sağ üst köşede</b> kırmızı bir nokta yanmalı.`,
+    hints: [
+      `<code>range(17)</code> 0'dan 16'ya kadar sayar. Hangi sayı fazladan?`,
+      `En sağ <code>x = 15</code>, 16 değil.`,
+    ],
+    starterCode: py`
+      from station import pixel
+
+      for x in range(17):
+          pixel(x, 8, "mavi")
+      pixel(16, 0, "kırmızı")
+    `,
+    solution: py`
+      from station import pixel
+
+      for x in range(16):
+          pixel(x, 8, "mavi")
+      pixel(15, 0, "kırmızı")
+    `,
+    feedback: {
+      line: `8 numaralı satırdaki çizgi, x = 0'dan x = 15'e kadar 16 pikselin hepsinden geçmeli ve tek renk olmalı.`,
+      corner: `Sağ üst köşede, yani <code>pixel(15, 0, …)</code> konumunda başka renkte bir nokta yanmalı.`,
     },
   },
 };

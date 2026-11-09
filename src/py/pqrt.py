@@ -59,6 +59,7 @@ TEST_LIMIT_CHARS = 100000
 # damit eine Pixel-Animation nicht das Ausgabe-Budget von print() aufbraucht.
 MAIN_LIMIT_EVENTS = 100000
 TEST_LIMIT_EVENTS = 20000
+TRACK_LIMIT = 800  # höchstens so viele Bühnen-Ereignisse je Prüflauf aufheben (nur Drohne)
 TEST_TIME = 2.0
 TEST_MAX_INPUTS = 200
 
@@ -493,6 +494,7 @@ class Session:
         self.station = None  # Zustand des Moduls "station" in diesem Lauf
         self.drone = None  # Zustand des Moduls "drone" in diesem Lauf
         self.world = None  # Eisfeld dieser Mission (None = Spielplatz-Eisfeld)
+        self.track = []  # Prüfläufe: Ereignisse der Bühne, damit eine gescheiterte Testwelt gezeigt werden kann
 
     def write(self, kind, text):
         if kind == "g":  # Ereignis für die Bühne: eigenes Budget, wird nicht gespeichert
@@ -501,6 +503,8 @@ class Session:
                 raise StationError(f"too many updates for screen or speaker (more than {self.limit_events}) - is there an endless loop?")
             if self.forward:
                 pqjs.out(kind, text)
+            elif len(self.track) < TRACK_LIMIT:
+                self.track.append(text)
             return
         if self.over:
             raise OutputLimit()
@@ -759,6 +763,8 @@ def _summary(result, session):
         result["music"] = st.tones
     if session.drone is not None and session.drone.shown:
         result["drone"] = session.drone.summary()
+        if not session.forward and session.track:
+            result["track"] = "".join(session.track)
     result["out"] = session.text("o")
     result["stdout"] = session.text("op")
     result["stderr"] = session.text("e")

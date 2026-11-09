@@ -308,6 +308,16 @@ erweitern) und einzeln committet.
 Offen für später: echte Nutzertests (Abschnitt 6), Muttersprachler-Durchsicht der fünf
 Übersetzungen, weitere Welten für die Außeneinsätze.
 
+**Nachtrag 09.11.2026, pädagogische Prüfung durch Codex und Fable:** Umgesetzt wurden unter
+anderem `elif` im Pflichtteil von „Wenn … dann …“ (vorher nur im Bonus, im Boss aber Pflicht),
+„Wahr oder falsch?“ vor „Wenn … dann …“, eigene Funktion schreiben in „Eigene Befehle bauen“,
+Boss 3 mit Fragekarten (Liste von Dictionaries), Schleife und eigener Prüffunktion, Finale mit
+Bauplänen und ohne versteckte Mindestlänge, Lumo spricht in der Ich-Form, die Außeneinsätze
+werden ab Kapitel 1 angekündigt, dreistufige Tipps bei Bossen und Außeneinsätzen, Bonus-Aufgaben
+als „Weiterbauen“ oder „Neues Werkzeug“ gekennzeichnet, „Muster malen“ hat als Bonus den ersten
+Pixel-Auftrag, gescheiterte Testwelten werden gezeigt, drei neue Nebenmissionen (Flugplan,
+Falscher Schlüssel, Pixel im Nichts). Gutachten und Abgleich liegen außerhalb des Repos.
+
 ## Quellen
 
 - Habgood, M. P. J. & Ainsworth, S. E. (2011). Motivating children to learn effectively: exploring the value of intrinsic integration in educational games. *Journal of the Learning Sciences*, 20(2), 169–206. [SHURA](https://shura.shu.ac.uk/3556/) · Folgestudie Cutting & Iacovides (2022): [White Rose](https://eprints.whiterose.ac.uk/189921)

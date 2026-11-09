@@ -11,16 +11,19 @@
 
 import { py } from "../../content/lib/check-kit.js";
 
-const quizHead = py`
-  punkte = 0
-
-  antwort = input("Wie viele Beine hat eine Spinne? ")
-  if antwort == "8":
-      punkte = punkte + 1
-      print("Richtig! 🕷️")
-  else:
-      print("Knapp daneben – es sind 8.")
-`;
+// Boss 3: Prüffunktion mit beliebigem Körper und n Fragekarten mit fertiger Schleife
+const quizFn = (body) => `def pruefe(antwort, richtig):\n    ${body}\n\n`;
+const CARDS = [
+  ["Wie viele Beine hat eine Spinne? ", "8"],
+  ["Hauptstadt von Italien? ", "rom"],
+  ["Welcher Planet ist der größte? ", "jupiter"],
+  ["2 + 2 = ", "4"],
+];
+const quizCards = (n) =>
+  "karten = [\n" +
+  CARDS.slice(0, n).map(([f, a]) => `    {"frage": "${f}", "antwort": "${a}"},\n`).join("") +
+  "]\n\npunkte = 0\nfor karte in karten:\n    antwort = input(karte[\"frage\"])\n    punkte = punkte + pruefe(antwort, karte[\"antwort\"])\n\n" +
+  'print("Punkte:", punkte, "von", len(karten))\n';
 
 export default {
   "s1-l1": {
@@ -71,10 +74,14 @@ export default {
       { code: 'pro_woche = 5\nwochen = 8\nprint("pro_woche * wochen")\n', expect: "needMult" },
       { code: "pro_woche = 5\nwochen = 9\nprint(pro_woche * wochen)\n", expect: "result40" },
     ],
-    expertRight: ["ziel = 100\npro_woche = 5\nwochen = ziel // pro_woche\nprint(wochen)\n"],
+    expertRight: [
+      "vorrat = 102\npro_kiste = 5\nkisten = vorrat // pro_kiste\nrest = vorrat % pro_kiste\nprint(kisten, rest)\n",
+      'print(f"{102 // 5} Kisten, {102 % 5} übrig")\n',
+    ],
     expertWrong: [
-      { code: "print(100 / 5)\n", expect: "floorDiv" },
-      { code: "ziel = 120\npro_woche = 5\nprint(ziel // pro_woche)\n", expect: "result20" },
+      { code: "print(102 / 5)\n", expect: "floorDiv" },
+      { code: "vorrat = 102\npro_kiste = 5\nprint(vorrat // pro_kiste)\n", expect: "mod" },
+      { code: "vorrat = 100\npro_kiste = 5\nprint(vorrat // pro_kiste, vorrat % pro_kiste)\n", expect: "result" },
     ],
   },
 
@@ -292,8 +299,15 @@ export default {
       { code: 'for i in range(1, 3):\n    print("*" * i)\n', expect: "fb.needLines" },
       { code: 'for i in range(1, 6):\n    print("⭐" * "i")\n', expect: "error:TypeError" },
     ],
-    expertRight: ['for i in range(4):\n    print(" " * (4 - i) + "#" * (2 * i + 1))\n'],
-    expertWrong: [{ code: 'for i in range(1, 6):\n    print("*" * i)\n', expect: "indent" }],
+    expertRight: [
+      'from station import pixel\n\nfor i in range(10):\n    pixel(i, i, "gelb")\n',
+      'from station import *\nfor x in range(3, 13):\n    pixel(x, 2, "red")\n',
+    ],
+    expertWrong: [
+      { code: 'for i in range(1, 6):\n    print("*" * i)\n', expect: "fb.needStation" },
+      { code: 'from station import pixel\npixel(0, 0, "gelb")\npixel(1, 0, "gelb")\n', expect: "pixelInLoop" },
+      { code: 'from station import pixel\nfor i in range(4):\n    pixel(i, 0, "gelb")\n', expect: "eight" },
+    ],
   },
 
   "s2-l6": {
@@ -513,8 +527,14 @@ export default {
   },
 
   "s3-l4": {
-    right: ['def begruesse(name):\n    print(f"Hallo {name}! 👋")\n\nfor n in ["Ali", "Bea"]:\n    begruesse(n)\n'],
+    right: [
+      'def begruesse(name):\n    print(f"Hallo {name}! 👋")\n\nfor n in ["Ali", "Bea"]:\n    begruesse(n)\n',
+      'def begruesse(name):\n    print("Willkommen an Bord,", name)\n\nbegruesse("Ada")\nbegruesse("Bo")\n',
+    ],
     wrong: [
+      { code: 'def begruesse(name):\n    # Gib hier eine Begrüßung mit dem Namen aus\n    pass\n\n# Ruf die Funktion mit zwei verschiedenen Namen auf\n', expect: "twoCalls" },
+      { code: 'def begruesse(name):\n    pass\n\nbegruesse("Mia")\nbegruesse("Leo")\n', expect: "useName" },
+      { code: 'def begruesse(name):\n    print("Hallo!")\n\nbegruesse("Mia")\nbegruesse("Leo")\n', expect: "useName" },
       { code: 'def begruesse(name):\n    print(f"Hallo {name}! 👋")\n\n# Ruf die Funktion mit zwei verschiedenen Namen auf\n', expect: "twoCalls" },
       { code: 'def begruesse(name):\n    print(f"Hallo {name}! 👋")\n\nbegruesse("Mia")\n', expect: "twoCalls" },
       { code: 'def begruesse(name):\n    print(f"Hallo {name}! 👋")\n\nbegruesse("Mia")\nbegruesse("Mia")\n', expect: "differentNames" },
@@ -566,41 +586,28 @@ export default {
   },
 
   "s3-boss3": {
-    inputs: ["8", "Rom", "Jupiter", "x", "y"],
+    inputs: ["8", "rom", "jupiter", "x", "y"],
     right: [
-      quizHead +
-        py`
-          if input("2 + 2 = ") == "4":
-              punkte += 1
-          if input("Farbe des Himmels? ").lower() == "blau":
-              punkte += 1
-          print(f"Du hast {punkte} Punkte!")
-        `,
+      quizFn("if antwort == richtig:\n        return 1\n    return 0") + quizCards(3),
+      quizFn("return int(antwort == richtig)") + quizCards(4),
+      quizFn('if antwort.lower() == richtig:\n        print("Super!")\n        return 1\n    else:\n        print("Schade")\n        return 0') + quizCards(3),
     ],
     wrong: [
-      { code: quizHead + '\n# Füge hier mindestens zwei weitere Fragen hinzu\n\nprint("Punkte:", punkte)\n', expect: "fb.needInputs" },
+      { code: quizFn("# Gib 1 zurück, wenn die Antwort stimmt, sonst 0\n    return 0") + quizCards(1), expect: "threeCards" },
+      { code: quizFn("return 0") + quizCards(3), expect: "returnOne" },
+      { code: quizFn("return 1") + quizCards(3), expect: "returnZero" },
+      { code: quizFn("if antwort == richtig:\n        return 1") + quizCards(3), expect: "returnZero" },
+      { code: quizFn('if antwort == richtig:\n        print("Richtig")\n    else:\n        print("Falsch")\n    return 0') + quizCards(3), expect: "returnOne" },
       {
-        code: quizHead + 'antwort = input("Hauptstadt von Italien? ")\nif antwort == "Rom":\n    punkte = punkte + 1\nprint("Punkte:", punkte)\n',
-        expect: "fb.needInputs",
-      },
-      {
-        code:
-          quizHead +
-          'a = input("Frage 2? ")\nif a == "x":\n    print("Richtig")\nb = input("Frage 3? ")\nif b == "y":\n    print("Richtig")\nprint("Punkte:", punkte)\n',
-        expect: "countPoints",
-      },
-      {
-        code:
-          'punkte = 0\nprint("Punkte:", punkte)\n' +
-          'a = input("1? ")\nif a == "1":\n    punkte += 1\nb = input("2? ")\nif b == "2":\n    punkte += 1\nc = input("3? ")\nif c == "3":\n    punkte += 1\nprint("Danke fürs Mitspielen!")\n',
+        code: quizFn("if antwort == richtig:\n        return 1\n    return 0") + quizCards(3).replace('print("Punkte:", punkte, "von", len(karten))', 'print("Danke fürs Mitspielen!")'),
         expect: "scoreAtEnd",
       },
     ],
+    expertRight: [quizFn("return 1 if antwort.lower() == richtig.lower() else 0") + quizCards(3)],
     expertWrong: [
-      {
-        code: quizHead + 'a = input("2? ")\nif a == "2":\n    punkte += 1\nb = input("3? ")\nif b == "3":\n    punkte += 1\nprint(punkte)\n',
-        expect: "listOfDicts",
-      },
+      { code: quizFn("if antwort == richtig:\n        return 1\n    return 0") + quizCards(3), expect: "useLower" },
+      { code: quizFn("if antwort == richtig.lower():\n        return 1\n    return 0") + quizCards(3), expect: "ignoreCase" },
+      { code: quizFn("if antwort.lower() == richtig.upper():\n        return 1\n    return 0") + quizCards(3), expect: "ignoreCase" },
     ],
   },
 
@@ -757,45 +764,46 @@ export default {
   },
 
   "s4-l4": {
-    right: ['temps = [21, 25, 19, 28, 23]\nschnitt = sum(temps) / len(temps)\nprint(f"Max: {max(temps)}, Schnitt: {schnitt}")\n'],
+    right: ['temps = [21, 25, 19, 28, 23, 24]\nschnitt = sum(temps) / len(temps)\nprint(f"Max: {max(temps)}, Schnitt: {schnitt}")\n'],
     wrong: [
-      { code: "temps = [21, 25, 19, 28, 23]\n# Gib den wärmsten Tag und den Durchschnitt aus\n", expect: "useMax" },
-      { code: "temps = [21, 25, 19, 28, 23]\nprint(28)\nprint(23.2)\n", expect: "useMax" },
-      { code: "temps = [21, 25, 19, 28, 23]\nprint(max(temps))\n", expect: "useSumLen" },
-      { code: "temps = [21, 25, 19, 28, 23]\nprint(max(temps))\nprint(sum(temps) / 4)\n", expect: "useSumLen" },
-      { code: "temps = [21, 25, 19, 28, 23]\nprint(min(temps))\nprint(sum(temps) / len(temps))\n", expect: "useMax" },
-      { code: "temps = [21, 25, 19, 28, 23]\nprint(max(temps))\nprint(sum(temps) / len(temps) + 1)\n", expect: "average" },
+      { code: "temps = [21, 25, 19, 28, 23, 24]\n# Gib die höchste Temperatur und den Durchschnitt aus\n", expect: "useMax" },
+      { code: "temps = [21, 25, 19, 28, 23, 24]\nprint(28)\nprint(23.333333333333332)\n", expect: "useMax" },
+      { code: "temps = [21, 25, 19, 28, 23, 24]\nprint(max(temps))\n", expect: "useSumLen" },
+      { code: "temps = [21, 25, 19, 28, 23, 24]\nprint(max(temps))\nprint(sum(temps) / 5)\n", expect: "useSumLen" },
+      { code: "temps = [21, 25, 19, 28, 23, 24]\nprint(min(temps))\nprint(sum(temps) / len(temps))\n", expect: "useMax" },
+      { code: "temps = [21, 25, 19, 28, 23, 24]\nprint(max(temps))\nprint(sum(temps) / len(temps) + 1)\n", expect: "average" },
+      { code: "temps = [21, 25, 19, 28, 23, 24]\nprint(max(temps))\nprint(round(sum(temps) / len(temps), 1))\n", expect: "average" },
     ],
-    expertRight: ["temps = [21, 25, 19, 28, 23]\nprint(round(sum(temps) / len(temps), 1))\nn = 0\nfor t in temps:\n    if t > 22:\n        n += 1\nprint(n)\n"],
+    expertRight: ["temps = [21, 25, 19, 28, 23, 24]\nprint(round(sum(temps) / len(temps), 1))\nn = 0\nfor t in temps:\n    if t > 22:\n        n += 1\nprint(n)\n"],
     expertWrong: [
       {
-        code: "temps = [21, 25, 19, 28, 23]\nprint(round(sum(temps) / len(temps), 1))\nn = 0\nfor t in temps:\n    if t > 23:\n        n += 1\nprint(n)\n",
-        expect: "count3",
+        code: "temps = [21, 25, 19, 28, 23, 24]\nprint(round(sum(temps) / len(temps), 1))\nn = 0\nfor t in temps:\n    if t > 24:\n        n += 1\nprint(n)\n",
+        expect: "count4",
       },
     ],
   },
 
   "s4-l5": {
-    inputs: ["11"],
+    inputs: ["13"],
     right: [
-      'name = "Emma"\nalter = 11\nprint("Hallo " + name)\nprint(f"Nächstes Jahr bist du {alter + 1} Jahre alt")\nfor i in range(3):\n    print("Hurra!")\n',
+      'name = "Emma"\nalter = 13\nprint("Hallo " + name)\nprint(f"Nächstes Jahr bist du {alter + 1} Jahre alt")\nfor i in range(3):\n    print("Hurra!")\n',
     ],
     wrong: [
       {
-        code: 'name = "Emma"\nalter = 11\nprint("Hallo " + name)\nprint("Nächstes Jahr bist du " + (alter + 1) + " Jahre alt")\nfor i in range(3)\nprint("Hurra!")\n',
+        code: 'name = "Emma"\nalter = 13\nprint("Hallo " + name)\nprint("Nächstes Jahr bist du " + (alter + 1) + " Jahre alt")\nfor i in range(3)\nprint("Hurra!")\n',
         expect: "error:SyntaxError",
       },
       {
-        code: 'name = "Emma"\nalter = 11\nprint("Hallo " + name)\nprint("Nächstes Jahr bist du " + (alter + 1) + " Jahre alt")\nfor i in range(3):\nprint("Hurra!")\n',
+        code: 'name = "Emma"\nalter = 13\nprint("Hallo " + name)\nprint("Nächstes Jahr bist du " + (alter + 1) + " Jahre alt")\nfor i in range(3):\nprint("Hurra!")\n',
         expect: "error:IndentationError",
       },
       {
-        code: 'name = "Emma"\nalter = 11\nprint("Hallo " + name)\nprint("Nächstes Jahr bist du " + (alter + 1) + " Jahre alt")\nfor i in range(3):\n    print("Hurra!")\n',
+        code: 'name = "Emma"\nalter = 13\nprint("Hallo " + name)\nprint("Nächstes Jahr bist du " + (alter + 1) + " Jahre alt")\nfor i in range(3):\n    print("Hurra!")\n',
         expect: "error:TypeError",
       },
-      { code: 'name = "Emma"\nalter = 11\nprint("Hallo " + name)\nfor i in range(3):\n    print("Hurra!")\n', expect: "allLines" },
+      { code: 'name = "Emma"\nalter = 13\nprint("Hallo " + name)\nfor i in range(3):\n    print("Hurra!")\n', expect: "allLines" },
       {
-        code: 'name = "Emma"\nalter = 11\nprint("Hallo " + name)\nprint("Nächstes Jahr bist du " + str(alter + 1) + " Jahre alt")\nfor i in range(3):\n    pass\nprint("Hurra!")\n',
+        code: 'name = "Emma"\nalter = 13\nprint("Hallo " + name)\nprint("Nächstes Jahr bist du " + str(alter + 1) + " Jahre alt")\nfor i in range(3):\n    pass\nprint("Hurra!")\n',
         expect: "allLines",
       },
     ],
@@ -812,6 +820,8 @@ export default {
   "s4-boss4": {
     inputs: ["Werde ich Profi?", "Regnet es morgen?", "Klappt es?"],
     right: [
+      "import random\nfor i in [1, 2]:\n    print(random.randint(1, i))\n",
+      'from station import pixel\nfor x in range(16):\n    if x % 2 == 0:\n        pixel(x, 8, "gelb")\n',
       py`
         import random
 
@@ -834,6 +844,8 @@ export default {
           #  - ein Quiz zu deinem Lieblingsthema
           #  - ein Würfelspiel oder Rechen-Trainer
           #  - ein nützliches Werkzeug (Umrechner, Ideen-Generator)
+          #  - ein Bild oder eine Melodie mit der Station
+          # Zwei Baupläne findest du in den Tipps.
 
           print("Mein Projekt startet …")
         `,
@@ -841,7 +853,7 @@ export default {
       },
       { code: 'print("Hallo")\nprint("Welt")\n', expect: "blocks" },
       { code: "for i in range(3):\n    if i > 1:\n        print(i)\n", expect: "blocks" },
-      { code: "import random\nfor i in [1, 2]:\n    print(random.randint(1, i))\n", expect: "tooShort" },
+      { code: 'from station import pixel\nfor x in range(16):\n    print(x)\n', expect: "blocks" },
     ],
   },
 
@@ -884,8 +896,11 @@ export default {
       { code: "from drone import *\nfor i in range(12):\n    move()\n", expect: "fb.droneGoal" },
       { code: "from drone import *\nfor i in range(14):\n    move()\n", expect: "error:DroneCrash" },
     ],
-    expertRight: ["from drone import *\nfor i in range(13): move()\n"],
-    expertWrong: [{ code: "from drone import *\n\nfor i in range(12):\n    move()\nmove()\n", expect: "short" }],
+    expertRight: ['from drone import *\nfor i in range(1, 14):\n    move()\n    print(i)\n', 'from drone import *\nfor i in range(13):\n    move()\n    print(f"Feld {i + 1} geschafft")\n'],
+    expertWrong: [
+      { code: "from drone import *\nfor i in range(13):\n    move()\n    print(i)\n", expect: "count13" },
+      { code: "from drone import *\nfor i in range(13):\n    move()\nprint(13)\n", expect: "count13" },
+    ],
   },
   "d-5": {
     right: ["from drone import *\nwhile at_goal() == False:\n    move()\n"],
@@ -947,6 +962,25 @@ export default {
         expect: "fb.needWhile",
       },
       { code: "from drone import *\nwhile not at_goal():\n    if front_clear():\n        move()\n    else:\n        move()\n", expect: "error:DroneCrash" },
+    ],
+  },
+  "d-10": {
+    right: [
+      'from drone import *\ndef turn_right():\n    for i in range(3):\n        turn_left()\nplan = ["vor", "vor", "rechts", "vor", "vor", "links", "vor", "vor"]\nfor s in plan:\n    if s == "links":\n        turn_left()\n    elif s == "rechts":\n        turn_right()\n    else:\n        move()\n',
+    ],
+    wrong: [
+      {
+        code: 'from drone import *\ndef turn_right():\n    turn_left()\n    turn_left()\n    turn_left()\nplan = ["vor", "vor", "rechts", "vor", "vor", "links", "vor", "vor"]\nmove()\nmove()\nturn_right()\nmove()\nmove()\nturn_left()\nmove()\nmove()\n',
+        expect: "fb.needFor",
+      },
+      {
+        code: 'from drone import *\ndef turn_right():\n    turn_left()\n    turn_left()\n    turn_left()\nplan = ["vor", "vor", "rechts", "vor", "vor", "links", "vor", "vor"]\nfor schritt in plan:\n    if schritt == "vor":\n        move()\n    elif schritt == "links":\n        turn_left()\n',
+        expect: "error:DroneCrash",
+      },
+      {
+        code: 'from drone import *\ndef turn_right():\n    turn_left()\n    turn_left()\n    turn_left()\nplan = ["vor", "vor", "rechts", "vor", "vor", "links", "vor", "vor"]\nfor schritt in plan:\n    if schritt == "vor":\n        move()\n    elif schritt == "links":\n        turn_right()\n    elif schritt == "rechts":\n        turn_left()\n',
+        expect: "error:DroneCrash",
+      },
     ],
   },
   "d-9": {
@@ -1012,6 +1046,23 @@ export default {
       { code: 'def doppelt(zahl):\n    return zahl + 2\n\nenergie = doppelt(21)\nprint("Energie gesamt:", energie + 8)\n', expect: "double" },
       { code: 'def doppelt(zahl):\n    return zahl * 2\n\nenergie = doppelt(21)\nprint("Energie gesamt:", energie)\n', expect: "fifty" },
       { code: 'def doppelt(zahl):\n    ergebnis = zahl * 2\n\nenergie = doppelt(21)\nprint(energie + 8)\n', expect: "error:TypeError" },
+    ],
+  },
+  "g-6": {
+    right: ['ausweis = {"name": "Yara", "rolle": "Pilotin", "alter": 14}\nfor k in ausweis:\n    print(k, ausweis[k])\n'],
+    wrong: [
+      { code: 'ausweis = {"name": "Yara", "rolle": "Pilotin", "alter": 14}\nprint("Name:", ausweis["name"])\nprint("Rolle:", ausweis["Rolle"])\nprint("Alter:", ausweis["alter"])\n', expect: "error:KeyError" },
+      { code: 'ausweis = {"name": "Yara", "rolle": "Pilotin", "alter": 14}\nprint("Name:", ausweis["name"])\nprint("Alter:", ausweis["alter"])\n', expect: "card" },
+      { code: 'ausweis = {"name": "Yara", "rolle": "Pilotin", "alter": 14}\nprint("Name: Yara")\nprint("Rolle: Pilotin")\nprint("Alter: 41")\n', expect: "card" },
+    ],
+  },
+  "g-7": {
+    right: ['from station import pixel\nx = 0\nwhile x < 16:\n    pixel(x, 8, "blue")\n    x = x + 1\npixel(15, 0, "gold")\n'],
+    wrong: [
+      { code: 'from station import pixel\n\nfor x in range(16):\n    pixel(x, 8, "blau")\npixel(16, 0, "rot")\n', expect: "error:StationError" },
+      { code: 'from station import pixel\n\nfor x in range(15):\n    pixel(x, 8, "blau")\npixel(15, 0, "rot")\n', expect: "line" },
+      { code: 'from station import pixel\n\nfor x in range(16):\n    pixel(x, 8, "blau")\npixel(0, 0, "rot")\n', expect: "corner" },
+      { code: 'from station import pixel\n\nfor x in range(16):\n    pixel(x, 8, "blau")\npixel(15, 0, "blau")\n', expect: "corner" },
     ],
   },
 };

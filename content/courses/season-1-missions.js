@@ -63,7 +63,7 @@ export default [
       icon: "crystal",
       name: "Eisfeld",
       pos: [342, 264],
-      link: "c2",
+      link: "c1",
       intro: "Vor der Station liegt das Eisfeld. Hier steuerst du Lumo direkt mit Python: Jeder Befehl ist ein Flugmanöver.",
       outro: "Lumo kennt jetzt jeden Winkel des Eisfelds – und du hast eine Drohne programmiert, die ihren Weg selbst findet.",
     },
@@ -71,7 +71,7 @@ export default [
       {
         id: "d-1",
         title: "Erster Ausflug",
-        story: "Draußen vor der Station glitzert das Eis. Lumo kann hinausfliegen – aber nur mit deinen Befehlen. Bring Lumo zur Ladestation!",
+        story: "Draußen vor der Station glitzert das Eis. Ich darf hinausfliegen – aber nur mit deinen Befehlen. Bring mich zur Ladestation!",
         intro: `
 <p>Hier steuerst du Lumo direkt mit Python. Die Flugbefehle holst du dir mit
 <code>from drone import *</code> – das Sternchen heißt „alle Befehle“.</p>
@@ -85,7 +85,11 @@ move()</code></pre>
 Das Ziel ist die <b>Ladestation</b> ⚡. Fliegt Lumo gegen eine Wand, ist das kein Drama: Es gibt
 einen Glitch, und du versuchst es noch einmal.</p>`,
         taskHtml: "Bring Lumo zur <b>Ladestation</b> ⚡. Zähl die Felder!",
-        hints: ["Jedes Feld braucht ein eigenes <code>move()</code>.", "Es sind fünf Felder: fünfmal <code>move()</code> untereinander."],
+        hints: [
+          "Zähl die Eisfelder zwischen Lumo und der Ladestation.",
+          "Jedes Feld braucht ein eigenes <code>move()</code>.",
+          "Es sind fünf Felder: fünfmal <code>move()</code> untereinander.",
+        ],
         starterCode: py`
           from drone import *
 
@@ -107,7 +111,7 @@ einen Glitch, und du versuchst es noch einmal.</p>`,
       {
         id: "d-2",
         title: "Um die Ecke",
-        story: "Die Ladestation liegt hinter einer Eiswand. Lumo muss abbiegen – zum Glück kann sich eine Drohne auf der Stelle drehen.",
+        story: "Die Ladestation liegt hinter einer Eiswand. Ich muss abbiegen – zum Glück kann ich mich auf der Stelle drehen.",
         intro: `
 <p><code>turn_left()</code> dreht Lumo auf der Stelle nach links, eine Vierteldrehung. Einen Befehl
 für rechts gibt es nicht. Ob man trotzdem nach rechts kommt? Das findest du später heraus.</p>
@@ -115,10 +119,13 @@ für rechts gibt es nicht. Ob man trotzdem nach rechts kommt? Das findest du sp�
 <pre><code>from drone import *
 
 move()
-turn_left()
-move()</code></pre>`,
+turn_left()</code></pre>
+
+<p>Probier es aus: Lumo fliegt ein Feld und schaut danach nach oben. Für den Weg zur Ladestation
+musst du Fliegen und Drehen passend verbinden.</p>`,
         taskHtml: "Flieg Lumo um die Ecke zur Ladestation ⚡.",
         hints: [
+          "Wo muss Lumo abbiegen? Zähl die Felder bis zur Ecke und von der Ecke bis zur Ladestation.",
           "Erst geradeaus bis vor die Wand, dann <code>turn_left()</code>, dann weiter mit <code>move()</code>.",
           "Viermal <code>move()</code>, einmal <code>turn_left()</code>, zweimal <code>move()</code>.",
         ],
@@ -163,7 +170,7 @@ move()</code></pre>`,
       {
         id: "d-3",
         title: "Kristalle sammeln",
-        story: "Auf dem Eis liegen Energiekristalle. Jeder einzelne hilft der Station – Lumo soll sie unterwegs einsammeln.",
+        story: "Auf dem Eis liegen Energiekristalle. Jeder einzelne hilft der Station – hilf mir, sie unterwegs einzusammeln.",
         intro: `
 <p>Eiskristalle speichern Energie. <code>collect()</code> sammelt den Kristall auf dem Feld ein,
 auf dem Lumo gerade steht. Liegt dort keiner, meldet Lumo einen Glitch.</p>
@@ -175,6 +182,7 @@ move()
 collect()</code></pre>`,
         taskHtml: "Sammle <b>beide Kristalle</b> ein und flieg danach zur Ladestation ⚡.",
         hints: [
+          "Lumo kann nur den Kristall einsammeln, auf dem es gerade steht.",
           "Flieg auf das Feld mit dem Kristall und ruf dort <code>collect()</code> auf.",
           "Der erste Kristall liegt zwei Felder vor Lumo, der zweite zwei Felder weiter, die Ladestation noch zwei Felder dahinter.",
         ],
@@ -204,7 +212,7 @@ collect()</code></pre>`,
         id: "d-4",
         title: "Lange Gänge",
         requires: "s2-l4",
-        story: "Ein schmaler Eiskanal führt zur äußeren Ladestation. Er ist lang – und Lumo mag keine langen Befehlslisten.",
+        story: "Ein schmaler Eiskanal führt zur äußeren Ladestation. Er ist lang – und ich mag keine langen Befehlslisten.",
         intro: `
 <p>13 Felder, 13 Zeilen <code>move()</code>? Mit einer <code>for</code>-Schleife geht das in
 zwei Zeilen:</p>
@@ -216,7 +224,11 @@ for i in range(4):
 
 <p>Alles, was eingerückt unter der <code>for</code>-Zeile steht, wiederholt Lumo.</p>`,
         taskHtml: "Der Gang ist <b>13 Felder</b> lang. Bring Lumo mit einer <b><code>for</code>-Schleife</b> zur Ladestation ⚡.",
-        hints: ["<code>for i in range(…):</code> und darunter eingerückt <code>move()</code>.", "<code>range(13)</code> wiederholt 13-mal."],
+        hints: [
+          "Welcher Befehl wiederholt sich? Den schreibst du nur einmal, eingerückt in die Schleife.",
+          "<code>for i in range(…):</code> und darunter eingerückt <code>move()</code>.",
+          "<code>range(13)</code> wiederholt 13-mal.",
+        ],
         starterCode: py`
           from drone import *
 
@@ -234,21 +246,24 @@ for i in range(4):
         check: (r) => need(R.forLoop(r), R.goal(r)),
         expert: {
           xp: 5,
-          html: "<p><b>Bonus für Profis:</b> Schaff es mit höchstens <b>3 Zeilen</b> Code – die Import-Zeile zählt mit, Kommentare und Leerzeilen nicht.</p>",
+          html: "<p><b>Bonus:</b> Lass Lumo bei jedem Schritt die Nummer des Feldes funken: 1, 2, 3 … bis 13, jede Zahl in einer eigenen Zeile. Tipp: <code>i</code> zählt ab 0.</p>",
           solution: py`
             from drone import *
+
             for i in range(13):
                 move()
+                print("Feld", i + 1)
           `,
-          check: (r) => need(R.goal(r), [r.ast.codeLines <= 3, "short"]),
-          feedback: { short: "Das sind noch zu viele Zeilen. Lass die Schleife die ganze Arbeit machen." },
+          check: (r) =>
+            need(R.goal(r), [JSON.stringify(firstNumbers(r.lines).filter((n) => n !== null)) === JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), "count13"]),
+          feedback: { count13: "Gib in der Schleife bei jedem Schritt die Nummer des Feldes aus, von 1 bis 13. Weil <code>i</code> bei 0 anfängt: <code>print(i + 1)</code>." },
         },
       },
       {
         id: "d-5",
         title: "Unbekannte Strecke",
         requires: "s2-l6",
-        story: "Der Schneesturm verschiebt ständig die Eisplatten. Wie weit die Ladestation heute weg ist, weiß niemand – Lumo muss es selbst merken.",
+        story: "Der Schneesturm verschiebt ständig die Eisplatten. Wie weit die Ladestation heute weg ist, weiß niemand – ich muss es unterwegs selbst merken.",
         intro: `
 <p>Lumo hat <b>Sensoren</b>. Sie beantworten Fragen mit <code>True</code> oder <code>False</code>.
 <code>at_goal()</code> ist <code>True</code>, wenn Lumo auf der Ladestation steht:</p>
@@ -261,8 +276,12 @@ print(at_goal())   # False – Lumo steht noch am Start</code></pre>
 <code>not</code> dreht <code>True</code> und <code>False</code> um: <code>not at_goal()</code>
 heißt „noch nicht am Ziel“.</p>`,
         taskHtml:
-          "Die Strecke ist bei jedem Einsatz <b>anders lang</b>. Bring Lumo mit einer <b><code>while</code>-Schleife</b> und <code>at_goal()</code> zur Ladestation ⚡ – egal, wie weit sie weg ist.",
-        hints: ["<code>while not at_goal():</code> heißt „solange Lumo noch nicht am Ziel ist“.", "Darunter eingerückt steht nur <code>move()</code>."],
+          "Hier siehst du eine mögliche Strecke. Dein Programm wird zusätzlich auf <b>kürzeren und längeren</b> Strecken geprüft, die du nicht siehst. Bring Lumo mit einer <b><code>while</code>-Schleife</b> und <code>at_goal()</code> zur Ladestation ⚡, ohne die Felder zu zählen.",
+        hints: [
+          "Lumo soll so lange fliegen, bis es am Ziel ist. Welcher Sensor sagt dir, ob Lumo schon da ist?",
+          "<code>while not at_goal():</code> heißt „solange Lumo noch nicht am Ziel ist“.",
+          "Darunter eingerückt steht nur <code>move()</code>.",
+        ],
         starterCode: py`
           from drone import *
 
@@ -288,20 +307,20 @@ heißt „noch nicht am Ziel“.</p>`,
             felder = 0
             while not at_goal():
                 move()
-                felder += 1
+                felder = felder + 1
             print("Geflogen:", felder, "Felder")
           `,
           tests: [{ world: W(["#####", "#D.G#", "#####"]) }, { world: W(["##############", "#D..........G#", "##############"]) }],
           check: (r) =>
             need(R.goal(r), [r.num(7) && r.tests.every((t) => t.ok && t.drone && hasNumber(t.out, t.drone.steps)), "count"]),
-          feedback: { count: "Gib am Ende aus, wie viele Felder Lumo geflogen ist. Zähl in der Schleife mit <code>felder += 1</code>." },
+          feedback: { count: "Gib am Ende aus, wie viele Felder Lumo geflogen ist. Zähl in der Schleife mit <code>felder = felder + 1</code>." },
         },
       },
       {
         id: "d-6",
         title: "Kristallspur",
         requires: "s2-l6",
-        story: "Nach dem Sturm liegen Kristalle verstreut auf der Strecke – bei jedem Einsatz woanders. Lumo soll keinen übersehen.",
+        story: "Nach dem Sturm liegen Kristalle verstreut auf der Strecke, und zwar jedes Mal woanders. Ich will keinen übersehen.",
         intro: `
 <p>Mit <code>if</code> trifft Lumo unterwegs Entscheidungen. <code>on_crystal()</code> ist
 <code>True</code>, wenn unter Lumo ein Kristall liegt:</p>
@@ -313,8 +332,10 @@ if on_crystal():
 print("Kristall unter mir?", on_crystal())</code></pre>
 
 <p>Setzt du die Entscheidung <b>in</b> eine Schleife, prüft Lumo jedes Feld, an dem es vorbeikommt.</p>`,
-        taskHtml: "Auf der Strecke liegen Kristalle – bei jedem Einsatz woanders. Sammle <b>alle</b> ein und flieg zur Ladestation ⚡.",
+        taskHtml:
+          "Sammle <b>alle</b> Kristalle ein und flieg zur Ladestation ⚡. In der Prüfung liegen die Kristalle auch an anderen Stellen, dein Programm soll deshalb jedes Feld prüfen.",
         hints: [
+          "Auf jedem Feld fragt sich Lumo: Liegt hier ein Kristall? Wenn ja, einsammeln. Dann weiter.",
           "In der <code>while</code>-Schleife: erst prüfen, ob ein Kristall da ist, dann ein Feld weiter.",
           "<code>while not at_goal():</code>, darunter <code>if on_crystal():</code> mit <code>collect()</code>, danach <code>move()</code>.",
         ],
@@ -346,7 +367,7 @@ print("Kristall unter mir?", on_crystal())</code></pre>
             while not at_goal():
                 if on_crystal():
                     collect()
-                    kristalle += 1
+                    kristalle = kristalle + 1
                 move()
             print("Kristalle:", kristalle)
           `,
@@ -357,10 +378,52 @@ print("Kristall unter mir?", on_crystal())</code></pre>
         },
       },
       {
+        id: "d-8",
+        title: "Spirale",
+        requires: "s2-l6",
+        story: "Ein Gang windet sich wie eine Spirale ins Innere einer alten Eishöhle. Jede Höhle ist anders – ich muss selbst entscheiden, wann ich abbiege.",
+        intro: `
+<p><code>front_clear()</code> ist <code>True</code>, wenn vor Lumo frei ist. Mit <code>if</code> und
+<code>else</code> entscheidet Lumo bei jedem Schritt neu:</p>
+
+<pre><code>from drone import *
+
+if front_clear():
+    move()
+else:
+    turn_left()</code></pre>`,
+        taskHtml:
+          "Der Gang windet sich wie eine Spirale nach innen. Lass Lumo mit <code>while</code>, <code>if</code> und <code>else</code> selbst den Weg zur Ladestation ⚡ finden. Dein Programm wird auch in einer anderen Spirale geprüft, die du nicht siehst.",
+        hints: [
+          "Lumo muss bei jedem Schritt nur eine Frage beantworten: Ist vorn frei?",
+          "Solange Lumo nicht am Ziel ist: Ist vorn frei, fliegt Lumo weiter, sonst dreht Lumo nach links.",
+          "<code>while not at_goal():</code>, darin <code>if front_clear():</code> mit <code>move()</code> und <code>else:</code> mit <code>turn_left()</code>.",
+        ],
+        starterCode: py`
+          from drone import *
+
+          # Lumo soll selbst entscheiden: weiterfliegen oder abbiegen?
+          move()
+        `,
+        solution: py`
+          from drone import *
+
+          while not at_goal():
+              if front_clear():
+                  move()
+              else:
+                  turn_left()
+        `,
+        xp: 45,
+        world: W(["#######", "#.....#", "#.###.#", "#..G#.#", "#####.#", "#D....#", "#######"]),
+        tests: [{ world: W(["#########", "#.......#", "#.#####.#", "#...G##.#", "#######.#", "#D......#", "#########"]) }],
+        check: (r) => need(R.whileLoop(r), R.elseBlock(r), R.goal(r), R.worlds(r)),
+      },
+      {
         id: "d-7",
         title: "Rechts herum",
         requires: "s3-l4",
-        story: "Eine Treppe aus Eisblöcken führt nach rechts oben. Lumo kann sich aber nur nach links drehen … oder?",
+        story: "Eine Treppe aus Eisblöcken führt nach rechts oben. Ich kann mich aber nur nach links drehen … oder?",
         intro: `
 <p>Dreimal links ist dasselbe wie einmal rechts! Statt jedes Mal drei Zeilen zu schreiben, baust du
 dir einen <b>eigenen Befehl</b>:</p>
@@ -374,19 +437,22 @@ def turn_right():
 
 turn_right()</code></pre>
 
-<p>Ab jetzt kennt Python <code>turn_right()</code> genauso gut wie die eingebauten Befehle.</p>`,
+<p>Ab jetzt kennt Python <code>turn_right()</code> genauso gut wie die eingebauten Befehle. Im
+Start-Code steht im Befehl noch der Platzhalter <code>pass</code>. Ersetze ihn durch deine drei
+Drehbefehle.</p>`,
         taskHtml:
           "Bau dir den Befehl <code>turn_right()</code> mit <code>def</code> und flieg Lumo die Eistreppe hinauf zur Ladestation ⚡ – am besten Stufe für Stufe mit einer Schleife.",
         hints: [
-          "Eine Stufe ist: <code>move()</code>, <code>turn_left()</code>, <code>move()</code>, <code>turn_right()</code>.",
-          "Es sind vier Stufen, danach noch ein <code>move()</code>: <code>for i in range(4):</code>",
+          "Schau dir die Treppe an: Wie sieht eine einzelne Stufe aus, und wie oft kommt sie vor?",
+          "Eine Stufe ist: <code>move()</code>, <code>turn_left()</code>, <code>move()</code>, <code>turn_right()</code>. Es sind vier Stufen, danach fehlt noch ein Feld.",
+          "<code>for i in range(4):</code> und darunter eingerückt die vier Befehle einer Stufe. Nach der Schleife, nicht eingerückt, noch ein <code>move()</code>.",
         ],
         starterCode: py`
           from drone import *
 
           def turn_right():
               # dreimal links ist einmal rechts
-              pass
+              pass   # Platzhalter: Ersetze diese Zeile durch deine Befehle
 
           move()
         `,
@@ -435,52 +501,84 @@ turn_right()</code></pre>
         },
       },
       {
-        id: "d-8",
-        title: "Spirale",
+        id: "d-10",
+        title: "Flugplan",
         requires: "s3-l4",
-        story: "Ein Gang windet sich wie eine Spirale ins Innere einer alten Eishöhle. Jede Höhle ist anders – Lumo muss selbst entscheiden, wann es abbiegt.",
+        story: "Die Zentrale funkt mir einen Flugplan als Liste. Ich soll ihn genau so abfliegen, Schritt für Schritt.",
         intro: `
-<p><code>front_clear()</code> ist <code>True</code>, wenn vor Lumo frei ist. Mit <code>if</code> und
-<code>else</code> entscheidet Lumo bei jedem Schritt neu:</p>
+<p>Ein Flugplan ist eine <b>Liste</b> aus Befehlen als Text. Eine <code>for</code>-Schleife geht ihn
+Eintrag für Eintrag durch, und mit <code>if</code> und <code>elif</code> entscheidet Lumo bei jedem
+Eintrag, was zu tun ist:</p>
 
 <pre><code>from drone import *
 
-if front_clear():
-    move()
-else:
-    turn_left()</code></pre>`,
+plan = ["vor", "links", "vor"]
+for schritt in plan:
+    if schritt == "vor":
+        move()
+    elif schritt == "links":
+        turn_left()</code></pre>
+
+<p>So kann die Zentrale Lumo jeden Weg schicken, ohne dass jemand das Programm ändert. Neu ist
+immer nur der Plan.</p>`,
         taskHtml:
-          "Der Gang windet sich wie eine Spirale nach innen – und jede Spirale ist anders. Lass Lumo mit <code>while</code>, <code>if</code> und <code>else</code> selbst den Weg zur Ladestation ⚡ finden.",
+          "Lass Lumo den Flugplan aus dem Start-Code abfliegen. Darin kommt auch <code>\"rechts\"</code> vor, dafür steht <code>turn_right()</code> schon bereit. Geh den Plan mit einer <code>for</code>-Schleife durch und bring Lumo zur Ladestation ⚡.",
         hints: [
-          "Solange Lumo nicht am Ziel ist: Ist vorn frei, fliegt Lumo weiter, sonst dreht Lumo nach links.",
-          "<code>while not at_goal():</code>, darin <code>if front_clear():</code> mit <code>move()</code> und <code>else:</code> mit <code>turn_left()</code>.",
+          "Für jeden Eintrag im Plan fragt Lumo: Ist es „vor“, „links“ oder „rechts“? Zu jedem Wort gehört ein Befehl.",
+          "<code>for schritt in plan:</code>, darin <code>if schritt == \"vor\":</code> mit <code>move()</code>, dann zwei <code>elif</code> für „links“ und „rechts“.",
+          "Nach <code>elif schritt == \"links\":</code> kommt <code>turn_left()</code>, nach <code>elif schritt == \"rechts\":</code> kommt <code>turn_right()</code>, jeweils noch einmal eingerückt.",
         ],
         starterCode: py`
           from drone import *
 
-          # Lumo soll selbst entscheiden: weiterfliegen oder abbiegen?
-          move()
+          def turn_right():
+              turn_left()
+              turn_left()
+              turn_left()
+
+          plan = ["vor", "vor", "rechts", "vor", "vor", "links", "vor", "vor"]
+
+          # Geh den Plan mit einer for-Schleife durch
         `,
         solution: py`
           from drone import *
 
-          while not at_goal():
-              if front_clear():
+          def turn_right():
+              turn_left()
+              turn_left()
+              turn_left()
+
+          plan = ["vor", "vor", "rechts", "vor", "vor", "links", "vor", "vor"]
+
+          for schritt in plan:
+              if schritt == "vor":
                   move()
-              else:
+              elif schritt == "links":
                   turn_left()
+              elif schritt == "rechts":
+                  turn_right()
         `,
         xp: 45,
-        world: W(["#######", "#.....#", "#.###.#", "#..G#.#", "#####.#", "#D....#", "#######"]),
-        tests: [{ world: W(["#########", "#.......#", "#.#####.#", "#...G##.#", "#######.#", "#D......#", "#########"]) }],
-        check: (r) => need(R.whileLoop(r), R.elseBlock(r), R.goal(r), R.worlds(r)),
+        world: W(["#######", "#D..###", "###.###", "###..G#", "#######"]),
+        check: (r) =>
+          need(
+            R.forLoop(r),
+            [r.ast.forIters.includes("Name") || r.ast.forIters.includes("List"), "loopOverPlan"],
+            R.elif(r),
+            [["move", "turn_left", "turn_right"].every((n) => (r.ast.callsInLoop[n] || 0) > 0), "allCommands"],
+            R.goal(r)
+          ),
+        feedback: {
+          loopOverPlan: "Lass die Schleife direkt über den Plan laufen: <code>for schritt in plan:</code>",
+          allCommands: "Lumo soll in der Schleife alle drei Befehle verstehen: <code>move()</code>, <code>turn_left()</code> und <code>turn_right()</code>.",
+        },
       },
       {
         id: "d-9",
         type: "boss",
         title: "Labyrinth-Rettung",
         requires: "s3-l4",
-        story: "Ein Schneesturm hat Lumo in ein Eislabyrinth geweht – und keins sieht aus wie das andere. Nur ein kluges Programm bringt Lumo nach Hause.",
+        story: "Ein Schneesturm hat mich in ein Eislabyrinth geweht – und keins sieht aus wie das andere. Nur ein kluges Programm bringt mich nach Hause.",
         intro: `
 <p>Ein alter Trick für Labyrinthe: <b>Halte immer die rechte Hand an der Wand.</b> Wer das tut,
 findet in Labyrinthen wie diesen sicher zum Ausgang. Für Lumo heißt das bei jedem Schritt:</p>
@@ -489,10 +587,15 @@ findet in Labyrinthen wie diesen sicher zum Ausgang. Für Lumo heißt das bei je
 <li>dann nach links drehen, solange vorn eine Wand ist,</li>
 <li>dann ein Feld fliegen.</li>
 </ul>
-<p>Eine Schleife <b>in</b> einer Schleife – und schon hat Lumo einen Plan.</p>`,
-        taskHtml: "Schreib ein Programm, mit dem Lumo aus <b>jedem</b> Labyrinth zur Ladestation ⚡ findet. Getestet wird mit Labyrinthen, die du nicht siehst.",
+<p>Dafür brauchst du eine Schleife <b>in</b> einer Schleife. Die <b>äußere Schleife</b> kümmert sich
+um den ganzen Weg: Sie läuft, bis Lumo am Ziel ist. Die <b>innere Schleife</b> kümmert sich nur um
+die nächste Richtung: Sie dreht Lumo nach links, solange vorn eine Wand ist. Dann endet die innere
+Schleife, Lumo fliegt ein Feld, und der nächste Schritt beginnt.</p>`,
+        taskHtml:
+          "Bring Lumo mit der Rechte-Hand-Regel durch das Labyrinth zur Ladestation ⚡. Dein Programm wird auch in anderen Labyrinthen dieser Art geprüft, die du nicht siehst.",
         hints: [
-          "Du brauchst <code>turn_right()</code> aus „Rechts herum“ – der Start-Code hat es schon.",
+          "Spiel einen Schritt im Kopf durch: Lumo dreht nach rechts. Ist dort eine Wand, dreht es nach links, bis vorn frei ist. Dann fliegt es ein Feld. <code>turn_right()</code> aus „Rechts herum“ steht schon im Start-Code.",
+          "Zwei Schleifen: Die äußere läuft mit <code>while not at_goal():</code>. Darin kommt erst <code>turn_right()</code>, dann die innere Schleife, die mit <code>turn_left()</code> dreht, solange vorn nicht frei ist, und danach genau ein <code>move()</code>.",
           "Außen <code>while not at_goal():</code>, darin <code>turn_right()</code>, dann <code>while not front_clear():</code> mit <code>turn_left()</code>, dann <code>move()</code>.",
         ],
         starterCode: py`
@@ -558,8 +661,8 @@ reparierst ein kaputtes. So gehen Profis vor:</p>
         taskHtml:
           "Repariere das Programm: Es soll nach dem Namen fragen und dann <b>zwei Zeilen</b> ausgeben – eine Begrüßung mit dem Namen und „Willkommen an Bord!“.",
         hints: [
-          "Python unterscheidet Groß- und Kleinschreibung: <code>name</code> und <code>Name</code> sind zwei verschiedene Namen.",
-          "In der letzten Zeile fehlt ein Anführungszeichen vor der Klammer.",
+          "Zuerst meldet Python die letzte Zeile: Dort fehlt ein Anführungszeichen vor der Klammer.",
+          "Danach: Python unterscheidet Groß- und Kleinschreibung. <code>name</code> und <code>Name</code> sind zwei verschiedene Namen.",
         ],
         starterCode: py`
           name = input("Wie heißt du? ")
@@ -653,9 +756,12 @@ Schleife ändern, damit die Bedingung irgendwann <code>False</code> wird?</p>`,
         requires: "s3-l3",
         story: "Die Lagerliste im Labor bricht jedes Mal ab, bevor sie fertig ist. Irgendwo verzählt sich das Programm.",
         intro: `
+<p>Man kann eine Liste auch über ihre <b>Positionen</b> durchlaufen. <code>len(vorraete)</code>
+zählt die Einträge, hier sind es vier. Die Positionen heißen deshalb 0, 1, 2 und 3, und
+<code>range(4)</code> liefert genau diese vier Zahlen. <code>vorraete[i]</code> holt dann den Eintrag
+an Position <code>i</code>.</p>
 <p>Zwei Glitches stecken in diesem Programm. Der erste verhindert, dass es überhaupt startet. Der zweite
-zeigt sich erst beim Laufen – er hat mit den <b>Positionen</b> in einer Liste zu tun: Die erste
-Position ist 0, die letzte ist <code>len(liste) - 1</code>.</p>`,
+zeigt sich erst beim Laufen und hat mit genau diesen Positionen zu tun.</p>`,
         taskHtml: "Repariere die Lagerliste: Jeder Vorrat soll in einer eigenen Zeile erscheinen und am Ende die Anzahl.",
         hints: ["Zähl die Klammern in der letzten Zeile.", "<code>range(len(vorraete))</code> zählt genau die Positionen der Liste – ohne <code>+ 1</code>."],
         starterCode: py`
@@ -711,6 +817,91 @@ weiterverwenden. Ohne <code>return</code> gibt eine Funktion <code>None</code> z
         feedback: {
           double: "Die Funktion soll das Doppelte zurückgeben – für 7 also 14.",
           fifty: "Am Ende soll „Energie gesamt: 50“ erscheinen.",
+        },
+      },
+      {
+        id: "g-6",
+        title: "Falscher Schlüssel",
+        requires: "s3-l6",
+        story: "Die Ausweiskarte eines Crew-Mitglieds lässt sich nicht mehr lesen. Irgendwo hakt es beim Nachschlagen.",
+        intro: `
+<p>Ein <code>KeyError</code> bedeutet: Diesen Schlüssel gibt es im Dictionary nicht. Oft ist es nur
+ein Tippfehler oder ein Großbuchstabe, wo ein kleiner hingehört. Vergleiche den Schlüssel in den
+eckigen Klammern Buchstabe für Buchstabe mit denen im Dictionary.</p>`,
+        taskHtml: "Repariere die Ausweiskarte: Sie soll Name, Rolle und Alter ausgeben, jedes in einer eigenen Zeile.",
+        hints: [
+          "Zuerst meldet Python die letzte Zeile: Dort fehlt eine Klammer.",
+          "Danach: Im Dictionary heißt der Schlüssel <code>\"rolle\"</code>, kleingeschrieben.",
+        ],
+        starterCode: py`
+          ausweis = {"name": "Yara", "rolle": "Pilotin", "alter": 14}
+          print("Name:", ausweis["name"])
+          print("Rolle:", ausweis["Rolle"])
+          print("Alter:", ausweis["alter"]
+        `,
+        solution: py`
+          ausweis = {"name": "Yara", "rolle": "Pilotin", "alter": 14}
+          print("Name:", ausweis["name"])
+          print("Rolle:", ausweis["rolle"])
+          print("Alter:", ausweis["alter"])
+        `,
+        xp: 35,
+        tests: [{ probe: "values(dict)" }],
+        check: (r) =>
+          need(
+            R.changed(r),
+            R.tests(r),
+            [
+              r.lines.length === 3 &&
+                Array.isArray(T(r).value) &&
+                T(r).value.some((d) => d && typeof d === "object" && !Array.isArray(d) && Object.keys(d).length >= 3 && Object.values(d).every((v) => r.out.includes(String(v)))),
+              "card",
+            ]
+          ),
+        feedback: { card: "Die Karte soll genau drei Zeilen zeigen: Name, Rolle und Alter aus dem Dictionary." },
+      },
+      {
+        id: "g-7",
+        title: "Pixel im Nichts",
+        requires: "s4-l3",
+        story: "Der Bildschirm in der Zentrale soll eine Leuchtlinie und einen Statuspunkt zeigen. Stattdessen stürzt das Programm ab.",
+        intro: `
+<p>Der Bildschirm hat 16 mal 16 Pixel. Weil ab 0 gezählt wird, gehen die Koordinaten von 0 bis 15.
+Wer eine Lampe bei 16 einschalten will, greift ins Leere, und Python meldet einen Glitch. Die
+Fehlerkarte sagt dir, welcher Wert zu groß war.</p>`,
+        taskHtml:
+          "Repariere das Programm: Eine blaue Linie soll quer über den <b>ganzen</b> Bildschirm gehen (Zeile 8), und <b>ganz rechts oben</b> soll ein roter Punkt leuchten.",
+        hints: [
+          "<code>range(17)</code> zählt von 0 bis 16. Welche Zahl ist eine zu viel?",
+          "Ganz rechts ist <code>x = 15</code>, nicht 16.",
+        ],
+        starterCode: py`
+          from station import pixel
+
+          for x in range(17):
+              pixel(x, 8, "blau")
+          pixel(16, 0, "rot")
+        `,
+        solution: py`
+          from station import pixel
+
+          for x in range(16):
+              pixel(x, 8, "blau")
+          pixel(15, 0, "rot")
+        `,
+        xp: 35,
+        check: (r) => {
+          const line = Array.from({ length: 16 }, (_, x) => r.screen.pixels[`${x},8`]);
+          const corner = r.screen.pixels["15,0"];
+          return need(
+            R.changed(r),
+            [line.every(Boolean) && new Set(line).size === 1, "line"],
+            [!!corner && corner !== line[0], "corner"]
+          );
+        },
+        feedback: {
+          line: "Die Linie in Zeile 8 soll über alle 16 Pixel gehen, von x = 0 bis x = 15, in einer Farbe.",
+          corner: "Ganz rechts oben, also bei <code>pixel(15, 0, …)</code>, soll ein Punkt in einer anderen Farbe leuchten.",
         },
       },
     ],

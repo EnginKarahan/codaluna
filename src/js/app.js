@@ -89,6 +89,16 @@ const runner = new PyRunner();
 const term = createConsole({ out: el.out, inputRow: el.inputRow, inputField: el.inputField });
 const buddy = createBuddy(el.buddy);
 const stage = createStage({ append: (node) => term.append(node) });
+let failStage = null; // zweites Eisfeld: Lumos Flug in einer gescheiterten Testwelt
+
+// Kam Lumo in einer versteckten Testwelt nicht ans Ziel, zeigt die Konsole diesen Flug.
+function showFailedWorld(tests) {
+  const fail = (tests || []).find((x) => x && x.track && x.drone && (!x.ok || !x.drone.goal || x.drone.left > 0));
+  if (!fail) return;
+  term.write("\n" + t("stage.failedWorld") + "\n", "info");
+  failStage = createStage({ append: (node) => term.append(node) });
+  failStage.feed(fail.track);
+}
 
 // ---- Zustand ----
 let currentId = null; // Lektions-ID oder SANDBOX_ID
@@ -372,6 +382,8 @@ async function execute(code, opts) {
   setConsoleStatus("running");
   if (isMobile()) setTab("code");
   stage.reset();
+  if (failStage) failStage.reset();
+  failStage = null;
   let result;
   try {
     // Nach einem Lektionswechsel gehört die Restausgabe nicht mehr in die Konsole
@@ -505,10 +517,13 @@ function showResult(r, { id, lesson, code, expertWasOpen, snippet = false }) {
     const card = successCard(lesson, firstTime, !expertWasOpen);
     term.append(card);
     if (firstTime) origin = card;
-  } else {
+  } else if (!(bonus && bonus.passed && progress.isDone(id))) {
+    // Ersetzt die Bonus-Aufgabe den Code, besteht er die alte Aufgabe nicht mehr. Ist die schon
+    // geschafft, wäre „Fast! … noch nicht ganz erfüllt“ neben „Bonus geschafft!“ nur verwirrend.
     const text = course.feedbackText(lesson, main);
     reportCheck(id, main, text, code, false);
     term.append(resultCard("hint", "bulb", t("check.almost"), text, [], "curious"));
+    if (main.feedback === "fb.droneWorlds") showFailedWorld(r.tests);
   }
   if (bonus && bonus.passed) {
     const title = firstBonus ? t("check.bonusDone", { xp: lesson.expert.xp || 0 }) : t("check.bonusAgain");
@@ -528,10 +543,11 @@ function showResult(r, { id, lesson, code, expertWasOpen, snippet = false }) {
   }
 
   // Klang und Lumo passend zum Ergebnis
+  const fine = main.passed || (bonus && bonus.passed && progress.isDone(id));
   if (firstBonus) sfx.bonus();
-  else if (main.passed) sfx.success();
+  else if (fine) sfx.success();
   else sfx.hint();
-  buddy.setMood(firstBonus ? "proud" : main.passed ? "happy" : "curious", { back: 6000 });
+  buddy.setMood(firstBonus ? "proud" : fine ? "happy" : "curious", { back: 6000 });
   if (origin) {
     burst(origin.querySelector(".ico"));
     haptic(firstBonus ? [18, 60, 18] : 18);
